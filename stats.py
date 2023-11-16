@@ -31,3 +31,13 @@ class Defense():
         x = defense * 0.03 
         y = damage * x
         print(health - x)
+
+class Wisdom():
+    mana = 100
+    spell_cast = True
+    spell_cost = 10
+    if spell_cast == True:
+        print("Spell Cast")
+        print("-" +spell_cost+ "Mana")
+        mana = mana - spell_cost
+        print("current mana: " + mana + "")
