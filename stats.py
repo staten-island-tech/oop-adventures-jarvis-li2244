@@ -1,7 +1,7 @@
 #dodge 
 import time
 import random 
-from c1ass import Class 
+
 
 time.sleep()
 
