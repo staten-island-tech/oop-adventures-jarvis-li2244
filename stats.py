@@ -8,4 +8,4 @@ class Stats:
         self.luck = luck 
         self.wisdom = wisdom
     def health():
-        c
+        print("")

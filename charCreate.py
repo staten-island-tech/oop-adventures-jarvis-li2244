@@ -1,3 +1,5 @@
+from c1ass import Class
+
 import json
 import os
 
@@ -61,14 +63,17 @@ class Creator:
                 while b == 0:
                     searchRole = input("Info for Warrior, Archer, Mage, or Assassin?: ").lower()
                     if searchRole == "warrior":
-                        print("Role Stats")
-                        # print form a list of info of roles
+                        Class.warrior()
+                        Class.test()
                     elif searchRole == "archer":
-                        print("Role Stats")
+                        Class.archer()
+                        Class.test()
                     elif searchRole == "mage":
-                        print("Role Stats")
+                        Class.mage()
+                        Class.test()
                     elif searchRole == "assassin":
-                        print("Role Stats")
+                        Class.assassin()
+                        Class.test()
                     else:
                         print("That is not a valid input.")
                     c = 0
@@ -89,7 +94,7 @@ class Creator:
                 print("That is not a valid input.")        
         d = 0
         while d == 0:
-            role = input("Warrior, Archer, Mage, or Assassin?: ")
+            role = input("Warrior, Archer, Mage, or Assassin?: ").lower()
             if role == "warrior":
                 role = "Warrior"
                 d = 1
