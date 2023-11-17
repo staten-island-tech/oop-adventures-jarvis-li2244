@@ -1,0 +1,52 @@
+{
+    "inventory" : [
+        {
+            "slot1": [
+                {
+                    "item" : false
+
+            }
+            ]
+        },
+        {
+            "slot2": [
+                {
+                    "item" : false
+
+            }
+            ]
+        },
+        {
+            "slot3": [
+                {
+                    "item" : false
+
+            }
+            ]
+        },
+        {
+            "slot4": [
+                {
+                    "item" : false
+
+            }
+            ]
+        },
+        {
+            "slot5": [
+                {
+                    "item" : false
+
+            }
+            ]
+        },
+        {
+            "slot1": [
+                {
+                    "item" : false
+
+            }
+            ]
+        }
+    ]
+}
