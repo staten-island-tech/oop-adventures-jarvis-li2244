@@ -7,22 +7,24 @@ import random
 
 
 health = 0
-damage = 0
-dodge = 0
+damage = 1
+dodge = 100
 defense = 0
 atkspd = 0
 luck = 0
-mana = 100
-
+mana = 0
+ctch= 100
+crit = 10
 
 class Dodge():
-    if dodge != 0: 
-        for i in range(dodge):
-            x = random.randint(0, 100)
-            if x == random.randint(0,100):
-                print("DODGED")
-    elif dodge == 0:
-        print("no dodge")
+    def doge():
+        if dodge != 0: 
+            for i in range(dodge):
+                x = random.randint(0, 100)
+                if x == random.randint(0,100):
+                    print("DODGED")
+        elif dodge == 0:
+            print("no dodge")
 
 
 class Take_Damage():
@@ -52,8 +54,24 @@ class MANA():
                 if place_mana == mana:
                     print("MANA FULL")
 
-                    
-                
+class CC():
+    def trigger():
+        if ctch != 0:
+            CC.chance()
+        else:
+            print("no crit chance ")
+    def chance():
+        for i in range(ctch):
+            x = random.randint(1,100)
+            if x == random.randint(1, 100):
+                    CC.crit_trigger()
+                    break
+    def crit_trigger():
+        cd = crit * damage
+        print(cd)
+        print("CRIT!")
 
-MANA.spellcasting()
+
+
+CC.trigger()
 
