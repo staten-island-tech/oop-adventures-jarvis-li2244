@@ -13,8 +13,9 @@ class InvUpdate():
     if inv_update == True:
         with open('.json','r') as file:
             data =  json.load(file)
-            data.pop("item")
-            data["inventory"]["slot1"]["item"] = True
-    elif inv_update != True:
-        print("failed update inventory")
+        for i in data['slot1']:
+            i['item_inv'] = i['item_inv'].replace(False, True)
+        with open('.json','w') as file:
+            json.dump(data, file)
+            
         

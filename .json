@@ -3,7 +3,9 @@
         {
             "slot1": [
                 {
-                    "item" : false
+                    "item_inv" : false,
+                    "item_name" : "placeholder_name",
+                    "itemtype" : "placeholder_type"
 
             }
             ]
