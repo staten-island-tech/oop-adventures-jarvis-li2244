@@ -86,10 +86,25 @@ class Creator:
             elif searchYN == "n":
                 a = 1
             else:
-                print("That is not a valid input.")
-        role = input("Warrior, Archer, Mage, or Assassin?: ")
+                print("That is not a valid input.")        
+        d = 0
+        while d == 0:
+            role = input("Warrior, Archer, Mage, or Assassin?: ")
+            if role == "warrior":
+                role = "Warrior"
+                d = 1
+            elif role == "archer":
+                role = "Archer"
+                d = 1
+            elif role == "mage":
+                role = "Mage"
+                d = 1
+            elif role == "assassin":
+                role = "Assassin"
+                d = 1
+            else:
+                print("That is not a valid input.")        
         return role
-
 
 CharCreation.create()
 
