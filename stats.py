@@ -12,9 +12,13 @@ dodge = 100
 defense = 0
 atkspd = 0
 luck = 0
-mana = 0
+mana = 100
+mana2 = 100
 ctch= 100
 crit = 10
+
+
+
 
 class Dodge():
     def doge():
@@ -23,6 +27,7 @@ class Dodge():
                 x = random.randint(0, 100)
                 if x == random.randint(0,100):
                     print("DODGED")
+                    break
         elif dodge == 0:
             print("no dodge")
 
@@ -38,21 +43,21 @@ class Take_Damage():
 
 class MANA():
     def spellcasting(): 
-        place_mana = 100
+        place_mana = mana2
         spell_cast = True
         spell_cost = 10
         if spell_cast == True:
             print("Spell Cast")
-            print(f'"-" {spell_cost} "Mana"')
+            print(f'- {spell_cost}')
+            global mana
             mana1 = mana - spell_cost
             mana = mana1
-            print(f'"current mana: " {mana1} ""')
+            print(f'current mana: {mana1}')
             while mana != place_mana:
                 time.sleep(1.0)
                 print("+1 Mana")
                 mana += 1 
-                if place_mana == mana:
-                    print("MANA FULL")
+                print(mana)
 
 class CC():
     def trigger():
@@ -73,5 +78,5 @@ class CC():
 
 
 
-CC.trigger()
+MANA.spellcasting()
 
