@@ -3,24 +3,22 @@ import time
 import random 
 
 
+class stats_enemy ():
+    atk = 1
+class stats_player():
+    health = 0
+    damage = 1
+    dodge = 100
+    defense = 0
+    atkspd = 0
+    luck = 0
+    mana = 100
+    mana2 = 100
+    ctch= 100
+    crit = 10
 
 
 
-health = 0
-damage = 1
-dodge = 100
-defense = 0
-atkspd = 0
-luck = 0
-mana = 100
-mana2 = 100
-ctch= 100
-crit = 10
-
-
-
-
-class Dodge():
     def doge():
         if dodge != 0: 
             for i in range(dodge):
@@ -76,7 +74,13 @@ class CC():
         print(cd)
         print("CRIT!")
 
+class Enemy_Stats_health():
+    class Atk():
+        def meelee():
+            if attack == 'meelee'
+        def ranged():
+        def magic():
+        
 
-
-MANA.spellcasting()
+Enemy_Stats_health.Atk()
 
