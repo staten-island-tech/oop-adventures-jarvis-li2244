@@ -1,4 +1,4 @@
-from c1ass import Class
+from role import Class
 
 import json
 import os
@@ -6,8 +6,6 @@ import os
 with open("character.json", "r") as f:
     character = json.load(f)
 
-with open("stats.json", "r") as g:
-    stats = json.load(g)
 
 class Creation:
     def __init__(self, id, name, role, level, story, location):
@@ -103,8 +101,6 @@ class Creator:
         while d == 0:
             role = input("Warrior, Archer, Mage, or Assassin?: ").lower()
             if role == "warrior":
-                Class.warrior()
-                stats.append(Class.Info())
                 role = "Warrior"
                 d = 1
             elif role == "archer":
@@ -134,12 +130,3 @@ os.remove("character.json")
 os.rename(new_file, "character.json")
 
 
-new_file2 = "updated.json"
-with open(new_file2, "w") as g:
-
-    json_string = json.dumps(stats, indent=4)
-
-    g.write(json_string)
-
-os.remove("stats.json")
-os.rename(new_file2, "stats.json")
