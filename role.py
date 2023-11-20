@@ -4,6 +4,8 @@
 class Class():
 
     def archer():
+        global exp
+        exp = 0
         global health
         health = 100
         global attack
@@ -19,8 +21,10 @@ class Class():
         global mana
         mana = 1
         global skillTree
-        skillTree = "Sniper"
+        skillTree = "Placeholder"
     def mage():
+        global exp
+        exp = 0
         global health
         health = 100
         global attack
@@ -36,8 +40,10 @@ class Class():
         global mana
         mana = 1
         global skillTree
-        skillTree = "Berserker"
+        skillTree = "Placeholder"
     def warrior():
+        global exp
+        exp = 0
         global health
         health = 1
         global attack
@@ -53,8 +59,10 @@ class Class():
         global mana
         mana = 1 
         global skillTree
-        skillTree = "Berserker"
+        skillTree = "Placeholder"
     def assassin():
+        global exp
+        exp = 0
         global health
         health = 1
         global attack
@@ -70,7 +78,7 @@ class Class():
         global mana
         mana = 1
         global skillTree
-        skillTree = "Berserk"
+        skillTree = "Placeholder"
     def opt():
         class_select = input("CLASS: ")
         if class_select == "archer":
@@ -81,8 +89,10 @@ class Class():
             Class.warrior()
         if class_select == "mage":
             Class.mage()
-    def test():
-        print(f'Health: {health}, Attack: {attack}, Dodge Rate: {dodge}, Defense: {defense}, Attack Speed: {atkspd}, Luck: {luck}, Mana: {mana}, Skill Tree: {skillTree}')
+    def Info():
+        x = (f'Health: {health}, Attack: {attack}, Dodge Rate: {dodge}, Defense: {defense}, Attack Speed: {atkspd}, Luck: {luck}, Mana: {mana}, Skill Tree: {skillTree}')
+        print(x)
+        return exp, health, attack, dodge, defense, atkspd, luck, mana
 
 
 

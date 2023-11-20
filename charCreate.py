@@ -3,36 +3,43 @@ from c1ass import Class
 import json
 import os
 
-with open("data.json", "r") as f:
-    data = json.load(f)
+with open("character.json", "r") as f:
+    character = json.load(f)
 
-class CharCreation:
-    def __init__(self, id, name, role, story, location):
+with open("stats.json", "r") as g:
+    stats = json.load(g)
+
+class Creation:
+    def __init__(self, id, name, role, level, story, location):
         self.id = id
         self.name = name
         self.role = role
+        self.level = level
         self.story = story
         self.location = location
-    def create():
+    def create(self):
         id = Creator.cID()
         name = Creator.cName()
         role = Creator.cRole()
+        level = 0
         story = "Tutorial"
         location = "Anthill Forest"
-        Create = CharCreation(id, name, role, story, location)
-        data.append(Create.__dict__)
+        Create = Creation(id, name, role, level, story, location)
+        character.append(Create.__dict__)
+
+
 
 class Creator:
     def cID():
-        if len(data) == 0:
+        if len(character) == 0:
             id = 1
         else:
             sin = 0
             testid = 1
             while sin == 0:
                 cos = 0
-                for i in range(len(data)):
-                    if data[i]["id"] == testid:
+                for i in range(len(character)):
+                    if character[i]["id"] == testid:
                         cos += 1
                 if cos == 0:
                     sin = 1
@@ -45,8 +52,8 @@ class Creator:
         while alpha == 0:
             beta = 0
             testname = input("Character Name: ")
-            for i in range(len(data)):
-                if data[i]["name"].lower() == testname.lower():
+            for i in range(len(character)):
+                if character[i]["name"].lower() == testname.lower():
                     beta += 1
             if beta == 0:
                 alpha = 1
@@ -96,6 +103,8 @@ class Creator:
         while d == 0:
             role = input("Warrior, Archer, Mage, or Assassin?: ").lower()
             if role == "warrior":
+                Class.warrior()
+                stats.append(Class.Info())
                 role = "Warrior"
                 d = 1
             elif role == "archer":
@@ -111,15 +120,26 @@ class Creator:
                 print("That is not a valid input.")        
         return role
 
-CharCreation.create()
+Creation.create()
 
 
 new_file = "updated.json"
 with open(new_file, "w") as f:
 
-    json_string = json.dumps(data, indent=4)
+    json_string = json.dumps(character, indent=4)
 
     f.write(json_string)
 
-os.remove("data.json")
-os.rename(new_file, "data.json")
+os.remove("character.json")
+os.rename(new_file, "character.json")
+
+
+new_file2 = "updated.json"
+with open(new_file2, "w") as g:
+
+    json_string = json.dumps(stats, indent=4)
+
+    g.write(json_string)
+
+os.remove("stats.json")
+os.rename(new_file2, "stats.json")
