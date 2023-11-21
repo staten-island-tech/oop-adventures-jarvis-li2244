@@ -1,4 +1,10 @@
 
+import json
+import os
+
+with open("stats.json", "r") as f:
+    stats = json.load(f)
+
 
 class Class():
     def archer():
@@ -78,12 +84,21 @@ class Class():
         global skillTree
         skillTree = "Placeholder"
     def Info():
-        print(f'Health: {health}, Attack: {attack}, Dodge Rate: {dodge}, Defense: {defense}, Attack Speed: {atkspd}, Luck: {luck}, Mana: {mana}, Skill Tree: {skillTree}')
-    def createStats():
+        x = (f'Health: {health}, Attack: {attack}, Dodge Rate: {dodge}, Defense: {defense}, Attack Speed: {atkspd}, Luck: {luck}, Mana: {mana}, Skill Tree: {skillTree}')
+        print(x)
+        y = [health, attack, dodge, defense, atkspd, luck, mana]
+        return y
+
+
         
 
-        
+new_file = "updated.json"
+with open(new_file, "w") as f:
 
+    json_string = json.dumps(stats, indent=4)
 
+    f.write(json_string)
 
+os.remove("stats.json")
+os.rename(new_file, "stats.json")
 

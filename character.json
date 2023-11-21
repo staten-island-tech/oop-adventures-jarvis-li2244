@@ -12,5 +12,13 @@
         "role": "Mage",
         "story": "Tutorial",
         "location": "Anthill Forest"
+    },
+    {
+        "id": 3,
+        "name": "ja",
+        "role": "Warrior",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
     }
 ]

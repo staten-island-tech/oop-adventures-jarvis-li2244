@@ -7,7 +7,7 @@ with open("character.json", "r") as f:
     character = json.load(f)
 
 
-class Creation:
+class CreationC:
     def __init__(self, id, name, role, level, story, location):
         self.id = id
         self.name = name
@@ -15,17 +15,50 @@ class Creation:
         self.level = level
         self.story = story
         self.location = location
-    def create(self):
+    def create():
         id = Creator.cID()
+        global ID
+        ID = id
         name = Creator.cName()
         role = Creator.cRole()
+        global ROLE
+        ROLE = role
         level = 0
         story = "Tutorial"
         location = "Anthill Forest"
-        Create = Creation(id, name, role, level, story, location)
-        character.append(Create.__dict__)
+        CreateC = CreationC(id, name, role, level, story, location)
+        character.append(CreateC.__dict__)
 
-
+class CreationS:
+    def __init__(self, id, health, attack, dodge, defense, atkspd, luck, mana):
+        self.id = id
+        self.health = health
+        self.attack = attack
+        self.dodge = dodge
+        self.defense = defense
+        self.atkspdd = atkspd
+        self.luck = luck
+        self.mana = mana
+    def create():
+        id = ID
+        if ROLE == "Warrior":
+            Class.warrior()
+        elif ROLE == "Archer":
+            Class.archer()
+        elif ROLE == "Mage":
+            Class.mage()
+        elif ROLE == "Assassin":
+            Class.assassin()
+        y = Class.Info()
+        health = y[0]
+        attack = y[1]
+        dodge = y[2]
+        defense = y[3]
+        atkspd = y[4]
+        luck = y[5]
+        mana = y[6]
+        CreateS = CreationS(id, health, attack, dodge, defense, atkspd, luck, mana)
+        character.append(CreateS.__dict__)
 
 class Creator:
     def cID():
@@ -116,7 +149,8 @@ class Creator:
                 print("That is not a valid input.")        
         return role
 
-Creation.create()
+CreationC.create()
+CreationS.create()
 
 
 new_file = "updated.json"
