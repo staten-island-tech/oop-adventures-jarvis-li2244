@@ -1,24 +1,3 @@
-class Enemy:
-    def __init__(self, ehealth, edamage, edodge, edefense, eatkspd, emana, ectch, ecrit ):
-        self.ehealth = ehealth
-        self.edamage = edamage 
-        self.edodge = edodge
-        self.edefense = edefense
-        self.etakspd = eatkspd
-        self.emana = emana
-        self.ectch = ectch
-        self.ecrit = ecrit
-    def create 
-
-class temp():
-    def heal():
-        ehealth - 10
-        if ehealth <= temphealth:
-            print(ehealth + pot)
-
-            
-temp.heal()
-
 ehealth = 20
 edamage = 1
 edodge = 100
@@ -28,41 +7,30 @@ emana = 0
 ectch= 100
 ecrit = 10
 temphealth = ehealth
+pot = 10
+take_dmg = True
 
-class turn():
-    def player_turn():
-        print("Options")
-    def enemy_turn():
+
+class action():
+    if take_dmg == "True" and edefense != 0:
+        Damage.defense()    
+
+
+class Damage():
+    def reg():
         egg = 1
-    def equal_rate():
-        while enemy_alive == False or player_alive == False:
-            if turnvara == "player":
-                turn.player_turn()
-                health_check()
-                turn.enemy_turn()
-                health_check()
-            elif turnvara == "enemy":
-                turn.enemy_turn()
-                health_check()
-                turn.player_turn()
-                health_check()
+    def defense():
+        def
+        
 
-class Enemy_stats():
-    class attack():
-        def crit_check():
-            if crit == True:
-                Enemy_stats.attack.crit()
-        def crit():
-            print(edamage * ecrit)
-    class atkspd():
-        def roa():
-            if eatkspd == atkspd:
-                turnvara = "player"
-            if eatkspd < atkspd:
-                turnvara = "enemy"
-            turn.equal_rate()
-class health_check():
-    if health == 0:
-        enemy_alive == False
-    if ehealth == 0:
-        enemy_alive == True 
+
+
+
+class temp():
+    def heal():
+        L = temp
+        if L <= ehealth:
+            print(L + pot)
+
+            
+temp.heal()
