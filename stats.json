@@ -1,0 +1,24 @@
+[
+    {
+        "id": 2,
+        "exp": 0,
+        "health": 100,
+        "attack": 10,
+        "dodge": 3,
+        "defense": 1,
+        "atkspdd": 1,
+        "luck": 1,
+        "mana": 1
+    },
+    {
+        "id": 3,
+        "exp": 0,
+        "health": 100,
+        "attack": 10,
+        "dodge": 3,
+        "defense": 1,
+        "atkspdd": 1,
+        "luck": 1,
+        "mana": 1
+    }
+]

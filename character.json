@@ -1,22 +1,16 @@
 [
     {
         "id": 1,
-        "name": "sa",
-        "role": "Warrior",
-        "story": "Tutorial",
-        "location": "Anthill Forest"
-    },
-    {
-        "id": 2,
-        "name": "Johnny",
+        "name": "joh",
         "role": "Mage",
+        "level": 0,
         "story": "Tutorial",
         "location": "Anthill Forest"
     },
     {
         "id": 3,
-        "name": "ja",
-        "role": "Warrior",
+        "name": "fdsf",
+        "role": "Mage",
         "level": 0,
         "story": "Tutorial",
         "location": "Anthill Forest"

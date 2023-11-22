@@ -2,10 +2,6 @@
 import json
 import os
 
-with open("stats.json", "r") as f:
-    stats = json.load(f)
-
-
 class Class():
     def archer():
         global exp
@@ -26,6 +22,7 @@ class Class():
         mana = 1
         global skillTree
         skillTree = "Placeholder"
+
     def mage():
         global exp
         exp = 0
@@ -45,6 +42,7 @@ class Class():
         mana = 1
         global skillTree
         skillTree = "Placeholder"
+
     def warrior():
         global exp
         exp = 0
@@ -64,6 +62,7 @@ class Class():
         mana = 1 
         global skillTree
         skillTree = "Placeholder"
+        
     def assassin():
         global exp
         exp = 0
@@ -85,20 +84,14 @@ class Class():
         skillTree = "Placeholder"
     def Info():
         x = (f'Health: {health}, Attack: {attack}, Dodge Rate: {dodge}, Defense: {defense}, Attack Speed: {atkspd}, Luck: {luck}, Mana: {mana}, Skill Tree: {skillTree}')
-        print(x)
+        print(x)        
+        y = [health, attack, dodge, defense, atkspd, luck, mana]
+        return y
+    def returnS():
         y = [health, attack, dodge, defense, atkspd, luck, mana]
         return y
 
 
         
 
-new_file = "updated.json"
-with open(new_file, "w") as f:
-
-    json_string = json.dumps(stats, indent=4)
-
-    f.write(json_string)
-
-os.remove("stats.json")
-os.rename(new_file, "stats.json")
 

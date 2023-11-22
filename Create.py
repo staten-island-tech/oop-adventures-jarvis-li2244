@@ -5,6 +5,9 @@ import os
 
 with open("character.json", "r") as f:
     character = json.load(f)
+    
+with open("stats.json", "r") as f:
+    stats = json.load(f)
 
 
 class CreationC:
@@ -17,48 +20,17 @@ class CreationC:
         self.location = location
     def create():
         id = Creator.cID()
-        global ID
-        ID = id
+        global Id
+        Id = id
         name = Creator.cName()
         role = Creator.cRole()
-        global ROLE
-        ROLE = role
+        global Role
+        Role = role
         level = 0
         story = "Tutorial"
         location = "Anthill Forest"
         CreateC = CreationC(id, name, role, level, story, location)
         character.append(CreateC.__dict__)
-
-class CreationS:
-    def __init__(self, id, health, attack, dodge, defense, atkspd, luck, mana):
-        self.id = id
-        self.health = health
-        self.attack = attack
-        self.dodge = dodge
-        self.defense = defense
-        self.atkspdd = atkspd
-        self.luck = luck
-        self.mana = mana
-    def create():
-        id = ID
-        if ROLE == "Warrior":
-            Class.warrior()
-        elif ROLE == "Archer":
-            Class.archer()
-        elif ROLE == "Mage":
-            Class.mage()
-        elif ROLE == "Assassin":
-            Class.assassin()
-        y = Class.Info()
-        health = y[0]
-        attack = y[1]
-        dodge = y[2]
-        defense = y[3]
-        atkspd = y[4]
-        luck = y[5]
-        mana = y[6]
-        CreateS = CreationS(id, health, attack, dodge, defense, atkspd, luck, mana)
-        character.append(CreateS.__dict__)
 
 class Creator:
     def cID():
@@ -71,6 +43,9 @@ class Creator:
                 cos = 0
                 for i in range(len(character)):
                     if character[i]["id"] == testid:
+                        cos += 1
+                for i in range(len(stats)):
+                    if stats[i]["id"] == testid:
                         cos += 1
                 if cos == 0:
                     sin = 1
@@ -150,8 +125,6 @@ class Creator:
         return role
 
 CreationC.create()
-CreationS.create()
-
 
 new_file = "updated.json"
 with open(new_file, "w") as f:
@@ -163,4 +136,47 @@ with open(new_file, "w") as f:
 os.remove("character.json")
 os.rename(new_file, "character.json")
 
+class CreationS:
+    def __init__(self, id, exp, health, attack, dodge, defense, atkspd, luck, mana):
+        self.id = id
+        self.exp = exp
+        self.health = health
+        self.attack = attack
+        self.dodge = dodge
+        self.defense = defense
+        self.atkspdd = atkspd
+        self.luck = luck
+        self.mana = mana
+    def create():
+        id = Id
+        if Role == "Warrior":
+            Class.warrior()
+        elif Role == "Archer":
+            Class.archer()
+        elif Role == "Mage":
+            Class.mage()
+        elif Role == "Assassin":
+            Class.assassin()
+        y = Class.returnS()
+        exp = 0
+        health = y[0]
+        attack = y[1]
+        dodge = y[2]
+        defense = y[3]
+        atkspd = y[4]
+        luck = y[5]
+        mana = y[6]
+        CreateS = CreationS(id, exp, health, attack, dodge, defense, atkspd, luck, mana)
+        stats.append(CreateS.__dict__)
 
+CreationS.create()
+
+new_file = "updated.json"
+with open(new_file, "w") as f:
+
+    json_string = json.dumps(stats, indent=4)
+
+    f.write(json_string)
+
+os.remove("stats.json")
+os.rename(new_file, "stats.json")
