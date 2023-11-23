@@ -1,0 +1,29 @@
+{
+    "location_1": [
+        {
+            "name":"Antil_Forest",
+            "enemies":[
+                {
+                    "generic_enemy1":[
+                        {
+                            "spawn_amount":10,
+                            "boost":1
+                        }
+
+
+                    ]
+
+                }
+
+
+            ]
+
+
+        }
+
+
+    ]
+
+
+
+}

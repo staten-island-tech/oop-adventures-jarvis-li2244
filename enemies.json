@@ -11,7 +11,7 @@
             "critdmg": 100,
             "loot_table":[
                 {
-                    "generic_loot1": 100,
+                    "generic_loot1": 1,
                     "generic_loot2": 0.01,
                     "generic_loot3": 0.1
                 } 
