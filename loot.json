@@ -1,0 +1,8 @@
+{   
+    "generic_loot1" : [
+        { 
+            "name" : "en",
+            "type": "weapon"
+        }
+    ]
+}

@@ -3,22 +3,48 @@ import time
 import random 
 
 
-class stats_enemy ():
-    atk = 1
-class stats_player():
-    health = 0
-    damage = 1
-    dodge = 100
-    defense = 0
-    atkspd = 0
-    luck = 0
-    mana = 100
-    mana2 = 100
-    ctch= 100
-    crit = 10
+role = 1
+class Enemy:
+    def __init__(self, health, damage, dodge, defense, atkspd, mana, ctch, crit, luck ):
+        self.health = health
+        self.damage = damage 
+        self.dodge = dodge
+        self.defense = defense
+        self.takspd = atkspd
+        self.mana = mana
+        self.ctch = ctch
+        self.crit = crit
+        self.luck = luck
+    def statselect():
+        if role == "Warrior":
+            hp = 100
+            dmg = 100
+            edodge = 0
+            edefense = 10
+            eatkspd = 100
+            emana = 0
+            ectch = 1
+            ecrit = 100
+            luck = 0
+            x = Enemy(hp, dmg, edodge, edefense, eatkspd, emana, ectch, ecrit, luck)
+            x.register()
+    
+
+health = 0
+damage = 1
+dodge = 100
+defense = 0
+atkspd = 0
+luck = 0
+mana = 100
+mana2 = 100
+ctch= 100
+crit = 10
 
 
 
+
+class Dodge():
     def doge():
         if dodge != 0: 
             for i in range(dodge):
@@ -74,13 +100,13 @@ class CC():
         print(cd)
         print("CRIT!")
 
-class Enemy_Stats_health():
+class Enemy_Stats():
     class Atk():
         def meelee():
-            if attack == 'meelee'
+            if 
         def ranged():
         def magic():
         
 
-Enemy_Stats_health.Atk()
+
 

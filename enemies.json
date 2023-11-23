@@ -1,0 +1,21 @@
+{
+    "generic_enemy1": [
+        {
+            "health" : 100,
+            "damage" : 100,
+            "dodge" : 1,
+            "defense" : 0,
+            "atkspd" : 0,
+            "mana" : 0,
+            "critchance": 0, 
+            "critdmg": 100,
+            "loot_table":[
+                {
+                    "generic_loot1": 100,
+                    "generic_loot2": 0.01,
+                    "generic_loot3": 0.1
+                } 
+            ]
+        }
+    ]
+}
