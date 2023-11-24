@@ -35,6 +35,7 @@ def enemy_spawn():
                 if input("EGGS?: ") != "":
                     enemy_alive = False
                 print("FIGHT")
+    
         y+=1
         z+=1
 
