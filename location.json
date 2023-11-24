@@ -3,6 +3,7 @@
         {
             "locationname":"Antil Forest",
             "types":2,
+            "ratio" : 10,
             "enemies":[
                 {
                     "1":[
@@ -11,7 +12,6 @@
                             "spawn_amount":10,
                             "boost":1
                         }
-                        
                     ]
                 },
                 {
@@ -21,7 +21,6 @@
                             "spawn_amount":5,
                             "boost":1
                         }
-                        
                     ]
                 }
             ]
