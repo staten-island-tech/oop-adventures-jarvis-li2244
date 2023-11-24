@@ -94,6 +94,22 @@ class Class():
         return y
 
 
-        
+
+with open("character.json", "r") as f:
+    jcharacter = json.load(f)
+    
+import choose
+import character
+character.ChangeC.setLocation("Oscar's Room")
 
 
+    
+new_file = "updated.json"
+with open(new_file, "w") as f:
+
+    json_string = json.dumps(jcharacter, indent=4)
+
+    f.write(json_string)
+
+os.remove("character.json")
+os.rename(new_file, "character.json")

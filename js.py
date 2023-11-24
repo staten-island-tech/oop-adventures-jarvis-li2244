@@ -10,7 +10,16 @@ with open("stats.json", "r") as f:
 with open("role.json", "r") as f:
     jrole = json.load(f)
 
+    
+new_file = "updated.json"
+with open(new_file, "w") as f:
 
+    json_string = json.dumps(jcharacter, indent=4)
+
+    f.write(json_string)
+
+os.remove("character.json")
+os.rename(new_file, "character.json")
 
 new_file = "updated.json"
 with open(new_file, "w") as f:

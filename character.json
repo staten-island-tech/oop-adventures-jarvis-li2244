@@ -1,37 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "jar",
-        "role": "Mage",
-        "level": 0,
-        "story": "Chapter 3: The Spark of a Rebellion",
-        "location": "Castle Grounds"
-    },
-    {
-        "id": 2,
-        "name": "jad",
-        "role": "Mage",
-        "level": 0,
-        "story": "Tutorial",
-        "location": "Anthill Forest"
-    },
-    {
-        "id": 3,
-        "name": "af",
-        "role": "Mage",
-        "level": 0,
-        "story": "Tutorial",
-        "location": "Anthill Forest"
-    },
-    {
-        "id": 4,
-        "name": "aad",
-        "role": "Mage",
-        "level": 0,
-        "story": "Tutorial",
-        "location": "Anthill Forest"
-    },
-    {
         "id": 5,
         "name": "jadsd",
         "role": "Mage",
@@ -40,8 +8,32 @@
         "location": "Anthill Forest"
     },
     {
+        "id": 1,
+        "name": "jarvis",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 2,
+        "name": "jaasd",
+        "role": "Assassin",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 4,
+        "name": "peleads",
+        "role": "Assassin",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
         "id": 6,
-        "name": "asd",
+        "name": "new",
         "role": "Mage",
         "level": 0,
         "story": "Tutorial",
@@ -49,26 +41,42 @@
     },
     {
         "id": 7,
-        "name": "adsd",
-        "role": "Mage",
+        "name": "Plz Work",
+        "role": "Assassin",
         "level": 0,
         "story": "Tutorial",
         "location": "Anthill Forest"
     },
     {
         "id": 8,
-        "name": "jas",
+        "name": "Plz wrok",
+        "role": "Warrior",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 3,
+        "name": "ooscar wing",
         "role": "Mage",
         "level": 0,
         "story": "Tutorial",
         "location": "Anthill Forest"
     },
     {
-        "id": 9,
-        "name": "sa",
-        "role": "Mage",
+        "id": 10,
+        "name": "god plz help",
+        "role": "Archer",
         "level": 0,
         "story": "Tutorial",
         "location": "Anthill Forest"
+    },
+    {
+        "id": 9,
+        "name": "poo",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "OOOOscar Room"
     }
 ]
