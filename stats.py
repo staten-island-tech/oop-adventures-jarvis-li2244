@@ -60,6 +60,7 @@ class CreationS:
         jstats.append(CreateS.__dict__)
 
 CreationS.create()
+
 def function():
     from character import RemoveC
     RemoveC.remove()

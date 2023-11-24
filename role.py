@@ -2,6 +2,7 @@
 import json
 import os
 
+
 class Class():
     def archer():
         global exp

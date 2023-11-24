@@ -22,5 +22,29 @@
         "speed": 20,
         "luck": 2,
         "mana": 45
+    },
+    {
+        "id": 8,
+        "name": "jas",
+        "exp": 0,
+        "health": 100,
+        "attack": 20,
+        "dodge": 5,
+        "defense": 15,
+        "speed": 20,
+        "luck": 2,
+        "mana": 45
+    },
+    {
+        "id": 9,
+        "name": "sa",
+        "exp": 0,
+        "health": 100,
+        "attack": 20,
+        "dodge": 5,
+        "defense": 15,
+        "speed": 20,
+        "luck": 2,
+        "mana": 45
     }
 ]

@@ -54,5 +54,21 @@
         "level": 0,
         "story": "Tutorial",
         "location": "Anthill Forest"
+    },
+    {
+        "id": 8,
+        "name": "jas",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 9,
+        "name": "sa",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
     }
 ]
