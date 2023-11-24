@@ -4,26 +4,25 @@
             "name":"Antil_Forest",
             "enemies":[
                 {
+                    "types":2,
                     "generic_enemy1":[
                         {
                             "spawn_amount":10,
                             "boost":1
                         }
-
-
+                        
                     ]
-
+                },
+                {
+                    "generic_enemy2":[
+                        {
+                            "spawn_amount":5,
+                            "boost":1
+                        }
+                        
+                    ]
                 }
-
-
             ]
-
-
         }
-
-
     ]
-
-
-
 }
