@@ -1,12 +1,13 @@
 {
     "location_1": [
         {
-            "name":"Antil_Forest",
+            "locationname":"Antil Forest",
+            "types":2,
             "enemies":[
                 {
-                    "types":2,
-                    "generic_enemy1":[
+                    "1":[
                         {
+                            "name":"egg2.0",
                             "spawn_amount":10,
                             "boost":1
                         }
@@ -14,8 +15,9 @@
                     ]
                 },
                 {
-                    "generic_enemy2":[
+                    "2":[
                         {
+                            "name": "egg",
                             "spawn_amount":5,
                             "boost":1
                         }
