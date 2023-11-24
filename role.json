@@ -1,0 +1,46 @@
+[
+    {
+        "role": "Warrior",
+        "health": 150,
+        "attack": 30,
+        "dodge": 2,
+        "defense": 20,
+        "speed": 10,
+        "luck": 2,
+        "mana": 10,
+        "skills": "The Spirit of the Lion"
+    },
+    {
+        "role": "Archer",
+        "health": 75,
+        "attack": 20,
+        "dodge": 7,
+        "defense": 15,
+        "speed": 45,
+        "luck": 2,
+        "mana": 10,
+        "skills": "The Leader of the Hunt"
+    },
+    {
+        "role": "Mage",
+        "health": 100,
+        "attack": 20,
+        "dodge": 5,
+        "defense": 15,
+        "speed": 20,
+        "luck": 2,
+        "mana": 45,
+        "skills": "The Wisdom of the Owl"
+    },
+    {
+        "role": "Assassin",
+        "health": 50,
+        "attack": 45,
+        "dodge": 9,
+        "defense": 10,
+        "speed": 25,
+        "luck": 2,
+        "mana": 20,
+        "skills": "The Cloak of the Badger"
+    }
+]

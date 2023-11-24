@@ -82,6 +82,7 @@ class Class():
         mana = 1
         global skillTree
         skillTree = "Placeholder"
+        
     def Info():
         x = (f'Health: {health}, Attack: {attack}, Dodge Rate: {dodge}, Defense: {defense}, Attack Speed: {atkspd}, Luck: {luck}, Mana: {mana}, Skill Tree: {skillTree}')
         print(x)        

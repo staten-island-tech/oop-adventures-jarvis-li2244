@@ -1,7 +1,15 @@
 [
     {
         "id": 1,
-        "name": "joh",
+        "name": "jar",
+        "role": "Mage",
+        "level": 0,
+        "story": "Chapter 3: The Spark of a Rebellion",
+        "location": "Castle Grounds"
+    },
+    {
+        "id": 2,
+        "name": "jad",
         "role": "Mage",
         "level": 0,
         "story": "Tutorial",
@@ -9,7 +17,39 @@
     },
     {
         "id": 3,
-        "name": "fdsf",
+        "name": "af",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 4,
+        "name": "aad",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 5,
+        "name": "jadsd",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 6,
+        "name": "asd",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial",
+        "location": "Anthill Forest"
+    },
+    {
+        "id": 7,
+        "name": "adsd",
         "role": "Mage",
         "level": 0,
         "story": "Tutorial",
