@@ -33,6 +33,7 @@ class ChangeC:
         jcharacter.pop(characterNum)
         CreateC = create.CreationC(id, name, role, level, story, location)
         jcharacter.insert(characterNum, CreateC.__dict__)
+        updateJSON()
 
     def setLevel():
         ChangeC.characterNum()
@@ -52,6 +53,7 @@ class ChangeC:
         jcharacter.insert(characterNum, CreateC.__dict__)
         print("New Character Info:")
         print(jcharacter[characterNum])
+        updateJSON()
 
     def setLocation(nlocation):
         ChangeC.characterNum()
@@ -66,6 +68,7 @@ class ChangeC:
         jcharacter.insert(characterNum, CreateC.__dict__)
         print("New Character Info:")
         print(jcharacter[characterNum])
+        updateJSON()
 
     def setStory(nstory):
         ChangeC.characterNum()
@@ -80,17 +83,17 @@ class ChangeC:
         jcharacter.insert(characterNum, CreateC.__dict__)
         print("New Character Info:")
         print(jcharacter[characterNum])
-
-ChooseC.choose()    
-ChangeC.setLocation("OOOOscar Room")
+        updateJSON()
 
 
-new_file = "updated.json"
-with open(new_file, "w") as f:
+def updateJSON():
+    new_file = "updated.json"
+    with open(new_file, "w") as f:
 
-    json_string = json.dumps(jcharacter, indent=4)
+        json_string = json.dumps(jcharacter, indent=4)
 
-    f.write(json_string)
+        f.write(json_string)
 
-os.remove("character.json")
-os.rename(new_file, "character.json")
+    os.remove("character.json")
+    os.rename(new_file, "character.json")
+
