@@ -1,7 +1,7 @@
 [
     {
         "skilltree": "The Spirit of the Lion",
-        "Level_1_Skills": [],
+        "Level_1_Skills": ["Skill_1_Name", "Other Example"],
         "Level_2_SKills": [],
         "Level_3_Skills": [],
         "Level_4_Skills": [],

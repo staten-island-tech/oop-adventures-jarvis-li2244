@@ -2,8 +2,8 @@
     {
         "id": 1,
         "name": "Jarvis",
-        "role": "Assassin",
-        "level": 0,
+        "role": "Warrior",
+        "level": 36,
         "story": "Tutorial",
         "location": "Anthill Forest"
     }

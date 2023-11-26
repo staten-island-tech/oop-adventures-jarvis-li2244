@@ -22,6 +22,9 @@ with open("skilltree.json", "r") as f:
 with open("skills.json", "r") as f:
     jskills = json.load(f)
 
+with open("location.json", "r") as f:
+    jlocation = json.load(f)
+
 class Info:
     def roleInfo():
         print(""), print("Role Info")
@@ -136,10 +139,16 @@ class Remove:
                     listNum = i
                     break
             jstats.pop(listNum)
+            for i in range(len(jinventorys)):
+                if jinventorys[i]["id"] == removeNum:
+                    listNum = i
+                    break
+            jinventorys.pop(listNum)
         else:
             print("There are no existing characters.")
         updateJSONC()
         updateJSONS()
+        updateJSONIS()
 
 class Creator:
     def cID():
@@ -210,13 +219,14 @@ class Creator:
         return role
     
 class CreationC:
-    def __init__(self, id, name, role, level, story, location):
+    def __init__(self, id, name, role, level, story, location, sub_location):
         self.id = id
         self.name = name
         self.role = role
         self.level = level
         self.story = story
         self.location = location
+        self.sub_location = sub_location
     def create():
         if len(jcharacter) >= 10:
             Remove.remove()
@@ -233,7 +243,8 @@ class CreationC:
             level = 0
             story = "Tutorial"
             location = "Anthill Forest"
-            CreateC = CreationC(id, name, role, level, story, location)
+            sub_location = "Dense Forest"
+            CreateC = CreationC(id, name, role, level, story, location, sub_location)
             jcharacter.append(CreateC.__dict__)
             updateJSONC()
         else:
@@ -316,6 +327,7 @@ class CreationIS:
 class Choose:
     def choose():
         if len(jcharacter) != 0:
+            print(""), print("All Character Info")
             for i in jcharacter:
                 print(i), print("")
             outer = 0
@@ -380,6 +392,7 @@ class ChangeC:
         for i in range(len(jstats)):
             if jstats[i]["id"] == Id:
                 exp = jstats[i]["exp"]
+        olevel = jcharacter[characterNum]["level"]
         dlevel = exp/100 
         nlevel = int(dlevel)
         id = Id
@@ -388,25 +401,34 @@ class ChangeC:
         level = nlevel
         story = jcharacter[characterNum]["story"]
         location = jcharacter[characterNum]["location"]
+        sub_location = jcharacter[characterNum]["sub_location"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location)
         jcharacter.insert(characterNum, CreateC.__dict__)
         updateJSONC()
-        Info.ncharacterInfo()
-
-    def setLocation(nlocation):
-        ChangeC.characterNum()
-        id = Id
-        name = Name
-        role = jcharacter[characterNum]["role"]
-        level = jcharacter[characterNum]["level"]
-        story = jcharacter[characterNum]["story"]
-        location = nlocation
-        jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location)
-        jcharacter.insert(characterNum, CreateC.__dict__)
-        updateJSONC()
-        Info.ncharacterInfo()
+        if olevel != nlevel:
+            diff = nlevel - olevel 
+            addskillpts = 0
+            addstatpts = diff * 2
+            for i in range(diff):
+                olevel += 1
+                if olevel % 5 == 0:
+                    if olevel <= 50:
+                        addskillpts += 1
+                    elif olevel >= 55:
+                        addskillpts += 2
+            print(""), print(f'You LEVELED up {diff} time(s)! Level {nlevel}')
+            ChangeIS.skill_pointsAdd(addskillpts)
+            ChangeS.stat_pointsAdd(addstatpts)
+            ChangeS.max_healthAdd(diff)
+            ChangeS.healthAdd(diff)    
+            ChangeS.attackAdd(diff)
+            ChangeS.defenseAdd(diff)
+            ChangeS.speedAdd(diff)
+            ChangeS.manaAdd(diff)
+            Info.nstatsInfo()
+            Info.ncharacterInfo()
+            Info.ninventorysInfo()
 
     def setStory(nstory):
         ChangeC.characterNum()
@@ -416,11 +438,42 @@ class ChangeC:
         level = jcharacter[characterNum]["level"]
         story = nstory
         location = jcharacter[characterNum]["location"]
+        sub_location = jcharacter[characterNum]["sub_location"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location)
         jcharacter.insert(characterNum, CreateC.__dict__)
+        print(""), print(nstory)
         updateJSONC()
-        Info.ncharacterInfo()
+
+    def setLocation(nlocation):
+        ChangeC.characterNum()
+        id = Id
+        name = Name
+        role = jcharacter[characterNum]["role"]
+        level = jcharacter[characterNum]["level"]
+        story = jcharacter[characterNum]["story"]
+        location = nlocation
+        sub_location = jcharacter[characterNum]["sub_location"]
+        jcharacter.pop(characterNum)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        jcharacter.insert(characterNum, CreateC.__dict__)
+        print(""), print(nlocation)
+        updateJSONC()
+    
+    def setSub_Location(nsub_location):
+        ChangeC.characterNum()
+        id = Id
+        name = Name
+        role = jcharacter[characterNum]["role"]
+        level = jcharacter[characterNum]["level"]
+        story = jcharacter[characterNum]["story"]
+        location = jcharacter[characterNum]["location"]
+        sub_location = nsub_location
+        jcharacter.pop(characterNum)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        jcharacter.insert(characterNum, CreateC.__dict__)
+        print(""), print(nsub_location)
+        updateJSONC()
 
 class ChangeS:
     def statsNum():
@@ -447,7 +500,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} experience.')
     
     def stat_pointsAdd(addend):
         ChangeS.statsNum()
@@ -467,7 +520,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} stat point(s).')
 
     def stat_pointsSubtract(subtrahend):
         ChangeS.statsNum()
@@ -487,7 +540,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} stat point(s).')
 
     def max_healthAdd(addend):
         ChangeS.statsNum()
@@ -507,7 +560,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} max health.')
     
     def max_healthSubtract(subtrahend):
         ChangeS.statsNum()
@@ -527,7 +580,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} max health.')
 
     def healthAdd(addend):
         ChangeS.statsNum()
@@ -549,7 +602,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} health.')
 
     def healthSubtract(subtrahend):
         ChangeS.statsNum()
@@ -571,7 +624,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} health.')
 
     def attackAdd(addend):
         ChangeS.statsNum()
@@ -591,7 +644,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} attack.')
 
     def attackSubtract(subtrahend):
         ChangeS.statsNum()
@@ -611,7 +664,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} attack.')
     
     def dodgeAdd(addend):
         ChangeS.statsNum()
@@ -633,7 +686,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} dodge.')
     
     def dodgeSubtract(subtrahend):
         ChangeS.statsNum()
@@ -655,7 +708,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} dodge.')
 
     def defenseAdd(addend):
         ChangeS.statsNum()
@@ -677,7 +730,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} defense.')
     
     def defenseSubtract(subtrahend):
         ChangeS.statsNum()
@@ -697,7 +750,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} defense.')
 
     def speedAdd(addend):
         ChangeS.statsNum()
@@ -717,7 +770,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} speed.')
 
     def speedSubtract(subtrahend):
         ChangeS.statsNum()
@@ -739,7 +792,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} speed.')
 
     def luckAdd(addend):
         ChangeS.statsNum()
@@ -761,7 +814,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} luck.')
 
     def luckSubtract(subtrahend):
         ChangeS.statsNum()
@@ -783,7 +836,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} luck.')
 
     def manaAdd(addend):
         ChangeS.statsNum()
@@ -805,7 +858,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You GAINED {addend} mana.')
 
     def manaSubtract(subtrahend):
         ChangeS.statsNum()
@@ -827,7 +880,7 @@ class ChangeS:
         CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
-        Info.nstatsInfo()
+        print(f'You LOST {subtrahend} mana.')
 
 class ChangeIS:
     def inventorysNum():
@@ -849,7 +902,8 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        Info.ninventorysInfo()
+        print(f'You GAINED {addend} skill point(s).')        
+
     def skill_pointsSubtract(subtrahend):
         ChangeIS.inventorysNum()
         id = Id
@@ -864,7 +918,8 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        Info.ninventorysInfo()
+        print(f'You LOST {subtrahend} skill point(s).')
+
     def InsertLevel_1_Skill(skill):
         ChangeIS.inventorysNum()
         id = Id
@@ -880,7 +935,8 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        Info.ninventorysInfo()
+        print(f'You LEARNED {skill}.')
+        
     def InsertLevel_2_Skill(skill):
         ChangeIS.inventorysNum()
         id = Id
@@ -896,7 +952,8 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        Info.ninventorysInfo()
+        print(f'You LEARNED {skill}.')
+        
     def InsertLevel_3_Skill(skill):
         ChangeIS.inventorysNum()
         id = Id
@@ -912,7 +969,8 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        Info.ninventorysInfo()
+        print(f'You LEARNED {skill}.')
+        
     def InsertLevel_4_Skill(skill):
         ChangeIS.inventorysNum()
         id = Id
@@ -928,7 +986,8 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        Info.ninventorysInfo()
+        print(f'You LEARNED {skill}.')
+        
     def InsertLevel_5_Skill(skill):
         ChangeIS.inventorysNum()
         id = Id
@@ -944,9 +1003,47 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        Info.ninventorysInfo()
+        print(f'You LEARNED {skill}.')
+        
+class ActionC:
+    print("PLACEHOLDER")
 
-
+class ActionS:
+    def stat_pointsSpend(stat_points):
+        ChangeS.statsNum()
+        Info.statsInfo()
+        if stat_points > jstats[statsNum]["stat_points"]:
+            print(""), print("You do not have enough stat points.")
+            print(f'Stat Points: {jstats[statsNum]["stat_points"]}')
+        else:
+            outer = 0
+            while outer == 0:
+                statUpgraded = input("Use stat points on Max_Health, Attack, Defense, Speed, or Mana: ").lower()
+                if statUpgraded == "max_health" or "maxhealth" or "max health":
+                    ChangeS.stat_pointsSubtract(stat_points)
+                    ChangeS.max_healthAdd(stat_points)
+                    ChangeS.healthAdd(stat_points)
+                    outer = 1
+                elif statUpgraded == "attack":
+                    ChangeS.stat_pointsSubtract(stat_points)
+                    ChangeS.attackAdd(stat_points)
+                    outer = 1
+                elif statUpgraded == "defense":
+                    ChangeS.stat_pointsSubtract(stat_points)
+                    ChangeS.defenseAdd(stat_points)
+                    outer = 1
+                elif statUpgraded == "speed":
+                    ChangeS.stat_pointsSubtract(stat_points)
+                    ChangeS.speedAdd(stat_points)
+                    outer = 1
+                elif statUpgraded == "mana":
+                    ChangeS.stat_pointsSubtract(stat_points)
+                    ChangeS.manaAdd(stat_points)
+                    outer = 1
+                else:
+                    print("That is not a valid input.")
+            updateJSONS()
+            Info.nstatsInfo()
 
 def updateJSONC():
     new_file = "updated.json"
