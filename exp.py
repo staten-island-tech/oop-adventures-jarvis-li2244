@@ -2,19 +2,23 @@
 
 import pygame
 from sys import exit
-screen = pygame.display.set_mode((1000,750))
-pygame.display.set_caption('GUNGAME')
-clock = pygame.time.Clock()
-test_surface = pygame.Surface((100, 200))
-test_surface.fill('white')
+from PIL import Image
+
+pygame.init()
+screen = pygame.display.set_mode()
+Clock = pygame.time.Clock()
+test_forest = pygame.image.load('sprites/forest.png').convert()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit
+            pygame.quit()
             exit()
-    screen.blit(test_surface, (200, 100))
-    pygame.display.update() 
-    clock.tick(60)
+    new_image = pygame.transform.scale(test_forest,(500, 1000))
+    screen.blit(new_image,(0, 0))
+    pygame.display.update()
+    Clock.tick(60)
+    
+    
 
 
 

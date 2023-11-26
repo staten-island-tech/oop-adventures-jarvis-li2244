@@ -17,7 +17,8 @@ def intro_screen():
         print(f"Entering {data0['location_1'][0]['locationname']}")
     time.sleep(5)
     print("ENEMIES!")
-intro_screen()
+
+
 
 def enemy_spawn():
     global y,z
@@ -39,17 +40,16 @@ def enemy_spawn():
         y+=1
         z+=1
 
-enemy_spawn()
 
 def lootcheck():
     if drop == True:
         drop_chancetemp = data1['generic_enemy1'][0]['loot_table'][0]['generic_loot1']
-        drop_chance = 100/drop_chancetemp
-        if random.randint(1,drop_chance) == random.randint(1, drop_chance):
+        drop_chance = int(100/drop_chancetemp)
+        if random.randint(1, drop_chance) == random.randint(1, drop_chance):
             with open('loot.json','r') as r:
                 dete = json.load(r)
-            print(dete[f'generic_loot{var}'][0]['name'])
+            print(f'DROPPED: {dete[f'generic_loot{var}'][0]['name']} ({drop_chancetemp}% drop chance)')
 
-
+lootcheck()
 
 
