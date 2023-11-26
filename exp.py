@@ -8,6 +8,7 @@ pygame.init()
 screen = pygame.display.set_mode()
 Clock = pygame.time.Clock()
 test_forest = pygame.image.load('sprites/forest.png').convert()
+test_Sprite1 = pygame.image.load('sprites/Sprite-0002.png').convert()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -15,6 +16,7 @@ while True:
             exit()
     new_image = pygame.transform.scale(test_forest,(500, 1200))
     screen.blit(new_image,(0, 0))
+    screen.blit(test_Sprite1,(0, 0))
     pygame.display.update()
     Clock.tick(60)
     

@@ -33,6 +33,11 @@ def intro_screen():
 intro_screen()
 
 
+def enemy_death():
+    enemy_health = 1
+    if enemy_health == 0:
+        print("remove instance")
+
 def enemy_spawn():
     y=1
     z=0
