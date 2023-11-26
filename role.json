@@ -1,7 +1,7 @@
 [
     {
         "role": "Warrior",
-        "maxhealth": 150,
+        "max_health": 150,
         "health": 150,
         "attack": 30,
         "dodge": 3,
@@ -9,11 +9,11 @@
         "speed": 10,
         "luck": 1,
         "mana": 20,
-        "skills": "The Spirit of the Lion"
+        "skilltree": "The Spirit of the Lion"
     },
     {
         "role": "Archer",
-        "maxhealth": 75,
+        "max_health": 75,
         "health": 75,
         "attack": 20,
         "dodge": 12,
@@ -21,11 +21,11 @@
         "speed": 45,
         "luck": 1,
         "mana": 40,
-        "skills": "The Leader of the Hunt"
+        "skilltree": "The Leader of the Hunt"
     },
     {
         "role": "Mage",
-        "maxhealth": 100,
+        "max_health": 100,
         "health": 100,
         "attack": 20,
         "dodge": 9,
@@ -33,11 +33,11 @@
         "speed": 20,
         "luck": 1,
         "mana": 100,
-        "skills": "The Wisdom of the Owl"
+        "skilltree": "The Wisdom of the Owl"
     },
     {
         "role": "Assassin",
-        "maxhealth": 50,
+        "max_health": 50,
         "health": 50,
         "attack": 45,
         "dodge": 24,
@@ -45,6 +45,6 @@
         "speed": 25,
         "luck": 1,
         "mana": 40,
-        "skills": "The Cloak of the Badger"
+        "skilltree": "The Cloak of the Badger"
     }
 ]
