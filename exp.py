@@ -1,4 +1,4 @@
-#messing around with pygame
+#messing around with pygame(experimental)
 
 import pygame
 from sys import exit
@@ -13,7 +13,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-    new_image = pygame.transform.scale(test_forest,(500, 1000))
+    new_image = pygame.transform.scale(test_forest,(500, 1200))
     screen.blit(new_image,(0, 0))
     pygame.display.update()
     Clock.tick(60)

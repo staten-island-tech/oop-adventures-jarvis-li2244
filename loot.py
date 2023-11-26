@@ -8,22 +8,34 @@ y=1
 z=0
 screen_trigger = True
 
+
+
+
+
+
 with open('enemies.json','r') as f:
     data1 = json.load(f)
 with open('location.json','r') as e: 
     data0 = json.load(e)
+
+def location_set():
+    abc = int(input("Options: (1, 2, 3, 4, 5, 6, 7) "))
+    return abc 
+
 def intro_screen():
+    variable = location_set()
     if screen_trigger == True: 
-        print(f"Entering {data0['location_1'][0]['locationname']}")
+        print(f'Entering {data0[f'location_{variable}'][0]['locationname']}')
     time.sleep(5)
     print("ENEMIES!")
 
 
+intro_screen()
+
 
 def enemy_spawn():
-    global y,z
-    #list func to find spawn amounts of each thing
-    list = []
+    y=1
+    z=0
     #find number of types of enemies
     eamount = data0['location_1'][0]['types']
     enemy_am = data0['location_1'][0]['ratio']
@@ -36,10 +48,8 @@ def enemy_spawn():
                 if input("EGGS?: ") != "":
                     enemy_alive = False
                 print("FIGHT")
-    
         y+=1
         z+=1
-
 
 def lootcheck():
     if drop == True:
@@ -49,7 +59,4 @@ def lootcheck():
             with open('loot.json','r') as r:
                 dete = json.load(r)
             print(f'DROPPED: {dete[f'generic_loot{var}'][0]['name']} ({drop_chancetemp}% drop chance)')
-
-lootcheck()
-
 
