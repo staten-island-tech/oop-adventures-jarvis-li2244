@@ -1045,6 +1045,48 @@ class ActionS:
             updateJSONS()
             Info.nstatsInfo()
 
+class ActionIS:
+    def skill_pointsSpend(skill_points):
+        ChangeC.characterNum()
+        ChangeIS.inventorysNum()
+        role = jcharacter[characterNum]["role"]
+        for i in range(len(jrole)):
+            if jrole[i]["role"] == role:
+                skilltree = jrole[i]["skilltree"]
+        for i in range(len(jskilltree)):
+            if jskilltree[i]["skilltree"] == skilltree:
+                skilltreeY = jskilltree[i]
+                print(skilltreeY)
+        if skill_points > jinventorys[inventorysNum]["skill_points"]:
+            print(""), print("You do not have enough skill points.")
+            print(f'Skill Points: {jinventorys[inventorysNum]["skill_points"]}')
+        else:
+            outer = 0
+            while outer == 0:
+                inner = 0
+                skillBuy = input("What skill would you like to purchase?: ")
+                for i in skilltreeY:
+                    if skillBuy in i:
+                        for j in range(len(jskills)):
+                            if jskills[j]["name"] == skillBuy:
+                                skillY = jskills[j]
+                                print(skillY)
+                    else: 
+                        inner += 1
+                if skillY["cost"] > skill_points:
+                    print(""), print("You do not have enough skill points.")
+                    print(f'Skill Points: {jinventorys[inventorysNum]["skill_points"]}')
+                else:
+                    for i in jinventorys[inventorysNum]:
+                        if skillBuy in i:
+                            print("You already own that skill.")
+                        else:
+                            ChangeIS.skill_pointsSubtract(skill_points)
+                            ChangeIS.InsertLevel_1_Skill(skillBuy)
+                            updateJSONIS()
+                            Info.ninventorysInfo()
+
+
 def updateJSONC():
     new_file = "updated.json"
     with open(new_file, "w") as f:
