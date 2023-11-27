@@ -10,6 +10,8 @@ screen_trigger = True
 
 
 
+class Testvar():
+    temp = 1
 
 
 
@@ -21,11 +23,10 @@ with open('location.json','r') as e:
 def location_set():
     abc = int(input("Options: (1, 2, 3, 4, 5, 6, 7) "))
     return abc 
-
+var = location_set()
 def intro_screen():
-    variable = location_set()
     if screen_trigger == True: 
-        print(f'Entering {data0[f'location_{variable}'][0]['locationname']}')
+        print(f'Entering {data0[f'location_{var}'][0]['locationname']}')
     time.sleep(5)
     print("ENEMIES!")
 
@@ -33,28 +34,25 @@ def intro_screen():
 intro_screen()
 
 
-def enemy_death():
-    enemy_health = 1
-    if enemy_health == 0:
-        print("remove instance")
-
-def enemy_spawn():
-    y=1
-    z=0
+def enemy_spawn(): 
     #find number of types of enemies
-    eamount = data0['location_1'][0]['types']
-    enemy_am = data0['location_1'][0]['ratio']
+    eamount = data0[f'location_{var}'][0]['types']
+    enemy_am = data0[f'location_{var}'][0]['ratio']
+    e_numstart = data0[f'location_{var}'][0]['enemy_numstart']
+    index_start = e_numstart - 1 
     #get spawn amounts of each type of enemy and append to a list
     global enemy_alive
     for i in range(eamount):
         for w in range(enemy_am):
-            print(data0['location_1'][0]['enemies'][z][f'{y}'][0]['name'])
+            print(data0['location_1'][0]['enemies'][index_start][f'{e_numstart}'][0]['name'])
             while enemy_alive == True:
                 if input("EGGS?: ") != "":
                     enemy_alive = False
                 print("FIGHT")
-        y+=1
-        z+=1
+        index_start += 1
+        e_numstart += 1
+enemy_spawn()
+
 
 def lootcheck():
     if drop == True:
@@ -64,4 +62,5 @@ def lootcheck():
             with open('loot.json','r') as r:
                 dete = json.load(r)
             print(f'DROPPED: {dete[f'generic_loot{var}'][0]['name']} ({drop_chancetemp}% drop chance)')
+
 

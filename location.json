@@ -3,6 +3,7 @@
         {
             "locationname":"Antil Forest",
             "types":2,
+            "enemy_numstart" : 1, 
             "ratio" : 10,
             "enemies":[
                 {
