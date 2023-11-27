@@ -1,9 +1,9 @@
 {
     "location_1": [
         {
-            "locationname":"Antil Forest",
+            "locationname":"Antil Forest_",
             "types":2,
-            "enemy_numstart" : 1, 
+            "enemy_numstart" : 1,
             "ratio" : 10,
             "enemies":[
                 {
