@@ -1,5 +1,6 @@
 import json
 import os
+import math
 
 #json files being altered
 with open("character.json", "r") as f:
@@ -393,8 +394,8 @@ class ChangeC:
             if jstats[i]["id"] == Id:
                 exp = jstats[i]["exp"]
         olevel = jcharacter[characterNum]["level"]
-        dlevel = exp/100 
-        nlevel = int(dlevel)
+        dlevel = math.sqrt(exp)
+        nlevel = math.floor(dlevel)
         id = Id
         name = Name
         role = jcharacter[characterNum]["role"]
@@ -1006,7 +1007,8 @@ class ChangeIS:
         print(f'You LEARNED "{skill}".')
         
 class ActionC:
-    print("PLACEHOLDER")
+    def locationSwitch(location):
+        print("PLACEHOLDER")
 
 class ActionS:
     def stat_pointsSpend(stat_points):

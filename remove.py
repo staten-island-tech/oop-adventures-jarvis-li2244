@@ -65,7 +65,6 @@ class Remove:
         else:
             print("There are no existing characters.")
 
-Remove.remove()
 
 new_file = "updated.json"
 with open(new_file, "w") as f:
