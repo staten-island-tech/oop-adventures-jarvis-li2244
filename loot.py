@@ -7,8 +7,15 @@ enemy_alive = True
 y=1
 z=0
 screen_trigger = True
-
-
+def player_exp_check():
+    #create a json file with all level up levels(maybe use a formula to generalzie the amount of exp needed to leve up)
+    #compare the total amount of exp and set the levels to the respective amount of level
+def temp_exp_meter():
+    #open json file here
+    #use player json file to update 
+def skill_points():
+    #when level_up trigger add skill point to json file
+    #when skill_point used remove skill point from json file
 
 class Testvar():
     temp = 1
@@ -22,18 +29,26 @@ with open('location.json','r') as e:
 
 def location_set():
     abc = int(input("Options: (1, 2, 3, 4, 5, 6, 7) "))
-    return abc 
+    return abc
 var = location_set()
+
+
 def intro_screen():
     if screen_trigger == True: 
+        var = 1 
         print(f'Entering {location[f'location_{var}'][0]['locationname']}')
     time.sleep(5)
     print("ENEMIES!")
+def reward_screen():
+    if enemy_alive:
+        
+        lootcheck()
 
 
 intro_screen()
 def loot_list():
     llist = enemy
+    return list
 
 
 def enemy_spawn(): 
@@ -58,10 +73,12 @@ def create_newinstance():
     lest.append()
     return lest
 
+
 def enemy_spawnlocation():
     tat = create_newinstance()
 enemy_am()
 
+def location_reward():
     
     
 def lootcheck():
@@ -73,4 +90,6 @@ def lootcheck():
                 dete = json.load(r)
             print(f'DROPPED: {dete[f'generic_loot{var1}'][0]['name']} ({drop_chancetemp}% drop chance)')
 
-
+def expdrop():
+    exp_gain = enemy['generic_enemy1'][0]['loot_table'][0]['exp']
+    
