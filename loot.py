@@ -8,12 +8,15 @@ y=1
 z=0
 screen_trigger = True
 def player_exp_check():
+    temp = 1 
     #create a json file with all level up levels(maybe use a formula to generalzie the amount of exp needed to leve up)
     #compare the total amount of exp and set the levels to the respective amount of level
 def temp_exp_meter():
     #open json file here
-    #use player json file to update 
+    #use player json file to update
+    temp = 1 
 def skill_points():
+    temp = 1
     #when level_up trigger add skill point to json file
     #when skill_point used remove skill point from json file
 
@@ -63,6 +66,8 @@ def enemy_spawn():
         create_newinstance()
         index_start += 1
         e_numstart += 1
+def enemy_name():
+    enemy_stat = location[f'location_{var}'][0]['enemies'][0]['name']
 enemy_spawn()
 def enemy_am():
     test1 = location['location_1'][0]['enemies'][0]['spawn_amount']
@@ -79,7 +84,7 @@ def enemy_spawnlocation():
 enemy_am()
 
 def location_reward():
-    
+    temp = 1
     
 def lootcheck():
     if drop == True:

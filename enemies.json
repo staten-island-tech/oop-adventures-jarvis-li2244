@@ -9,6 +9,7 @@
             "mana" : 0,
             "critchance": 0, 
             "critdmg": 100,
+            "exp" : 100,
             "loot_table":[
                 {
                     "generic_loot1": 1,
