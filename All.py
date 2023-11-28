@@ -935,7 +935,7 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        print(f'You LEARNED {skill}.')
+        print(f'You LEARNED "{skill}".')
         
     def InsertLevel_2_Skill(skill):
         ChangeIS.inventorysNum()
@@ -952,7 +952,7 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        print(f'You LEARNED {skill}.')
+        print(f'You LEARNED "{skill}".')
         
     def InsertLevel_3_Skill(skill):
         ChangeIS.inventorysNum()
@@ -969,7 +969,7 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        print(f'You LEARNED {skill}.')
+        print(f'You LEARNED "{skill}".')
         
     def InsertLevel_4_Skill(skill):
         ChangeIS.inventorysNum()
@@ -986,7 +986,7 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        print(f'You LEARNED {skill}.')
+        print(f'You LEARNED "{skill}".')
         
     def InsertLevel_5_Skill(skill):
         ChangeIS.inventorysNum()
@@ -1003,7 +1003,7 @@ class ChangeIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
-        print(f'You LEARNED {skill}.')
+        print(f'You LEARNED "{skill}".')
         
 class ActionC:
     print("PLACEHOLDER")
@@ -1013,7 +1013,7 @@ class ActionS:
         ChangeS.statsNum()
         Info.statsInfo()
         if stat_points > jstats[statsNum]["stat_points"]:
-            print(""), print("You do not have enough stat points.")
+            print(""), print("You do not have that many stat points.")
             print(f'Stat Points: {jstats[statsNum]["stat_points"]}')
         else:
             outer = 0
@@ -1046,7 +1046,7 @@ class ActionS:
             Info.nstatsInfo()
 
 class ActionIS:
-    def skill_pointsSpend(skill_points):
+    def skill_pointsSpend():
         ChangeC.characterNum()
         ChangeIS.inventorysNum()
         role = jcharacter[characterNum]["role"]
@@ -1056,35 +1056,52 @@ class ActionIS:
         for i in range(len(jskilltree)):
             if jskilltree[i]["skilltree"] == skilltree:
                 skilltreeY = jskilltree[i]
+                print(""), print("Skill Tree Info")
                 print(skilltreeY)
-        if skill_points > jinventorys[inventorysNum]["skill_points"]:
-            print(""), print("You do not have enough skill points.")
-            print(f'Skill Points: {jinventorys[inventorysNum]["skill_points"]}')
-        else:
-            outer = 0
-            while outer == 0:
-                inner = 0
-                skillBuy = input("What skill would you like to purchase?: ")
-                for i in skilltreeY:
-                    if skillBuy in i:
-                        for j in range(len(jskills)):
-                            if jskills[j]["name"] == skillBuy:
-                                skillY = jskills[j]
-                                print(skillY)
-                    else: 
-                        inner += 1
-                if skillY["cost"] > skill_points:
-                    print(""), print("You do not have enough skill points.")
-                    print(f'Skill Points: {jinventorys[inventorysNum]["skill_points"]}')
-                else:
-                    for i in jinventorys[inventorysNum]:
-                        if skillBuy in i:
-                            print("You already own that skill.")
-                        else:
-                            ChangeIS.skill_pointsSubtract(skill_points)
-                            ChangeIS.InsertLevel_1_Skill(skillBuy)
-                            updateJSONIS()
-                            Info.ninventorysInfo()
+        Info.inventorysInfo()
+        print("")
+        print(f'Skill Points: {jinventorys[inventorysNum]["skill_points"]}')        
+        skill_points = jinventorys[inventorysNum]["skill_points"]
+        outer = 0
+        while outer == 0:
+            inner = 0
+            skillBuy = input("What skill would you like to purchase? ('quit' to end): ").lower()
+            if skillBuy == "quit":
+                break
+            for i in skilltreeY:
+                for j in skilltreeY[i]:
+                    if len(j) > 1:
+                        if skillBuy.lower() == j.lower():
+                            inner += 1
+                            for k in range(len(jskills)):
+                                if jskills[k]["name"].lower() == skillBuy:
+                                    skillY = jskills[k]
+                                    print(skillY)
+                                    outer = 1
+            if inner == 0:
+                print("That skill does not exist.")
+        if skillBuy != "quit":
+            if skillY["cost"] > skill_points:
+                print(""), print("You do not have enough skill points.")
+                print(f'Skill Points: {jinventorys[inventorysNum]["skill_points"]}')
+            else:
+                inner2 = 0
+                for i in jinventorys[inventorysNum]:
+                    if i == "id":
+                        donothing = 0
+                    elif i == "skill_points":
+                        donothing = 0
+                    else:
+                        for j in jinventorys[inventorysNum][i]:
+                            if skillBuy == j.lower():
+                                print("You already own that skill.")
+                                inner2 += 1
+            if inner2 == 0:
+                ChangeIS.skill_pointsSubtract(skillY["cost"])
+                ChangeIS.InsertLevel_1_Skill(skillY["name"])
+                updateJSONIS()
+                Info.ninventorysInfo()
+
 
 
 def updateJSONC():

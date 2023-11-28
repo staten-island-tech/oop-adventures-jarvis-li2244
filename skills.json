@@ -4,5 +4,11 @@
         "level": "Level_1_Skills",
         "cost": 1,
         "description": "A rain of fire that deals 50 damage(example)"
+    },
+    {
+        "name": "Other Example",
+        "level": "Level_1_Skills",
+        "cost": 1,
+        "description": "A block of text bombarding the enemy with thousands of examples and analogies"
     }
 ]

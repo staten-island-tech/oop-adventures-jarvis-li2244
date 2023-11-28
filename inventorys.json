@@ -2,8 +2,10 @@
     {
         "id": 1,
         "name": "Jarvis",
-        "skill_points": 5,
-        "Level_1_Skills": [],
+        "skill_points": 2,
+        "Level_1_Skills": [
+            "Skill_1_Name"
+        ],
         "Level_2_Skills": [],
         "Level_3_Skills": [],
         "Level_4_Skills": [],
