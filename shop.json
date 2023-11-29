@@ -1,0 +1,52 @@
+{
+    "PLACEHOLDER1" :[ 
+        {
+            "name" : "EGGS",
+            "price" : 100, 
+            "stock" : 100,
+            "chance" : 50
+
+
+
+        }
+
+
+
+    ],
+    "PLACEHOLDER2" :[ 
+        {
+            "name" : "snowballs",
+            "price" : 10, 
+            "stock" : 1000,
+            "chance" : 100
+
+
+
+        }
+
+
+
+    ],
+    "PLACEHOLDER3" :[ 
+        {
+            "name" : "trash",
+            "price" : 10000, 
+            "stock" : 3,
+            "chance" : 5
+
+
+
+        }
+
+
+
+    ],
+    "PLACEHOLDER4" :[ 
+        {
+            "name" : "EGGGUN",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ]
+}

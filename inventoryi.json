@@ -3,8 +3,8 @@
         {
             "slot1" : "generic_loot1 ", 
             "slot2" : 0, 
-            "slot3" : 0
-
+            "slot3" : 0,
+            "currency" : 0
         }
 
 

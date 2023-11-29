@@ -2,7 +2,8 @@
     "generic_loot1" : [
         { 
             "name" : "en",
-            "type": "weapon"
+            "type": "weapon",
+            "damage": 100
         }
     ]
 }

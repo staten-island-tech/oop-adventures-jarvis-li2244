@@ -36,14 +36,7 @@ class Dodge():
                     break
         elif dodge == 0:
             print("no dodge")
-class Take_Damage():
-    def dmg():
-        edmg = 100 
-        damage_taken = True
-        if damage_taken == True:
-            x = defense * 0.03 
-            y = edmg * x
-            print(health - x)
+
 class MANA():
     def spellcasting(): 
         place_mana = 100

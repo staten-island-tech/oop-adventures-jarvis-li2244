@@ -1,0 +1,19 @@
+import json
+with open('shop.json', 'r') as f:
+    shop = json.load(f)
+
+class Merchant():
+    def pullvar(self):
+        var = 1
+        leew = []
+        for i in range(4):
+            check1 = shop[f'PLACEHOLDER{var}'][0]['name']
+            var += 1
+            leew.append(check1)
+        return leew
+    def TEST(self):
+        ew = Merchant.pullvar(self)
+        print(ew[0])
+#figure out how to print items, add probability to the items appearing, then add price, etc
+merch = Merchant()
+merch.TEST()
