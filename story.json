@@ -1,7 +1,35 @@
 [
     {
-        "story": "Tutorial",
+        "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
         "numEquivalent": 0,
         "description": "A hero stumbled into a forest full of creatures lurking in the dark. He spots a ditch out of the corner of his eyes. When he reaches it, he finds.. definitely 'medicine'"
+    },
+    {
+        "story": "Chapter 1: A Test of Strength of Wits",
+        "numEquivalent": 1,
+        "description": "As you say you're goodbyes to the town inhabitants, their warnings ring in your ears. Are you ready to take on such a challenge.. or will you ultimately find yourself dead?"
+    },
+    {
+        "story": "Chapter 2: A Trust built upon Salvation",
+        "numEquivalent": 2,
+        "description": "The battle ultimately concluded in a victory, but its damage has been done. From here on out, you'll have to choose your allies carefully.. can you trust anyone?"
+    },
+    {
+        "story": "Chapter 3: A Sneaky Infiltration, gone wrong..?",
+        "numEquivalent": 3,
+        "description": "After well-deserved rest in a town of friends, it is time to swerve back on track. With new made companions and successful infiltration, it will be a confident start to the collapse of a dictator."
+    },
+    {
+        "story": "Chapter 4: A Distracting Discovery",
+        "numEquivalent": 4,
+        "description": "The death of a close one saddens your spirit, but a discovery so mind-breaking steals your attention."
+    },
+    {
+        "story": "Chapter 5: The Long-Awaited Showdown",
+        "numEquivalent": 5,
+        "description": "You've come all this way, through sorrows, triumphs, and struggles. But it was not all in vain, this is the moment you prove yourself capable. The moment of a new life for many."
+    },
+    {
+        "story": "Chapter 6: fdwjhaueshf"
     }
 ]
