@@ -27,7 +27,7 @@ class Testvar():
 
 with open('enemies.json','r') as f:
     enemy = json.load(f)
-with open('location.json','r') as e: 
+with open('locationenemy.json','r') as e: 
     location = json.load(e)
 
 def location_set():
@@ -44,7 +44,6 @@ def intro_screen():
     print("ENEMIES!")
 def reward_screen():
     if enemy_alive:
-        
         lootcheck()
 
 

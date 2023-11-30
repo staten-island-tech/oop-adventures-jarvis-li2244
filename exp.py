@@ -1,26 +1,5 @@
-#messing around with pygame(experimental)
+import random, json, time
 
-import pygame
-from sys import exit
-from PIL import Image
-
-pygame.init()
-screen = pygame.display.set_mode()
-Clock = pygame.time.Clock()
-test_forest = pygame.image.load('sprites/forest.png').convert()
-test_Sprite1 = pygame.image.load('sprites/Sprite-0002.png').convert()
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
-    new_image = pygame.transform.scale(test_forest,(500, 1200))
-    screen.blit(new_image,(0, 0))
-    screen.blit(test_Sprite1,(0, 0))
-    pygame.display.update()
-    Clock.tick(60)
-    
-    
-
-
-
+test = ["EGG", "B", "eqewoefwo"]
+random.shuffle(test)
+print(test)
