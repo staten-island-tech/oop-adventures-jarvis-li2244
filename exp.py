@@ -46,7 +46,7 @@ x = 31
 
 def health_display():
     max = 100
-    current = 80
+    current = 82
     print(f'ENEMY HEALTH: {current}/{max}')
     yes_health = int(current/5) * "█"
     no_health = int((max - current)/5) * "▒"
@@ -54,3 +54,35 @@ def health_display():
 
 health_display()
 
+#health converter, changes a large number to 100
+num = int(input("NUMBER: "))
+def num_list():
+    fact = []
+    res = [int(x) for x in str(num)]
+    return fact
+def rounding(): 
+    egg = num_list()
+    tem1 = len(egg) - 1
+    print(egg)
+    for i in range(tem1): 
+        LEG = 1 * 10
+    if (egg[1]) > 4:
+        num = num + LEG
+    new_value = int(num/100) * 100
+    return new_value
+def factor(): 
+        num = rounding()
+        round(num)
+        print("Factors of ",num," (only 100): ")
+        for i in range(1, num + 1): 
+            if num % i == 0 : 
+                if i == 100:
+                    e = i
+                    egg = int(num/e)
+                    return egg
+            else:
+                print("NO FACTORS")
+def egg():
+    elege = factor()
+    print(elege)
+egg()
