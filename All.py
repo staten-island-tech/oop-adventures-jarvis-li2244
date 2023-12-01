@@ -256,7 +256,7 @@ class CreationC:
             Name = name
             role = Creator.cRole()
             level = 0
-            story = "Tutorial"
+            story = "Tutorial: A Hopeful Start to a Hazardous Journey"
             location = "Anthill Forest"
             sub_location = "Dense Forest"
             CreateC = CreationC(id, name, role, level, story, location, sub_location)
@@ -1026,17 +1026,28 @@ class ActionC:
         Info.locationInfo()
         outer = 0
         while outer == 0:
+            inner = 0
             locationGo = input("Where do you want to go? ('quit' to end): ")
             if locationGo == "quit":
                 break
             for i in range(len(jlocation)):
                 if jlocation[i]["location"] == locationGo:
-                    if locationGo == "dsa":
+                    for j in range(len(jstory)):
+                        if jstory[j]["story"] == jlocation[i]["story"]:
+                            story = jstory[j]["numEquivalent"]
+                    for j in range(len(jstory)):
+                        if jstory[j]["story"] == jcharacter[characterNum]["story"]:
+                            storyY = jstory[j]["numEquivalent"]
+                    if storyY < story:
+                        print("Unable to travel: Story not advanced enough.")
+                        inner = 1
+                    else:
                         ChangeC.setLocation(locationGo)
                         updateJSONC()
                         Info.nlocationInfo()
                         outer = 1
-            if outer == 0:
+                        inner = 1
+            if inner == 0:
                 print("That location does not exist.")
 
 

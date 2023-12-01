@@ -30,6 +30,13 @@
         "description": "You've come all this way, through sorrows, triumphs, and struggles. But it was not all in vain, this is the moment you prove yourself capable. The moment of a new life for many."
     },
     {
-        "story": "Chapter 6: fdwjhaueshf"
+        "story": "Chapter 6: The End?",
+        "numEquivalent": 6,
+        "description": "You've defeated the King, you've freed the people from this opressive monarchy. As you head down, you can't help but wonder.. Was  it worth it?"
+    },
+    {
+        "story": "Chapter 7: A Fantastical Finale",
+        "numEquivalent": 7,
+        "description": "The End."
     }
 ]

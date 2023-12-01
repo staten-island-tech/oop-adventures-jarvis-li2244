@@ -1,9 +1,13 @@
 [
     {
         "location": "Anthill Forest",
+        "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
         "center sub_location": "The Dense Forest",
         "quest sub_location": ["Camper's Hut", "Treehouse", "The Docks", "Bunker"],
         "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Healing Pond", "Gambler's Game"],
         "wild sub_location": [""]
+    },
+    {
+        "location": "Castle Walls"
     }
 ]
