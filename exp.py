@@ -1,4 +1,4 @@
-
+import time
 color_red = "\033[91m"
 color_purple = "\33[95m"
 color_blue1 = "\33[34m"
@@ -19,10 +19,54 @@ def health_display():
     max1 =int(max/teegreg)
     current1 = int(current/teegreg)
     print(f'{color_default}ENEMY HEALTH: {current}/{max}')
-    yes_health = int(current1/5) * "█"
-    no_health = int((max1 - current1)/5) * "▒"
-    print(f'\033[1;{x};40m{yes_health}{no_health}\n')
+    yes_health = int(current1/4) * "█"
+    no_health = int((max1 - current1)/4) * "▒"
+    print(f'{color_default}╔═════════════════════════╗' )
+    print(f'║\033[1;{x};40m{yes_health}{no_health}{color_default}║')
+    print(f'{color_default}╚═════════════════════════╝' )
+def battle_gui():
+    print(r"""
+╔═════════╗ ╔═════════╗ ╔═════════╗ ╔═════════╗
+║         ║ ║         ║ ║         ║ ║         ║
+║   ATK   ║ ║   RUN   ║ ║  EQUIP  ║ ║  ITEMS  ║ 
+║         ║ ║         ║ ║         ║ ║         ║  
+╚═════════╝ ╚═════════╝ ╚═════════╝ ╚═════════╝
+            """)
+def item_gui():
+    item_name = "EGG"
+    print(f'''
+══════════════════════════════════
+1. {item_name}                             
+══════════════════════════════════
+2. {item_name}                             
+══════════════════════════════════
+3. {item_name}                             
+══════════════════════════════════
+4. {item_name}                             
+══════════════════════════════════
+5. {item_name}                             
+══════════════════════════════════
+6. {item_name}                             
+══════════════════════════════════
+7. {item_name}                             
+══════════════════════════════════
+8. {item_name}                             
+══════════════════════════════════''')
+    print(f'''
+9. {item_name}                             
+══════════════════════════════════
+        ''')
 y = 34
+def item_desc():
+    print(r"""
+
+
+
+
+
+
+
+            """)
 def mana_display():
     max = 1901904290
     current = 1301904290
@@ -36,19 +80,179 @@ def mana_display():
 
 #settings for health and mana bars to simplify them 102102010 to 100
 
+def attack():
+    print("ATTACK!!")
+    a = input("")
 
 
+
+class Tutorial():
+    def battle_gui_tutorial():
+        print("For each square in the battle GUI, a number is assigned. Press the number below and enter it to select that option. Here's a visual of the loadout. Why don't you try it out?")
+        print(r"""
+               GUI               
+
+
+
+
+
+
+              """)
 class Sprites():
+    def guiopen():
+        print("   __________________________________")
+        print("  |__________________________________|")
+        print("                 SHOP")
+        print("     _______    _______     _______      ")
+        print("    |       |  |       |   |       |     ")
+        print("    |  EGG  |  |       |   |       |     ")
+        print("    |_______|  |_______|   |_______|     ")
+        print("     _______    _______     _______      ")
+        print("    |       |  |       |   |       |     ")
+        print("    |       |  |       |   |       |     ")
+        print("    |_______|  |_______|   |_______|     ")
+    def intro_screen():
+        print(r"""
+    _    ____   ____ ___ ___    ____  ____   ____ 
+   / \  / ___| / ___|_ _|_ _|  |  _ \|  _ \ / ___|
+  / _ \ \___ \| |    | | | |   | |_) | |_) | |  _ 
+ / ___ \ ___) | |___ | | | |   |  _ <|  __/| |_| |
+/_/   \_\____/ \____|___|___|  |_| \_\_|    \____|
+                            
+                By: Jarvis and Johnny
+                         _
+                        ( )
+                        \|/
+                         |
+                        / \      
+""")
+        print("WELCOME TO AN ASCII RPG GAME")
+        print("Credit for ASCII ART: (if any)")
+        if input("CLICK ENTER TO START : "):
+            Sprites.adjust()
+    def fight_screen():
+        print(r"""
+              
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+                                                                                                 _____ ___ ____ _   _ _____ _   _   _  
+                                                                                                |  ___|_ _/ ___| | | |_   _| | | | | | 
+                                                                                                | |_   | | |  _| |_| | | | | | | | | | 
+                                                                                                |  _|  | | |_| |  _  | | | |_| |_| |_| 
+                                                                                                |_|   |___\____|_| |_| |_| (_) (_) (_) 
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+              
+
+
+""")
+        time.sleep(1)
+    def adjust():
+        print("----------")
+        print("Please use this to adjust your terminal and ensure gameplay is able to be properly displayed")
+        print("Match your terminal display size to the proper dimensions")
+        print("Once done just click enter")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("----------")
+        egg = input("")
+        if egg != "rreigghuiehuigehuigeuhigeuighehiugehiugehiugehiugrehiugeihugeghiurehgiegihuregiuheghiuregihueghiueghierghiuerghiuergihuvidfuhdihugehirugreiouhgrehiugeriuhgerhioug":
+            print("egg")
+        
+    def sprite0():
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
     def sprite1():
-        print("""
-         GHOST
+        print(r"""
+    GHOST ATTACK!!!
           ___
         \/   \/
-        |\O O/|  
+        |\o o/|  
         |  0  |
         \     |
-         \  _/
-          \|
-        """)
-Sprites.sprite1()
+         \    /
+          \  / 
+           \|
+           """)
+    def sprite2():
+        print(r"""
+      GHOST DEAD
+          ___
+        \/   \/
+        |\x x/|  
+        |  0  |
+        \     |
+         \    /
+          \  / 
+           \|
+           """)
+    def sprite3():
+        print(r"""
+ 
+
+         JAY    
+          _
+         ( )
+         \|/
+          |
+         / \          
+           """)
+    def sprite4():
+        print(r"""
+
+                DA ANT
+
+     \   / 
+      \ /  |\_|\_|\    ︵︵︵︵
+     |o o|/| \| \| \  /        \
+      \ / \|__|__|_ / \        /
+      { }  |  |  |     ︶︶︶︶
+
+
+
+          """)
+    def placeholder0():
+        print(r"""
+
+
+
+
+           """)
+
+Sprites.sprite4()
 health_display()
+battle_gui()
+item_gui()
+#might not need but code for updating dicts(inventory f
+# or example)
+#add new space below like this:
+
+#to sort(sort function basically)
+"""inv = { 
+    'Sword' : 1,
+    'Potion' : 3
+}
+loot  = { 
+    'Sword' : 1,
+    'Potion' : 2,
+    'Shield' : 1
+}
+new_inv = {  
+    k: inv.get(k, 0) + loot.get(k, 0)
+    for k in set(inv | loot)
+
+}
+print(new_inv)"""

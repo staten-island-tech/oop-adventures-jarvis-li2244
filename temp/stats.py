@@ -26,7 +26,7 @@ player_alive = True
 
 
 
-class Dodge():
+def Dodge():
     def doge():
         if dodge != 0: 
             for i in range(dodge):
@@ -37,7 +37,7 @@ class Dodge():
         elif dodge == 0:
             print("no dodge")
 
-class MANA():
+def MANA():
     def spellcasting(): 
         place_mana = 100
         spell_cast = True
@@ -54,7 +54,7 @@ class MANA():
                 mana += 1 
                 if place_mana == mana:
                     print("MANA FULL")
-class CC():
+def CC():
     def trigger():
         if ctch != 0:
             CC.chance()

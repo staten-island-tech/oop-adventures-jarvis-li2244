@@ -1,21 +1,12 @@
 import json, random
 import json
+from exp import Sprites
 with open('shop.json', 'r') as f:
     shop = json.load(f)
 class Merchant():
-    def guiopen(self):
-        print("   __________________________________")
-        print("  |__________________________________|")
-        print("                 SHOP")
-        print("     _______    _______     _______      ")
-        print("    |       |  |       |   |       |     ")
-        print("    |  EGG  |  |       |   |       |     ")
-        print("    |_______|  |_______|   |_______|     ")
-        print("     _______    _______     _______      ")
-        print("    |       |  |       |   |       |     ")
-        print("    |       |  |       |   |       |     ")
-        print("    |_______|  |_______|   |_______|     ")
-        Merchant.dialogue(self)
+    def start():
+        Sprites.guiopen()
+        Merchant.dialogue()
     def dialogue(self):
         print("ITEMS FOR SALE : [INSERT LIST HERE]")
         ex = input("See anything ya like? : ")

@@ -24,11 +24,12 @@ class Enemy():
         critdmg = enemies['generic_enemy1'][0]['critdmg']
         w = (health, damage, dodge, defense, atkspd, mana, critchance, critdmg)
         w.register()
-    def health_display(self):
+    def health_display():
         max = self.health
         current = 80
+        x = 10
         print(f'ENEMY HEALTH: {current}/{max}')
         yes_health = int(current/5) * "█"
         no_health = int((max - current)/5) * "▒"
         print(f'\033[1;{x};40m{yes_health}{no_health}\n')
-Enemy.health_display(self)
+Enemy.health_display()
