@@ -11,7 +11,7 @@ color_brown = "\33[33m"
 color_yellow = "\33[93m"
 color_grey = "\33[37m"
 color_default = "\033[0m"
-
+#list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird 
 with open('enemies.json','r') as f:
     enemies = json.load(f)
 with open('attacks.json') as i:
@@ -28,7 +28,7 @@ def play():
     health = 90000
     attack = 7
     dodge = 8
-    defense = 9
+    defense = 10
     speed = 10
     luck = 11
     mana = 12
@@ -83,14 +83,25 @@ class Player():
         print(var)
         return var
     def take_damage(self, damage):
-        self.current_health = self.health - damage
-        return self.current_health
+        pe = play()
+        dod = pe.doge()
+        df = self.defense
+        if dod == False:
+            print("DODGED")
+        else:
+            if df == 0:
+                self.health = self.health - damage
+            elif df != 0:
+                multiplier = self.defense * 0.01
+                dmg = damage - damage * multiplier
+                self.health = self.health - dmg
+                print(self.health)
+            return self.health
     def heal_damage(self, heal):
         self.current_health = self.health + heal
         print(self.current_health)
         return self.current_health
     def health_display(self):
-        pe = play()
         #we can prob check if the amount of characters in the healthbar is equal to 20 or whtev and if not we just add another value to the end of it
         max = self.max_health
         current = self.health
@@ -110,14 +121,22 @@ class Player():
         ela = player[0]['selected_spells']
         print(ela)
         def first_spell():
-            egg = 1
-            print("")
+            first = ela[0]
+            attack =  1
         def second_spell():
-            egg = 1
+            second = ela[1]
         def third_spell():
-            egg = 1
+            third = ela[2]
         def fourth_spell():
-            egg = 1
+            fourth = ela[3]
+    def doge(self):
+        dod = self.dodge
+        egg = True
+        if dod != 0:
+            egg = int(100/dod)
+            if random.randint(1, egg) == random.randint(1, egg):
+                egg = False
+        return egg
     def spell_equip():
         "ask player what spells/attacks they would like to equip, check json file if it exists, if not print spell does not exist or not unlocked yet, if it does exist we replace the current spell selection with the new spell"
         "make sure to ask which slot to equip spell into, like slot 1, etc. if no slot is returned print was not able to add spell into category"
@@ -155,14 +174,13 @@ class Enemy():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
-
 #somehow call var into damage positional argument
 #prob a shit ton of bugs here so might wanna check this later on
 
+peel = play()
+peel.take_damage(1000)
+peel.health_display() 
 
-
-ela = player[0]['selected_spells']
-print(ela[0])
 
     #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 

@@ -54,22 +54,6 @@ def MANA():
                 mana += 1 
                 if place_mana == mana:
                     print("MANA FULL")
-def CC():
-    def trigger():
-        if ctch != 0:
-            CC.chance()
-        else:
-            print("no crit chance ")
-    def chance():
-        for i in range(ctch):
-            x = random.randint(1,100)
-            if x == random.randint(1, 100):
-                    CC.crit_trigger()
-                    break
-    def crit_trigger():
-        cd = crit * damage
-        print(cd)
-        print("CRIT!")
 
 
 
