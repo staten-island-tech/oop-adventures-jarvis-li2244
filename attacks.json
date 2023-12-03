@@ -1,0 +1,54 @@
+{
+    "mage":[
+        {
+        "spell_1": [
+            {
+                "name" : "FIREBALL",
+                "damage_modifier" : 2,
+                "cooldown" : 2.0,
+                "mana_cost" : 30
+                }
+            ],
+        "spell_2": [
+            {
+                "name" : "FIREBALL",
+                "damage_modifier" : 2,
+                "cooldown" : 2.0,
+                "mana_cost" : 30
+                }
+            ],
+        "spell_3": [
+            {
+                "name" : "FIREBALL",
+                "damage_modifier" : 2,
+                "cooldown" : 2.0,
+                "mana_cost" : 30
+                }
+            ],
+        "spell_4": [
+            {
+                "name" : "FIREBALL",
+                "damage_modifier" : 2,
+                "cooldown" : 2.0,
+                "mana_cost" : 30
+                }
+            ],
+        "spell_5": [
+            {
+                "name" : "FIREBALL",
+                "damage_modifier" : 2,
+                "cooldown" : 2.0,
+                "mana_cost" : 30
+                }
+            ],
+        "spell_6": [
+            {
+                "name" : "FIREBALL",
+                "damage_modifier" : 2,
+                "cooldown" : 2.0,
+                "mana_cost" : 30
+                }
+            ]
+        }
+    ]
+}

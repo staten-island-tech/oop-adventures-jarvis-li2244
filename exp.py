@@ -354,3 +354,17 @@ new_inv = {
 
 }
 print(new_inv)"""
+
+#equipping items
+"""hotbar = [
+    'Torch',
+    'Rock',
+    'Potio',
+]
+
+
+index = hotbar.index('Sword')
+item = hotbar.pop(index)
+hotbar.insert(0, item)
+print(hotbar)
+"""
