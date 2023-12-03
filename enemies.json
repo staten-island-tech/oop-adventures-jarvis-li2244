@@ -2,14 +2,15 @@
     "generic_enemy1": [
         {
             "names" : "EGG",
-            "health" : 100,
-            "damage" : 100,
-            "dodge" : 1,
-            "defense" : 0,
-            "atkspd" : 0,
-            "mana" : 0,
-            "critchance": 0, 
-            "critdmg": 100,
+            "max_health" : 1,
+            "health" : 2,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
             "exp" : 100,
             "loot_table":[
                 {
