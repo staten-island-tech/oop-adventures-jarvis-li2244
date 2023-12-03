@@ -304,6 +304,20 @@ O|--|_________>
 
 
 """)
+    def slime():
+        print(r"""
+     _ _
+  .-’   ‘-.
+ /  ^   ^  \
+|           |
+\    \__/   /
+ `-._____.-'
+
+
+
+
+
+""")
 Sprites.axe()
 Sprites.sprite4()
 health_display(100, 80)
@@ -314,6 +328,7 @@ health_display(100, 0)
 Sprites.boss_screen()
 time.sleep(1)
 Sprites.fight_screen()
+Sprites.slime()
 #might not need but code for updating dicts(inventory f
 # or example)
 #add new space below like this:
