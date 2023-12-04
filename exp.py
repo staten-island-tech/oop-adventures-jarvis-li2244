@@ -370,5 +370,5 @@ print(new_inv)"""
 index = hotbar.index('Sword')
 item = hotbar.pop(index)
 hotbar.insert(0, item)
-print(hotbar)
+print(hotbar)e
 """

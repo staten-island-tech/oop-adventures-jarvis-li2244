@@ -12,6 +12,7 @@ color_yellow = "\33[93m"
 color_grey = "\33[37m"
 color_default = "\033[0m"
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
+#healing overflow
 with open('enemies.json','r') as f:
     enemies = json.load(f)
 with open('attacks.json') as i:
@@ -184,7 +185,7 @@ class Enemy():
 #prob a shit ton of bugs here so might wanna check this later on
 
 peel = play()
-peel.heal_damage(1000000)
+peel.heal_damage(10000)
 peel.health_display() 
 
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
