@@ -96,20 +96,26 @@ class Player():
             return self.health
             if self.health <= 0:
                 print("YOU DIED")
-            return self.health
     def heal_damage(self, heal):
-        self.current_health = self.health + heal
-        print(self.current_health)
-        return self.current_health
+        em = play()
+        self.health = self.health + heal
+        if self.health > self.max_health:
+            egg = self.health - self.health
+            self.health  = self.health - egg
+        self.health = self.health
+        print(self.health)
+        em.health_display()
+        return self.health
     def health_display(self):
         #we can prob check if the amount of characters in the healthbar is equal to 20 or whtev and if not we just add another value to the end of it
         teegreg = self.max_health/100
         max1 = int((self.max_health/teegreg)/5)
         current1 = int((self.health/teegreg)/5)
-        print(f'{color_default}PLAYER HEALTH: {current1}/{max1}')
+        print(f'{color_default}PLAYER HEALTH: {self.health}/{self.max_health}')
         yes_health = current1 * "█"
         no_health = (max1 - current1) * "▒"
-        if yes_health + no_health != 20: print("EGG")
+        if yes_health + no_health != 20:
+            print("EGG")
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
@@ -178,9 +184,8 @@ class Enemy():
 #prob a shit ton of bugs here so might wanna check this later on
 
 peel = play()
-peel.take_damage(1000000000)
+peel.heal_damage(1000000)
 peel.health_display() 
-
 
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 
