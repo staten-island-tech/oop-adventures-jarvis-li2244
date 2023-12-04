@@ -11,7 +11,7 @@ color_brown = "\33[33m"
 color_yellow = "\33[93m"
 color_grey = "\33[37m"
 color_default = "\033[0m"
-#list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird 
+#list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 with open('enemies.json','r') as f:
     enemies = json.load(f)
 with open('attacks.json') as i:
@@ -29,12 +29,11 @@ def play():
     attack = 7
     dodge = 8
     defense = 10
-    speed = 10
     luck = 11
     mana = 12
     critchance = 100
     critdmg = 1.00
-    pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
+    pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg)
     return pe
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
@@ -48,7 +47,7 @@ def atte():
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg)
     return temp
 class Player():
-    def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg):
+    def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg):
         self.id = id
         self.name = name
         self.exp = exp
@@ -94,8 +93,9 @@ class Player():
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
                 print(self.health)
+            return self.health
             if self.health <= 0:
-                print("you died")
+                print("YOU DIED")
             return self.health
     def heal_damage(self, heal):
         self.current_health = self.health + heal
@@ -103,14 +103,13 @@ class Player():
         return self.current_health
     def health_display(self):
         #we can prob check if the amount of characters in the healthbar is equal to 20 or whtev and if not we just add another value to the end of it
-        max = self.max_health
-        current = self.health
-        teegreg = max/100
-        max1 = max/teegreg
-        current1 = current/teegreg
-        print(f'{color_default}PLAYER HEALTH: {current}/{max}')
-        yes_health = int(current1/5) * "█"
-        no_health = int((max1 - current1)/5) * "▒"
+        teegreg = self.max_health/100
+        max1 = int((self.max_health/teegreg)/5)
+        current1 = int((self.health/teegreg)/5)
+        print(f'{color_default}PLAYER HEALTH: {current1}/{max1}')
+        yes_health = current1 * "█"
+        no_health = (max1 - current1) * "▒"
+        if yes_health + no_health != 20: print("EGG")
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
