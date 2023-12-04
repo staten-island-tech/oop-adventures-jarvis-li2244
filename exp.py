@@ -14,7 +14,6 @@ color_default = "\033[0m"
 x = 91
 health_dis = 0
 def health_display(max, current):
-
     teegreg = max/100
     max1 =int(max/teegreg)
     current1 = int(current/teegreg)
@@ -137,6 +136,11 @@ class Tutorial():
 
 
               """)
+        egg = input("")
+        if egg != "":
+            Tutorial.next()
+    def next():
+        egg = 1
 class Sprites():
     def intro_screen():
         print(r"""

@@ -42,11 +42,10 @@ def atte():
     damage = enemies['generic_enemy1'][0]['damage']
     dodge = enemies['generic_enemy1'][0]['dodge']
     defense = enemies['generic_enemy1'][0]['defense']
-    atkspd = enemies['generic_enemy1'][0]['atkspd']
     mana = enemies['generic_enemy1'][0]['mana']
     critchance = enemies['generic_enemy1'][0]['critchance']
     critdmg = enemies['generic_enemy1'][0]['critdmg']
-    temp = Enemy(max_health, health, damage, dodge, defense, atkspd, mana, critchance, critdmg)
+    temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg)
     return temp
 class Player():
     def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg):
@@ -59,8 +58,7 @@ class Player():
         self.attack = attack
         self.dodge = dodge
         self.defense = defense
-        self.speed = speed 
-        self.luck = luck
+        self.luck = luck#
         self.mana = mana
         self.critchance = critchance
         self.critdmg = critdmg
@@ -96,6 +94,8 @@ class Player():
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
                 print(self.health)
+            if self.health <= 0:
+                print("you died")
             return self.health
     def heal_damage(self, heal):
         self.current_health = self.health + heal
@@ -143,14 +143,15 @@ class Player():
     def weapon_equip():
         "same system as above basically except it's limited to 1 slot"
         "certain class weapons have certain spells ingrained/inscribed into them"
+    def armor_equip():
+        "IDK YET"
 class Enemy():
-    def __init__(self, max_health, health, damage, dodge, defense, atkspd, mana, critchance, critdmg):
+    def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg):
         self.max_health = max_health
         self.health = health
         self.damage = damage
         self.dodge = dodge
         self.defense = defense
-        self.atkspd = atkspd
         self.mana = mana
         self.critchance = critchance
         self.critdmg = critdmg
@@ -178,9 +179,9 @@ class Enemy():
 #prob a shit ton of bugs here so might wanna check this later on
 
 peel = play()
-peel.take_damage(1000)
+peel.take_damage(1000000000)
 peel.health_display() 
 
 
-    #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
+#take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 
