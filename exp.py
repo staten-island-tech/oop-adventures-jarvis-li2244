@@ -30,34 +30,31 @@ def health_display(max, current):
         print(f'{color_default}╔═════════════════════════╗' )
         print(f'║\033[1;{x};40m{yes_health1}{no_health1}{color_default}║')
         print(f'{color_default}╚═════════════════════════╝' )
-def battle_gui():
-    print(r"""
-╔═════════╗ ╔═════════╗ 
-║         ║ ║         ║ 
-║   ATK   ║ ║   RUN   ║ 
-║         ║ ║         ║   
-╚═════════╝ ╚═════════╝ 
-╔═════════╗ ╔═════════╗
-║         ║ ║         ║
-║  EQUIP  ║ ║  ITEMS  ║
-║         ║ ║         ║  
-╚═════════╝ ╚═════════╝
-            """)
+class GUI():
+    def battle_gui():
+        print(r"""
+    ╔═════════╗ ╔═════════╗ 
+    ║         ║ ║         ║ 
+    ║   ATK   ║ ║   RUN   ║ 
+    ║         ║ ║         ║   
+    ╚═════════╝ ╚═════════╝ 
+    ╔═════════╗ ╔═════════╗
+    ║         ║ ║         ║
+    ║  EQUIP  ║ ║  ITEMS  ║
+    ║         ║ ║         ║  
+    ╚═════════╝ ╚═════════╝
+                """)
 def actions():
     ere =int(input(""))
     atk_gui() if ere == 1 else(run_gui() if ere == 2 else(equip_gui() if ere == 3 else(items_gui() if ere == 4 else actions())))
 def run_gui():
-    #dodge will factor into whether you lose stuff when you run away or not 
-    dodge = int(100)
-    roll = int(100/dodge)
-    if random.randint(1, roll) == random.randint(1,roll):
-        print(r""" 
+    print(r""" 
 
         ╔═════════════════════════╗
         ║     ESCAPE SUCESSFUL    ║
         ╚═════════════════════════╝
             """)
-    else:
+    print(r"""""")
         print(r""" 
         ╔═════════════════════════╗
         ║      ESCAPE FAILED      ║
