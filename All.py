@@ -343,7 +343,7 @@ class CreationIS:
         jinventorys.append(CreateIS.__dict__)
         updateJSONIS()
 
-class Choose:
+class ChooseC:
     def choose():
         if len(jcharacter) != 0:
             print(""), print("All Character Info")
@@ -1333,5 +1333,5 @@ def updateJSONIS():
     os.remove("inventorys.json")
     os.rename(new_file, "inventorys.json")
 
-Choose.choose()
+ChooseC.choose()
 ActionC.locationSwitch()

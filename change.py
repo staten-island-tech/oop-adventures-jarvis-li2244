@@ -1,11 +1,9 @@
 import json
 import os
 import math
-import create
 import choose
-choose.ChooseC.choose()
-from choose import Id, Name
-from create import *
+import creation
+from creation import Id, Name
 
 #json files being altered
 with open("character.json", "r") as f:
@@ -31,6 +29,8 @@ with open("skills.json", "r") as f:
 with open("location.json", "r") as f:
     jlocation = json.load(f)
 
+
+
 class ChangeC:
     def characterNum():
         for i in range(len(jcharacter)):
@@ -54,7 +54,7 @@ class ChangeC:
         location = jcharacter[characterNum]["location"]
         sub_location = jcharacter[characterNum]["sub_location"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = creation.CreationC(id, name, role, level, story, location, sub_location)
         jcharacter.insert(characterNum, CreateC.__dict__)
         updateJSONC()
         if olevel != nlevel:
@@ -77,9 +77,9 @@ class ChangeC:
             ChangeS.defenseAdd(diff)
             ChangeS.speedAdd(diff)
             ChangeS.manaAdd(diff)
-            Info.nstatsInfo()
-            Info.ncharacterInfo()
-            Info.ninventorysInfo()
+            creation.Info.nstatsInfo()
+            creation.Info.ncharacterInfo()
+            creation.Info.ninventorysInfo()
 
     def setStory(nstory):
         ChangeC.characterNum()
@@ -91,7 +91,7 @@ class ChangeC:
         location = jcharacter[characterNum]["location"]
         sub_location = jcharacter[characterNum]["sub_location"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = creation.CreationC(id, name, role, level, story, location, sub_location)
         jcharacter.insert(characterNum, CreateC.__dict__)
         print(""), print(nstory)
         updateJSONC()
@@ -106,7 +106,7 @@ class ChangeC:
         location = nlocation
         sub_location = jcharacter[characterNum]["sub_location"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = creation.CreationC(id, name, role, level, story, location, sub_location)
         jcharacter.insert(characterNum, CreateC.__dict__)
         print(""), print(nlocation)
         updateJSONC()
@@ -121,7 +121,7 @@ class ChangeC:
         location = jcharacter[characterNum]["location"]
         sub_location = nsub_location
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = creation.CreationC(id, name, role, level, story, location, sub_location)
         jcharacter.insert(characterNum, CreateC.__dict__)
         print(""), print(nsub_location)
         updateJSONC()
@@ -147,8 +147,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} experience.')
@@ -167,8 +169,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} stat point(s).')
@@ -187,8 +191,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} stat point(s).')
@@ -207,8 +213,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} max health.')
@@ -227,8 +235,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} max health.')
@@ -249,8 +259,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} health.')
@@ -271,8 +283,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} health.')
@@ -291,8 +305,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} attack.')
@@ -311,8 +327,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} attack.')
@@ -333,8 +351,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} dodge.')
@@ -355,8 +375,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} dodge.')
@@ -377,8 +399,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} defense.')
@@ -397,8 +421,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"]
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} defense.')
@@ -417,8 +443,10 @@ class ChangeS:
         speed = jstats[statsNum]["speed"] + addend
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} speed.')
@@ -439,8 +467,10 @@ class ChangeS:
             speed = 0
         luck = jstats[statsNum]["luck"]
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} speed.')
@@ -461,8 +491,10 @@ class ChangeS:
         if luck > 10:
             luck = 10
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} luck.')
@@ -483,8 +515,10 @@ class ChangeS:
         if luck < 0:
             luck = 0
         mana = jstats[statsNum]["mana"]
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} luck.')
@@ -505,8 +539,10 @@ class ChangeS:
         mana = jstats[statsNum]["mana"] + addend
         if mana > 200:
             mana = 200
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You GAINED {addend} mana.')
@@ -527,11 +563,101 @@ class ChangeS:
         mana = jstats[statsNum]["mana"] - subtrahend
         if mana < 0:
             mana = 0
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"]
         jstats.pop(statsNum)
-        CreateS = CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
         jstats.insert(statsNum, CreateS.__dict__)
         updateJSONS()
         print(f'You LOST {subtrahend} mana.')
+
+    def critchanceAdd(addend):
+        ChangeS.statsNum()
+        id = Id
+        name = Name
+        exp = jstats[statsNum]["exp"]
+        stat_points = jstats[statsNum]["stat_points"]
+        max_health = jstats[statsNum]["max_health"]
+        health = jstats[statsNum]["health"]
+        attack = jstats[statsNum]["attack"]
+        dodge = jstats[statsNum]["dodge"]
+        defense = jstats[statsNum]["defense"]
+        speed = jstats[statsNum]["speed"]
+        luck = jstats[statsNum]["luck"]
+        mana = jstats[statsNum]["mana"]  
+        critchance = jrole[statsNum]["critchance"] + addend
+        critdmg = jrole[statsNum]["critdmg"]
+        jstats.pop(statsNum)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
+        jstats.insert(statsNum, CreateS.__dict__)
+        updateJSONS()
+        print(f'You GAINED {addend} crit chance.')        
+
+    def critchanceSubtract(subtrahend):
+        ChangeS.statsNum()
+        id = Id
+        name = Name
+        exp = jstats[statsNum]["exp"]
+        stat_points = jstats[statsNum]["stat_points"]
+        max_health = jstats[statsNum]["max_health"]
+        health = jstats[statsNum]["health"]
+        attack = jstats[statsNum]["attack"]
+        dodge = jstats[statsNum]["dodge"]
+        defense = jstats[statsNum]["defense"]
+        speed = jstats[statsNum]["speed"]
+        luck = jstats[statsNum]["luck"]
+        mana = jstats[statsNum]["mana"]  
+        critchance = jrole[statsNum]["critchance"] - subtrahend
+        critdmg = jrole[statsNum]["critdmg"]
+        jstats.pop(statsNum)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
+        jstats.insert(statsNum, CreateS.__dict__)
+        updateJSONS()
+        print(f'You LOST {subtrahend} crit chance.')        
+
+    def critdmgAdd(addend):
+        ChangeS.statsNum()
+        id = Id
+        name = Name
+        exp = jstats[statsNum]["exp"]
+        stat_points = jstats[statsNum]["stat_points"]
+        max_health = jstats[statsNum]["max_health"]
+        health = jstats[statsNum]["health"]
+        attack = jstats[statsNum]["attack"]
+        dodge = jstats[statsNum]["dodge"]
+        defense = jstats[statsNum]["defense"]
+        speed = jstats[statsNum]["speed"]
+        luck = jstats[statsNum]["luck"]
+        mana = jstats[statsNum]["mana"]  
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"] + addend
+        jstats.pop(statsNum)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
+        jstats.insert(statsNum, CreateS.__dict__)
+        updateJSONS()
+        print(f'You GAINED {addend} crit damage.')        
+    
+    def critdmgSubtract(subtrahend):
+        ChangeS.statsNum()
+        id = Id
+        name = Name
+        exp = jstats[statsNum]["exp"]
+        stat_points = jstats[statsNum]["stat_points"]
+        max_health = jstats[statsNum]["max_health"]
+        health = jstats[statsNum]["health"]
+        attack = jstats[statsNum]["attack"]
+        dodge = jstats[statsNum]["dodge"]
+        defense = jstats[statsNum]["defense"]
+        speed = jstats[statsNum]["speed"]
+        luck = jstats[statsNum]["luck"]
+        mana = jstats[statsNum]["mana"]  
+        critchance = jrole[statsNum]["critchance"]
+        critdmg = jrole[statsNum]["critdmg"] - subtrahend
+        jstats.pop(statsNum)
+        CreateS = creation.CreationS(id, name, exp, stat_points, max_health, health, attack, dodge, defense, speed, luck, mana, critchance, critdmg)
+        jstats.insert(statsNum, CreateS.__dict__)
+        updateJSONS()
+        print(f'You LOST {subtrahend} crit damage.')        
 
 class ChangeIS:
     def inventorysNum():
@@ -550,7 +676,7 @@ class ChangeIS:
         Level_4_Skills = jinventorys[inventorysNum]["Level_4_Skills"]
         Level_5_Skills = jinventorys[inventorysNum]["Level_5_Skills"]
         jinventorys.pop(inventorysNum)
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+        CreateIS = creation.CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
         print(f'You GAINED {addend} skill point(s).')        
@@ -566,7 +692,7 @@ class ChangeIS:
         Level_4_Skills = jinventorys[inventorysNum]["Level_4_Skills"]
         Level_5_Skills = jinventorys[inventorysNum]["Level_5_Skills"]
         jinventorys.pop(inventorysNum)
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+        CreateIS = creation.CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
         print(f'You LOST {subtrahend} skill point(s).')
@@ -583,7 +709,7 @@ class ChangeIS:
         Level_4_Skills = jinventorys[inventorysNum]["Level_4_Skills"]
         Level_5_Skills = jinventorys[inventorysNum]["Level_5_Skills"]
         jinventorys.pop(inventorysNum)
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+        CreateIS = creation.CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
         print(f'You LEARNED "{skill}".')
@@ -600,7 +726,7 @@ class ChangeIS:
         Level_4_Skills = jinventorys[inventorysNum]["Level_4_Skills"]
         Level_5_Skills = jinventorys[inventorysNum]["Level_5_Skills"]
         jinventorys.pop(inventorysNum)
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+        CreateIS = creation.CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
         print(f'You LEARNED "{skill}".')
@@ -617,7 +743,7 @@ class ChangeIS:
         Level_4_Skills = jinventorys[inventorysNum]["Level_4_Skills"]
         Level_5_Skills = jinventorys[inventorysNum]["Level_5_Skills"]
         jinventorys.pop(inventorysNum)
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+        CreateIS = creation.CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
         print(f'You LEARNED "{skill}".')
@@ -634,7 +760,7 @@ class ChangeIS:
         Level_4_Skills.append(skill)
         Level_5_Skills = jinventorys[inventorysNum]["Level_5_Skills"]
         jinventorys.pop(inventorysNum)
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+        CreateIS = creation.CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
         print(f'You LEARNED "{skill}".')
@@ -651,12 +777,11 @@ class ChangeIS:
         Level_5_Skills = jinventorys[inventorysNum]["Level_5_Skills"]
         Level_5_Skills.append(skill)
         jinventorys.pop(inventorysNum)
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+        CreateIS = creation.CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.insert(inventorysNum, CreateIS.__dict__)
         updateJSONIS()
         print(f'You LEARNED "{skill}".')
         
-
 
 
 def updateJSONC():
@@ -692,3 +817,5 @@ def updateJSONIS():
     os.remove("inventorys.json")
     os.rename(new_file, "inventorys.json")
 
+choose.ChooseC.choose()
+ChangeC.setStory("stratyd")
