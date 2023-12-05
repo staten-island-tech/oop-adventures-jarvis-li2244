@@ -12,8 +12,8 @@
         "speed": 40,
         "luck": 1,
         "mana": 68,
-        "critchance" : 100,
-        "critdmg" : 10,
+        "critchance" : 1,
+        "critdmg" : 100,
         "selected_spells" : ["spell_1", "spell_2", "spell_3", "spell_4"]
     }
 ]
