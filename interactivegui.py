@@ -12,7 +12,8 @@ color_yellow = "\33[93m"
 color_grey = "\33[37m"
 color_default = "\033[0m"
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
-#healing overflow
+#healing overflow(resolved)
+#
 with open('enemies.json','r') as f:
     enemies = json.load(f)
 with open('attacks.json') as i:
@@ -151,6 +152,49 @@ class Player():
         "certain class weapons have certain spells ingrained/inscribed into them"
     def armor_equip():
         "IDK YET"
+    def attack():
+        print(r"""
+    ╔═════════╗ ╔═════════╗ 
+    ║         ║ ║         ║ 
+    ║   ATK   ║ ║   RUN   ║ 
+    ║         ║ ║         ║   
+    ╚═════════╝ ╚═════════╝ 
+    ╔═════════╗ ╔═════════╗
+    ║         ║ ║         ║
+    ║  EQUIP  ║ ║  ITEMS  ║
+    ║         ║ ║         ║  
+    ╚═════════╝ ╚═════════╝
+                """)
+        egg = input("")
+        em = play()
+        em.egg() if egg == 1 else (em.run()) if egg == 2 else (em.equip()) if egg == 3 else ((em.egge)) if egg ==4 else (em.attack())
+    def egg(self):
+        em = play()
+        pass
+    def run(self):
+        em = play()
+        roll = self.dodge/100
+        if random.randint(1, roll) == random.randint(1, roll):
+            print(r""" 
+
+        ╔═════════════════════════╗
+        ║     ESCAPE SUCESSFUL    ║
+        ╚═════════════════════════╝
+            """)
+        else:
+            print(r""" 
+        ╔═════════════════════════╗
+        ║      ESCAPE FAILED      ║
+        ╚═════════════════════════╝
+            """) 
+    def equip(self):
+        em = play()
+        
+    def egge(self):
+        em = play()
+        pass
+
+
 class Enemy():
     def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg):
         self.max_health = max_health
@@ -186,7 +230,8 @@ class Enemy():
 
 peel = play()
 peel.heal_damage(10000)
-peel.health_display() 
+peel.health_display()
+peel.attack()
 
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 

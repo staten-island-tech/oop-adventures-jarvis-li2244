@@ -31,19 +31,6 @@ def health_display(max, current):
         print(f'║\033[1;{x};40m{yes_health1}{no_health1}{color_default}║')
         print(f'{color_default}╚═════════════════════════╝' )
 class GUI():
-    def battle_gui():
-        print(r"""
-    ╔═════════╗ ╔═════════╗ 
-    ║         ║ ║         ║ 
-    ║   ATK   ║ ║   RUN   ║ 
-    ║         ║ ║         ║   
-    ╚═════════╝ ╚═════════╝ 
-    ╔═════════╗ ╔═════════╗
-    ║         ║ ║         ║
-    ║  EQUIP  ║ ║  ITEMS  ║
-    ║         ║ ║         ║  
-    ╚═════════╝ ╚═════════╝
-                """)
 def actions():
     ere =int(input(""))
     atk_gui() if ere == 1 else(run_gui() if ere == 2 else(equip_gui() if ere == 3 else(items_gui() if ere == 4 else actions())))
@@ -54,8 +41,7 @@ def run_gui():
         ║     ESCAPE SUCESSFUL    ║
         ╚═════════════════════════╝
             """)
-    print(r"""""")
-        print(r""" 
+    print(r""" 
         ╔═════════════════════════╗
         ║      ESCAPE FAILED      ║
         ╚═════════════════════════╝
@@ -369,3 +355,4 @@ item = hotbar.pop(index)
 hotbar.insert(0, item)
 print(hotbar)e
 """
+SAVE
