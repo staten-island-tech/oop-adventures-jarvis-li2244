@@ -1,8 +1,38 @@
 {
-    
-
-
-
-
-    
+    "slot1": [
+        {
+        "quantity" : 1, 
+        "name" : 0
+        }
+    ],   
+    "slot2": [
+        {
+        "quantity" : 1, 
+        "name" : 0
+        }
+    ],   
+    "slot3": [
+        {
+        "quantity" : 1, 
+        "name" : 0
+        }
+    ],   
+    "slot4": [
+        {
+        "quantity" : 1, 
+        "name" : 0
+        }
+    ],   
+    "slot5": [
+        {
+        "quantity" : 1, 
+        "name" : 0
+        }
+    ],
+    "slot6": [
+        {
+        "quantity" : 1, 
+        "name" : 0
+        }
+    ]
 }

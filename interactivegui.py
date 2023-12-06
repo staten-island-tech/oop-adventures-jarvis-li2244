@@ -20,6 +20,8 @@ with open('attacks.json') as i:
     attacks = json.load(i)
 with open('player.json') as w:
     player = json.load(w)
+with open('inventorye.json') as el:
+    inventorye = json.load(el)
 #simulating player class here : this isn't going to be permanant once branches get merged, just testing 
 def play():
     id = 1
@@ -29,14 +31,15 @@ def play():
     max_health = 100000
     health = 90000
     attack = 7
-    dodge = 100
+    dodge = 10
     defense = 10
     luck = 11
     mana = 12
-    critchance = 100
+    critchance = 125
     critdmg = 1.00
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg)
     return pe
+pe = play()
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
     health = enemies['generic_enemy1'][0]['health']
@@ -48,6 +51,7 @@ def atte():
     critdmg = enemies['generic_enemy1'][0]['critdmg']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg)
     return temp
+egg = atte()
 class Player():
     def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg):
         self.id = id
@@ -71,10 +75,11 @@ class Player():
         return crit
     def deal_damage(self):
         pe = play()
-        crit = Player.critical_hit(pe)
+        crit = pe.critical_hit()
         var = 0
         if crit == True:
-            critical_hit = self.attack * self.critdmg
+            critdmg = self.critdmg/100 + 1
+            critical_hit = self.attack * critdmg
             var = critical_hit
             print("critical hit!")
         elif crit == False:
@@ -99,14 +104,14 @@ class Player():
             if self.health <= 0:
                 print("YOU DIED")
     def heal_damage(self, heal):
-        em = play()
+        pe = play()
         self.health = self.health + heal
         if self.health > self.max_health:
             egg = self.health - self.health
             self.health  = self.health - egg
         self.health = self.health
         print(self.health)
-        em.health_display()
+        pe.health_display()
         return self.health
     def health_display(self):
         #we can prob check if the amount of characters in the healthbar is equal to 20 or whtev and if not we just add another value to the end of it
@@ -166,12 +171,25 @@ class Player():
     ╚═════════╝ ╚═════════╝
                 """)
         egg = input("")
-        em = play()
-        em.egg() if egg == "1" else (em.run()) if egg == "2" else (em.equip()) if egg == "3" else ((em.egge)) if egg == "4" else (Player.gui())
-    def egg(self):
-        em = play()
-        print("EGG")
-        pass
+        pe = play()
+        pe.atk() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
+    def atk(self):
+        pe = play()
+        var = "TEMP"
+        if len(var) == 3:
+            print(f"""
+╔══════════════════════════╗
+║          {var}            ║
+╚══════════════════════════╝
+
+
+    """)
+        elif len(var) == 2:
+            print(f'''
+╔══════════════════════════╗
+║          {var}            ║
+╚══════════════════════════╝
+''')
     def run(self):
         em = play()
         roll = int(100/self.dodge)
@@ -189,9 +207,8 @@ class Player():
         ╚═════════════════════════╝
             """) 
     def equip(self):
-        em = play()
-        
-    def egge(self):
+        em = play()    
+    def items(self):
         em = play()
         pass
 
@@ -226,13 +243,47 @@ class Enemy():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
+    def action(self):
+        if self.health < self.health/2:
+            roll = 100/self.dodge
+            if random.randint(1, roll) == random.randint(1, roll):
+                egg.health_heal()
+        else:   
+            egg.attack()
+    def critical_hit(self):
+        crit = False
+        roll = int(100/self.critchance)
+        if random.randint(1, roll) == random.randint(1, roll):
+            crit = True
+        return crit
+    def deal_damage(self):
+        crit = egg.critical_hit()
+        var = 0
+        if crit == True:
+            elaf = self.critdmg/100 + 1
+            critical_hit = self.attack * elaf
+            var = critical_hit
+            print("critical hit!")
+        elif crit == False:
+            var = self.attack
+        print(var)
+        return var
 #somehow call var into damage positional argument
-#prob a shit ton of bugs here so might wanna check this later on
-
 peel = play()
 peel.heal_damage(10000)
 peel.health_display()
 Player.gui()
+egg.action()
 
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
+
+#if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
+var = 1
+for i in range(6):
+    egg = inventorye[f'slot{var}'][0]['name']
+    var+=1
+    if egg == 0:
+        print("empty slot")
+    elif egg != 0:
+        print("placeholder here")
 
