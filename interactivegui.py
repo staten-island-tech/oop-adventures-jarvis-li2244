@@ -39,7 +39,6 @@ def play():
     critdmg = 1.00
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg)
     return pe
-pe = play()
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
     health = enemies['generic_enemy1'][0]['health']
@@ -51,7 +50,6 @@ def atte():
     critdmg = enemies['generic_enemy1'][0]['critdmg']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg)
     return temp
-egg = atte()
 class Player():
     def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg):
         self.id = id
@@ -175,27 +173,36 @@ class Player():
         pe.atk() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
     def atk(self):
         pe = play()
-        var = "TEMP"
-        if len(var) == 3:
+        var = "VAR"
+        if len(var) == 4:
             print(f"""
 ╔══════════════════════════╗
-║          {var}            ║
+║           {var}           ║
 ╚══════════════════════════╝
-
-
+    """)       
+        elif len(var) == 3:
+            print(f"""
+╔══════════════════════════╗
+║           {var}            ║
+╚══════════════════════════╝
     """)
         elif len(var) == 2:
             print(f'''
 ╔══════════════════════════╗
-║          {var}            ║
+║          {var}              ║
 ╚══════════════════════════╝
 ''')
+        elif len(var) == 1:
+            print(f'''
+╔══════════════════════════╗
+║          {var}               ║
+╚══════════════════════════╝
+            ''')
     def run(self):
         em = play()
         roll = int(100/self.dodge)
         if random.randint(1, roll) == random.randint(1, roll):
             print(r""" 
-
         ╔═════════════════════════╗
         ║     ESCAPE SUCESSFUL    ║
         ╚═════════════════════════╝
@@ -211,8 +218,6 @@ class Player():
     def items(self):
         em = play()
         pass
-
-
 class Enemy():
     def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg):
         self.max_health = max_health
@@ -223,8 +228,6 @@ class Enemy():
         self.mana = mana
         self.critchance = critchance
         self.critdmg = critdmg
-    def deal_damage(self):
-        crit = False
     def damage_take(self, damage):
         self.current_health = self.health - damage
         print(self.current_health)
@@ -244,12 +247,13 @@ class Enemy():
         print(f'║\033[1;91;40m{yes_health}{no_health}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
     def action(self):
-        if self.health < self.health/2:
+        egg = atte()
+        if self.health < self.max_health/2:
             roll = 100/self.dodge
             if random.randint(1, roll) == random.randint(1, roll):
                 egg.health_heal()
         else:   
-            egg.attack()
+            egg.deal_damage()
     def critical_hit(self):
         crit = False
         roll = int(100/self.critchance)
@@ -257,15 +261,16 @@ class Enemy():
             crit = True
         return crit
     def deal_damage(self):
+        egg = atte()
         crit = egg.critical_hit()
         var = 0
         if crit == True:
             elaf = self.critdmg/100 + 1
-            critical_hit = self.attack * elaf
+            critical_hit = INT(self.damage * elaf)
             var = critical_hit
             print("critical hit!")
         elif crit == False:
-            var = self.attack
+            var = self.damage
         print(var)
         return var
 #somehow call var into damage positional argument
@@ -273,7 +278,8 @@ peel = play()
 peel.heal_damage(10000)
 peel.health_display()
 Player.gui()
-egg.action()
+elephant = atte()
+elephant.action()
 
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 
@@ -286,4 +292,3 @@ for i in range(6):
         print("empty slot")
     elif egg != 0:
         print("placeholder here")
-
