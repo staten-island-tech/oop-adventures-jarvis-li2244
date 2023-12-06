@@ -29,7 +29,7 @@ def play():
     max_health = 100000
     health = 90000
     attack = 7
-    dodge = 8
+    dodge = 100
     defense = 10
     luck = 11
     mana = 12
@@ -152,7 +152,7 @@ class Player():
         "certain class weapons have certain spells ingrained/inscribed into them"
     def armor_equip():
         "IDK YET"
-    def attack():
+    def gui():
         print(r"""
     ╔═════════╗ ╔═════════╗ 
     ║         ║ ║         ║ 
@@ -167,13 +167,14 @@ class Player():
                 """)
         egg = input("")
         em = play()
-        em.egg() if egg == 1 else (em.run()) if egg == 2 else (em.equip()) if egg == 3 else ((em.egge)) if egg ==4 else (em.attack())
+        em.egg() if egg == "1" else (em.run()) if egg == "2" else (em.equip()) if egg == "3" else ((em.egge)) if egg == "4" else (Player.gui())
     def egg(self):
         em = play()
+        print("EGG")
         pass
     def run(self):
         em = play()
-        roll = self.dodge/100
+        roll = int(100/self.dodge)
         if random.randint(1, roll) == random.randint(1, roll):
             print(r""" 
 
@@ -231,7 +232,7 @@ class Enemy():
 peel = play()
 peel.heal_damage(10000)
 peel.health_display()
-peel.attack()
+Player.gui()
 
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 
