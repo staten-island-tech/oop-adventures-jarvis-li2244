@@ -44,20 +44,19 @@ class ActionC:
             if locationGo == "quit":
                 break
             for i in range(len(jlocation)):
+                locationNum = i
                 if jlocation[i]["location"].lower() == locationGo:
                     for j in range(len(jstory)):
                         if jstory[j]["story"].lower() == jlocation[i]["story"].lower():
                             story = jstory[j]["numEquivalent"]
-                            return story
                     for j in range(len(jstory)):
                         if jstory[j]["story"].lower() == jcharacter[characterNum]["story"].lower():
                             storyY = jstory[j]["numEquivalent"]
-                            return storyY
                     if storyY < story:
                         print("Unable to travel: Story not advanced enough.")
                         inner = 1
                     else:
-                        change.ChangeC.setLocation(locationGo)
+                        change.ChangeC.setLocation(jlocation[locationNum]["location"])
                         updateJSONC()
                         creation.Info.nlocationInfo()
                         outer = 1

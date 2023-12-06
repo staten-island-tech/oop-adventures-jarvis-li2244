@@ -31,7 +31,7 @@ with open("story.json", "r") as f:
     jstory = json.load(f)
 
 
-class ChooseC:
+class ChooseG:
     def choose():
         if len(jcharacter) != 0:
             print(""), print("All Character Info")

@@ -2,9 +2,10 @@
     {
         "id": 1,
         "name": "Jarvis",
-        "role": "Warrior",
-        "level": 36,
+        "role": "Assassin",
+        "level": 1,
         "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
-        "location": "Anthill Forest"
+        "location": "Anthill Forest",
+        "sub_location": "Dense Forest"
     }
 ]
