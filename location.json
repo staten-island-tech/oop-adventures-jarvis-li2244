@@ -10,9 +10,9 @@
     {
         "location": "Castle Walls",
         "story": "Chapter 1: A Test of Strength of Wits",
-        "center sub_location": "Castle Bridge",
+        "center sub_location": "Castle Gates",
         "quest sub_location": ["Thief's Hideout", "Hole in the Wall", "Underwater", "Spy's Campsite"],
         "event sub_location": ["Rats' Stash", "Spy's Shop", "Comfy Fire", "The Scam"],
-        "wild sub_location": "Castle Gates"
+        "wild sub_location": "Castle Towers"
     }
 ]
