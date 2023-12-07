@@ -36,13 +36,12 @@ def play():
     luck = 11
     mana = 12
     critchance = 99
-    critdmg = 1.00
-    pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg)
+    critdmg = 25
+    speed = 100
+    pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
-<<<<<<< HEAD
 
-=======
->>>>>>> 75b0d93a905c7abfd460c0bc89bf0d6bd44e5878
+
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
     health = enemies['generic_enemy1'][0]['health']
@@ -52,15 +51,13 @@ def atte():
     mana = enemies['generic_enemy1'][0]['mana']
     critchance = enemies['generic_enemy1'][0]['critchance']
     critdmg = enemies['generic_enemy1'][0]['critdmg']
-    temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg)
+    speed = enemies['generic_enemy1'][0]['speed']
+    temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
     return temp
-<<<<<<< HEAD
 def enemy_trigger():
     pass    
-=======
->>>>>>> 75b0d93a905c7abfd460c0bc89bf0d6bd44e5878
 class Player():
-    def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg):
+    def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed):
         self.id = id
         self.name = name
         self.exp = exp
@@ -74,6 +71,7 @@ class Player():
         self.mana = mana
         self.critchance = critchance
         self.critdmg = critdmg 
+        self.speed = speed
     def start_game():
         enemy = "ege"
         if enemy == True :
@@ -92,7 +90,7 @@ class Player():
             critdmg = self.critdmg/100 + 1
             critical_hit = self.attack * critdmg
             var = critical_hit
-            print("critical hit!")
+            print(f'{color_red}critical hit!{color_default}')
         elif crit == False:
             var = self.attack
         print(var)
@@ -194,37 +192,8 @@ class Player():
         pe.atk() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
     def atk(self):
         pe = play()
-<<<<<<< HEAD
         var = "TEMP"
         pe.deal_damage()
-        if len(var) == 3:
-=======
-        var = "VAR"
-        if len(var) == 4:
->>>>>>> 75b0d93a905c7abfd460c0bc89bf0d6bd44e5878
-            print(f"""
-╔══════════════════════════╗
-║           {var}           ║
-╚══════════════════════════╝
-    """)       
-        elif len(var) == 3:
-            print(f"""
-╔══════════════════════════╗
-║           {var}            ║
-╚══════════════════════════╝
-    """)
-        elif len(var) == 2:
-            print(f'''
-╔══════════════════════════╗
-║          {var}              ║
-╚══════════════════════════╝
-''')
-        elif len(var) == 1:
-            print(f'''
-╔══════════════════════════╗
-║          {var}               ║
-╚══════════════════════════╝
-            ''')
     def run(self):
         em = play()
         roll = int(100/self.dodge)
@@ -246,7 +215,7 @@ class Player():
         em = play()
         pass
 class Enemy():
-    def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg):
+    def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed):
         self.max_health = max_health
         self.health = health
         self.damage = damage
@@ -255,7 +224,7 @@ class Enemy():
         self.mana = mana
         self.critchance = critchance
         self.critdmg = critdmg
-<<<<<<< HEAD
+        self.speed = speed
     def deal_damage(self):
         crit = False
     def damage_take(self):
@@ -266,11 +235,9 @@ class Enemy():
             self.health = 0
             print("DEAD")
         print(self.health)
-=======
     def damage_take(self, damage):
         self.current_health = self.health - damage
         print(self.current_health)
->>>>>>> 75b0d93a905c7abfd460c0bc89bf0d6bd44e5878
     def health_heal(self, heal):
         self.current_health = self.health + heal
         print(self.current_health)
@@ -306,23 +273,26 @@ class Enemy():
         var = 0
         if crit == True:
             elaf = self.critdmg/100 + 1
-            critical_hit = INT(self.damage * elaf)
+            critical_hit = int(self.damage * elaf)
             var = critical_hit
             print("critical hit!")
         elif crit == False:
             var = self.damage
         print(var)
         return var
+class Turn():
+    def determine():
+        d
+        pass
+    def player_turn():
+        pass
+    def enemy_turn():
+        pass
 #somehow call var into damage positional argument
 peel = play()
 peel.health_display()
-<<<<<<< HEAD
-=======
 Player.gui()
 elephant = atte()
-elephant.action()
->>>>>>> 75b0d93a905c7abfd460c0bc89bf0d6bd44e5878
-
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
 var = 1
@@ -334,13 +304,10 @@ for i in range(6):
     if egg == 0:
         elgelg.append(False)
     elif egg != 0:
-<<<<<<< HEAD
         elgelg.append(True)
     if elgelg[x] == True:
         print(elgelg[x])
     x +=1
 print(elgelg)
 
-=======
-        print("placeholder here")
->>>>>>> 75b0d93a905c7abfd460c0bc89bf0d6bd44e5878
+print(player[0]['speed'])

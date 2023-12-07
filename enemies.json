@@ -11,6 +11,7 @@
             "mana" : 7,
             "critchance": 8, 
             "critdmg": 9,
+            "speed":100,
             "exp" : 100,
             "loot_table":[
                 {
