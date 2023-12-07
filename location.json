@@ -4,11 +4,15 @@
         "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
         "center sub_location": "The Dense Forest",
         "quest sub_location": ["Camper's Hut", "Treehouse", "The Docks", "Bunker"],
-        "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Healing Pond", "Gambler's Game"],
-        "wild sub_location": [""]
+        "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Healing Pond", "Big Bankers"],
+        "wild sub_location": "Outskirsts of Anthill Forest"
     },
     {
         "location": "Castle Walls",
-        "story": "Chapter 1: A Test of Strength of Wits"
+        "story": "Chapter 1: A Test of Strength of Wits",
+        "center sub_location": "Castle Bridge",
+        "quest sub_location": ["Thief's Hideout", "Hole in the Wall", "Underwater", "Spy's Campsite"],
+        "event sub_location": ["Rats' Stash", "Spy's Shop", "Comfy Fire", "The Scam"],
+        "wild sub_location": "Castle Gates"
     }
 ]

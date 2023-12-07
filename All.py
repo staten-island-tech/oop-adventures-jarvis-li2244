@@ -68,9 +68,9 @@ class Info:
         for i in range(len(jcharacter)):
             if jcharacter[i]["id"] == Id:
                 randvar = i
-        for i in range(len(jlocation)):
-            if i == jcharacter[randvar]["location"]:
-                print(jlocation[i])
+        for j in range(len(jlocation)):
+            if jlocation[j]["location"] == jcharacter[randvar]["location"]:
+                print(jlocation[j])
     def characterInfo():
         for i in range(len(jcharacter)):
             if jcharacter[i]["id"] == Id:
@@ -1161,7 +1161,6 @@ class ActionC:
             if locationGo == "quit":
                 break
             for i in range(len(jlocation)):
-                print("TEST")
                 if jlocation[i]["location"].lower() == locationGo:
                     locationNum = i
                     for j in range(len(jstory)):
@@ -1176,6 +1175,7 @@ class ActionC:
                         inner = 1
                     else:
                         ChangeC.setLocation(jlocation[locationNum]["location"])
+                        ChangeC.setSub_Location(jlocation[locationNum]["center sub_location"])
                         updateJSONC()
                         Info.nlocationInfo()
                         outer = 1
@@ -1335,4 +1335,4 @@ def updateJSONIS():
     os.rename(new_file, "inventorys.json")
 
 ChooseG.choose()
-ChangeC.setLevel()
+ActionC.locationSwitch()
