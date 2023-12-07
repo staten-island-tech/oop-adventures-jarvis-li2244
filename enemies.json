@@ -2,8 +2,8 @@
     "generic_enemy1": [
         {
             "names" : "EGG",
-            "max_health" : 1,
-            "health" : 2,
+            "max_health" : 800,
+            "health" : 200,
             "damage" : 3,
             "dodge" : 4,
             "defense" : 5,

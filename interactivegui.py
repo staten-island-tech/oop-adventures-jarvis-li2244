@@ -28,18 +28,18 @@ def play():
     name = "pe"
     exp = 3
     stat_point = 1221342423
-    max_health = 100000
-    health = 90000
-    attack = 7
+    max_health = 1233312111
+    health = 425841122
+    attack = 100
     dodge = 10
     defense = 10
     luck = 11
     mana = 12
-    critchance = 125
+    critchance = 99
     critdmg = 1.00
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg)
     return pe
-pe = play()
+
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
     health = enemies['generic_enemy1'][0]['health']
@@ -51,7 +51,8 @@ def atte():
     critdmg = enemies['generic_enemy1'][0]['critdmg']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg)
     return temp
-egg = atte()
+def enemy_trigger():
+    pass    
 class Player():
     def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg):
         self.id = id
@@ -66,7 +67,11 @@ class Player():
         self.luck = luck#
         self.mana = mana
         self.critchance = critchance
-        self.critdmg = critdmg
+        self.critdmg = critdmg 
+    def start_game():
+        enemy = "ege"
+        if enemy == True :
+            pass
     def critical_hit(self):
         crit = False
         roll = int(100/self.critchance)
@@ -100,9 +105,15 @@ class Player():
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
                 print(self.health)
-            return self.health
             if self.health <= 0:
-                print("YOU DIED")
+                print(r'''
+                             ____  _____    _    ____  
+                            |  _ \| ____|  / \  |  _ \ 
+                            | | | |  _|   / _ \ | | | |
+                            | |_| | |___ / ___ \| |_| |
+                            |____/|_____/_/   \_\____/
+''')
+            return self.health
     def heal_damage(self, heal):
         pe = play()
         self.health = self.health + heal
@@ -120,11 +131,13 @@ class Player():
         current1 = int((self.health/teegreg)/5)
         print(f'{color_default}PLAYER HEALTH: {self.health}/{self.max_health}')
         yes_health = current1 * "█"
-        no_health = (max1 - current1) * "▒"
-        if yes_health + no_health != 20:
-            print("EGG")
+        no_health = (max1 - current1)
+        egg = current1 + no_health
+        if egg != 20:
+            no_health += 1
+        no_health1 = (no_health)* "▒"
         print(f'{color_default}╔════════════════════╗' )
-        print(f'║\033[1;91;40m{yes_health}{no_health}{color_default}║')
+        print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
     def spell(self):
         mana = self.mana
@@ -176,6 +189,7 @@ class Player():
     def atk(self):
         pe = play()
         var = "TEMP"
+        pe.deal_damage()
         if len(var) == 3:
             print(f"""
 ╔══════════════════════════╗
@@ -225,9 +239,14 @@ class Enemy():
         self.critdmg = critdmg
     def deal_damage(self):
         crit = False
-    def damage_take(self, damage):
-        self.current_health = self.health - damage
-        print(self.current_health)
+    def damage_take(self):
+        pe = play()
+        damage = pe.deal_damage()
+        self.health = self.health - damage
+        if self.health <= 0:
+            self.health = 0
+            print("DEAD")
+        print(self.health)
     def health_heal(self, heal):
         self.current_health = self.health + heal
         print(self.current_health)
@@ -237,7 +256,7 @@ class Enemy():
         teegreg = max/100
         max1 =int(max/teegreg)
         current1 = int(current/teegreg)
-        print(f'{color_default}PLAYER HEALTH: {current}/{max}')
+        print(f'{color_default}ENEMY HEALTH: {current}/{max}')
         yes_health = int(current1/5) * "█"
         no_health = int((max1 - current1)/5) * "▒"
         print(f'{color_default}╔════════════════════╗' )
@@ -270,20 +289,22 @@ class Enemy():
         return var
 #somehow call var into damage positional argument
 peel = play()
-peel.heal_damage(10000)
 peel.health_display()
-Player.gui()
-egg.action()
 
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
-
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
 var = 1
+x = 0
+elgelg = []
 for i in range(6):
     egg = inventorye[f'slot{var}'][0]['name']
     var+=1
     if egg == 0:
-        print("empty slot")
+        elgelg.append(False)
     elif egg != 0:
-        print("placeholder here")
+        elgelg.append(True)
+    if elgelg[x] == True:
+        print(elgelg[x])
+    x +=1
+print(elgelg)
 
