@@ -1169,7 +1169,6 @@ class ActionC:
                     for j in range(len(jstory)):
                         if jstory[j]["story"] == jcharacter[characterNum]["story"]:
                             storyY = jstory[j]["numEquivalent"]
-                    print(storyY, story)
                     if storyY < story:
                         print("Unable to travel: Story not advanced enough.")
                         inner = 1
@@ -1335,4 +1334,5 @@ def updateJSONIS():
     os.rename(new_file, "inventorys.json")
 
 ChooseG.choose()
+ChangeC.setStory("Chapter 6: The End?")
 ActionC.locationSwitch()

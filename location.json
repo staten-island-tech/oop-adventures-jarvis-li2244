@@ -2,8 +2,8 @@
     {
         "location": "Anthill Forest",
         "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
-        "center sub_location": "The Dense Forest",
-        "quest sub_location": ["Camper's Hut", "Treehouse", "The Docks", "Bunker"],
+        "center sub_location": "The Myrminki Village",
+        "quest sub_location": ["The Myrminkian Assembly", "The Treehouse", "The Docks", "The Cuniculum Bunker"],
         "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Healing Pond", "Big Bankers"],
         "wild sub_location": "Outskirsts of Anthill Forest"
     },
@@ -11,8 +11,48 @@
         "location": "Castle Walls",
         "story": "Chapter 1: A Test of Strength of Wits",
         "center sub_location": "Castle Gates",
-        "quest sub_location": ["Thief's Hideout", "Hole in the Wall", "Underwater", "Spy's Campsite"],
+        "quest sub_location": ["The Thief's Hideout", "A Hole in the Wall", "Underwater", "The Spy's Campsite"],
         "event sub_location": ["Rats' Stash", "Spy's Shop", "Comfy Fire", "The Scam"],
         "wild sub_location": "Castle Towers"
+    },
+    {
+        "location": "Residency Area",
+        "story": "Chapter 2: A Trust built upon Salvation",
+        "center sub_location": "The Camp of Purication",
+        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "wild sub_location": "Guard Patrol Area"
+    },
+    {
+        "location": "Castle Quarters",
+        "story": "Chapter 3: A Sneaky Infiltration, gone wrong..?",
+        "center sub_location": "The Fountain of Life",
+        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "wild sub_location": "Castle Bases"
+    },
+    {
+        "location": "Royal Garden",
+        "story": "Chapter 4: A Distracting Discovery",
+        "center sub_location": "The Statue of the King",
+        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "wild sub_location": "Deserted Plantation"
+    },
+    {
+        "location": "Royal Palace",
+        "story": "Chapter 5: The Long-Awaited Showdown",
+        "center sub_location": "The Palace Entrance",
+        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "wild sub_location": "The Throne Room"
+    },
+    {
+        "location": "Cellars",
+        "story": "Chapter 6: The End?",
+        "center sub_location": "Spiral Staircase",
+        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "wild sub_location": "The Forbidden Area"
     }
 ]
