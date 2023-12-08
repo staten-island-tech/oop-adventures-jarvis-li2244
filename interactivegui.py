@@ -250,7 +250,7 @@ class Enemy():
                 print(self.health)
         return self.health
     def health_heal(self):
-        heal = self.health/3
+        heal = self.max_health/3
         self.health = self.health + heal
         print(self.health)
         return self.health
@@ -298,6 +298,7 @@ with open('enemyinstance.json', 'r') as g:
     egg = json.load(g)
     lemon = atte()
     elpehant = lemon.health_heal()
+
     egg['generic_enemy1'][0]['health'] = elpehant
 with open('enemyinstance.json', 'w') as f:
     f.write(json.dumps(egg))
