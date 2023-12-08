@@ -12,9 +12,8 @@ color_yellow = "\33[93m"
 color_grey = "\33[37m"
 color_default = "\033[0m"
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
-#healing overflow(resolved)
-#
-with open('enemies.json','r') as f:
+#healing overflow(resolved) 
+with open('enemyinstance.json') as f:
     enemies = json.load(f)
 with open('attacks.json') as i:
     attacks = json.load(i)
@@ -41,10 +40,9 @@ def play():
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
 
-
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
-    health = enemies['generic_enemy1'][0]['health']
+    health = enemies['generic_enemy1'][0]['max_health']
     damage = enemies['generic_enemy1'][0]['damage']
     dodge = enemies['generic_enemy1'][0]['dodge']
     defense = enemies['generic_enemy1'][0]['defense']
@@ -190,6 +188,7 @@ class Player():
         egg = input("")
         pe = play()
         pe.atk() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
+        return True
     def atk(self):
         pe = play()
         var = "TEMP"
@@ -235,12 +234,26 @@ class Enemy():
             self.health = 0
             print("DEAD")
         print(self.health)
-    def damage_take(self, damage):
-        self.current_health = self.health - damage
-        print(self.current_health)
-    def health_heal(self, heal):
-        self.current_health = self.health + heal
-        print(self.current_health)
+    def take_damage(self, damage):
+        pe = play()
+        dod = pe.doge()
+        df = self.defense
+        if dod == False:
+            print("DODGED")
+        else:
+            if df == 0:
+                self.health = self.health - damage
+            elif df != 0:
+                multiplier = self.defense * 0.01
+                dmg = damage - damage * multiplier
+                self.health = self.health - dmg
+                print(self.health)
+        return self.health
+    def health_heal(self):
+        heal = self.health/3
+        self.health = self.health + heal
+        print(self.health)
+        return self.health
     def health_display(self):
         max = self.max_health
         current = self.health
@@ -256,11 +269,12 @@ class Enemy():
     def action(self):
         egg = atte()
         if self.health < self.max_health/2:
-            roll = 100/self.dodge
+            roll = int(100/self.dodge)
             if random.randint(1, roll) == random.randint(1, roll):
                 egg.health_heal()
         else:   
             egg.deal_damage()
+        return True
     def critical_hit(self):
         crit = False
         roll = int(100/self.critchance)
@@ -280,19 +294,36 @@ class Enemy():
             var = self.damage
         print(var)
         return var
+with open('enemyinstance.json', 'r') as g:
+    egg = json.load(g)
+    lemon = atte()
+    elpehant = lemon.health_heal()
+    egg['generic_enemy1'][0]['health'] = elpehant
+with open('enemyinstance.json', 'w') as f:
+    f.write(json.dumps(egg))
 class Turn():
     def determine():
-        d
-        pass
+        psp = player[0]['speed']
+        esp = enemies['generic_enemy1'][0]['speed']
+        if esp < psp:
+            Turn.player_turn()
+        elif esp > psp:
+            Turn.enemy_turn()
     def player_turn():
-        pass
+        et = play()
+        egg = atte()
+        if player[0]['health'] != 0:
+            et.health_display()
+            Player.gui()
+            et.heal_damage(10000)
+            Turn.enemy_turn()
     def enemy_turn():
-        pass
+        egg = atte()
+        egg.action()
+        egg.health_display()
+        Turn.player_turn()        
 #somehow call var into damage positional argument
-peel = play()
-peel.health_display()
-Player.gui()
-elephant = atte()
+Turn.determine()
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
 var = 1
