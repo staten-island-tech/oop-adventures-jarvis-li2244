@@ -42,7 +42,7 @@ def play():
 
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
-    health = enemies['generic_enemy1'][0]['max_health']
+    health = enemies['generic_enemy1'][0]['health']
     damage = enemies['generic_enemy1'][0]['damage']
     dodge = enemies['generic_enemy1'][0]['dodge']
     defense = enemies['generic_enemy1'][0]['defense']
@@ -250,9 +250,11 @@ class Enemy():
                 print(self.health)
         return self.health
     def health_heal(self):
-        heal = self.max_health/3
-        self.health = self.health + heal
-        print(self.health)
+        heal = 100
+        self.health += heal
+        if self.health > self.max_health:
+            eggg = self.max_health - self.health
+            self.health - eggg
         return self.health
     def health_display(self):
         max = self.max_health
@@ -272,7 +274,7 @@ class Enemy():
             roll = int(100/self.dodge)
             if random.randint(1, roll) == random.randint(1, roll):
                 egg.health_heal()
-        else:   
+        else: 
             egg.deal_damage()
         return True
     def critical_hit(self):
@@ -289,7 +291,7 @@ class Enemy():
             elaf = self.critdmg/100 + 1
             critical_hit = int(self.damage * elaf)
             var = critical_hit
-            print("critical hit!")
+            print("enemy critical hit!")
         elif crit == False:
             var = self.damage
         print(var)
@@ -298,7 +300,6 @@ with open('enemyinstance.json', 'r') as g:
     egg = json.load(g)
     lemon = atte()
     elpehant = lemon.health_heal()
-
     egg['generic_enemy1'][0]['health'] = elpehant
 with open('enemyinstance.json', 'w') as f:
     f.write(json.dumps(egg))
@@ -316,13 +317,13 @@ class Turn():
         if player[0]['health'] != 0:
             et.health_display()
             Player.gui()
-            et.heal_damage(10000)
+            et.heal_damage(1)
             Turn.enemy_turn()
     def enemy_turn():
         egg = atte()
-        egg.action()
         egg.health_display()
-        Turn.player_turn()        
+        egg.action()
+        Turn.player_turn()
 #somehow call var into damage positional argument
 Turn.determine()
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
