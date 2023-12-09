@@ -22,7 +22,7 @@ with open('player.json') as w:
     player = json.load(w)
 with open('inventorye.json') as el:
     inventorye = json.load(el)
-
+player_class = "Warrior"
 #simulating player class here : this isn't going to be permanant once branches get merged, just testing 
 def play():
     id = 1
@@ -72,8 +72,8 @@ class Player():
         self.defense = defense
         self.luck = luck#
         self.mana = mana
-        self.critchance = critchance
-        self.critdmg = critdmg 
+        self.critchance = critchance#
+        self.critdmg = critdmg#
         self.speed = speed
     def start_game():
         em = play()
@@ -88,17 +88,19 @@ class Player():
     def deal_damage(self):
         pe = play()
         crit = pe.critical_hit()
-        var = 0
+        damage_dealt_player = 0
         if crit == True:
             critdmg = self.critdmg/100 + 1
             critical_hit = self.attack * critdmg
-            var = critical_hit
+            damage_dealt_player = critical_hit
             print(f'{color_red}critical hit!{color_default}')
         elif crit == False:
-            var = self.attack
-        print(var)
-        return var
-    def take_damage(self, damage):
+            damage_dealt_player = self.attack
+        print(damage_dealt_player)
+        return damage_dealt_player
+    def take_damage(self):
+        egg = atte()
+        damage = egg.deal_damage()
         pe = play()
         dod = pe.doge()
         df = self.defense
@@ -196,8 +198,8 @@ class Player():
         return True
     def atk(self):
         pe = play()
-        var = "TEMP"
-        pe.deal_damage()
+        player_class = "Warrior"
+        pe.deal_damage() if player_class == "Warrior" else(pe.deal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
     def run(self):
         em = play()
         roll = int(100/self.dodge)
@@ -256,12 +258,15 @@ class Enemy():
                 print(self.health)
         return self.health
     def health_heal(self):
+        en = atte()
         heal = 100
         self.health += heal
         if self.health > self.max_health:
             eggg = self.max_health - self.health
             self.health - eggg
+        en.health_display()
         return self.health
+        
     def health_display(self):
         max = self.max_health
         current = self.health
@@ -321,44 +326,32 @@ class Turn():
         psp = player[0]['speed']
         esp = enemies['generic_enemy1'][0]['speed']
         if esp < psp:
-            return False
+            Turn.tempvar()
         elif esp > psp:
-            return True
-    def player_turn():
-        et = play()
-        egg = atte()
-        if player[0]['health'] != 0:
-            et.health_display()
-            Player.gui()
-            et.heal_damage(1)
-            Turn.enemy_turn()
-            g.seek(0)
-        elif player[0]['health'] <= 0:
-            print("YOU DIED")
-            print(r'''
+            Turn.tempvar2()
+    def tempvar():
+        em = play()
+        eaf = player[0]['health']
+        if eaf < 0:
+                print("DEAD")
+                print(r'''
 ╔═════════════════════════════════════╗ 
 ║    RETURNING TO LAST CHECKPOINT     ║
 ╚═════════════════════════════════════╝
 ''')
-    def enemy_turn():
-        egg = atte()
-        egg.health_display()
-        egg.action()
-        Turn.player_turn()
-        g.seek(0)
-    def tempvar():
-        em = play()
-        eaf = player[0]['health']
-        idk = Turn.determine()
-        while eaf != 0:
-            if eaf < 0:
-                print("DEAD")
-            else:
+        else:
                 print("FUNCTIONING")
                 Player.start_game()
-                eaf -=1
-            return False 
+                Turn.tempvar2
+    def tempvar2():
+            lm = atte()
+            eaf2 = enemies['generic_enemy1'][0]['health']
 
+            if eaf2 < 0:
+                    print("DEAD")
+            else:
+                    print("FUNCTIONING")
+                    lm.action()
             
             
             
