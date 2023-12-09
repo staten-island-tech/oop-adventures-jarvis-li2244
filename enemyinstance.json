@@ -1,1 +1,1 @@
-{"generic_enemy1": [{"names": "EGG", "max_health": 10000000, "health": 400, "damage": 3, "dodge": 4, "defense": 5, "atkspd": 6, "mana": 7, "critchance": 100, "critdmg": 9, "speed": 100, "exp": 100, "loot_table": [{"generic_loot1": 1, "generic_loot2": 0.01, "generic_loot3": 0.1}]}]}
+{"generic_enemy1": [{"names": "EGG", "max_health": 10000000, "health": 1000, "damage": 3, "dodge": 4, "defense": 5, "atkspd": 6, "mana": 7, "critchance": 100, "critdmg": 9, "speed": 100, "exp": 100, "loot_table": [{"generic_loot1": 1, "generic_loot2": 0.01, "generic_loot3": 0.1}]}]}
