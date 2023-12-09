@@ -1,4 +1,5 @@
 import json
+import time
 import random
 color_red = "\033[91m"
 color_purple = "\33[95m"
@@ -281,12 +282,25 @@ class Enemy():
         print(f'{color_default}╚════════════════════╝' )
     def action(self):
         egg = atte()
+        print("ATTACK")
+        print(r"""
+    GHOST ATTACK!!!
+          ___
+        \/   \/
+        |\o o/|  
+        |  0  |
+        \     |
+         \    /
+          \  / 
+           \|
+           """)
         if self.health < self.max_health/2:
             roll = int(100/self.dodge)
             if random.randint(1, roll) == random.randint(1, roll):
                 egg.health_heal()
         else: 
             egg.deal_damage()
+            
         return True
     def critical_hit(self): 
         crit = False
@@ -340,18 +354,20 @@ class Turn():
 ╚═════════════════════════════════════╝
 ''')
         else:
-                print("FUNCTIONING")
+                print("PLAYER")
                 Player.start_game()
-                Turn.tempvar2
+                Turn.tempvar2()
     def tempvar2():
             lm = atte()
             eaf2 = enemies['generic_enemy1'][0]['health']
-
             if eaf2 < 0:
                     print("DEAD")
             else:
-                    print("FUNCTIONING")
+                    print("ENEMY")
+                    time.sleep(1.5)
                     lm.action()
+                    time.sleep(1.5)
+                    Turn.tempvar()
             
             
             
