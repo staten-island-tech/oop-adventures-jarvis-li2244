@@ -15,7 +15,7 @@ color_default = "\033[0m"
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 #healing overflow(resolved) 
 with open('enemyinstance.json','r+')as f:
-    enemies = json.load(f)
+    enemies1 = json.load(f)
 with open('attacks.json') as i:
     attacks = json.load(i)
 with open('player.json') as w:
@@ -24,32 +24,31 @@ with open('inventorye.json') as el:
     inventorye = json.load(el)
 player_class = "Warrior"
 def play():
-    id = 1
-    name = "pe"
-    exp = 3
-    stat_point = 1221342423
-    max_health = 1233312111
-    health = 425841122
-    attack = 100
-    dodge = 10
-    defense = 10
-    luck = 11
-    mana = 12
-    critchance = 99
-    critdmg = 25
-    speed = 100
+    with open('player.json', 'r+') as f:
+        plays = json.load(f)
+    id = player[0]['id']
+    name = player[0]['name']
+    exp = player[0]['exp']
+    stat_point = player[0]['stat_point']
+    max_health = player[0]['max_health']
+    health = player[0]['health']
+    attack = player[0]['attac']
+    dodge = player[0]['dodge']
+    defense = player[0]['defense']
+    luck = player[0]['luck']
+    mana = player[0]['mana']
+    critchance = player[0]['critchance']
+    critdmg = player[0]['critdmg']
+    speed = player[0]['speed']
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
 
-
-def file_refresh():
-    with open('enemyinstance.json','r')as f:
-        enemies = json.load(f)
 def location():
     sub_location = "EGG"
 
 def atte():
-    file_refresh()
+    with open('enemyinstance.json', 'r+') as e:
+        enemies = json.load(e)
     max_health = enemies['generic_enemy1'][0]['max_health']
     health = enemies['generic_enemy1'][0]['health']
     damage = enemies['generic_enemy1'][0]['damage']
@@ -60,7 +59,6 @@ def atte():
     critdmg = enemies['generic_enemy1'][0]['critdmg']
     speed = enemies['generic_enemy1'][0]['speed']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
-    print(health)
     return temp
 def enemy_trigger():
     pass    
@@ -237,8 +235,7 @@ class Enemy():
         self.critchance = critchance
         self.critdmg = critdmg
         self.speed = speed
-    def deal_damage(self):
-        crit = False
+
     def doge(self):
         dod = self.dodge
         egg = True
@@ -248,7 +245,6 @@ class Enemy():
                 egg = False
         return egg
     def take_damage(self, damage):
-        file_refresh()
         pe = atte()
         dod = pe.doge()
         df = self.defense
@@ -261,26 +257,29 @@ class Enemy():
                 multiplier = self.defense * 0.01
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
-                print(self.health)
+                print(f'take damage{self.health}')
         Enemy.health_modify(self.health)
         return self.health
     def health_heal(self):
-        file_refresh()
         en = atte()
         heal = 100
         self.health += heal
         if self.health > self.max_health:
             eggg = self.max_health - self.health
             self.health - eggg
-        print(self.health)
-        print(enemies['generic_enemy1'][0]['health'])
+        print(f'heal:{self.health}')
+        print(enemies1['generic_enemy1'][0]['health'])
         Enemy.health_modify(self.health)
+        en.health_display()
         return self.health
     def health_display(self):
+        with open('enemyinstance.json', 'r') as id:
+            ide = json.load(id)
+        healthjson = ide['generic_enemy1'][0]['health']
         teegreg = self.max_health/100
         max1 = int((self.max_health/teegreg)/5)
-        current1 = int((self.health/teegreg)/5)
-        print(f'{color_default}ENEMY HEALTH: {self.health}/{self.max_health}')
+        current1 = int((healthjson/teegreg)/5)
+        print(f'{color_default}ENEMY HEALTH: {healthjson}/{self.max_health}')
         yes_health = current1 * "█"
         no_health = (max1 - current1)
         egg = current1 + no_health
@@ -291,7 +290,7 @@ class Enemy():
         print(f'║\033[1;91;34m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
     def enemy_show():
-        egg == atte()
+        egg = atte()
         print(r"""
     GHOST ATTACK!!!
           ___
@@ -314,7 +313,6 @@ class Enemy():
     def action(self):
         egg = atte()
         print("ATTACK")
-        egg.health_display()
         if self.health < self.max_health/2:
             roll = int(100/self.dodge)
             if random.randint(1, roll) == random.randint(1, roll):
@@ -331,6 +329,8 @@ class Enemy():
         return crit
     def deal_damage(self):
         egg = atte()
+        player = play()
+    
         crit = egg.critical_hit()
         var = 0
         if crit == True:
@@ -340,7 +340,8 @@ class Enemy():
             print("enemy critical hit!")
         elif crit == False:
             var = self.damage
-        print(var)
+        player.take_damage(var)
+        print(var)  
         return var
     def display():
         #gonna create a new index for sprites 
@@ -352,7 +353,7 @@ class Turn():
     em = play()
     def determine():
         psp = player[0]['speed']
-        esp = enemies['generic_enemy1'][0]['speed']
+        esp = enemies1['generic_enemy1'][0]['speed']
         if esp < psp:
             Turn.tempvar()
         elif esp > psp:
@@ -370,15 +371,29 @@ class Turn():
         else:
                 print("PLAYER")
                 Player.start_game()
+                print("""
+ 
+
+ 
+ 
+
+
+
+
+  
+
+ 
+""")
                 Turn.tempvar2()
 
     def tempvar2():
             lm = atte()
-            eaf2 = enemies['generic_enemy1'][0]['health']
-            if eaf2 < 0:
+            eaf2 = enemies1['generic_enemy1'][0]['health']
+            if eaf2 <= 0:
                     print("DEAD")
             else:
                     print("ENEMY")
+                    Enemy.enemy_show()
                     time.sleep(1.5)
                     lm.action()
                     time.sleep(1.5)

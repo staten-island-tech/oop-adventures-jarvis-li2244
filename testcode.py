@@ -1,7 +1,7 @@
 import time
 import json
 
-def zaza():
+"""def zaza():
     with open('player.json', 'r') as g:
         egg = json.load(g)
         print(egg[0]['health'])
@@ -21,4 +21,18 @@ def functioning():
         time.sleep(0)
 
 
-functioning()
+functioning()"""
+
+def egg():
+    var = 0
+    egg = var + 1
+    print(egg)
+    return egg
+def call_function():
+    lel = egg()
+    hp = 2
+    hp -= lel
+    print(hp)
+
+egg()
+call_function()
