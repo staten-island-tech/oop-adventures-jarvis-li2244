@@ -43,12 +43,13 @@ def play():
 
 
 def file_refresh():
-    with open('enemyinstance.json','r+')as f:
+    with open('enemyinstance.json','r')as f:
         enemies = json.load(f)
 def location():
     sub_location = "EGG"
 
 def atte():
+    file_refresh()
     max_health = enemies['generic_enemy1'][0]['max_health']
     health = enemies['generic_enemy1'][0]['health']
     damage = enemies['generic_enemy1'][0]['damage']
@@ -59,6 +60,7 @@ def atte():
     critdmg = enemies['generic_enemy1'][0]['critdmg']
     speed = enemies['generic_enemy1'][0]['speed']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
+    print(health)
     return temp
 def enemy_trigger():
     pass    
@@ -100,10 +102,11 @@ class Player():
         elif crit == False:
             damage_dealt_player = self.attack
         print(damage_dealt_player)
-        return damage_dealt_player
-    def take_damage(self):
         egg = atte()
-        damage = egg.deal_damage()
+        egg.take_damage(damage_dealt_player)
+        return damage_dealt_player
+    def take_damage(self, damage):
+        egg = atte()
         pe = play()
         dod = pe.doge()
         df = self.defense
@@ -125,6 +128,7 @@ class Player():
                             | |_| | |___ / ___ \| |_| |
                             |____/|_____/_/   \_\____/
 ''')
+            pe.health_display()
             return self.health
     def heal_damage(self, heal):
         pe = play()
@@ -235,16 +239,17 @@ class Enemy():
         self.speed = speed
     def deal_damage(self):
         crit = False
-    def damage_take(self):
-        pe = play()
-        damage = pe.deal_damage()
-        self.health = self.health - damage
-        if self.health <= 0:
-            self.health = 0
-            print("DEAD")
-        print(self.health)
+    def doge(self):
+        dod = self.dodge
+        egg = True
+        if dod != 0:
+            egg = int(100/dod)
+            if random.randint(1, egg) == random.randint(1, egg):
+                egg = False
+        return egg
     def take_damage(self, damage):
-        pe = play()
+        file_refresh()
+        pe = atte()
         dod = pe.doge()
         df = self.defense
         if dod == False:
@@ -257,17 +262,19 @@ class Enemy():
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
                 print(self.health)
+        Enemy.health_modify(self.health)
         return self.health
     def health_heal(self):
+        file_refresh()
         en = atte()
         heal = 100
         self.health += heal
         if self.health > self.max_health:
             eggg = self.max_health - self.health
             self.health - eggg
-        en.health_display()
         print(self.health)
-        enemies['generic_enemy1'][0]['health'] = self.health
+        print(enemies['generic_enemy1'][0]['health'])
+        Enemy.health_modify(self.health)
         return self.health
     def health_display(self):
         teegreg = self.max_health/100
@@ -283,10 +290,8 @@ class Enemy():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;34m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
-    def action(self):
-        egg = atte()
-        egg.health_display()
-        print("ATTACK")
+    def enemy_show():
+        egg == atte()
         print(r"""
     GHOST ATTACK!!!
           ___
@@ -298,6 +303,18 @@ class Enemy():
           \  / 
            \|
            """)
+        egg.health_display()
+    def health_modify(health_change):
+        with open('enemyinstance.json', 'r+') as r:
+            egg = json.load(r)
+            egg['generic_enemy1'][0]['health'] = health_change
+        with open('enemyinstance.json','w') as i:
+            i.write(json.dumps(egg))
+            i.seek(0)
+    def action(self):
+        egg = atte()
+        print("ATTACK")
+        egg.health_display()
         if self.health < self.max_health/2:
             roll = int(100/self.dodge)
             if random.randint(1, roll) == random.randint(1, roll):
@@ -330,8 +347,6 @@ class Enemy():
         pass
     def drops(self):
         pass 
-
-
 
 class Turn():
     em = play()
@@ -368,12 +383,11 @@ class Turn():
                     lm.action()
                     time.sleep(1.5)
                     Turn.tempvar()
-            
-            
-            
+                    
+                    
 #somehow call var into damage positional argument
+
 Turn.determine()
-Turn.tempvar()
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
 var = 1
@@ -390,5 +404,3 @@ for i in range(6):
         print(elgelg[x])
     x +=1
 print(elgelg)
-
-print(player[0]['speed'])
