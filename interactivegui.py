@@ -16,7 +16,6 @@ color_default = "\033[0m"
 #healing overflow(resolved) 
 with open('enemyinstance.json','r+')as f:
     enemies = json.load(f)
-    f.flush()
 with open('attacks.json') as i:
     attacks = json.load(i)
 with open('player.json') as w:
@@ -24,7 +23,6 @@ with open('player.json') as w:
 with open('inventorye.json') as el:
     inventorye = json.load(el)
 player_class = "Warrior"
-#simulating player class here : this isn't going to be permanant once branches get merged, just testing 
 def play():
     id = 1
     name = "pe"
@@ -43,12 +41,16 @@ def play():
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
 
+
+def file_refresh():
+    with open('enemyinstance.json','r+')as f:
+        enemies = json.load(f)
 def location():
     sub_location = "EGG"
 
 def atte():
     max_health = enemies['generic_enemy1'][0]['max_health']
-    health = 900
+    health = enemies['generic_enemy1'][0]['health']
     damage = enemies['generic_enemy1'][0]['damage']
     dodge = enemies['generic_enemy1'][0]['dodge']
     defense = enemies['generic_enemy1'][0]['defense']
@@ -181,17 +183,15 @@ class Player():
     def armor_equip():
         "IDK YET"
     def gui():
+        egg = play()
+        egg.health_display()
         print(r"""
-    ╔═════════╗ ╔═════════╗ 
-    ║         ║ ║         ║ 
-    ║   ATK   ║ ║   RUN   ║ 
-    ║         ║ ║         ║   
-    ╚═════════╝ ╚═════════╝ 
-    ╔═════════╗ ╔═════════╗
-    ║         ║ ║         ║
-    ║  EQUIP  ║ ║  ITEMS  ║
-    ║         ║ ║         ║  
-    ╚═════════╝ ╚═════════╝
+╔═════════╗ ╔═════════╗ ╔═════════╗ ╔═════════╗
+║         ║ ║         ║ ║         ║ ║         ║
+║   ATK   ║ ║   RUN   ║ ║  EQUIP  ║ ║  ITEMS  ║
+║         ║ ║         ║ ║         ║ ║         ║  
+╚═════════╝ ╚═════════╝ ╚═════════╝ ╚═════════╝
+
                 """)
         egg = input("")
         pe = play()
@@ -266,22 +266,26 @@ class Enemy():
             eggg = self.max_health - self.health
             self.health - eggg
         en.health_display()
+        print(self.health)
+        enemies['generic_enemy1'][0]['health'] = self.health
         return self.health
-        
     def health_display(self):
-        max = self.max_health
-        current = self.health
-        teegreg = max/100
-        max1 =int(max/teegreg)
-        current1 = int(current/teegreg)
-        print(f'{color_default}ENEMY HEALTH: {current}/{max}')
-        yes_health = int(current1/5) * "█"
-        no_health = int((max1 - current1)/5) * "▒"
+        teegreg = self.max_health/100
+        max1 = int((self.max_health/teegreg)/5)
+        current1 = int((self.health/teegreg)/5)
+        print(f'{color_default}ENEMY HEALTH: {self.health}/{self.max_health}')
+        yes_health = current1 * "█"
+        no_health = (max1 - current1)
+        egg = current1 + no_health
+        if egg != 20:
+            no_health += 1
+        no_health1 = (no_health)* "▒"
         print(f'{color_default}╔════════════════════╗' )
-        print(f'║\033[1;91;40m{yes_health}{no_health}{color_default}║')
+        print(f'║\033[1;91;34m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
     def action(self):
         egg = atte()
+        egg.health_display()
         print("ATTACK")
         print(r"""
     GHOST ATTACK!!!
@@ -326,14 +330,9 @@ class Enemy():
         pass
     def drops(self):
         pass 
-with open('enemyinstance.json', 'r') as g:
-    egg = json.load(g)
-    lemon = atte()
-    elpehant = lemon.health_heal()
-    egg['generic_enemy1'][0]['health'] = elpehant
-    g.seek(0)
-with open('enemyinstance.json', 'w') as f:
-    f.write(json.dumps(egg))
+
+
+
 class Turn():
     em = play()
     def determine():
@@ -357,6 +356,7 @@ class Turn():
                 print("PLAYER")
                 Player.start_game()
                 Turn.tempvar2()
+
     def tempvar2():
             lm = atte()
             eaf2 = enemies['generic_enemy1'][0]['health']

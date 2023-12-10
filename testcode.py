@@ -1,11 +1,14 @@
-import os
-import sys
+import json
 
-def like_cheese():
-    var = input("Hi! I like cheese! Do you like cheese?").lower()
-    if var == "yes":
-        print("That's awesome!")
 
-if __name__ == '__main__':
-    like_cheese()
-    os.execv(__file__, sys.argv)
+
+with open('player.json', 'r') as g:
+    egg = json.load(g)
+    print(egg[0]['health'])
+    egg[0]['health'] = 100
+with open('player.json', 'w') as f:
+    f.write(json.dumps(egg))
+
+with open('player.json', 'r') as g:
+    egg = json.load(g)
+    print(egg[0]['health'])
