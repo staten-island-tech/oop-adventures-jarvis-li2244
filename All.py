@@ -1181,6 +1181,11 @@ class ActionC:
                         inner = 1
             if inner == 0:
                 print("That location does not exist.")
+    def sub_locationSwitch():
+        ChangeC.characterNum()
+        for i in range(len(jlocation)):
+            if jlocation[i]["location"] == 
+        outer = 0
 
 class ActionS:
     def stat_pointsSpend(stat_points):
