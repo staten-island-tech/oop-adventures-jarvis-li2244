@@ -29,10 +29,10 @@ def play():
     id = player[0]['id']
     name = player[0]['name']
     exp = player[0]['exp']
-    stat_point = player[0]['stat_point']
+    stat_point = player[0]['stat_points']
     max_health = player[0]['max_health']
     health = player[0]['health']
-    attack = player[0]['attac']
+    attack = player[0]['attack']
     dodge = player[0]['dodge']
     defense = player[0]['defense']
     luck = player[0]['luck']
@@ -126,10 +126,16 @@ class Player():
                             | |_| | |___ / ___ \| |_| |
                             |____/|_____/_/   \_\____/
 ''')
-            pe.health_display()
-            return self.health
-    def heal_damage(self, heal):
+                Player.health_modify(0)
+                pe.health_display()
+                return False
+            else:
+                pe.health_display()
+                Player.health_modify(self.health)
+                return True
+    def heal_damage(self):
         pe = play()
+        heal = 100
         self.health = self.health + heal
         if self.health > self.max_health:
             egg = self.health - self.health
@@ -137,13 +143,17 @@ class Player():
         self.health = self.health
         print(self.health)
         pe.health_display()
+        Player.health_modify(self.health)
         return self.health
     def health_display(self):
+        with open('player.json', 'r+') as i:
+            plays = json.load(i)
+        regular_health = plays[0]['health']
         #we can prob check if the amount of characters in the healthbar is equal to 20 or whtev and if not we just add another value to the end of it
         teegreg = self.max_health/100
         max1 = int((self.max_health/teegreg)/5)
-        current1 = int((self.health/teegreg)/5)
-        print(f'{color_default}PLAYER HEALTH: {self.health}/{self.max_health}')
+        current1 = int((regular_health/teegreg)/5)
+        print(f'{color_default}PLAYER HEALTH: {regular_health}/{self.max_health}')
         yes_health = current1 * "█"
         no_health = (max1 - current1)
         egg = current1 + no_health
@@ -153,6 +163,13 @@ class Player():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
+    def health_modify(health_change):
+        with open('player.json', 'r+') as r:
+            unique_variable = json.load(r)
+            unique_variable[0]['health'] = health_change
+        with open('player.json','w') as i:
+            i.write(json.dumps(unique_variable))
+            i.seek(0)
     def spell(self):
         mana = self.mana
         egg = input("")
@@ -193,7 +210,6 @@ class Player():
 ║   ATK   ║ ║   RUN   ║ ║  EQUIP  ║ ║  ITEMS  ║
 ║         ║ ║         ║ ║         ║ ║         ║  
 ╚═════════╝ ╚═════════╝ ╚═════════╝ ╚═════════╝
-
                 """)
         egg = input("")
         pe = play()
@@ -202,7 +218,7 @@ class Player():
     def atk(self):
         pe = play()
         player_class = "Warrior"
-        pe.deal_damage() if player_class == "Warrior" else(pe.deal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
+        pe.deal_damage() if player_class == "Warrior" else(pe.heal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
     def run(self):
         em = play()
         roll = int(100/self.dodge)
@@ -245,6 +261,9 @@ class Enemy():
                 egg = False
         return egg
     def take_damage(self, damage):
+        with open('enemyinstance.json', 'r') as id:
+            eggd = json.load(id)
+        healthjson = eggd['generic_enemy1'][0]['health']
         pe = atte()
         dod = pe.doge()
         df = self.defense
@@ -258,7 +277,10 @@ class Enemy():
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
                 print(f'take damage{self.health}')
-        Enemy.health_modify(self.health)
+        if healthjson <= 0:
+            Enemy.health_modify(0)
+        else:
+            Enemy.health_modify(self.health)
         return self.health
     def health_heal(self):
         en = atte()
@@ -359,9 +381,10 @@ class Turn():
         elif esp > psp:
             Turn.tempvar2()
     def tempvar():
-        em = play()
-        eaf = player[0]['health']
-        if eaf < 0:
+        with open('player.json','r+') as ief:
+            iea = json.load(ief)
+        eaf = iea[0]['health']
+        if eaf <= 0:
                 print("DEAD")
                 print(r'''
 ╔═════════════════════════════════════╗ 
