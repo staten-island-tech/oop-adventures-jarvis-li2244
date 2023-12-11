@@ -251,7 +251,6 @@ class Enemy():
         self.critchance = critchance
         self.critdmg = critdmg
         self.speed = speed
-
     def doge(self):
         dod = self.dodge
         egg = True
@@ -276,8 +275,8 @@ class Enemy():
                 multiplier = self.defense * 0.01
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
-                print(f'take damage{self.health}')
-        if healthjson <= 0:
+                print(f'health damage{self.health}')
+        if healthjson <= 0 or self.health <= 0:
             Enemy.health_modify(0)
         else:
             Enemy.health_modify(self.health)
@@ -352,7 +351,6 @@ class Enemy():
     def deal_damage(self):
         egg = atte()
         player = play()
-    
         crit = egg.critical_hit()
         var = 0
         if crit == True:
@@ -369,10 +367,8 @@ class Enemy():
         #gonna create a new index for sprites 
         pass
     def drops(self):
-        pass 
-
+        pass
 class Turn():
-    em = play()
     def determine():
         psp = player[0]['speed']
         esp = enemies1['generic_enemy1'][0]['speed']
@@ -395,20 +391,8 @@ class Turn():
                 print("PLAYER")
                 Player.start_game()
                 print("""
- 
-
- 
- 
-
-
-
-
-  
-
- 
-""")
+                """)
                 Turn.tempvar2()
-
     def tempvar2():
             lm = atte()
             eaf2 = enemies1['generic_enemy1'][0]['health']
@@ -417,15 +401,13 @@ class Turn():
             else:
                     print("ENEMY")
                     Enemy.enemy_show()
-                    time.sleep(1.5)
                     lm.action()
-                    time.sleep(1.5)
                     Turn.tempvar()
-                    
-                    
 #somehow call var into damage positional argument
-
-Turn.determine()
+START = input("")
+if START != 10922222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222202092092091091209109092091092:
+    #Turn.determine()
+    pass
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
 var = 1
@@ -434,11 +416,10 @@ elgelg = []
 for i in range(6):
     egg = inventorye[f'slot{var}'][0]['name']
     var+=1
-    if egg == 0:
-        elgelg.append(False)
-    elif egg != 0:
-        elgelg.append(True)
-    if elgelg[x] == True:
-        print(elgelg[x])
-    x +=1
+
+    elgelg.append(egg)
+    if elgelg[x] == 0:
+        print("EMPTY")
+    x+=1
 print(elgelg)
+
