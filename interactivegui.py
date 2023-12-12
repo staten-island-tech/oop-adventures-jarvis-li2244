@@ -26,20 +26,20 @@ player_class = "Warrior"
 def play():
     with open('player.json', 'r+') as f:
         plays = json.load(f)
-    id = player[0]['id']
-    name = player[0]['name']
-    exp = player[0]['exp']
-    stat_point = player[0]['stat_points']
-    max_health = player[0]['max_health']
-    health = player[0]['health']
-    attack = player[0]['attack']
-    dodge = player[0]['dodge']
-    defense = player[0]['defense']
-    luck = player[0]['luck']
-    mana = player[0]['mana']
-    critchance = player[0]['critchance']
-    critdmg = player[0]['critdmg']
-    speed = player[0]['speed']
+    id = plays[0]['id']
+    name = plays[0]['name']
+    exp = plays[0]['exp']
+    stat_point = plays[0]['stat_points']
+    max_health = plays[0]['max_health']
+    health = plays[0]['health']
+    attack = plays[0]['attack']
+    dodge = plays[0]['dodge']
+    defense = plays[0]['defense']
+    luck = plays[0]['luck']
+    mana = plays[0]['mana']
+    critchance = plays[0]['critchance']
+    critdmg = plays[0]['critdmg']
+    speed = plays[0]['speed']
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
 
@@ -81,7 +81,6 @@ class Player():
     def start_game():
         em = play()
         Player.gui()
-        em.health_display()
     def critical_hit(self):
         crit = False
         roll = int(100/self.critchance)
@@ -101,7 +100,7 @@ class Player():
             damage_dealt_player = self.attack
         print(damage_dealt_player)
         egg = atte()
-        egg.take_damage(damage_dealt_player)
+        egg.take_damage_enemy(damage_dealt_player)
         return damage_dealt_player
     def take_damage(self, damage):
         egg = atte()
@@ -117,7 +116,6 @@ class Player():
                 multiplier = self.defense * 0.01
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
-                print(self.health)
             if self.health <= 0:
                 print(r'''
                              ____  _____    _    ____  
@@ -141,7 +139,6 @@ class Player():
             egg = self.health - self.health
             self.health  = self.health - egg
         self.health = self.health
-        print(self.health)
         pe.health_display()
         Player.health_modify(self.health)
         return self.health
@@ -221,6 +218,7 @@ class Player():
         pe.deal_damage() if player_class == "Warrior" else(pe.heal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
     def run(self):
         em = play()
+        egg = False
         roll = int(100/self.dodge)
         if random.randint(1, roll) == random.randint(1, roll):
             print(r""" 
@@ -228,18 +226,26 @@ class Player():
         ║     ESCAPE SUCESSFUL    ║
         ╚═════════════════════════╝
             """)
+            with open('enemyinstance.json', 'r+') as r:
+                egg = json.load(r)
+                egg['generic_enemy1'][0]['health'] = egg
+            with open('enemyinstance.json','w') as i:
+                i.write(json.dumps(egg))
+                i.seek(0)
         else:
             print(r""" 
         ╔═════════════════════════╗
         ║      ESCAPE FAILED      ║
         ╚═════════════════════════╝
             """) 
+
     def equip(self):
         em = play()    
     def items(self):
         em = play()
     def default_screen():
         pass
+    
 class Enemy():
     def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed):
         self.max_health = max_health
@@ -259,7 +265,7 @@ class Enemy():
             if random.randint(1, egg) == random.randint(1, egg):
                 egg = False
         return egg
-    def take_damage(self, damage):
+    def take_damage_enemy(self, damage):
         with open('enemyinstance.json', 'r') as id:
             eggd = json.load(id)
         healthjson = eggd['generic_enemy1'][0]['health']
@@ -283,13 +289,13 @@ class Enemy():
         return self.health
     def health_heal(self):
         en = atte()
-        heal = 100
+        heal = 1000000
         self.health += heal
+        print(f'health_heal{self.health}')
         if self.health > self.max_health:
-            eggg = self.max_health - self.health
-            self.health - eggg
+            eggg = self.health - self.max_health
+            self.health -= eggg
         print(f'heal:{self.health}')
-        print(enemies1['generic_enemy1'][0]['health'])
         Enemy.health_modify(self.health)
         en.health_display()
         return self.health
@@ -340,7 +346,6 @@ class Enemy():
                 egg.health_heal()
         else: 
             egg.deal_damage()
-            
         return True
     def critical_hit(self): 
         crit = False
@@ -392,6 +397,7 @@ class Turn():
                 Player.start_game()
                 print("""
                 """)
+
                 Turn.tempvar2()
     def tempvar2():
             lm = atte()
@@ -403,11 +409,11 @@ class Turn():
                     Enemy.enemy_show()
                     lm.action()
                     Turn.tempvar()
-#somehow call var into damage positional argument
+#once enemy is dead exit
 START = input("")
 if START != 10922222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222202092092091091209109092091092:
-    #Turn.determine()
-    pass
+    Turn.determine()
+
 #take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
 var = 1
@@ -416,10 +422,8 @@ elgelg = []
 for i in range(6):
     egg = inventorye[f'slot{var}'][0]['name']
     var+=1
-
     elgelg.append(egg)
     if elgelg[x] == 0:
         print("EMPTY")
     x+=1
 print(elgelg)
-
