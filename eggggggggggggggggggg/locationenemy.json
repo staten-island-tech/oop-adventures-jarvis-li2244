@@ -4,6 +4,7 @@
             "locationname":"Antil Forest_",
             "types":2,
             "enemy_numstart" : 1,
+            "map":[],
             "ratio" : 10,
             "enemies":[
                 {

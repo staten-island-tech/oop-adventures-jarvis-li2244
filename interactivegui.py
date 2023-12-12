@@ -22,7 +22,6 @@ with open('player.json') as w:
     player = json.load(w)
 with open('inventorye.json') as el:
     inventorye = json.load(el)
-player_class = "Warrior"
 def play():
     with open('player.json', 'r+') as f:
         plays = json.load(f)
@@ -43,8 +42,6 @@ def play():
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
 
-def location():
-    sub_location = "EGG"
 
 def atte():
     with open('enemyinstance.json', 'r+') as e:
@@ -61,7 +58,8 @@ def atte():
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
     return temp
 def enemy_trigger():
-    pass    
+    pass
+    #create an instance of the enemy using a loop. loop does not move on til enemy is dead or the player has moved into a certain location. 
 class Player():
     def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed):
         self.id = id
@@ -200,7 +198,6 @@ class Player():
         "IDK YET"
     def gui():
         egg = play()
-        egg.health_display()
         print(r"""
 ╔═════════╗ ╔═════════╗ ╔═════════╗ ╔═════════╗
 ║         ║ ║         ║ ║         ║ ║         ║
@@ -368,7 +365,7 @@ class Enemy():
         player.take_damage(var)
         print(var)  
         return var
-    def display():
+    def display(): 
         #gonna create a new index for sprites 
         pass
     def drops(self):
@@ -392,6 +389,7 @@ class Turn():
 ║    RETURNING TO LAST CHECKPOINT     ║
 ╚═════════════════════════════════════╝
 ''')
+                
         else:
                 print("PLAYER")
                 Player.start_game()
@@ -409,12 +407,20 @@ class Turn():
                     Enemy.enemy_show()
                     lm.action()
                     Turn.tempvar()
-#once enemy is dead exit
-START = input("")
-if START != 10922222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222202092092091091209109092091092:
-    Turn.determine()
+with open('character.json', 'r+') as awesome:
+    character = json.load(awesome)
+class Location():
 
-#take enemey and player, print their stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
+    def location():
+        current_player_location = character[0]['location']
+        current_player_sublocation = character[0]['sub_location']
+        print(f'Location: {current_player_location}, {current_player_sublocation}')
+
+#once enemy is dead exi
+START = input("")
+if START != "0":
+    Turn.determine()
+#take enemey and player, print heir stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
 var = 1
 x = 0
@@ -427,3 +433,39 @@ for i in range(6):
         print("EMPTY")
     x+=1
 print(elgelg)
+class Main_menu():
+    print("")
+    def base():
+        egg = int(input(""))
+        Main_menu.Start_Game() if egg == "1" else Main_menu.Options() if egg == "2" else Main_menu.Exit() if egg == "3" else Main_menu.Stats() if egg == "4" else Main_menu.base()
+    def Start_Game():
+        pass
+    def Options():
+        pass
+    def Exit():
+        pass
+    def Stats():
+        pass
+    enemy_trigger()
+class Map():
+    Tree = "Tree"
+    Exit = 'Exit'
+    Blank = 'Blank'
+    liste = [[Tree],[Exit],[Blank],
+             [Tree],[Blank],[Blank],
+             [Blank], [Blank], [Blank] ]
+    
+    print(f'''
+    1 2 3
+    4 5 6
+    7 8 9
+        ''')
+    print(liste)
+    #we assign differnt functions to each nmber so that if the player goes up 
+
+class Crafting():
+    def recipes():
+        pass
+    def craft():
+        pass
+Location.location()

@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "name": "Jarvis",
+        "role": "Assassin",
+        "level": 1,
+        "story": "Chapter 6: The End?",
+        "location": "Castle Quarters",
+        "sub_location": "The Fountain of Life"
+    }
+]

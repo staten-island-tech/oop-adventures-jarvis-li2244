@@ -1,1 +1,1 @@
-[{"id": 1, "name": "Jarvis", "stat_points": 0, "exp": 100, "max_health": 10000000, "health": 6200585.1999999955, "attack": 450, "dodge": 10, "defense": 10, "speed": 25, "luck": 1, "mana": 40, "critchance": 5, "critdmg": 25, "run_var": true}]
+[{"id": 1, "name": "Jarvis", "stat_points": 0, "exp": 100, "max_health": 100, "health": 46.0, "attack": 15, "dodge": 10, "defense": 10, "speed": 25, "luck": 1, "mana": 40, "critchance": 5, "critdmg": 25, "run_var": true}]
