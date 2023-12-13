@@ -1,18 +1,19 @@
 import json
 import time
 import random
-color_red = "\033[91m"
-color_purple = "\33[95m"
-color_blue1 = "\33[34m"
-color_blue2 = "\33[36m"
-color_blue3 = "\33[96m"
-color_green1 = "\033[92m"
-color_green2 = "\033[32m"
-color_brown = "\33[33m"
-color_yellow = "\33[93m"
-color_grey = "\33[37m"
+re = "\033[91m█"
+pu = "\33[95m█" 
+bl = "\33[34m█"
+b2 = "\33[36m█"
+b3 = "\33[96m█"
+gr = "\033[92m█"
+g2 = "\033[32m█"
+br = "\33[33m█"
+ye = "\33[93m█"
+g1 = "\33[37m█"
+wh = "\033[0m█"
 color_default = "\033[0m"
-exp = 'exp'
+color_red = "\033[91m"
 class Levels():
     def calculate():
         level = player[0]['level']
@@ -28,12 +29,14 @@ class Levels():
             egg = exp - exp_req
             new_level = level + 1
             print('LEVEL UP!')
-            Player.modify(egg, 'exp')
-            Player.modify(new_level, 'level')
+            Player.modify(egg, 'exp', 'set')
+            Player.modify(new_level, 'level', 'set')
             Levels.exp_display()
         else:
             Levels.exp_display()
     def exp_display():
+        pass
+    def stats_boost():
         pass
         # do exp display here
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
@@ -47,6 +50,8 @@ with open('player.json') as w:
     player = json.load(w)
 with open('inventorye.json') as el:
     inventorye = json.load(el)
+with open('character.json') as elf:
+    character = json.load(elf)
 def play():
     with open('player.json', 'r+') as f:
         plays = json.load(f)
@@ -66,8 +71,6 @@ def play():
     speed = plays[0]['speed']
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
-
-
 def atte():
     with open('enemyinstance.json', 'r+') as e:
         enemies = json.load(e)
@@ -147,10 +150,10 @@ class Player():
                             | |_| | |___ / ___ \| |_| |
                             |____/|_____/_/   \_\____/
 ''')
-                Player.modify(0, 'health')
+                Player.modify(0, 'health', 'set')
                 return False
             else:
-                Player.modify(self.health, 'health')
+                Player.modify(self.health, 'health', 'set')
                 return True
     def heal_damage(self):
         pe = play()
@@ -160,7 +163,7 @@ class Player():
             egg = self.health - self.health
             self.health  = self.health - egg
         self.health = self.health
-        Player.modify(self.health, 'health')
+        Player.modify(self.health, 'health', 'set')
         return self.health
     def health_display(self):
         with open('player.json', 'r+') as i:
@@ -180,10 +183,15 @@ class Player():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
-    def modify(change, var):
+    def modify(change, var, mode):
         with open('player.json', 'r+') as r:
             unique_variable = json.load(r)
+        if mode == 'set':
             unique_variable[0][f'{var}'] = change
+        elif mode == 'add':
+            unique_variable[0][f'{var}'] += change
+        elif mode == 'subtract':
+            unique_variable[0][f'{var}'] -= change
         with open('player.json','w') as i:
             i.write(json.dumps(unique_variable))
             i.seek(0)
@@ -209,6 +217,8 @@ class Player():
             egg = int(100/dod)
             if random.randint(1, egg) == random.randint(1, egg):
                 egg = False
+        else:
+            return egg
         return egg
     def spell_equip():
         "ask player what spells/attacks they would like to equip, check json file if it exists, if not print spell does not exist or not unlocked yet, if it does exist we replace the current spell selection with the new spell"
@@ -235,34 +245,27 @@ class Player():
         return True
     def atk(self):
         pe = play()
-        player_class = "Warrior"
-        print("atk works")
+        player_class = character[0]['role']
         pe.deal_damage() if player_class == "Warrior" else(pe.heal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
     def run(self):
         em = play()
         egg = False
-        roll = int(100/self.dodge)
-        if random.randint(1, roll) == random.randint(1, roll):
-            Player.new_screen()
-            print(r""" 
-        ╔═════════════════════════╗
-        ║     ESCAPE SUCESSFUL    ║
-        ╚═════════════════════════╝
-            """)
-            with open('enemyinstance.json', 'r+') as r:
-                egg = json.load(r)
-                egg['generic_enemy1'][0]['health'] = egg
-            with open('enemyinstance.json','w') as i:
-                i.write(json.dumps(egg))
-                i.seek(0)
+        if em.dodge != 0:
+            roll = int(100/self.dodge)
+            if random.randint(1, roll) == random.randint(1, roll):
+                Player.new_screen()
+                print(r""" 
+            ╔═════════════════════════╗
+            ║     ESCAPE SUCESSFUL    ║
+            ╚═════════════════════════╝
+                """)
         else:
             Player.new_screen()
             print(r""" 
         ╔═════════════════════════╗
         ║      ESCAPE FAILED      ║
         ╚═════════════════════════╝
-            """) 
-
+            """)  
     def equip(self):
         em = play()    
     def items(self):
@@ -282,6 +285,27 @@ class Player():
  
  
  
+  
+   
+    
+     
+
+      
+
+       
+        
+         
+          
+           
+
+            
+             
+              
+               
+                
+                 
+                  
+
 ''')
 class Enemy():
     def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed):
@@ -448,7 +472,7 @@ class Turn():
                     print("ENEMY DEAD")
                     print(f'EXP DROPPED : {exp_drop}')
                     new_exp = player[0]['exp'] + exp_drop
-                    Player.modify(new_exp, 'exp')
+                    Player.modify(new_exp, 'exp', 'set')
                     Levels.current_exp()
             else:
                     print("ENEMY")
@@ -488,6 +512,7 @@ class Main_menu():
     def Start_Game():
         pass
     def Options():
+
         pass
     def Exit():
         pass
@@ -500,7 +525,7 @@ class Map():
     Blank = 'Blank'
     liste = [[Tree],[Exit],[Blank],
              [Tree],[Blank],[Blank],
-             [Blank], [Blank], [Blank] ]
+             [Blank], [Blank], [Blank]]
     
     print(f'''
     1 2 3
