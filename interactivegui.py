@@ -12,6 +12,30 @@ color_brown = "\33[33m"
 color_yellow = "\33[93m"
 color_grey = "\33[37m"
 color_default = "\033[0m"
+exp = 'exp'
+class Levels():
+    def calculate():
+        level = player[0]['level']
+        next_level = level + 1
+        exp_req = (next_level/0.1)**2
+        print(exp_req)
+        return exp_req
+    def current_exp():
+        exp_req = Levels.calculate()
+        level = player[0]['level']
+        exp = player[0]['exp']
+        if exp >= exp_req:
+            egg = exp - exp_req
+            new_level = level + 1
+            print('LEVEL UP!')
+            Player.modify(egg, 'exp')
+            Player.modify(new_level, 'level')
+            Levels.exp_display()
+        else:
+            Levels.exp_display()
+    def exp_display():
+        pass
+        # do exp display here
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 #healing overflow(resolved) 
 #once enemy reaches a certain point it ends up trying to focus everything on healing itself and ends up not attacking, 
@@ -123,12 +147,11 @@ class Player():
                             | |_| | |___ / ___ \| |_| |
                             |____/|_____/_/   \_\____/
 ''')
-                Player.health_modify(0)
+                Player.modify(0, 'health')
                 return False
             else:
-                Player.health_modify(self.health)
+                Player.modify(self.health, 'health')
                 return True
-
     def heal_damage(self):
         pe = play()
         heal = 100
@@ -137,7 +160,7 @@ class Player():
             egg = self.health - self.health
             self.health  = self.health - egg
         self.health = self.health
-        Player.health_modify(self.health)
+        Player.modify(self.health, 'health')
         return self.health
     def health_display(self):
         with open('player.json', 'r+') as i:
@@ -157,10 +180,10 @@ class Player():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
-    def health_modify(health_change):
+    def modify(change, var):
         with open('player.json', 'r+') as r:
             unique_variable = json.load(r)
-            unique_variable[0]['health'] = health_change
+            unique_variable[0][f'{var}'] = change
         with open('player.json','w') as i:
             i.write(json.dumps(unique_variable))
             i.seek(0)
@@ -303,7 +326,7 @@ class Enemy():
         return self.health
     def health_heal(self):
         en = atte()
-        heal = 1000000
+        heal = 10
         self.health += heal
         print(f'health_heal{self.health}')
         if self.health > self.max_health:
@@ -406,6 +429,7 @@ class Turn():
 ║    RETURNING TO LAST CHECKPOINT     ║
 ╚═════════════════════════════════════╝
 ''')
+                Location.location()
                 #add soemthing that loops the player back out to their last location, so 2 variables : 1 for current location and 1 for last saved location. no saves during battles or any interactions. 
         else:
                 print("PLAYER")
@@ -420,7 +444,12 @@ class Turn():
                 enemies1 = json.load(eg)
             eaf2 = enemies1['generic_enemy1'][0]['health']
             if eaf2 <= 0:
+                    exp_drop = enemies1['generic_enemy1'][0]['exp']
                     print("ENEMY DEAD")
+                    print(f'EXP DROPPED : {exp_drop}')
+                    new_exp = player[0]['exp'] + exp_drop
+                    Player.modify(new_exp, 'exp')
+                    Levels.current_exp()
             else:
                     print("ENEMY")
                     Enemy.enemy_show()
@@ -480,11 +509,13 @@ class Map():
         ''')
     print(liste)
     #we assign differnt functions to each nmber so that if the player goes up 
-
 class Crafting():
     def recipes():
         pass
     def craft():
         pass
-Location.location()
+
+
+        
+
 
