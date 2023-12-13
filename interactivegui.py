@@ -14,6 +14,7 @@ color_grey = "\33[37m"
 color_default = "\033[0m"
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 #healing overflow(resolved) 
+#once enemy reaches a certain point it ends up trying to focus everything on healing itself and ends up not attacking, 
 with open('enemyinstance.json','r+')as f:
     enemies1 = json.load(f)
 with open('attacks.json') as i:
@@ -77,7 +78,6 @@ class Player():
         self.critdmg = critdmg#
         self.speed = speed
     def start_game():
-        em = play()
         Player.gui()
     def critical_hit(self):
         crit = False
@@ -115,6 +115,7 @@ class Player():
                 dmg = damage - damage * multiplier
                 self.health = self.health - dmg
             if self.health <= 0:
+                Player.new_screen()
                 print(r'''
                              ____  _____    _    ____  
                             |  _ \| ____|  / \  |  _ \ 
@@ -123,12 +124,11 @@ class Player():
                             |____/|_____/_/   \_\____/
 ''')
                 Player.health_modify(0)
-                pe.health_display()
                 return False
             else:
-                pe.health_display()
                 Player.health_modify(self.health)
                 return True
+
     def heal_damage(self):
         pe = play()
         heal = 100
@@ -137,7 +137,6 @@ class Player():
             egg = self.health - self.health
             self.health  = self.health - egg
         self.health = self.health
-        pe.health_display()
         Player.health_modify(self.health)
         return self.health
     def health_display(self):
@@ -198,6 +197,7 @@ class Player():
         "IDK YET"
     def gui():
         egg = play()
+        Player.new_screen()
         print(r"""
 ╔═════════╗ ╔═════════╗ ╔═════════╗ ╔═════════╗
 ║         ║ ║         ║ ║         ║ ║         ║
@@ -205,6 +205,7 @@ class Player():
 ║         ║ ║         ║ ║         ║ ║         ║  
 ╚═════════╝ ╚═════════╝ ╚═════════╝ ╚═════════╝
                 """)
+        egg.health_display()
         egg = input("")
         pe = play()
         pe.atk() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
@@ -212,12 +213,14 @@ class Player():
     def atk(self):
         pe = play()
         player_class = "Warrior"
+        print("atk works")
         pe.deal_damage() if player_class == "Warrior" else(pe.heal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
     def run(self):
         em = play()
         egg = False
         roll = int(100/self.dodge)
         if random.randint(1, roll) == random.randint(1, roll):
+            Player.new_screen()
             print(r""" 
         ╔═════════════════════════╗
         ║     ESCAPE SUCESSFUL    ║
@@ -230,6 +233,7 @@ class Player():
                 i.write(json.dumps(egg))
                 i.seek(0)
         else:
+            Player.new_screen()
             print(r""" 
         ╔═════════════════════════╗
         ║      ESCAPE FAILED      ║
@@ -242,7 +246,20 @@ class Player():
         em = play()
     def default_screen():
         pass
-    
+    def new_screen():
+        print(r'''
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+''')
 class Enemy():
     def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed):
         self.max_health = max_health
@@ -383,13 +400,13 @@ class Turn():
             iea = json.load(ief)
         eaf = iea[0]['health']
         if eaf <= 0:
-                print("DEAD")
+                print("PLAYER DEAD")
                 print(r'''
 ╔═════════════════════════════════════╗ 
 ║    RETURNING TO LAST CHECKPOINT     ║
 ╚═════════════════════════════════════╝
 ''')
-                
+                #add soemthing that loops the player back out to their last location, so 2 variables : 1 for current location and 1 for last saved location. no saves during battles or any interactions. 
         else:
                 print("PLAYER")
                 Player.start_game()
@@ -399,9 +416,11 @@ class Turn():
                 Turn.tempvar2()
     def tempvar2():
             lm = atte()
+            with open('enemyinstance.json','r+') as eg:
+                enemies1 = json.load(eg)
             eaf2 = enemies1['generic_enemy1'][0]['health']
             if eaf2 <= 0:
-                    print("DEAD")
+                    print("ENEMY DEAD")
             else:
                     print("ENEMY")
                     Enemy.enemy_show()
@@ -410,7 +429,6 @@ class Turn():
 with open('character.json', 'r+') as awesome:
     character = json.load(awesome)
 class Location():
-
     def location():
         current_player_location = character[0]['location']
         current_player_sublocation = character[0]['sub_location']
@@ -469,3 +487,4 @@ class Crafting():
     def craft():
         pass
 Location.location()
+
