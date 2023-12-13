@@ -12,6 +12,9 @@ with open("stats.json", "r") as f:
 with open("inventorys.json", "r") as f:
     jinventorys = json.load(f)
 
+with open("inventoryq.json", "r") as f:
+    jinventoryq = json.load(f)
+
 
 #json files for info
 with open("role.json", "r") as f:
@@ -235,7 +238,7 @@ class Creator:
         return role
     
 class CreationC:
-    def __init__(self, id, name, role, level, story, location, sub_location):
+    def __init__(self, id, name, role, level, story, location, sub_location, active_quest):
         self.id = id
         self.name = name
         self.role = role
@@ -243,6 +246,7 @@ class CreationC:
         self.story = story
         self.location = location
         self.sub_location = sub_location
+        self.active_quest = active_quest
     def create():
         if len(jcharacter) >= 10:
             Remove.remove()
@@ -260,7 +264,8 @@ class CreationC:
             story = "Tutorial: A Hopeful Start to a Hazardous Journey"
             location = "Anthill Forest"
             sub_location = "Dense Forest"
-            CreateC = CreationC(id, name, role, level, story, location, sub_location)
+            active_quest = "Main Story: Tutorial"
+            CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
             jcharacter.append(CreateC.__dict__)
             updateJSONC()
         else:
@@ -282,6 +287,7 @@ class CreationS:
         self.mana = mana
         self.critchance = critchance
         self.critdmg = critdmg
+
     def create():
         if Id != -1:
             id = Id
@@ -343,6 +349,10 @@ class CreationIS:
         CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
         jinventorys.append(CreateIS.__dict__)
         updateJSONIS()
+
+class CreationIQ:
+    def __init__(self, id, name, main_quest, fight_quest, collect_quest, puzzle_quest):
+        print("placeholder")
 
 class ChooseG:
     def choose():
@@ -422,8 +432,9 @@ class ChangeC:
         story = jcharacter[characterNum]["story"]
         location = jcharacter[characterNum]["location"]
         sub_location = jcharacter[characterNum]["sub_location"]
+        active_quest = jcharacter[characterNum]["active_quest"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
         jcharacter.insert(characterNum, CreateC.__dict__)
         updateJSONC()
         if olevel != nlevel:
@@ -459,8 +470,9 @@ class ChangeC:
         story = nstory
         location = jcharacter[characterNum]["location"]
         sub_location = jcharacter[characterNum]["sub_location"]
+        active_quest = jcharacter[characterNum]["active_quest"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
         jcharacter.insert(characterNum, CreateC.__dict__)
         print(""), print(nstory)
         updateJSONC()
@@ -474,8 +486,9 @@ class ChangeC:
         story = jcharacter[characterNum]["story"]
         location = nlocation
         sub_location = jcharacter[characterNum]["sub_location"]
+        active_quest = jcharacter[characterNum]["active_quest"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
         jcharacter.insert(characterNum, CreateC.__dict__)
         print(""), print(nlocation)
         updateJSONC()
@@ -489,8 +502,9 @@ class ChangeC:
         story = jcharacter[characterNum]["story"]
         location = jcharacter[characterNum]["location"]
         sub_location = nsub_location
+        active_quest = jcharacter[characterNum]["active_quest"]
         jcharacter.pop(characterNum)
-        CreateC = CreationC(id, name, role, level, story, location, sub_location)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
         jcharacter.insert(characterNum, CreateC.__dict__)
         print(""), print(nsub_location)
         updateJSONC()
@@ -1178,23 +1192,40 @@ class ActionC:
                         ChangeC.setSub_Location(jlocation[locationNum]["center sub_location"])
                         updateJSONC()
                         Info.nlocationInfo()
+                        Info.ncharacterInfo()
                         outer = 1
                         inner = 1
             if inner == 0:
                 print("That location does not exist.")
+
     def sub_locationSwitch():
         ChangeC.characterNum()
         Info.nlocationInfo()
+        for i in range(len(jlocation)):
+            if jlocation[i]["location"] == jcharacter[characterNum]["location"]:
+                locationNum = i
+        sub_locations = []
+        list_stuff = []
+        for i in jlocation[locationNum]:
+            list_stuff.append(i)
+        for i in range(4):
+            for j in jlocation[locationNum][list_stuff[-(i + 1)]]:
+                sub_locations.append(j.lower())
         outer = 0
         while outer == 0:
-            for i in range(len(jlocation)):
-                if jlocation[i]["location"] == jcharacter[characterNum]["location"]:
-                    locationNum = i
-            sub_locations = []
-            for i in range(4):
-                for i in jlocation[locationNum][-(i + 1)]:
-                    print(i)
-                
+            print(""), print("Sub Locations")
+            print(sub_locations)
+            sub_locationGo = input("Where do you want to go? ('quit' to end): ").lower()
+            if sub_locationGo == "quit":
+                break
+            else:
+                if sub_locationGo in sub_locations:
+                    ChangeC.setSub_Location(sub_locationGo.title())
+                    updateJSONC()
+                    Info.ncharacterInfo()
+                    outer = 1
+                else:
+                    print("That sub_location does not exist.")
 
 class ActionS:
     def stat_pointsSpend(stat_points):
