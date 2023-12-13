@@ -70,6 +70,7 @@ class Info:
                 randvar = i
         for j in range(len(jlocation)):
             if jlocation[j]["location"] == jcharacter[randvar]["location"]:
+                print(""), print(jlocation[j]["location"])
                 print(jlocation[j])
     def characterInfo():
         for i in range(len(jcharacter)):
@@ -1183,9 +1184,17 @@ class ActionC:
                 print("That location does not exist.")
     def sub_locationSwitch():
         ChangeC.characterNum()
-        for i in range(len(jlocation)):
-            if jlocation[i]["location"] == 
+        Info.nlocationInfo()
         outer = 0
+        while outer == 0:
+            for i in range(len(jlocation)):
+                if jlocation[i]["location"] == jcharacter[characterNum]["location"]:
+                    locationNum = i
+            sub_locations = []
+            for i in range(4):
+                for i in jlocation[locationNum][-(i + 1)]:
+                    print(i)
+                
 
 class ActionS:
     def stat_pointsSpend(stat_points):
@@ -1339,5 +1348,4 @@ def updateJSONIS():
     os.rename(new_file, "inventorys.json")
 
 ChooseG.choose()
-ChangeC.setStory("Chapter 6: The End?")
-ActionC.locationSwitch()
+ActionC.sub_locationSwitch()
