@@ -525,6 +525,7 @@ class Main_menu():
 class Crafting():
     def recipes():
         pass
+        
     def craft():
         pass
 class Spawn():
@@ -540,6 +541,12 @@ class Spawn():
     def spawn():
         names = Spawn.enemy_name()
         print(names[0])
+    def instance_creation():
+        with open('enemies.json') as fr:
+            enemies = json.load(fr)
+            
+        with open('enemyinstance.json') as ei:
+            enemyinstance = json.load(el)
 class Area_Selection():
     pass
 Spawn.spawn()
@@ -567,9 +574,16 @@ class Map():
         print("YAY")
     movement = input('')
     if movement == 'w':
+        y+=1
+    elif movement == 's':
+        y-=1
+    elif movement == 'a':
+        x-=1
+    elif movement == 'd':
         x+=1
-    Map[x][y]
+    print(x,y )
     for something in Map:
         print("".join(something))
+    
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores

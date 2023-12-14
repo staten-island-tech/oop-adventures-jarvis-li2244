@@ -21,7 +21,137 @@
                 } 
             ]
         }
-    ],
-    "generic_enemy2" : [    
+    ],    "generic_enemy2": [
+        {
+            "names" : "EGG",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "generic_loot1": 1,
+                    "generic_loot2": 0.01,
+                    "generic_loot3": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy3": [
+        {
+            "names" : "EGG",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "generic_loot1": 1,
+                    "generic_loot2": 0.01,
+                    "generic_loot3": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy4": [
+        {
+            "names" : "EGG",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "generic_loot1": 1,
+                    "generic_loot2": 0.01,
+                    "generic_loot3": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy5": [
+        {
+            "names" : "EGG",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "generic_loot1": 1,
+                    "generic_loot2": 0.01,
+                    "generic_loot3": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy6": [
+        {
+            "names" : "EGG",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "generic_loot1": 1,
+                    "generic_loot2": 0.01,
+                    "generic_loot3": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy7": [
+        {
+            "names" : "EGG",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "generic_loot1": 1,
+                    "generic_loot2": 0.01,
+                    "generic_loot3": 0.1
+                } 
+            ]
+        }
     ]
 }
