@@ -548,35 +548,28 @@ level = 0
 egg = '\t' * level
 class Map():
     map_dimensions = location['location_1'][0]['map_dimensions']
-    length = map_dimensions[0]
     height = map_dimensions[1]
+    length = map_dimensions[0]
+    x = random.randint(1,length-1)
+    y = random.randint(1,height-1)
     liste = []
-    area = length * height
-    for i in range(area):
-        liste.append([])
-    print(liste)
-    
-    tiles = len(liste) - 1
-    #grid size
-    randomizer = random.randint(1, tiles) 
-    liste[randomizer] = 1
-            #x = 0    x = 1     x = 2     x = 3     x = 4 
-    for i in range(length):
-        for i in range(length):
-            print(liste[length - 1])
-        length +=1
-    print(f'''
-            {liste[0]}{liste[1]}{liste[2]}{liste[3]}{liste[4]}
-            {liste[5]}{liste[6]}{liste[7]}{liste[8]}{liste[9]}
-            {liste[10]}{liste[11]}{liste[12]}{liste[13]}{liste[14]}
-            {liste[15]}{liste[16]}{liste[17]}{liste[18]}{liste[19]}
-            {liste[20]}{liste[21]}{liste[22]}{liste[23]}{liste[24]}
+    Map =[['[ ]' for i in range(5)] for i in range(height)]
 
-            ''')
+    Map[x][y] = "[X]"
+    print('X = player_location')
+    print('Move using WASD')
+    for something in Map:
+        print("".join(something))
     space = 1
-    player_occupied =  1
+    player_occupied = x
     enemy_occupied = 2
-    if player_occupied != space:
-        space = "YAY " 
+    if player_occupied == Map[1][1]:
+        print("YAY")
+    movement = input('')
+    if movement == 'w':
+        x+=1
+    Map[x][y]
+    for something in Map:
+        print("".join(something))
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
