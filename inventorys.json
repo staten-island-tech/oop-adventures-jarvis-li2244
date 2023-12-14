@@ -8,5 +8,25 @@
         "Level_3_Skills": [],
         "Level_4_Skills": [],
         "Level_5_Skills": []
+    },
+    {
+        "id": 2,
+        "name": "Johnny",
+        "skill_points": 0,
+        "Level_1_Skills": [],
+        "Level_2_Skills": [],
+        "Level_3_Skills": [],
+        "Level_4_Skills": [],
+        "Level_5_Skills": []
+    },
+    {
+        "id": 3,
+        "name": "Test Subject #3",
+        "skill_points": 0,
+        "Level_1_Skills": [],
+        "Level_2_Skills": [],
+        "Level_3_Skills": [],
+        "Level_4_Skills": [],
+        "Level_5_Skills": []
     }
 ]

@@ -7,5 +7,25 @@
         "story": "Chapter 6: The End?",
         "location": "Castle Quarters",
         "sub_location": "Castle Bases"
+    },
+    {
+        "id": 2,
+        "name": "Johnny",
+        "role": "Mage",
+        "level": 0,
+        "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
+        "location": "Anthill Forest",
+        "sub_location": "Dense Forest",
+        "active_quest": "Main Story: Tutorial"
+    },
+    {
+        "id": 3,
+        "name": "Test Subject #3",
+        "role": "Archer",
+        "level": 0,
+        "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
+        "location": "Anthill Forest",
+        "sub_location": "Dense Forest",
+        "active_quest": "Main Story: Tutorial"
     }
 ]

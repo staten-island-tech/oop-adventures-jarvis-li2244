@@ -37,10 +37,12 @@ class Info:
         print(""), print("Role Info")
         for i in jrole:
             print(i), print("")
+
     def skilltreeInfo():
         print(""), print("Skill Tree Info")
         for i in jskilltree:
             print(i), print("")
+
     def skilltreeInfo_specific(skilltree):
         h = 0
         for i in range(len(jskilltree)):
@@ -50,10 +52,12 @@ class Info:
                 h = 1
         if h == 0:
             print("That Skill Tree does not exist.")
+
     def skillsInfo():
         print(""), print("Skills Info")
         for i in jskills:
             print(i), print("")
+
     def skillsInfo_specific(skill):
         h = 0
         for i in range(len(jskills)):
@@ -62,11 +66,13 @@ class Info:
                 print(jskills[i]), print("")
                 h = 1
         if h == 0:
-            print("That skill does not exist.")    
+            print("That skill does not exist.")  
+
     def locationInfo():
         print(""), print("Location Info")       
         for i in jlocation:
             print(i), print("")
+
     def nlocationInfo():
         for i in range(len(jcharacter)):
             if jcharacter[i]["id"] == Id:
@@ -75,37 +81,32 @@ class Info:
             if jlocation[j]["location"] == jcharacter[randvar]["location"]:
                 print(""), print(jlocation[j]["location"])
                 print(jlocation[j])
+
     def characterInfo():
         for i in range(len(jcharacter)):
             if jcharacter[i]["id"] == Id:
                 print(""), print("Character Info")
                 print(jcharacter[i])
-    def ncharacterInfo():
-        for i in range(len(jcharacter)):
-            if jcharacter[i]["id"] == Id:
-                print(""), print("New Character Info")
-                print(jcharacter[i])
+
     def statsInfo():
         for i in range(len(jstats)):
             if jstats[i]["id"] == Id:
                 print(""), print("Stats Info")
                 print(jstats[i])
-    def nstatsInfo():
-        for i in range(len(jstats)):
-            if jstats[i]["id"] == Id:
-                print(""), print("New Stats Info")
-                print(jstats[i])
+
     def inventorysInfo():
         for i in range(len(jinventorys)):
             if jinventorys[i]["id"] == Id:
                 print(""), print("Skill Inventory Info")
                 print(jinventorys[i])
-    def ninventorysInfo():
-        for i in range(len(jinventorys)):
-            if jinventorys[i]["id"] == Id:
-                print(""), print("New Skill Inventory Info")
-                print(jinventorys[i])
 
+    def inventoryqInfo():
+        for i in range(len(jinventoryq)):
+            if jinventoryq[i]["id"] == Id:
+                print(""), print("Quest Inventory Info")
+                print(jinventoryq[i])
+
+ 
 class Remove:
     def remove():
         if len(jcharacter) != 0:
@@ -163,11 +164,17 @@ class Remove:
                     listNum = i
                     break
             jinventorys.pop(listNum)
+            for i in range(len(jinventoryq)):
+                if jinventoryq[i]["id"] == removeNum:
+                    listNum = i
+                    break
+            jinventoryq.pop(listNum)
         else:
             print("There are no existing characters.")
         updateJSONC()
         updateJSONS()
         updateJSONIS()
+        updateJSONIQ()
 
 class Creator:
     def cID():
@@ -338,21 +345,40 @@ class CreationIS:
         self.Level_4_Skills = Level_4_Skills
         self.Level_5_Skills = Level_5_Skills
     def create():
-        id = Id
-        name = Name
-        skill_points = 0
-        Level_1_Skills = []
-        Level_2_Skills = []
-        Level_3_Skills = []
-        Level_4_Skills = []
-        Level_5_Skills = []
-        CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
-        jinventorys.append(CreateIS.__dict__)
-        updateJSONIS()
+        if Id != -1:
+            id = Id
+            name = Name
+            skill_points = 0
+            Level_1_Skills = []
+            Level_2_Skills = []
+            Level_3_Skills = []
+            Level_4_Skills = []
+            Level_5_Skills = []
+            CreateIS = CreationIS(id, name, skill_points, Level_1_Skills, Level_2_Skills, Level_3_Skills, Level_4_Skills, Level_5_Skills)
+            jinventorys.append(CreateIS.__dict__)
+            updateJSONIS()
 
 class CreationIQ:
-    def __init__(self, id, name, main_quest, fight_quest, collect_quest, puzzle_quest):
-        print("placeholder")
+    def __init__(self, id, name, main_quest, fight_quest, collect_quest, puzzle_quest, lore_quest):
+        self.id = id
+        self.name = name
+        self.main_quest = main_quest
+        self.fight_quest = fight_quest
+        self.collect_quest = collect_quest
+        self.puzzle_quest = puzzle_quest
+        self.lore_quest = lore_quest
+    def create():
+        if Id != -1:
+            id = Id
+            name = Name
+            main_quest = "Main Story: Tutorial"
+            fight_quest = []
+            collect_quest = []
+            puzzle_quest = []
+            lore_quest = []
+            CreateIQ = CreationIQ(id, name, main_quest, fight_quest, collect_quest, puzzle_quest, lore_quest)
+            jinventoryq.append(CreateIQ.__dict__)
+            updateJSONIQ()
 
 class ChooseG:
     def choose():
@@ -457,9 +483,9 @@ class ChangeC:
             ChangeS.defenseAdd(diff)
             ChangeS.speedAdd(diff)
             ChangeS.manaAdd(diff)
-            Info.nstatsInfo()
-            Info.ncharacterInfo()
-            Info.ninventorysInfo()
+            Info.statsInfo()
+            Info.characterInfo()
+            Info.inventorysInfo()
 
     def setStory(nstory):
         ChangeC.characterNum()
@@ -508,6 +534,14 @@ class ChangeC:
         jcharacter.insert(characterNum, CreateC.__dict__)
         print(""), print(nsub_location)
         updateJSONC()
+
+#condense top 3 functions
+#add change active quest
+#add json file of quest desriptions and the location needed for them
+#add custom dialogue and triggers for each quest, remove amount of locations and therefore quests
+#name the locations and sublocations
+#work on story
+#condese changing IS and C and S
 
 class ChangeS:
     def statsNum():
@@ -1165,6 +1199,12 @@ class ChangeIS:
         updateJSONIS()
         print(f'You LEARNED "{skill}".')
         
+class ChangeIQ:
+    #insert and change the main quests and the other quests while categorizing them
+    #remove completed quest
+    print("PLACEHOLDER")
+
+
 class ActionC:
     def locationSwitch():
         ChangeC.characterNum()
@@ -1191,8 +1231,8 @@ class ActionC:
                         ChangeC.setLocation(jlocation[locationNum]["location"])
                         ChangeC.setSub_Location(jlocation[locationNum]["center sub_location"])
                         updateJSONC()
-                        Info.nlocationInfo()
-                        Info.ncharacterInfo()
+                        Info.locationInfo()
+                        Info.characterInfo()
                         outer = 1
                         inner = 1
             if inner == 0:
@@ -1200,7 +1240,7 @@ class ActionC:
 
     def sub_locationSwitch():
         ChangeC.characterNum()
-        Info.nlocationInfo()
+        Info.locationInfo()
         for i in range(len(jlocation)):
             if jlocation[i]["location"] == jcharacter[characterNum]["location"]:
                 locationNum = i
@@ -1222,15 +1262,16 @@ class ActionC:
                 if sub_locationGo in sub_locations:
                     ChangeC.setSub_Location(sub_locationGo.title())
                     updateJSONC()
-                    Info.ncharacterInfo()
+                    Info.characterInfo()
                     outer = 1
                 else:
                     print("That sub_location does not exist.")
 
 class ActionS:
-    def stat_pointsSpend(stat_points):
+    def stat_pointsSpend():
         ChangeS.statsNum()
         Info.statsInfo()
+        stat_points = int(input("How many stat points used?: "))
         if stat_points > jstats[statsNum]["stat_points"]:
             print(""), print("You do not have that many stat points.")
             print(f'Stat Points: {jstats[statsNum]["stat_points"]}')
@@ -1262,7 +1303,7 @@ class ActionS:
                 else:
                     print("That is not a valid input.")
             updateJSONS()
-            Info.nstatsInfo()
+            Info.statsInfo()
 
 class ActionIS:
     def skill_pointsSpend():
@@ -1341,7 +1382,7 @@ class ActionIS:
                 else:
                     print("Unknown Error")
                 updateJSONIS()
-                Info.ninventorysInfo()
+                Info.inventorysInfo()
 
 
 
@@ -1378,5 +1419,15 @@ def updateJSONIS():
     os.remove("inventorys.json")
     os.rename(new_file, "inventorys.json")
 
-ChooseG.choose()
-ActionC.sub_locationSwitch()
+def updateJSONIQ():
+    new_file = "updated.json"
+    with open(new_file, "w") as f:
+
+        json_string = json.dumps(jinventoryq, indent=4)
+
+        f.write(json_string)
+
+    os.remove("inventoryq.json")
+    os.rename(new_file, "inventoryq.json")
+
+

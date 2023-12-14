@@ -14,5 +14,37 @@
         "mana": 40,
         "critchance": 5,
         "critdmg": 25
+    },
+    {
+        "id": 2,
+        "name": "Johnny",
+        "stat_points": 0,
+        "exp": 0,
+        "max_health": 100,
+        "health": 100,
+        "attack": 20,
+        "dodge": 9,
+        "defense": 20,
+        "speed": 20,
+        "luck": 1,
+        "mana": 100,
+        "critchance": 5,
+        "critdmg": 25
+    },
+    {
+        "id": 3,
+        "name": "Test Subject #3",
+        "stat_points": 0,
+        "exp": 0,
+        "max_health": 75,
+        "health": 75,
+        "attack": 20,
+        "dodge": 12,
+        "defense": 15,
+        "speed": 45,
+        "luck": 1,
+        "mana": 40,
+        "critchance": 5,
+        "critdmg": 25
     }
 ]
