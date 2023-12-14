@@ -578,5 +578,6 @@ class Map():
     for something in Map:
         print("".join(something))
     
+    
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
