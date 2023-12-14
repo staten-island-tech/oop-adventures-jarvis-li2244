@@ -542,6 +542,7 @@ class Spawn():
         names = Spawn.enemy_name()
         print(names[0])
     def instance_creation():
+        
         with open('enemies.json') as fr:
             enemies = json.load(fr)
             
@@ -557,31 +558,23 @@ class Map():
     map_dimensions = location['location_1'][0]['map_dimensions']
     height = map_dimensions[1]
     length = map_dimensions[0]
-    x = random.randint(1,length-1)
-    y = random.randint(1,height-1)
+    enemy_spawnx = random.randint(1,length-1)
+    enemy_spawny = random.randint(1,height-1)
+    x = 2
+    y = 2
     liste = []
-    Map =[['[ ]' for i in range(5)] for i in range(height)]
-
-    Map[x][y] = "[X]"
-    print('X = player_location')
-    print('Move using WASD')
-    for something in Map:
-        print("".join(something))
-    space = 1
-    player_occupied = x
-    enemy_occupied = 2
-    if player_occupied == Map[1][1]:
-        print("YAY")
-    movement = input('')
-    if movement == 'w':
-        y+=1
-    elif movement == 's':
-        y-=1
-    elif movement == 'a':
-        x-=1
-    elif movement == 'd':
-        x+=1
-    print(x,y )
+    Map =[['[ ]' for i in range(5)] for i in range(height)] 
+    player_spawn = Map[x][y]
+    Map[x][y] = "[X]"   
+    control = input("")
+    if control == 'w':
+        y += 1
+    elif control == 's':
+        y -= 1
+    elif control == 'a':
+        x -= 1
+    elif control == 'd':
+        x += 1
     for something in Map:
         print("".join(something))
     
