@@ -42,6 +42,8 @@ class Levels():
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 #healing overflow(resolved) 
 #once enemy reaches a certain point it ends up trying to focus everything on healing itself and ends up not attacking, 
+with open('locationenemy.json') as fifa:
+    location = json.load(fifa)
 with open('enemyinstance.json','r+')as f:
     enemies1 = json.load(f)
 with open('attacks.json') as i:
@@ -519,28 +521,62 @@ class Main_menu():
     def Stats():
         pass
     enemy_trigger()
-class Map():
-    Tree = "Tree"
-    Exit = 'Exit'
-    Blank = 'Blank'
-    liste = [[Tree],[Exit],[Blank],
-             [Tree],[Blank],[Blank],
-             [Blank], [Blank], [Blank]]
-    
-    print(f'''
-    1 2 3
-    4 5 6
-    7 8 9
-        ''')
-    print(liste)
     #we assign differnt functions to each nmber so that if the player goes up 
 class Crafting():
     def recipes():
         pass
     def craft():
         pass
+class Spawn():
+    def enemy_name():
+        enemy_list = []
+        test = len(location['location_1'][0]['enemies'])
+        numbers = 0
+        for i in range(test):
+            enemy_name = location['location_1'][0]['enemies'][numbers][f'{numbers}'][0]['name']
+            numbers += 1
+            enemy_list.append(enemy_name)
+        return enemy_list
+    def spawn():
+        names = Spawn.enemy_name()
+        print(names[0])
+class Area_Selection():
+    pass
+Spawn.spawn()
 
+level = 0
+egg = '\t' * level
+class Map():
+    map_dimensions = location['location_1'][0]['map_dimensions']
+    length = map_dimensions[0]
+    height = map_dimensions[1]
+    liste = []
+    area = length * height
+    for i in range(area):
+        liste.append([])
+    print(liste)
+    
+    tiles = len(liste) - 1
+    #grid size
+    randomizer = random.randint(1, tiles) 
+    liste[randomizer] = 1
+            #x = 0    x = 1     x = 2     x = 3     x = 4 
+    for i in range(length):
+        for i in range(length):
+            print(liste[length - 1])
+        length +=1
+    print(f'''
+            {liste[0]}{liste[1]}{liste[2]}{liste[3]}{liste[4]}
+            {liste[5]}{liste[6]}{liste[7]}{liste[8]}{liste[9]}
+            {liste[10]}{liste[11]}{liste[12]}{liste[13]}{liste[14]}
+            {liste[15]}{liste[16]}{liste[17]}{liste[18]}{liste[19]}
+            {liste[20]}{liste[21]}{liste[22]}{liste[23]}{liste[24]}
 
-        
-
-
+            ''')
+    space = 1
+    player_occupied =  1
+    enemy_occupied = 2
+    if player_occupied != space:
+        space = "YAY " 
+#lenghth = [0], height = [1]
+#possible overlap where enemies can be on top of materials such as trees or ores

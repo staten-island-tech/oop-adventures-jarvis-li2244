@@ -4,20 +4,20 @@
             "locationname":"Antil Forest_",
             "types":2,
             "enemy_numstart" : 1,
-            "map":[],
+            "map_dimensions":[5,5],
             "ratio" : 10,
             "enemies":[
                 {
-                    "1":[
+                    "0":[
                         {
-                            "name":"egg2.0",
+                            "name":"generic_enemy1",
                             "spawn_amount":10,
                             "boost":1
                         }
                     ]
                 },
                 {
-                    "2":[
+                    "1":[
                         {
                             "name": "egg",
                             "spawn_amount":5,
