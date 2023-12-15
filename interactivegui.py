@@ -476,6 +476,7 @@ class Turn():
                     new_exp = player[0]['exp'] + exp_drop
                     Player.modify(new_exp, 'exp', 'set')
                     Levels.current_exp()
+                    Map()
             else:
                     print("ENEMY")
                     Enemy.enemy_show()
@@ -556,28 +557,46 @@ level = 0
 egg = '\t' * level
 class Map():
     map_dimensions = location['location_1'][0]['map_dimensions']
-    height = map_dimensions[1]
-    length = map_dimensions[0]
-    enemy_spawnx = random.randint(1,length-1)
-    enemy_spawny = random.randint(1,height-1)
+    height = map_dimensions[1] 
+    length = map_dimensions[0] 
+    enemy_spawnx = random.randint(1,length -1)
+    enemy_spawny = random.randint(1,height -1)
     x = 2
     y = 2
-    liste = []
-    Map =[['[ ]' for i in range(5)] for i in range(height)] 
-    player_spawn = Map[x][y]
-    Map[x][y] = "[X]"   
-    control = input("")
-    if control == 'w':
-        y += 1
-    elif control == 's':
-        y -= 1
-    elif control == 'a':
-        x -= 1
-    elif control == 'd':
-        x += 1
-    for something in Map:
-        print("".join(something))
-    
+    item = " "
+    Map = [['[ ]' for i in range(5)] for i in range(height)] 
+    player_spawn = Map[y][x]
+    while True:
+        print(f'x: {x}, y :{y}')
+        control = input("")
+        if control == 'w':
+            y -= 1
+            Map[y+1][x] = f'[{item}]'
+        elif control == 's':
+            y += 1
+            Map[y-1][x] = f'[{item}]'
+        elif control == 'a':
+            x -= 1
+            Map[y][x+1] = f'[{item}]'
+        elif control == 'd':
+            x += 1
+            Map[y][x-1] = f'[{item}]'    
+        if y == height:
+            y -=1
+        elif x == length:
+            x -=1
+        elif x == -1:
+            x +=1
+        elif y == -1:
+            y +=1
+        Map[y][x] = "[X]"
+        Map[enemy_spawny][enemy_spawnx] = "[O]"
+        current_position = Map[y][x]
+        enemy_position = Map[enemy_spawny][enemy_spawnx]
+        if current_position == enemy_position:
+            Turn.determine()
+        for something in Map:
+            print("".join(something))
     
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
