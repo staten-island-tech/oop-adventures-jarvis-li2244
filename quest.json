@@ -1,0 +1,9 @@
+[
+    {
+        "quest": "The Treehouse Treasure",
+        "category": "collect_quest",
+        "description": "Find the Holy Acorn.",
+        "location": "Anthill Forest",
+        "sub_location": "Outskirsts of Anthill Forest"
+    }
+]
