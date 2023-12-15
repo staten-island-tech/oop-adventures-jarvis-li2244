@@ -194,6 +194,8 @@ class Player():
             unique_variable[0][f'{var}'] += change
         elif mode == 'subtract':
             unique_variable[0][f'{var}'] -= change
+        elif mode == 'append':
+            unique_variable[0][f'{var}'].append(change)
         with open('player.json','w') as i:
             i.write(json.dumps(unique_variable))
             i.seek(0)
@@ -554,18 +556,35 @@ Spawn.spawn()
 
 level = 0
 egg = '\t' * level
+class Items():
+    def map():
+        item_name = Map.item_pickup()
+        with open('inventoryi.json') as egg:
+            actualinventory = json.load(egg)
+        if item_name in actualinventory:
+            print("Item +1")
+
 class Map():
-    def display():
-        item =0
+    item =0
+    def item_map():
+        location = location.Location()
         map_dimensions = location['location_1'][0]['map_dimensions']
         height = map_dimensions[1] 
         length = map_dimensions[0] 
-        enemy_spawnx = random.randint(1,length -1)
-        enemy_spawny = random.randint(1,height -1)
+        item_map = [['[ ]' for i in range(height)] for i in range(length)] 
+        itemspawnx = random.randint(0, length -1 )
+        itemspawny = random.randint(0, height -1 )
+        item_map[itemspawny]
+    def enemy_map():
+        map_dimensions = location['location_1'][0]['map_dimensions']
+        height = map_dimensions[1] 
+        length = map_dimensions[0] 
+        enemy_spawnx = random.randint(0,length - 1)
+        enemy_spawny = random.randint(0,height - 1)
         x = 2
         y = 2
         item = " "
-        Map = [['[ ]' for i in range(5)] for i in range(height)] 
+        Map = [['[ ]' for i in range(length)] for i in range(height)] 
         player_spawn = Map[y][x]
         while True:
             print(r'''
@@ -615,14 +634,7 @@ class Map():
         elif pick_up == 'N':
             print('Escape')
             return item_name
+Map.enemy_map()
 
-Map.display()
-class Items():
-    def map():
-        item_name = Map.item_pickup()
-        with open('inventoryi.json') as egg:
-            actualinventory = json.load(egg)
-        if item_name in actualinventory:
-            print("Item +1")
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
