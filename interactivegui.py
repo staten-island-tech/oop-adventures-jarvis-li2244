@@ -556,6 +556,7 @@ level = 0
 egg = '\t' * level
 class Map():
     def display():
+        item =0
         map_dimensions = location['location_1'][0]['map_dimensions']
         height = map_dimensions[1] 
         length = map_dimensions[0] 
@@ -593,16 +594,35 @@ class Map():
                 y +=1
             Map[y][x] = "[X]"
             Map[enemy_spawny][enemy_spawnx] = "[O]"
-            Map[random.randint(0,4)][random.randint(0,4)] = "[I]"
+            Map[1][2] = "[I]"
             current_position = Map[y][x]
             enemy_position = Map[enemy_spawny][enemy_spawnx]
             item_pos = Map[1][2]
             if current_position == enemy_position:
                 Turn.determine()
             elif current_position == item_pos:
-                print("ITEM PICKED UP")
+                print("PICKUP")
+                Items.map()
             for something in Map:
-                print("".join(something))
+                print("".join(something))  
+    def item_pickup():
+        item_name = 'APPLE'
+        print(f'Pickup Item: {item_name}')
+        print(item_name)
+        pick_up = input('Y/N')
+        if pick_up == 'Y':
+            print(f'{item_name} picked up')
+        elif pick_up == 'N':
+            print('Escape')
+            return item_name
+
 Map.display()
+class Items():
+    def map():
+        item_name = Map.item_pickup()
+        with open('inventoryi.json') as egg:
+            actualinventory = json.load(egg)
+        if item_name in actualinventory:
+            print("Item +1")
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
