@@ -64,13 +64,11 @@ class Spawn():
     def search():
         indexcycle = 0
         names = Spawn.enemy_name()
-        print(names)
         with open('enemies.json', 'r+') as fr:
             enemies = json.load(fr)
         while True:
             for i in enemies:
                 if names[indexcycle] in i:
-                    print([i])
                     return enemies[i]
                 else:
                     indexcycle+=1
@@ -87,13 +85,7 @@ class Spawn():
         with open('enemyinstance.json', 'w') as igloo:
             igloo.write(json.dumps(enemyinstance))
             igloo.seek(0) 
-    def enemy_name_print():
-        indexcycle = 0
-        egg = Spawn.search()[i]
-        print(egg)
-Spawn.enemy_name_print()
-
-        # do exp display here
+# do exp display here
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 #healing overflow(resolved) 
 #once enemy reaches a certain point it ends up trying to focus everything on healing itself and ends up not attacking, 
@@ -118,19 +110,22 @@ def play():
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
 def atte():
+    Spawn.spawn()
     with open('enemyinstance.json', 'r+') as e:
         enemies = json.load(e)
-    max_health = enemies['generic_enemy1'][0]['max_health']
-    health = enemies['generic_enemy1'][0]['health']
-    damage = enemies['generic_enemy1'][0]['damage']
-    dodge = enemies['generic_enemy1'][0]['dodge']
-    defense = enemies['generic_enemy1'][0]['defense']
-    mana = enemies['generic_enemy1'][0]['mana']
-    critchance = enemies['generic_enemy1'][0]['critchance']
-    critdmg = enemies['generic_enemy1'][0]['critdmg']
-    speed = enemies['generic_enemy1'][0]['speed']
+    names = Spawn.search()
+    max_health = enemies[0]['max_health']
+    health = enemies[0]['health']
+    damage = enemies[0]['damage']
+    dodge = enemies[0]['dodge']
+    defense = enemies[0]['defense']
+    mana = enemies[0]['mana']
+    critchance = enemies[0]['critchance']
+    critdmg = enemies[0]['critdmg']
+    speed = enemies[0]['speed']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
     return temp
+
 def enemy_trigger():
     pass
     #create an instance of the enemy using a loop. loop does not move on til enemy is dead or the player has moved into a certain location. 
@@ -172,6 +167,7 @@ class Player():
         print(damage_dealt_player)
         egg = atte()
         egg.take_damage_enemy(damage_dealt_player)
+        print('damage_dealt_player')
         return damage_dealt_player
     def take_damage(self, damage):
         egg = atte()
@@ -293,7 +289,7 @@ class Player():
         return True
     def atk(self):
         pe = play()
-        player_class = character[0]['role']
+        player_class = "Warrior"
         pe.deal_damage() if player_class == "Warrior" else(pe.heal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
     def run(self):
         em = play()
@@ -366,6 +362,13 @@ class Enemy():
         self.critchance = critchance
         self.critdmg = critdmg
         self.speed = speed
+    def health_modify(health_change):
+        with open('enemyinstance.json', 'r+') as r:
+            egg = json.load(r)
+            egg[0]['health'] = health_change
+        with open('enemyinstance.json','w') as i:
+            i.write(json.dumps(egg))
+            i.seek(0)
     def doge(self):
         dod = self.dodge
         egg = True
@@ -375,9 +378,10 @@ class Enemy():
                 egg = False
         return egg
     def take_damage_enemy(self, damage):
+        print('enemy_took_damage')
         with open('enemyinstance.json', 'r') as id:
             eggd = json.load(id)
-        healthjson = eggd['generic_enemy1'][0]['health']
+        healthjson = eggd[0]['health']
         pe = atte()
         dod = pe.doge()
         df = self.defense
@@ -412,7 +416,7 @@ class Enemy():
     def health_display(self):
         with open('enemyinstance.json', 'r') as id:
             ide = json.load(id)
-        healthjson = ide['generic_enemy1'][0]['health']
+        healthjson = ide[0]['health']
         teegreg = self.max_health/100
         max1 = int((self.max_health/teegreg)/5)
         current1 = int((healthjson/teegreg)/5)
@@ -440,13 +444,6 @@ class Enemy():
            \|
            """)
         egg.health_display()
-    def health_modify(health_change):
-        with open('enemyinstance.json', 'r+') as r:
-            egg = json.load(r)
-            egg['generic_enemy1'][0]['health'] = health_change
-        with open('enemyinstance.json','w') as i:
-            i.write(json.dumps(egg))
-            i.seek(0)
     def action(self):
         egg = atte()
         print("ATTACK")
@@ -486,7 +483,7 @@ class Enemy():
 class Turn():
     def determine():
         psp = player[0]['speed']
-        esp = enemies1['generic_enemy1'][0]['speed']
+        esp = enemies1[0]['speed']
         if esp < psp:
             Turn.tempvar()
         elif esp > psp:
@@ -515,9 +512,9 @@ class Turn():
             lm = atte()
             with open('enemyinstance.json','r+') as eg:
                 enemies1 = json.load(eg)
-            eaf2 = enemies1['generic_enemy1'][0]['health']
+            eaf2 = enemies1[0]['health']
             if eaf2 <= 0:
-                    exp_drop = enemies1['generic_enemy1'][0]['exp']
+                    exp_drop = enemies1[0]['exp']
                     print("ENEMY DEAD")
                     print(f'EXP DROPPED : {exp_drop}')
                     new_exp = player[0]['exp'] + exp_drop
@@ -541,17 +538,17 @@ class Location():
 
 #take enemey and player, print heir stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
-var = 1
-x = 0
-elgelg = []
-for i in range(6):
-    egg = inventorye[f'slot{var}'][0]['name']
-    var+=1
-    elgelg.append(egg)
-    if elgelg[x] == 0:
-        print("EMPTY")
-    x+=1
-print(elgelg)
+def fucked():
+    var = 1
+    x = 0
+    elgelg = []
+    for i in range(6):
+        egg = inventorye[f'slot{var}'][0]['name']
+        var+=1
+        elgelg.append(egg)
+        if elgelg[x] == 0:
+            print("EMPTY")
+        x+=1
 class Main_menu():
     print("")
     def base():
@@ -675,3 +672,4 @@ class Liquify_Stats():
     pass
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
+Turn.determine()

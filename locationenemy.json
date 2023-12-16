@@ -26,47 +26,5 @@
                 }
             ]
         }
-    ],
-    "location_2": [
-        {
-            "locationname":"Antil Forest",
-            "type": "Items",
-            "map_dimensions":[5,5],
-            "map_amount" : 5, 
-            "items":[
-                {
-                    "0":[
-                        {
-                            "name": "apple",
-                            "spawn_rate":1
-                        }
-                    ]
-                },
-                {
-                    "1":[
-                        {
-                            "name": "gold_coin",
-                            "spawn_rate":0.01
-                        }
-                    ]
-                },
-                {
-                    "2":[
-                        {
-                            "name": "idol_dev_statue",
-                            "spawn_rate": 0.001
-                        }
-                    ]
-                },
-                {
-                    "3":[
-                        {
-                            "name": "generic_enemy4",
-                            "spawn_amount":5
-                        }
-                    ]
-                }
-            ]
-        }
     ]
 }
