@@ -14,6 +14,18 @@ g1 = "\33[37m█"
 wh = "\033[0m█"
 color_default = "\033[0m"
 color_red = "\033[91m"
+with open('locationenemy.json') as fifa:
+    location = json.load(fifa)
+with open('enemyinstance.json')as f:
+    enemies1 = json.load(f)
+with open('attacks.json') as i:
+    attacks = json.load(i)
+with open('player.json') as w:
+    player = json.load(w)
+with open('inventorye.json') as el:
+    inventorye = json.load(el)
+with open('character.json') as elf:
+    character = json.load(elf)
 class Levels():
     def calculate():
         level = player[0]['level']
@@ -38,22 +50,54 @@ class Levels():
         pass
     def stats_boost():
         pass
+
+class Spawn():
+    def enemy_name():
+        enemy_list = []
+        test = len(location['location_1'][0]['enemies'])
+        numbers = 0
+        for i in range(test):
+            enemy_name = location['location_1'][0]['enemies'][numbers][f'{numbers}'][0]['name']
+            numbers += 1
+            enemy_list.append(enemy_name)
+        return enemy_list
+    def search():
+        indexcycle = 0
+        names = Spawn.enemy_name()
+        print(names)
+        with open('enemies.json', 'r+') as fr:
+            enemies = json.load(fr)
+        while True:
+            for i in enemies:
+                if names[indexcycle] in i:
+                    print([i])
+                    return enemies[i]
+                else:
+                    indexcycle+=1
+                    if indexcycle > len(enemies):
+                        indexcycle-=1
+                        return False
+                    else:
+                        return True
+    def spawn():
+        enemy_blit = Spawn.search() 
+        with open('enemyinstance.json', 'r+') as eggs:
+            enemyinstance = json.load(eggs) 
+            enemyinstance = enemy_blit
+        with open('enemyinstance.json', 'w') as igloo:
+            igloo.write(json.dumps(enemyinstance))
+            igloo.seek(0) 
+    def enemy_name_print():
+        indexcycle = 0
+        egg = Spawn.search()[i]
+        print(egg)
+Spawn.enemy_name_print()
+
         # do exp display here
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 #healing overflow(resolved) 
 #once enemy reaches a certain point it ends up trying to focus everything on healing itself and ends up not attacking, 
-with open('locationenemy.json') as fifa:
-    location = json.load(fifa)
-with open('enemyinstance.json','r+')as f:
-    enemies1 = json.load(f)
-with open('attacks.json') as i:
-    attacks = json.load(i)
-with open('player.json') as w:
-    player = json.load(w)
-with open('inventorye.json') as el:
-    inventorye = json.load(el)
-with open('character.json') as elf:
-    character = json.load(elf)
+
 def play():
     with open('player.json', 'r+') as f:
         plays = json.load(f)
@@ -479,7 +523,7 @@ class Turn():
                     new_exp = player[0]['exp'] + exp_drop
                     Player.modify(new_exp, 'exp', 'set')
                     Levels.current_exp()
-                    Map.display()
+                    Mapmap.display()
             else:
                     print("ENEMY")
                     Enemy.enemy_show()
@@ -530,53 +574,75 @@ class Crafting():
         
     def craft():
         pass
-class Spawn():
-    def enemy_name():
-        enemy_list = []
-        test = len(location['location_1'][0]['enemies'])
-        numbers = 0
-        for i in range(test):
-            enemy_name = location['location_1'][0]['enemies'][numbers][f'{numbers}'][0]['name']
-            numbers += 1
-            enemy_list.append(enemy_name)
-        return enemy_list
-    def spawn():
-        names = Spawn.enemy_name()
-        print(names[0])
-    def instance_creation():
-        
-        with open('enemies.json') as fr:
-            enemies = json.load(fr)
-            
-        with open('enemyinstance.json') as ei:
-            enemyinstance = json.load(el)
 class Area_Selection():
     pass
-Spawn.spawn()
 
 level = 0
 egg = '\t' * level
 class Items():
     def map():
-        item_name = Map.item_pickup()
+        item_name = Mapmap.item_pickup()
         with open('inventoryi.json') as egg:
             actualinventory = json.load(egg)
         if item_name in actualinventory:
             print("Item +1")
 
-class Map():
+class Mapmap():
     item =0
+    def controls():
+        dimensions = Mapmap.map_boundary()
+        height = dimensions[1]
+        length = dimensions[0]
+        Map = Mapmap.item_map()
+        while True:
+            print(r'''
+    ''')
+            print(f'x: {x}, y :{y}')
+            control = input("")
+            if control == 'w':
+                y -= 1
+                Map[y+1][x] = f'[ ]'
+            elif control == 's':
+                y += 1
+                Map[y-1][x] = f'[ ]'
+            elif control == 'a':
+                x -= 1
+                Map[y][x+1] = f'[ ]'
+            elif control == 'd':
+                x += 1
+                Map[y][x-1] = f'[ ]'    
+            if y == height:
+                y -=1
+            elif x == length:
+                x -=1
+            elif x == -1:
+                x +=1
+            elif y == -1:
+                y +=1
+            current_position = y, x 
+            return current_position
+    def map_boundary():
+        map_dimensions = location['location_1'][0]['map_dimensions']
+        height = map_dimensions[1]
+        length = map_dimensions[0]
+        if location['location_1'][0]['type'] == 'enemy':
+            print()
+        elif location['location1'][0]['type'] == 'item':
+            print('smth')
+        return length, height
     def item_map():
         location = location.Location()
-        map_dimensions = location['location_1'][0]['map_dimensions']
-        height = map_dimensions[1] 
+        map_dimensions = Mapmap.map_boundary()
+        height = map_dimensions[1]
         length = map_dimensions[0] 
         item_map = [['[ ]' for i in range(height)] for i in range(length)] 
-        itemspawnx = random.randint(0, length -1 )
-        itemspawny = random.randint(0, height -1 )
-        item_map[itemspawny]
+        itemspawnx = random.randint(0, length -1)
+        itemspawny = random.randint(0, height -1)
+        item_position = item_map[itemspawny][itemspawnx]
+        item_position = "[I]"
+        return item_map
     def enemy_map():
-        map_dimensions = location['location_1'][0]['map_dimensions']
+        map_dimensions = Mapmap.map_boundary()  
         height = map_dimensions[1] 
         length = map_dimensions[0] 
         enemy_spawnx = random.randint(0,length - 1)
@@ -587,41 +653,12 @@ class Map():
         Map = [['[ ]' for i in range(length)] for i in range(height)] 
         player_spawn = Map[y][x]
         while True:
-            print(r'''
-    ''')
-            print(f'x: {x}, y :{y}')
-            control = input("")
-            if control == 'w':
-                y -= 1
-                Map[y+1][x] = f'[{item}]'
-            elif control == 's':
-                y += 1
-                Map[y-1][x] = f'[{item}]'
-            elif control == 'a':
-                x -= 1
-                Map[y][x+1] = f'[{item}]'
-            elif control == 'd':
-                x += 1
-                Map[y][x-1] = f'[{item}]'    
-            if y == height:
-                y -=1
-            elif x == length:
-                x -=1
-            elif x == -1:
-                x +=1
-            elif y == -1:
-                y +=1
             Map[y][x] = "[X]"
             Map[enemy_spawny][enemy_spawnx] = "[O]"
-            Map[1][2] = "[I]"
             current_position = Map[y][x]
             enemy_position = Map[enemy_spawny][enemy_spawnx]
-            item_pos = Map[1][2]
             if current_position == enemy_position:
                 Turn.determine()
-            elif current_position == item_pos:
-                print("PICKUP")
-                Items.map()
             for something in Map:
                 print("".join(something))  
     def item_pickup():
@@ -634,7 +671,7 @@ class Map():
         elif pick_up == 'N':
             print('Escape')
             return item_name
-Map.enemy_map()
-
+class Liquify_Stats():
+    pass
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores

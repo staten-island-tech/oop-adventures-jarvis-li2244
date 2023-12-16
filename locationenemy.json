@@ -2,16 +2,15 @@
     "location_1": [
         {
             "locationname":"Antil Forest_",
-            "types":2,
-            "enemy_numstart" : 1,
+            "type": "Enemy",
             "map_dimensions":[5,5],
-            "ratio" : 10,
+            "map_amount" : 5, 
             "enemies":[
                 {
                     "0":[
                         {
                             "name":"generic_enemy1",
-                            "spawn_amount":10,
+                            "spawn_rate":10,
                             "boost":1
                         }
                     ]
@@ -19,9 +18,51 @@
                 {
                     "1":[
                         {
-                            "name": "egg",
-                            "spawn_amount":5,
+                            "name": "generic_enemy2",
+                            "spawn_rate":5,
                             "boost":1
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location_2": [
+        {
+            "locationname":"Antil Forest",
+            "type": "Items",
+            "map_dimensions":[5,5],
+            "map_amount" : 5, 
+            "items":[
+                {
+                    "0":[
+                        {
+                            "name": "apple",
+                            "spawn_rate":1
+                        }
+                    ]
+                },
+                {
+                    "1":[
+                        {
+                            "name": "gold_coin",
+                            "spawn_rate":0.01
+                        }
+                    ]
+                },
+                {
+                    "2":[
+                        {
+                            "name": "idol_dev_statue",
+                            "spawn_rate": 0.001
+                        }
+                    ]
+                },
+                {
+                    "3":[
+                        {
+                            "name": "generic_enemy4",
+                            "spawn_amount":5
                         }
                     ]
                 }

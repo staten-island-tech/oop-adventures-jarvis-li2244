@@ -21,7 +21,7 @@
                 } 
             ]
         }
-    ],    "generic_enemy2": [
+    ],"generic_enemy2": [
         {
             "names" : "EGG",
             "max_health" : 800,
