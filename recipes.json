@@ -1,0 +1,17 @@
+[{
+    "item_1":[
+        {
+        "name" : "A Cool Rock", 
+        "items_needed":[
+            {
+            "big_rock" : 1, 
+            "small_rock": 1, 
+            "tiny_rock" : 1
+            }
+        ]
+
+
+
+        }
+    ]
+}]
