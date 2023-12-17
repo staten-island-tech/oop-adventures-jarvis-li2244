@@ -65,14 +65,14 @@ class Spawn():
         indexcycle = 0
         names = Spawn.enemy_name()
         with open('enemies.json', 'r+') as fr:
-            enemies = json.load(fr)
+            ihavenoideawhattonamethis = json.load(fr)
         while True:
-            for i in enemies:
+            for i in ihavenoideawhattonamethis:
                 if names[indexcycle] in i:
-                    return enemies[i]
+                    return ihavenoideawhattonamethis[i]
                 else:
                     indexcycle+=1
-                    if indexcycle > len(enemies):
+                    if indexcycle > len(ihavenoideawhattonamethis):
                         indexcycle-=1
                         return False
                     else:
@@ -110,10 +110,8 @@ def play():
     pe = Player(id, name, exp, stat_point, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed)
     return pe
 def atte():
-    Spawn.spawn()
     with open('enemyinstance.json', 'r+') as e:
         enemies = json.load(e)
-    names = Spawn.search()
     max_health = enemies[0]['max_health']
     health = enemies[0]['health']
     damage = enemies[0]['damage']
@@ -145,6 +143,20 @@ class Player():
         self.critchance = critchance#
         self.critdmg = critdmg#
         self.speed = speed
+    def modify(change, var, mode):
+        with open('player.json', 'r+') as r:
+            unique_variable = json.load(r)
+        if mode == 'set':
+            unique_variable[0][f'{var}'] = change
+        elif mode == 'add':
+            unique_variable[0][f'{var}'] += change
+        elif mode == 'subtract':
+            unique_variable[0][f'{var}'] -= change
+        elif mode == 'append':
+            unique_variable[0][f'{var}'].append(change)
+        with open('player.json','w+') as i:
+            i.write(json.dumps(unique_variable, indent = 2))
+            i.seek(0)
     def start_game():
         Player.gui()
     def critical_hit(self):
@@ -167,7 +179,6 @@ class Player():
         print(damage_dealt_player)
         egg = atte()
         egg.take_damage_enemy(damage_dealt_player)
-        print('damage_dealt_player')
         return damage_dealt_player
     def take_damage(self, damage):
         egg = atte()
@@ -193,8 +204,10 @@ class Player():
                             |____/|_____/_/   \_\____/
 ''')
                 Player.modify(0, 'health', 'set')
+                print("modified")
                 return False
             else:
+                print("modified")
                 Player.modify(self.health, 'health', 'set')
                 return True
     def heal_damage(self):
@@ -225,20 +238,6 @@ class Player():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
-    def modify(change, var, mode):
-        with open('player.json', 'r+') as r:
-            unique_variable = json.load(r)
-        if mode == 'set':
-            unique_variable[0][f'{var}'] = change
-        elif mode == 'add':
-            unique_variable[0][f'{var}'] += change
-        elif mode == 'subtract':
-            unique_variable[0][f'{var}'] -= change
-        elif mode == 'append':
-            unique_variable[0][f'{var}'].append(change)
-        with open('player.json','w') as i:
-            i.write(json.dumps(unique_variable))
-            i.seek(0)
     def spell(self):
         mana = self.mana
         egg = input("")
@@ -318,38 +317,6 @@ class Player():
         pass
     def new_screen():
         print(r'''
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  
-   
-    
-     
-
-      
-
-       
-        
-         
-          
-           
-
-            
-             
-              
-               
-                
-                 
-                  
-
 ''')
 class Enemy():
     def __init__(self, max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed):
@@ -363,12 +330,15 @@ class Enemy():
         self.critdmg = critdmg
         self.speed = speed
     def health_modify(health_change):
-        with open('enemyinstance.json', 'r+') as r:
-            egg = json.load(r)
+        with open('enemyinstance.json', 'r+') as rel:
+            egg = json.load(rel)
             egg[0]['health'] = health_change
-        with open('enemyinstance.json','w') as i:
-            i.write(json.dumps(egg))
-            i.seek(0)
+            print("file read")
+            rel.seek(0)
+            rel.truncate()
+        with open('enemyinstance.json','w+') as icecubes:
+            icecubes.write(json.dumps(egg, indent=2))
+            print("file changed")
     def doge(self):
         dod = self.dodge
         egg = True
@@ -390,6 +360,7 @@ class Enemy():
         else:
             if df == 0:
                 self.health = self.health - damage
+                print("No Defense")
             elif df != 0:
                 multiplier = self.defense * 0.01
                 dmg = damage - damage * multiplier
@@ -397,13 +368,15 @@ class Enemy():
                 print(f'health damage{self.health}')
         if healthjson <= 0 or self.health <= 0:
             Enemy.health_modify(0)
+            print('0 hp')
         else:
+            print('woah, your still alive')
             Enemy.health_modify(self.health)
         print(self.health)
         return self.health
     def health_heal(self):
         en = atte()
-        heal = 10
+        heal = 10000
         self.health += heal
         print(f'health_heal{self.health}')
         if self.health > self.max_health:
@@ -451,7 +424,9 @@ class Enemy():
             roll = int(100/self.dodge)
             if random.randint(1, roll) == random.randint(1, roll):
                 egg.health_heal()
+                print("heal")
         else: 
+            print("dealdamagew")
             egg.deal_damage()
         return True
     def critical_hit(self): 
@@ -509,23 +484,22 @@ class Turn():
 
                 Turn.tempvar2()
     def tempvar2():
-            lm = atte()
-            with open('enemyinstance.json','r+') as eg:
+        lm = atte()
+        with open('enemyinstance.json','r+') as eg:
                 enemies1 = json.load(eg)
-            eaf2 = enemies1[0]['health']
-            if eaf2 <= 0:
-                    exp_drop = enemies1[0]['exp']
-                    print("ENEMY DEAD")
-                    print(f'EXP DROPPED : {exp_drop}')
-                    new_exp = player[0]['exp'] + exp_drop
-                    Player.modify(new_exp, 'exp', 'set')
-                    Levels.current_exp()
-                    Mapmap.display()
-            else:
-                    print("ENEMY")
-                    Enemy.enemy_show()
-                    lm.action()
-                    Turn.tempvar()
+        eaf2 = enemies1[0]['health']
+        if eaf2 <= 0:
+            exp_drop = enemies1[0]['exp']
+            print("ENEMY DEAD")
+            print(f'EXP DROPPED : {exp_drop}')
+            new_exp = player[0]['exp'] + exp_drop
+            Player.modify(new_exp, 'exp', 'set')
+            Levels.current_exp()
+            Mapmap.display()
+        else:
+            print("ENEMY")
+            lm.action()
+            Turn.tempvar()
 with open('character.json', 'r+') as awesome:
     character = json.load(awesome)
 class Location():
@@ -593,7 +567,7 @@ class Mapmap():
         Map = Mapmap.item_map()
         while True:
             print(r'''
-    ''')
+             ''')
             print(f'x: {x}, y :{y}')
             control = input("")
             if control == 'w':
@@ -623,29 +597,32 @@ class Mapmap():
         height = map_dimensions[1]
         length = map_dimensions[0]
         if location['location_1'][0]['type'] == 'enemy':
-            print()
-        elif location['location1'][0]['type'] == 'item':
-            print('smth')
+            Mapmap.enemy_map()
+        elif location['location_1'][0]['type'] == 'item':
+            Mapmap.item_map()
         return length, height
+    def player_spawn():
+        pass
     def item_map():
-        location = location.Location()
+        location = Location.location()
         map_dimensions = Mapmap.map_boundary()
         height = map_dimensions[1]
         length = map_dimensions[0] 
         item_map = [['[ ]' for i in range(height)] for i in range(length)] 
         itemspawnx = random.randint(0, length -1)
         itemspawny = random.randint(0, height -1)
-        item_position = item_map[itemspawny][itemspawnx]
-        item_position = "[I]"
-        return item_map
+        while True: 
+            item_position = item_map[itemspawny][itemspawnx]
+            item_position = "[I]"
+            return item_map
     def enemy_map():
         map_dimensions = Mapmap.map_boundary()  
         height = map_dimensions[1] 
         length = map_dimensions[0] 
         enemy_spawnx = random.randint(0,length - 1)
         enemy_spawny = random.randint(0,height - 1)
-        x = 2
-        y = 2
+        x = Mapmap.controls()[1]
+        y = Mapmap.controls()[0]
         item = " "
         Map = [['[ ]' for i in range(length)] for i in range(height)] 
         player_spawn = Map[y][x]
@@ -672,4 +649,4 @@ class Liquify_Stats():
     pass
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
-Turn.determine()
+Mapmap.enemy_map()
