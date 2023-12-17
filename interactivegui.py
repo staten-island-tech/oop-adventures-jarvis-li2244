@@ -454,7 +454,7 @@ class Enemy():
         #gonna create a new index for sprites 
         pass
     def drops(self):
-        pass
+        enemies1[0]['loot_table'][0]['1']
 class Turn():
     def determine():
         psp = player[0]['speed']

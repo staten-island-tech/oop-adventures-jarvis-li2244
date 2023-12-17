@@ -1,0 +1,25 @@
+[{
+    "name":[
+        {
+            "name": "en",
+            "type" : "weapon_sword", 
+            "stats":[
+                {
+                    "attack": 10, 
+                    "critdmg": 20
+
+                }
+
+
+            ]
+
+        }
+
+
+    ]
+
+
+
+
+
+}]
