@@ -20,7 +20,7 @@ def page_scroll():
     if numpad not in fur:
         page_scroll()
     else:
-        max_range = int(numpad) * 9
+        max_range = int(numpad) * 9 + 1
         lowest_range = max_range - 9
         for i in range(9):
             loste.append(lowest_range)
@@ -32,24 +32,27 @@ def create_list():
     item_name = names()
     print(f'''
 ══════════════════════════════════
-1. {item_name[recipe_page[0]]}                             
+1. {recipes[0][f'item_{recipe_page[0]}'][0]['name']}                             
 ══════════════════════════════════
-2. {item_name[recipe_page[1]]}                             
+2. {recipes[0][f'item_{recipe_page[1]}'][0]['name']}                             
 ══════════════════════════════════
-3. {item_name[recipe_page[2]]}
+3. {recipes[0][f'item_{recipe_page[2]}'][0]['name']} 
 ══════════════════════════════════
-4. {item_name[recipe_page[3]]}                             
+4. {recipes[0][f'item_{recipe_page[3]}'][0]['name']} 
 ══════════════════════════════════
-5. {item_name[recipe_page[4]]}                             
+5. {recipes[0][f'item_{recipe_page[4]}'][0]['name']}                         
 ══════════════════════════════════
-6. {item_name[recipe_page[5]]}                             
+6. {recipes[0][f'item_{recipe_page[5]}'][0]['name']}                              
 ══════════════════════════════════
-7. {item_name[recipe_page[6]]}                             
+7. {recipes[0][f'item_{recipe_page[6]}'][0]['name']} 
 ══════════════════════════════════
-8. {item_name[recipe_page[7]]}                             
+8. {recipes[0][f'item_{recipe_page[7]}'][0]['name']} 
 ══════════════════════════════════
-9. {item_name[recipe_page[8]]}                             
+9. {recipes[0][f'item_{recipe_page[8]}'][0]['name']} 
 ══════════════════════════════════
         1 2 3 4 5 6 7 8...
 ''')
 create_list()
+
+def requirements():
+    pass
