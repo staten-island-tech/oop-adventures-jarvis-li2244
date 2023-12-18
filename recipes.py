@@ -1,4 +1,5 @@
 import json
+import sys
 
 with open('recipes.json') as f:
     recipes = json.load(f)
@@ -52,7 +53,15 @@ def create_list():
 ══════════════════════════════════
         1 2 3 4 5 6 7 8...
 ''')
+    egg = input("")
+    if egg == 'page_scroll':
+        page_scroll()
+    elif egg == 'exit':
+        sys.exit()
 create_list()
+
+
+
 
 def requirements():
     pass

@@ -531,7 +531,6 @@ class Main_menu():
     def Start_Game():
         pass
     def Options():
-
         pass
     def Exit():
         pass

@@ -1,15 +1,182 @@
 {
-    "inventory" : [
-        {
-            "slot1" : "generic_loot1 ", 
-            "slot2" : 0, 
-            "slot3" : 0,
-            "currency" : 0
-        }
-
-
-    ]
-
-
-
+  "slot1": [
+    {
+      "quantity": 1,
+      "name": "dog"
+    }
+  ],
+  "slot2": [
+    {
+      "quantity": 1,
+      "name": "cat"
+    }
+  ],
+  "slot3": [
+    {
+      "quantity": 1,
+      "name": "cat"
+    }
+  ],
+  "slot4": [
+    {
+      "quantity": 1,
+      "name": "cat"
+    }
+  ],
+  "slot5": [
+    {
+      "quantity": 1,
+      "name": "cat"
+    }
+  ],
+  "slot6": [
+    {
+      "quantity": 1,
+      "name": "cat"
+    }
+  ],
+  "slot7": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot8": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot9": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot10": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot11": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot12": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot13": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot14": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot15": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot16": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot17": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot18": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot19": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot20": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot21": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot22": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot23": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot24": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot25": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot26": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot27": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot28": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot29": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ],
+  "slot30": [
+    {
+      "quantity": 1,
+      "name": null
+    }
+  ]
 }

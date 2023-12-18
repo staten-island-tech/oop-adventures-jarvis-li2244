@@ -32,7 +32,7 @@ class Maper():
         x = 2
         y = 2
         item = " "
-        Map = [['[ ]' for i in range(5)] for i in range(height)] 
+        Map = [['[ ]' for i in range(length)] for i in range(height)] 
         player_spawn = Map[y][x]
         for i in range(spawn_amount):
             counter.append([Maper.spawn_positions()[0], Maper.spawn_positions()[1]])
@@ -70,5 +70,5 @@ class Maper():
                 Lakes.kill_enemy()
             for something in Map:
                 print("".join(something))
-   
+            
 Maper.map()
