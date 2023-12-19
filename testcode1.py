@@ -1,2 +1,4 @@
-import json
-with open(looot.json )
+l = [dict(zip([1],[x])) for x in range(1,100)]
+ 
+# display list
+print(l[1][1])

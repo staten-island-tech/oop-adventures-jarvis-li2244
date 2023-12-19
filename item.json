@@ -1,7 +1,6 @@
 [{
-    "name":[
+    "en":[
         {
-            "name": "en",
             "type" : "weapon_sword", 
             "stats":[
                 {

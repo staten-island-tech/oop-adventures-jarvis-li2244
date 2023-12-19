@@ -61,7 +61,7 @@ def create_list():
 
 
 def recipe_select():
-    selection = int(input())
+    selection = input()
     print(type(selection))
     if selection.is_integer() == False:
         print("Would you like to exit? Y/N")
