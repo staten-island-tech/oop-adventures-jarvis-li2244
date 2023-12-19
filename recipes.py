@@ -61,13 +61,16 @@ def create_list():
 
 
 def recipe_select():
-    selection = int(input(''))
-    if selection != int:
+    selection = int(input())
+    print(type(selection))
+    if selection.is_integer() == False:
         print("Would you like to exit? Y/N")
         if input() == "Y":
             print("exiting recipe menu")
         else:
             recipe_select() 
+    else:
+        print("woah you're actually competent??!?!?!")
 def requirements():
     pass
 recipe_select()
