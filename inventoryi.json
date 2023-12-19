@@ -2,180 +2,180 @@
   "slot1": [
     {
       "quantity": 1,
-      "name": "dog"
+      "name": null
     }
   ],
   "slot2": [
     {
-      "quantity": 1,
-      "name": "cat"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot3": [
     {
-      "quantity": 1,
-      "name": "cat"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot4": [
     {
-      "quantity": 1,
-      "name": "cat"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot5": [
     {
-      "quantity": 1,
-      "name": "cat"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot6": [
     {
-      "quantity": 1,
-      "name": "cat"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot7": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot8": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot9": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot10": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot11": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot12": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot13": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot14": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot15": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot16": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot17": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot18": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot19": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot20": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot21": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot22": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot23": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot24": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot25": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot26": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot27": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot28": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot29": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ],
   "slot30": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null
     }
   ]
