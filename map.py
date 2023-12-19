@@ -27,15 +27,19 @@ class Maper():
         enemy_spawny = Maper.spawn_positions()[0]
         enemy_spawnx = Maper.spawn_positions()[1]
         spawn_amount  = 10
+        eg = 0
+        Map = [['[ ]' for i in range(length)] for i in range(height)] 
+        variablename = [[Maper.spawn_positions()[0], Maper.spawn_positions()[1]] for i in range(spawn_amount)]
+        for i in range(spawn_amount):
+            y_cords = variablename[eg][0]
+            x_cords = variablename[eg][1]
+            eg +=1
+            Map[y_cords][x_cords] = '[O]'
         egg = []
         counter = []
         x = 2
         y = 2
         item = " "
-        Map = [['[ ]' for i in range(length)] for i in range(height)] 
-        player_spawn = Map[y][x]
-        for i in range(spawn_amount):
-            counter.append([Maper.spawn_positions()[0], Maper.spawn_positions()[1]])
         while True:
             print(f'y: {y}, x :{x}')
             current_position = [y, x]
@@ -61,13 +65,12 @@ class Maper():
             elif y == -1:
                 y +=1
             Map[y][x] = '[X]'
-            enemy_position = Map[enemy_spawny][enemy_spawnx]
-            Map[enemy_spawny][enemy_spawnx] = '[O]'
             print(counter)
             print(current_position)
-            if current_position in counter:
+            if current_position in variablename:
                 print("ITS AN ENEMY!!!")    
                 Lakes.kill_enemy()
+                
             for something in Map:
                 print("".join(something))
             

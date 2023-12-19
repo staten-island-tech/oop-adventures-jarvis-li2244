@@ -47,12 +47,9 @@ def page_scroll():
         for i in range(10):
             loste.append(lowest_range)
             lowest_range += 1
-    print(loste)
     return loste
-
 def inventory():
     page = page_scroll()
-    egg = item_usage()
     pravda = ['<',' ',' ',' ',' ',' ',' ',' ',' ',' ']
     print(f'''
              INVENTORY 
@@ -79,7 +76,8 @@ def inventory():
 ══════════════════════════════════
               <- - ->
 ''')
-    return page
+    potatojam = input()
+    print(inventir[f'slot{potatojam}'][0]['name'])
 def verify_usage():
     egg = input("")
     if egg == "Y":
@@ -88,6 +86,7 @@ def verify_usage():
         return False
 def item_usage():
     #idk
+    inventory()
     print("Scroll up and Down Using")
     eralt = input("")
     name = inventir[f'slot{eralt}'][0]['name']
@@ -103,6 +102,7 @@ def item_usage():
             print("Equip Item?")
             if verify_usage() == True:
                 update_json(name)
-item_usage()
 def piie():
     pass
+
+inventory()
