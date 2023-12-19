@@ -4,6 +4,8 @@ with open('inventoryi.json') as ii:
     inventir = json.load(ii)
 null = None
 
+def opt():
+    naol = input("")
 
 def put_slotin_inventory(item_name, quantity):
     vary = 0
@@ -39,34 +41,41 @@ def page_scroll():
             lowest_range += 1
     print(loste)
     return loste
+
 def inventory():
     page = page_scroll()
+    egg = item_usage()
+    pravda = ['<',' ',' ',' ',' ',' ',' ',' ',' ',' ']
     print(f'''
              INVENTORY 
 ══════════════════════════════════
-{page[0]}.  {inventir[f'slot{page[0]}'][0]['name']}                             
+{page[0]}.  {inventir[f'slot{page[0]}'][0]['name']}    {pravda[0]}                         
 ══════════════════════════════════
-{page[1]}.  {inventir[f'slot{page[1]}'][0]['name']}                             
+{page[1]}.  {inventir[f'slot{page[1]}'][0]['name']}    {page[1]}                        
 ══════════════════════════════════
-{page[2]}.  {inventir[f'slot{page[2]}'][0]['name']} 
+{page[2]}.  {inventir[f'slot{page[2]}'][0]['name']}    {page[2]}
 ══════════════════════════════════
-{page[3]}.  {inventir[f'slot{page[3]}'][0]['name']} 
+{page[3]}.  {inventir[f'slot{page[3]}'][0]['name']}    {page[3]}
 ══════════════════════════════════
-{page[4]}.  {inventir[f'slot{page[4]}'][0]['name']}                         
+{page[4]}.  {inventir[f'slot{page[4]}'][0]['name']}    {page[4]}                     
 ══════════════════════════════════
-{page[5]}.  {inventir[f'slot{page[5]}'][0]['name']}                              
+{page[5]}.  {inventir[f'slot{page[5]}'][0]['name']}    {page[5]}                          
 ══════════════════════════════════
-{page[6]}.  {inventir[f'slot{page[6]}'][0]['name']} 
+{page[6]}.  {inventir[f'slot{page[6]}'][0]['name']}    {page[6]}
 ══════════════════════════════════
-{page[7]}.  {inventir[f'slot{page[7]}'][0]['name']} 
+{page[7]}.  {inventir[f'slot{page[7]}'][0]['name']}    {page[7]}
 ══════════════════════════════════
-{page[8]}.  {inventir[f'slot{page[8]}'][0]['name']} 
+{page[8]}.  {inventir[f'slot{page[8]}'][0]['name']}    {page[8]} 
 ══════════════════════════════════
-{page[9]}.  {inventir[f'slot{page[9]}'][0]['name']} 
+{page[9]}.  {inventir[f'slot{page[9]}'][0]['name']}    {page[9]} 
 ══════════════════════════════════
-              <- 1 ->
+              <- - ->
 ''')
-#quantity
+    return pravda
+def item_usage():
+    pravda = inventory()
+    print("Scroll down using 'w' for up, 's' for down, 'a' for going back a page and 'd for going forward a page")
+    agel = input("")
 def piie():
     pass
 inventory()

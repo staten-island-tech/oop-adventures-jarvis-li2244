@@ -58,10 +58,16 @@ def create_list():
         page_scroll()
     elif egg == 'exit':
         sys.exit()
-create_list()
 
 
-
-
+def recipe_select():
+    selection = int(input(''))
+    if selection != int:
+        print("Would you like to exit? Y/N")
+        if input() == "Y":
+            print("exiting recipe menu")
+        else:
+            recipe_select() 
 def requirements():
     pass
+recipe_select()
