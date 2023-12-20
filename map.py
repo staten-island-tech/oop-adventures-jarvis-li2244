@@ -36,7 +36,6 @@ class Maper():
             eg +=1
             Map[y_cords][x_cords] = '[O]'
         egg = []
-        counter = []
         x = 2
         y = 2
         item = " "
@@ -65,13 +64,11 @@ class Maper():
             elif y == -1:
                 y +=1
             Map[y][x] = '[X]'
-            print(counter)
             print(current_position)
+            for something in Map:
+                print("".join(something))
             if current_position in variablename:
                 print("ITS AN ENEMY!!!")    
                 Lakes.kill_enemy()
-                
-            for something in Map:
-                print("".join(something))
             
 Maper.map()

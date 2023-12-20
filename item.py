@@ -10,11 +10,14 @@ null = None
 
 def opt():
     naol = input("")
-def update_json(item_name):
-    elf =[]
-    elf.append(item[0][f'{item_name}'][0]['stats'][0])
+def update_json(item_name, item_stats):
+    new_value = list(item_stats.items())
+    egg = 0
+    for i in range(len(item_stats)):
+        print(new_value[egg][0])
+        egg +=1
+        #this da format: item[0][f'{name}'][0]['stats'][0] for item stats
     #figure out how iterate through the list
-    print(elf)
 def put_slotin_inventory(item_name, quantity):
     vary = 0
     null = None
@@ -35,6 +38,21 @@ def put_slotin_inventory(item_name, quantity):
         else:
             vary += 1
             print('else')
+
+def modify(change, var, mode):
+    with open('player.json', 'r+') as r:
+        unique_variable = json.load(r)
+    if mode == 'set':
+        unique_variable[0][f'{var}'] = change
+    elif mode == 'add':
+        unique_variable[0][f'{var}'] += change
+    elif mode == 'subtract':
+        unique_variable[0][f'{var}'] -= change
+    elif mode == 'append':
+        unique_variable[0][f'{var}'].append(change)
+    with open('player.json','w+') as i:
+        i.write(json.dumps(unique_variable, indent = 2))
+        i.seek(0)
 def page_scroll():
     numpad = input()
     loste = []
@@ -90,19 +108,20 @@ def item_usage():
     print("Scroll up and Down Using")
     eralt = input("")
     name = inventir[f'slot{eralt}'][0]['name']
+    item_stats = item[0][f'{name}'][0]['stats'][0]
     if name == null:
         print("Nothing to see here")
     elif name != null:
-        print(item[0][f'{name}'][0]['stats'][0])
+        print(item_stats)
         if item[0][f'{name}'][0]['type'] == "consumable":
             print("Use item?")
             if verify_usage() == True:
-                update_json(name)
+                update_json(name, item_stats)
         elif item[0][f'{name}'][0]['type'] == "weapon_sword":
             print("Equip Item?")
             if verify_usage() == True:
-                update_json(name)
+                update_json(name, item_stats)
 def piie():
     pass
 
-inventory()
+item_usage()
