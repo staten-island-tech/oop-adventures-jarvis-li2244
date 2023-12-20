@@ -8,13 +8,16 @@ with open('item.json') as falafel:
 
 null = None
 
-def opt():
-    naol = input("")
-def update_json(item_name, item_stats):
+
+def stim_opt():
+    pass
+def update_json(item_stats, module):
     new_value = list(item_stats.items())
     egg = 0
     for i in range(len(item_stats)):
-        print(new_value[egg][0])
+        stat_name = new_value[egg][0]
+        stat_item = new_value[egg][1]
+        modify(stat_item, stat_name, f'{module}')
         egg +=1
         #this da format: item[0][f'{name}'][0]['stats'][0] for item stats
     #figure out how iterate through the list
@@ -116,11 +119,24 @@ def item_usage():
         if item[0][f'{name}'][0]['type'] == "consumable":
             print("Use item?")
             if verify_usage() == True:
-                update_json(name, item_stats)
+                update_json(name, item_stats, 'add')
         elif item[0][f'{name}'][0]['type'] == "weapon_sword":
             print("Equip Item?")
             if verify_usage() == True:
-                update_json(name, item_stats)
+                update_json(name, item_stats, 'add')
+def item_unusage():
+    lemfa = input("")
+    if lemfa not in inventir: 
+        print("ni")
+    elif lemfa in inventir:
+        #put the check function here later, too lazy to write 
+        print("Unequip?")
+        equp = input()
+        if equp == True:
+            print("Unequiped")
+            update_json("false", "stat_items ", 'subtract')
+def fish():
+    pass
 def piie():
     pass
 
