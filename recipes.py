@@ -58,11 +58,11 @@ def create_list():
         page_scroll()
     elif egg == 'exit':
         sys.exit()
-
+#figure out how to implement a trailing cursor to the thing.
+#
 
 def recipe_select():
     selection = input()
-    print(type(selection))
     if selection.is_integer() == False:
         print("Would you like to exit? Y/N")
         if input() == "Y":
@@ -71,6 +71,8 @@ def recipe_select():
             recipe_select() 
     else:
         print("woah you're actually competent??!?!?!")
+        recipes[0][f'item_{selection}'][0]['name']
+        
 def requirements():
     pass
 recipe_select()

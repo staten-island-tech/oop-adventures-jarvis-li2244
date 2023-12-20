@@ -8,6 +8,9 @@ class Lakes():
         print("ENEMY KILLEd")
         Maper.map()
 class Maper():
+    def item():
+        #basically copy the same formula as enemy_spawning except make it trigger  smht else
+        pass
     def boundaries():
         map_dimensions = location['location_1'][0]['map_dimensions']
         height = map_dimensions[1]
@@ -24,8 +27,6 @@ class Maper():
         map_dimensions = Maper.boundaries()
         height = map_dimensions[1]
         length = map_dimensions[0] 
-        enemy_spawny = Maper.spawn_positions()[0]
-        enemy_spawnx = Maper.spawn_positions()[1]
         spawn_amount  = 10
         eg = 0
         Map = [['[ ]' for i in range(length)] for i in range(height)] 
@@ -70,5 +71,9 @@ class Maper():
             if current_position in variablename:
                 print("ITS AN ENEMY!!!")    
                 Lakes.kill_enemy()
+                #use .remove() to remove the enemy_coords once down
+            if variablename == None:
+                print("Exit Opened")
+                rat = False 
             
 Maper.map()

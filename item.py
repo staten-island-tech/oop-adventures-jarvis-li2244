@@ -11,13 +11,18 @@ null = None
 
 def stim_opt():
     pass
-def update_json(item_stats, module):
+def update_json(item_name, item_stats, module, amount_used):
     new_value = list(item_stats.items())
     egg = 0
+    if inventir[0][f'{item_name}'][0]['stackable'] == False:
+        print('unstackable')
+    elif inventir[0][f'{item_name}'][0]['stackable'] == True:
+        item_stats = item_stats * amount_used
+        print('stacking')
     for i in range(len(item_stats)):
         stat_name = new_value[egg][0]
         stat_item = new_value[egg][1]
-        modify(stat_item, stat_name, f'{module}')
+        modify(stat_item, f'{stat_name}', f'{module}')
         egg +=1
         #this da format: item[0][f'{name}'][0]['stats'][0] for item stats
     #figure out how iterate through the list
@@ -119,8 +124,10 @@ def item_usage():
         if item[0][f'{name}'][0]['type'] == "consumable":
             print("Use item?")
             if verify_usage() == True:
-                update_json(name, item_stats, 'add')
-        elif item[0][f'{name}'][0]['type'] == "weapon_sword":
+                print("How many?")
+                egg = input("")
+                update_json(name, item_stats, 'add', f'{egg}')
+        elif item[0][f'{name}'][0]['type'] == "equippable":
             print("Equip Item?")
             if verify_usage() == True:
                 update_json(name, item_stats, 'add')
@@ -131,8 +138,8 @@ def item_unusage():
     elif lemfa in inventir:
         #put the check function here later, too lazy to write 
         print("Unequip?")
-        equp = input()
-        if equp == True:
+        equp = input("Y/N")
+        if equp == "Y":
             print("Unequiped")
             update_json("false", "stat_items ", 'subtract')
 def fish():

@@ -1,7 +1,8 @@
 [{
     "en":[
         {
-            "type" : "weapon_sword", 
+            "type" : "weapon_sword",
+            "stackable": false,
             "stats":[
                 {
                     "attack": 10, 
