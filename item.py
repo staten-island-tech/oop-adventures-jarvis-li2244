@@ -2,33 +2,31 @@ import json, random
 
 with open('inventoryi.json') as ii:
     inventir = json.load(ii)
-
 with open('item.json') as falafel:
     item = json.load(falafel)
-
+with open('inventorye.json') as illager:
+    inverter = json.load(illager)
 null = None
-
 
 def stim_opt():
     pass
 def update_json(item_name, item_stats, module, amount_used):
     new_value = list(item_stats.items())
     egg = 0
-    if inventir[0][f'{item_name}'][0]['stackable'] == False:
+    if item[0][f'{item_name}'][0]['stackable'] == False:
         print('unstackable')
     elif inventir[0][f'{item_name}'][0]['stackable'] == True:
-        item_stats = item_stats * amount_used
+        item_stats = item_stats * amount_used 
         print('stacking')
     for i in range(len(item_stats)):
         stat_name = new_value[egg][0]
         stat_item = new_value[egg][1]
         modify(stat_item, f'{stat_name}', f'{module}')
-        egg +=1
+        egg += 1
         #this da format: item[0][f'{name}'][0]['stats'][0] for item stats
     #figure out how iterate through the list
 def put_slotin_inventory(item_name, quantity):
     vary = 0
-    null = None
     while vary != len(inventir):
         with open('inventoryi.json') as finale:
             inventi = json.load(finale)
@@ -46,7 +44,7 @@ def put_slotin_inventory(item_name, quantity):
         else:
             vary += 1
             print('else')
-
+    print("damn ur inventory is full,too bad")
 def modify(change, var, mode):
     with open('player.json', 'r+') as r:
         unique_variable = json.load(r)
@@ -130,7 +128,9 @@ def item_usage():
         elif item[0][f'{name}'][0]['type'] == "equippable":
             print("Equip Item?")
             if verify_usage() == True:
-                update_json(name, item_stats, 'add')
+                piie()
+                update_json(name, item_stats, 'add', 1)
+
 def item_unusage():
     lemfa = input("")
     if lemfa not in inventir: 
@@ -144,7 +144,24 @@ def item_unusage():
             update_json("false", "stat_items ", 'subtract')
 def fish():
     pass
-def piie():
-    pass
-
+def piie(item_name):
+    vary = 0
+    if inventir[f'slot{vary+1}'][0]['name'] in inverter:
+        print("already equipped")
+        print("scram")
+        #cause placeholder function back to menu or smth
+        pass
+    while vary != len(inverter):
+        if inventir[f'slot{vary+1}'][0]['name'] == null:
+            with open('inventorye.json') as i4:
+                venti = json.load(i4)
+                venti[f'slot{vary+1}'][0]['name'] = item_name
+            with open('inventorye.json','w+') as i2:
+                i2.write(json.dumps(venti, indent = 2))
+                i2.seek(0)
+            break
+        else:
+            vary += 1
+    print("damn ur inventory is full, no equips for you")
+    
 item_usage()

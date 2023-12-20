@@ -1,7 +1,7 @@
 [{
     "en":[
         {
-            "type" : "weapon_sword",
+            "type" : "equippable",
             "stackable": false,
             "stats":[
                 {

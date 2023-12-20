@@ -2,37 +2,46 @@
     "slot1": [
         {
         "quantity" : 1, 
-        "name" : "BIG CHUNGUS"
+        "name" : "en"
         }
     ],   
     "slot2": [
         {
         "quantity" : 1, 
-        "name" : 0
+        "name" : null
         }
     ],   
     "slot3": [
         {
         "quantity" : 1, 
-        "name" : 0
+        "name" : null
         }
     ],   
     "slot4": [
         {
         "quantity" : 1, 
-        "name" : 0
+        "name" : null
         }
     ],   
     "slot5": [
         {
         "quantity" : 1, 
-        "name" : 0
+        "name" : null
         }
     ],
     "slot6": [
         {
         "quantity" : 1, 
-        "name" : "EGG"
+        "name" : null
         }
+    ],
+    "weapon_equip": [
+        {
+            "quantity" : 0,
+            "name" : null
+
+        }
+
+
     ]
 }

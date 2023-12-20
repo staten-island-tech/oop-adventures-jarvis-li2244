@@ -335,7 +335,6 @@ class Enemy():
             egg[0]['health'] = health_change
             print("file read")
             rel.seek(0)
-            rel.truncate()
         with open('enemyinstance.json','w+') as icecubes:
             icecubes.write(json.dumps(egg, indent=2))
             print("file changed")
@@ -512,7 +511,7 @@ class Location():
 
 #take enemey and player, print heir stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
-def fuckery():
+def fuckery():s
     var = 1
     x = 0
     elgelg = []
