@@ -74,7 +74,7 @@ def page_scroll():
     return loste
 def inventory():
     page = page_scroll()
-    pravda = ['<',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+    pravda = item_select()
     print(f'''
              INVENTORY 
 ══════════════════════════════════
@@ -102,16 +102,26 @@ def inventory():
 ''')
     potatojam = input()
     print(inventir[f'slot{potatojam}'][0]['name'])
+    return pravda
 def verify_usage():
     egg = input("")
     if egg == "Y":
         return True
     else:
         return False
-def item_usage():
+def item_select():
+    pravda = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+    coconutbanana = input()
+    cursor_pos = 0
+    if coconutbanana == "W": 
+        cursor_pos +=1 
+    pravda[cursor_pos] = '>'
+    pravda[cursor_pos - 1] = ' '
+    print(pravda)
+def item_usage(): 
     #idk
     inventory()
-    print("Scroll up and Down Using")
+    print("Scroll up and Down Using A or D")
     eralt = input("")
     name = inventir[f'slot{eralt}'][0]['name']
     item_stats = item[0][f'{name}'][0]['stats'][0]

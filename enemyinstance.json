@@ -12,9 +12,10 @@
     "critdmg": 9,
     "speed": 100,
     "exp": 100,
+    "coins":1000,
     "loot_table": [
       {
-        "generic_loot1": 1,
+        "en": 100,
         "generic_loot2": 0.01,
         "generic_loot3": 0.1
       }
