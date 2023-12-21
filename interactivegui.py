@@ -453,9 +453,25 @@ class Enemy():
         #gonna create a new index for sprites 
         pass
     def drops(self):
-        loot_table = enemies1[0]['loot_table'][0]['1']
+        loot_table = enemies1[0]['loot_table'][0]
         listed_loot_table = list(loot_table.items())
-        print(listed_loot_table)
+        bigjar = 0
+        for i in range(len(loot_table)):
+            drop_rate = listed_loot_table[bigjar][1]
+            drop_name = listed_loot_table[bigjar][0]
+            bigjar+=1
+            prob = 100/drop_rate
+            type_drop = ""
+            if prob <= 100:
+                type_drop = "Super Rare Drop"
+            elif prob <= 1000:
+                type_drop = "Crazy Rare Drop"
+            if random.randint(1, int(prob)) == random.randint(1, int(prob)):
+                print(f'{type_drop}! {drop_name} dropped!({drop_rate}%)')
+                #trigger the put into inventory function
+                #determine quantity dropped and if stackable or not
+            else: 
+                print("haha no loot for u")
 class Turn():
     def determine():
         psp = player[0]['speed']
@@ -524,13 +540,24 @@ def fuckery():
         if elgelg[x] == 0:
             print("EMPTY")
         x+=1
+def verify_usage():
+    egg = input("")
+    if egg == "Y":
+        return True
+    else:
+        return False
 class Main_menu():
     print("")
     def base():
         egg = int(input(""))
         Main_menu.Start_Game() if egg == "1" else Main_menu.Options() if egg == "2" else Main_menu.Exit() if egg == "3" else Main_menu.Stats() if egg == "4" else Main_menu.base()
     def Start_Game():
-        pass
+        #tutorial here
+        print("Skip Tutorial? Y/N")
+        if verify_usage() == True:
+            print("Skip")
+        else: 
+            pass
     def Options():
         pass
     def Exit():
@@ -650,26 +677,5 @@ class Liquify_Stats():
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
 
-def drops():
-        loot_table = enemies1[0]['loot_table'][0]
-        listed_loot_table = list(loot_table.items())
-        bigjar = 0
-        for i in range(len(loot_table)):
-            drop_rate = listed_loot_table[bigjar][1]
-            drop_name = listed_loot_table[bigjar][0]
-            bigjar+=1
-            prob = 100/drop_rate
-            type_drop = ""
-            if prob <= 100:
-                type_drop = "Super Rare Drop"
-            elif prob <= 1000:
-                type_drop = "Crazy Rare Drop"
-            if random.randint(1, int(prob)) == random.randint(1, int(prob)):
-                print(f'{type_drop}! {drop_name} dropped!({drop_rate}%)')
-                #trigger the put into inventory function
-                #determine quantity dropped and if stackable or not
-            else: 
-                print("no drops")
-            
 
-drops()
+atte.drops()

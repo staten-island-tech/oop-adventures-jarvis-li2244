@@ -115,7 +115,7 @@ def item_select():
     cursor_pos = 0
     if coconutbanana == "W": 
         cursor_pos +=1 
-    pravda[cursor_pos] = '>'
+    pravda[cursor_pos] = '<'
     pravda[cursor_pos - 1] = ' '
     print(pravda)
 def item_usage(): 
