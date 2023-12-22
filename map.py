@@ -20,9 +20,13 @@ with open('mapinstance.json') as aei:
     instance_map = json.load(aei)
 with open('character.json') as efe:
     char = json.load(efe)
-def location_chec():
-    chigga = char[0]['location']
-    return "key doesn't exist"
+def update_location_instance(key, value):
+    with open('mapinstance.json') as efl:
+        mri = json.load(efl)
+        mri[key] = value 
+    with open('mapinstance.json', 'w+') as fe:
+        fe.write(json.dumps(mri, indent = 2 ))
+        fe.seek(0)
 class Lakes():
     def kill_enemy():
         print("ENEMY KILLED")
@@ -31,6 +35,13 @@ class Maper():
     def item():
         #basically copy the same formula as enemy_spawning except make it trigger  smht else
         pass
+    def spawn_positions():
+        map_dimensions = Maper.boundaries()
+        height = map_dimensions[1]
+        length = map_dimensions[0] 
+        randy = random.randint(0, height - 1)
+        randx = random.randint(0, length - 1)
+        return randy, randx
     def boundaries():
         map_dimensions = instance_map['map_dimensions']
         height = map_dimensions[1]
@@ -44,6 +55,7 @@ class Maper():
         eg = 0
         Map = [['[ ]' for i in range(length)] for i in range(height)] 
         variablename = [[Maper.spawn_positions()[0], Maper.spawn_positions()[1]] for i in range(spawn_amount)]
+        update_location_instance('enemy_positions', variablename)
         for i in range(spawn_amount):
             y_cords = variablename[eg][0]
             x_cords = variablename[eg][1]
@@ -77,6 +89,7 @@ class Maper():
                 x +=1
             elif y == -1:
                 y +=1
+
             Map[y][x] = '[X]'
             print(current_position)
             for something in Map:
@@ -88,5 +101,4 @@ class Maper():
             if variablename == None:
                 print("Exit Opened")
                 rat = False
-location_chec()
-print(Maper.boundaries())
+Maper.map()
