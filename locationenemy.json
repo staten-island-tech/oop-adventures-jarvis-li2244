@@ -4,6 +4,9 @@
             "locationname":"Antil Forest_",
             "type": "Enemy",
             "map_dimensions":[10,10],
+            "spawn_positon":[4,4],
+            "current_position":[4,4],
+            "enemy_positons":[],
             "map_amount" : 5, 
             "enemies":[
                 {

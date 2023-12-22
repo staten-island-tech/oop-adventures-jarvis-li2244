@@ -2,10 +2,11 @@ import random, json
 
 with open('locationenemy.json') as f:
     location = json.load(f)
-
+with open('mapinstance.json') as aei:
+    end_pos = json.load(aei)
 class Lakes():   
     def kill_enemy():
-        print("ENEMY KILLEd")
+        print("ENEMY KILLED")
         Maper.map()
 class Maper():
     def item():
