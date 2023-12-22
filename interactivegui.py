@@ -569,7 +569,6 @@ class Main_menu():
 class Crafting():
     def recipes():
         pass
-        
     def craft():
         pass
 class Area_Selection():
@@ -634,7 +633,7 @@ class Mapmap():
         location = Location.location()
         map_dimensions = Mapmap.map_boundary()
         height = map_dimensions[1]
-        length = map_dimensions[0] 
+        length = map_dimensions[0]
         item_map = [['[ ]' for i in range(height)] for i in range(length)] 
         itemspawnx = random.randint(0, length -1)
         itemspawny = random.randint(0, height -1)
@@ -678,4 +677,5 @@ class Liquify_Stats():
 #possible overlap where enemies can be on top of materials such as trees or ores
 
 
-atte.drops()
+egg = atte()
+egg.drops()

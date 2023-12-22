@@ -1,10 +1,29 @@
 import random, json
-
-with open('locationenemy.json') as f:
-    location = json.load(f)
+with open('locationenemy.json') as dropp:
+    locatien = json.load(dropp)
+with open('mapinstance.json') as mapi:
+    minp = json.load(mapi)
+name = "Antil Forest"
+def fulcrum():
+    var = 1
+    while var != len(locatien)-1:
+        if name in locatien[f'location_{var}'][0]['locationname']: 
+            current_location_info = locatien[f'location_{var}'][0]
+            return current_location_info
+        else: var+=1
+egg = fulcrum()
+minp = egg
+with open('mapinstance.json', 'w+') as fel:
+    fel.write(json.dumps(minp, indent = 2))
+    fel.seek(0)
 with open('mapinstance.json') as aei:
-    end_pos = json.load(aei)
-class Lakes():   
+    instance_map = json.load(aei)
+with open('character.json') as efe:
+    char = json.load(efe)
+def location_chec():
+    chigga = char[0]['location']
+    return "key doesn't exist"
+class Lakes():
     def kill_enemy():
         print("ENEMY KILLED")
         Maper.map()
@@ -13,21 +32,14 @@ class Maper():
         #basically copy the same formula as enemy_spawning except make it trigger  smht else
         pass
     def boundaries():
-        map_dimensions = location['location_1'][0]['map_dimensions']
+        map_dimensions = instance_map['map_dimensions']
         height = map_dimensions[1]
         length = map_dimensions[0]
         return height, length
-    def spawn_positions():
-        map_dimensions = Maper.boundaries()
-        height = map_dimensions[1]
-        length = map_dimensions[0] 
-        randy = random.randint(0, height - 1)
-        randx = random.randint(0, length - 1)
-        return randy, randx
     def map():
         map_dimensions = Maper.boundaries()
         height = map_dimensions[1]
-        length = map_dimensions[0] 
+        length = map_dimensions[0]
         spawn_amount  = 10
         eg = 0
         Map = [['[ ]' for i in range(length)] for i in range(height)] 
@@ -75,6 +87,6 @@ class Maper():
                 #use .remove() to remove the enemy_coords once down
             if variablename == None:
                 print("Exit Opened")
-                rat = False 
-            
-Maper.map()
+                rat = False
+location_chec()
+print(Maper.boundaries())

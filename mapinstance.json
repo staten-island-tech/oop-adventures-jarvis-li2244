@@ -1,1 +1,38 @@
-[]
+{
+  "locationname": "Antil Forest",
+  "type": "Enemy",
+  "map_dimensions": [
+    10,
+    10
+  ],
+  "spawn_positon": [
+    4,
+    4
+  ],
+  "current_position": [
+    4,
+    4
+  ],
+  "enemy_positons": [],
+  "map_amount": 5,
+  "enemies": [
+    {
+      "0": [
+        {
+          "name": "generic_enemy1",
+          "spawn_rate": 10,
+          "boost": 1
+        }
+      ]
+    },
+    {
+      "1": [
+        {
+          "name": "generic_enemy2",
+          "spawn_rate": 5,
+          "boost": 1
+        }
+      ]
+    }
+  ]
+}
