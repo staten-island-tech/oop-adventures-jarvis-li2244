@@ -13,7 +13,28 @@
     4,
     4
   ],
-  "enemy_positions": [],
+  "enemy_positions": [
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      8
+    ]
+  ],
   "map_amount": 5,
   "enemies": [
     {

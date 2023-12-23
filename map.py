@@ -23,14 +23,23 @@ with open('character.json') as efe:
 def update_location_instance(key, value):
     with open('mapinstance.json') as efl:
         mri = json.load(efl)
-        mri[f'{key}'].append(value)
+        mri[f'{key}'] = value
     with open('mapinstance.json', 'w+') as fe:
         fe.write(json.dumps(mri, indent = 2 ))
         fe.seek(0)
+def remove_enemy_pos(item_removal):
+    with open('mapinstance.json', 'r+') as frit:
+        friot = json.load(frit)
+        try:
+            friot['enemy_positions'].remove(item_removal)
+        except ValueError:
+            pass
+    with open('mapinstance.json', 'w+') as felon:
+        felon.write(json.dumps(friot, indent=2))
+        felon.seek(0)
 class Lakes():
     def kill_enemy():
         print("ENEMY KILLED")
-        Maper.map()
 class Maper():
     def item():
         #basically copy the same formula as enemy_spawning except make it trigger  smht else
@@ -62,10 +71,13 @@ class Maper():
             eg +=1
             Map[y_cords][x_cords] = '[O]'
         egg = []
-        x = 2
-        y = 2
+        x = instance_map['spawn_position'][0]
+        y = instance_map['spawn_position'][0]
         item = " "
+        var = 0
         while True:
+            with open('mapinstance.json') as fre:
+                mapir = json.load(fre)
             print(f'y: {y}, x :{x}')
             current_position = [y, x]
             control = input("")
@@ -89,13 +101,25 @@ class Maper():
                 x +=1
             elif y == -1:
                 y +=1
-
             Map[y][x] = '[X]'
             print(current_position)
             for something in Map:
                 print("".join(something))
-            if current_position in instance_map['enemy_positions']:
-                print("ITS AN ENEMY!!!")    
-                Lakes.kill_enemy()
-                #use .remove() to remove the enemy_coords once down
+            i = 0
+            if len(mapir['enemy_positions']) == 0:
+                print('You may proceed to the next location')
+                Map[y][x]
+            else:
+                 while  i  != len(mapir['enemy_positions']):
+                    if current_position == mapir['enemy_positions'][var]:
+                        print("ITS AN ENEMY!!!")
+                        Lakes.kill_enemy()
+                        remove_enemy_pos(current_position)
+                        i = len(mapir['enemy_positions'])
+                    else:
+                        var += 1
+                        if var >= len(mapir['enemy_positions']):
+                            var = 0
+                        i += 1
+                
 Maper.map()
