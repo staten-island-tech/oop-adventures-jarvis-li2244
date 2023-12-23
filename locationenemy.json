@@ -27,12 +27,12 @@
                         }
                     ]
                 }
-            ]   
+            ]
         }
     ],
     "location_2": [
         {
-            "locationname":"Not Antil Forest",
+            "locationname":"A Room",
             "type": "Enemy",
             "map_dimensions":[10,10],
             "spawn_position":[4,4],

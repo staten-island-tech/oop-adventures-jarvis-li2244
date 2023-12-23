@@ -1,13 +1,17 @@
 import random, json
 with open('locationenemy.json') as dropp:
     locatien = json.load(dropp)
+#initializing the mapinstance
 with open('mapinstance.json') as mapi:
     minp = json.load(mapi)
+print('1')
+locations = ['']
 name = "Antil Forest"
 def fulcrum():
     var = 1
-    while var != len(locatien)-1:
+    while var != len(locatien):
         if name in locatien[f'location_{var}'][0]['locationname']: 
+            print('yay')
             current_location_info = locatien[f'location_{var}'][0]
             return current_location_info
         else: var+=1
@@ -16,10 +20,14 @@ minp = egg
 with open('mapinstance.json', 'w+') as fel:
     fel.write(json.dumps(minp, indent = 2))
     fel.seek(0)
+print('2')
+#just json file opening here
 with open('mapinstance.json') as aei:
     instance_map = json.load(aei)
 with open('character.json') as efe:
     char = json.load(efe)
+print('3')
+#updating whatever key pair needed
 def update_location_instance(key, value):
     with open('mapinstance.json') as efl:
         mri = json.load(efl)
@@ -27,9 +35,12 @@ def update_location_instance(key, value):
     with open('mapinstance.json', 'w+') as fe:
         fe.write(json.dumps(mri, indent = 2 ))
         fe.seek(0)
+        print('3')
+#removing enemy_position once it's dead
 def remove_enemy_pos(item_removal):
     with open('mapinstance.json', 'r+') as frit:
         friot = json.load(frit)
+        print('4')
         try:
             friot['enemy_positions'].remove(item_removal)
         except ValueError:
@@ -37,9 +48,11 @@ def remove_enemy_pos(item_removal):
     with open('mapinstance.json', 'w+') as felon:
         felon.write(json.dumps(friot, indent=2))
         felon.seek(0)
+#placeholder for battle system, once finished with this file
 class Lakes():
     def kill_enemy():
         print("ENEMY KILLED")
+#map function 
 class Maper():
     def item():
         #basically copy the same formula as enemy_spawning except make it trigger  smht else
@@ -105,10 +118,13 @@ class Maper():
             print(current_position)
             for something in Map:
                 print("".join(something))
+            if instance_map['type'] == 'Enemy':
+                print("ENEMIES")
             i = 0
             if len(mapir['enemy_positions']) == 0:
                 print('You may proceed to the next location')
-                Map[y][x]
+
+                
             else:
                  while  i  != len(mapir['enemy_positions']):
                     if current_position == mapir['enemy_positions'][var]:
