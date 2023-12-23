@@ -23,7 +23,7 @@ with open('character.json') as efe:
 def update_location_instance(key, value):
     with open('mapinstance.json') as efl:
         mri = json.load(efl)
-        mri[key] = value 
+        mri[f'{key}'].append(value)
     with open('mapinstance.json', 'w+') as fe:
         fe.write(json.dumps(mri, indent = 2 ))
         fe.seek(0)
@@ -37,7 +37,7 @@ class Maper():
         pass
     def spawn_positions():
         map_dimensions = Maper.boundaries()
-        height = map_dimensions[1]
+        height = map_dimensions[1]#probably reduce this somehow
         length = map_dimensions[0] 
         randy = random.randint(0, height - 1)
         randx = random.randint(0, length - 1)
@@ -94,11 +94,8 @@ class Maper():
             print(current_position)
             for something in Map:
                 print("".join(something))
-            if current_position in variablename:
+            if current_position in instance_map['enemy_positions']:
                 print("ITS AN ENEMY!!!")    
                 Lakes.kill_enemy()
                 #use .remove() to remove the enemy_coords once down
-            if variablename == None:
-                print("Exit Opened")
-                rat = False
 Maper.map()
