@@ -1,5 +1,5 @@
 [{
-    "PLACEHOLDER1" :[ 
+    "PLACEHOLDER0" :[ 
         {
             "name" : "EGGS",
             "price" : 100, 
@@ -13,7 +13,7 @@
 
 
     ],
-    "PLACEHOLDER2" :[ 
+    "PLACEHOLDER1" :[ 
         {
             "name" : "snowballs",
             "price" : 10, 
@@ -27,7 +27,7 @@
 
 
     ],
-    "PLACEHOLDER3" :[ 
+    "PLACEHOLDER2" :[ 
         {
             "name" : "trash",
             "price" : 10000, 
@@ -41,7 +41,7 @@
 
 
     ],
-    "PLACEHOLDER4" :[ 
+    "PLACEHOLDER3" :[ 
         {
             "name" : "EGGGUN",
             "price" : 100000, 

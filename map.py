@@ -147,20 +147,23 @@ class Maper():
                 print("".join(something))
 class Shop():
     def create_items():
-        var = 1
+        var = 0
         items_sold = []
-        while len(items_sold) != 3:
+        print(len(ihop[0]))
+        while len(items_sold) <= 3:
             for i in range(len(ihop[0])):
                 shrimp = ihop[0][f'PLACEHOLDER{var}']
                 appearance_chance = int(100/(shrimp[0]['chance']))
                 if random.randint(1, appearance_chance) == random.randint(1, appearance_chance):
                     items_sold.append(shrimp)
-                var +=1
-            if len(items_sold) != 3:
-                continue
-            else:
-                return items_sold
+                else: var += 1
+            if var >= len(ihop[0]):
+                var = 0
+            print(len(items_sold))
+            if len(items_sold) >= 3:
+                break
+        return items_sold
     def display():
         egg = Shop.create_items()
-        print(egg)
+        print(set(egg))
 Shop.display()
