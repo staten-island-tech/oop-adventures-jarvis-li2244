@@ -1,4 +1,4 @@
-{
+[{
     "PLACEHOLDER1" :[ 
         {
             "name" : "EGGS",
@@ -49,4 +49,4 @@
             "chance" : 1
         }
     ]
-}
+}]

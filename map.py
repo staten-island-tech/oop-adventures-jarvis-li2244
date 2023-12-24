@@ -5,12 +5,12 @@ with open('locationenemy.json') as dropp:
 with open('mapinstance.json') as mapi:
     minp = json.load(mapi)
 print('1')
-locations = ['']
-name = "Antil Forest"
+locations = ['Anthil Foreest', 'Castle Walls', 'Residency Area', 'Academy', 'Royal Garden', 'Royal Palace', 'Cellars(ALCOHOL TIME)']
+name = 'A Room'
 def fulcrum():
     var = 1
-    while var != len(locatien):
-        if name in locatien[f'location_{var}'][0]['locationname']: 
+    while var != len(locatien)+1:
+        if name == locatien[f'location_{var}'][0]['locationname']: 
             print('yay')
             current_location_info = locatien[f'location_{var}'][0]
             return current_location_info
@@ -22,6 +22,8 @@ with open('mapinstance.json', 'w+') as fel:
     fel.seek(0)
 print('2')
 #just json file opening here
+with open('shop.json')  as fre:
+    ihop = json.load(fre)
 with open('mapinstance.json') as aei:
     instance_map = json.load(aei)
 with open('character.json') as efe:
@@ -71,27 +73,29 @@ class Maper():
         return height, length
     def map():
         map_dimensions = Maper.boundaries()
-        height = map_dimensions[1]
-        length = map_dimensions[0]
+        height, length= map_dimensions[1],  map_dimensions[0]
         spawn_amount  = 10
         eg = 0
         Map = [['[ ]' for i in range(length)] for i in range(height)] 
-        variablename = [[Maper.spawn_positions()[0], Maper.spawn_positions()[1]] for i in range(spawn_amount)]
-        update_location_instance('enemy_positions', variablename)
-        for i in range(spawn_amount):
-            y_cords = variablename[eg][0]
-            x_cords = variablename[eg][1]
-            eg +=1
-            Map[y_cords][x_cords] = '[O]'
-        egg = []
-        x = instance_map['spawn_position'][0]
+        if instance_map['type'] == 'Enemy':
+            variablename = [[Maper.spawn_positions()[0], Maper.spawn_positions()[1]] for i in range(spawn_amount)]
+            update_location_instance('enemy_positions', variablename)
+            for i in range(spawn_amount):
+                y_cords = variablename[eg][0]
+                x_cords = variablename[eg][1]
+                eg +=1
+                Map[y_cords][x_cords] = '[O]'
+        elif instance_map['type'] == 'Shop':
+            coords = instance_map['shop_position']
+            Map[coords[0]][coords[1]] = "[S]"
+        x = instance_map['spawn_position'][1]
         y = instance_map['spawn_position'][0]
         item = " "
         var = 0
         while True:
             with open('mapinstance.json') as fre:
                 mapir = json.load(fre)
-            print(f'y: {y}, x :{x}')
+            print(f'y: {y}, x :{x}') 
             current_position = [y, x]
             control = input("")
             if control == 'w':
@@ -116,26 +120,47 @@ class Maper():
                 y +=1
             Map[y][x] = '[X]'
             print(current_position)
+            if instance_map['type'] == 'Enemy':
+                i = 0
+                if len(mapir['enemy_positions']) == 0:
+                    print('You may proceed to the next location')
+                else:
+                    while  i  != len(mapir['enemy_positions']):
+                        if current_position == mapir['enemy_positions'][var]:
+                            print("ITS AN ENEMY!!!")
+                            Lakes.kill_enemy()
+                            remove_enemy_pos(current_position)
+                            i = len(mapir['enemy_positions'])
+                        else:
+                            var += 1
+                            if var >= len(mapir['enemy_positions']):
+                                var = 0
+                            i += 1
+            elif instance_map['type'] == 'Shop':
+                if instance_map['type'] == 'Shop':
+                    coords = instance_map['shop_position']
+                    Map[coords[0]][coords[1]] = "[S]"
+                if current_position == mapir['shop_position']:
+                    print("A SHOP!!!")
+                    Shop.create_items()
             for something in Map:
                 print("".join(something))
-            if instance_map['type'] == 'Enemy':
-                print("ENEMIES")
-            i = 0
-            if len(mapir['enemy_positions']) == 0:
-                print('You may proceed to the next location')
-
-                
+class Shop():
+    def create_items():
+        var = 1
+        items_sold = []
+        while len(items_sold) != 3:
+            for i in range(len(ihop[0])):
+                shrimp = ihop[0][f'PLACEHOLDER{var}']
+                appearance_chance = int(100/(shrimp[0]['chance']))
+                if random.randint(1, appearance_chance) == random.randint(1, appearance_chance):
+                    items_sold.append(shrimp)
+                var +=1
+            if len(items_sold) != 3:
+                continue
             else:
-                 while  i  != len(mapir['enemy_positions']):
-                    if current_position == mapir['enemy_positions'][var]:
-                        print("ITS AN ENEMY!!!")
-                        Lakes.kill_enemy()
-                        remove_enemy_pos(current_position)
-                        i = len(mapir['enemy_positions'])
-                    else:
-                        var += 1
-                        if var >= len(mapir['enemy_positions']):
-                            var = 0
-                        i += 1
-                
-Maper.map()
+                return items_sold
+    def display():
+        egg = Shop.create_items()
+        print(egg)
+Shop.display()
