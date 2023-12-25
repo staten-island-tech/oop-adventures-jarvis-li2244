@@ -149,21 +149,42 @@ class Shop():
     def create_items():
         var = 0
         items_sold = []
-        print(len(ihop[0]))
+        print(len(ihop))
         while len(items_sold) <= 3:
-            for i in range(len(ihop[0])):
-                shrimp = ihop[0][f'PLACEHOLDER{var}']
+            for i in range(len(ihop)):
+                shrimp = ihop[f'PLACEHOLDER{var}']
                 appearance_chance = int(100/(shrimp[0]['chance']))
                 if random.randint(1, appearance_chance) == random.randint(1, appearance_chance):
                     items_sold.append(shrimp)
                 else: var += 1
-            if var >= len(ihop[0]):
+            if var >= len(ihop):
                 var = 0
             print(len(items_sold))
             if len(items_sold) >= 3:
                 break
         return items_sold
-    def display():
+    def dict_to_list():
         egg = Shop.create_items()
-        print(set(egg))
+        dict_list = []
+        virus = 0
+        for i in range(len(egg)):
+            temp_value = egg[virus][0]
+            new_list = [(key, value) for key, value in temp_value.items()]
+            dict_list.append(new_list)
+            virus += 1
+        print(dict_list)     
+        return dict_list
+    def display():
+        pi = Shop.dict_to_list()
+        print(f'''
+    ╔═════════╗ ╔═════════╗ ╔═════════╗
+    ║         ║ ║         ║ ║         ║    
+    ║{pi[0][0][1].center(9,' ')}║ ║{pi[1][0][1].center(9,' ')}║ ║{pi[2][0][1].center(9,' ')}║
+    ║         ║ ║         ║ ║         ║
+    ╚═════════╝ ╚═════════╝ ╚═════════╝
+              
+              
+              
+              
+              ''')
 Shop.display()

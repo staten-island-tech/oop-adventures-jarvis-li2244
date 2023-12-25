@@ -1,27 +1,16 @@
-[{
-    "PLACEHOLDER0" :[ 
-        {
+{
+    "PLACEHOLDER0" :[{
             "name" : "EGGS",
             "price" : 100, 
             "stock" : 100,
             "chance" : 50
-
-
-
-        }
-
-
-
-    ],
+    }],
     "PLACEHOLDER1" :[ 
         {
             "name" : "snowballs",
             "price" : 10, 
             "stock" : 1000,
             "chance" : 100
-
-
-
         }
 
 
@@ -49,4 +38,4 @@
             "chance" : 1
         }
     ]
-}]
+}
