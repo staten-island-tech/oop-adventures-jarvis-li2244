@@ -4,7 +4,6 @@ with open('locationenemy.json') as dropp:
 #initializing the mapinstance
 with open('mapinstance.json') as mapi:
     minp = json.load(mapi)
-print('1')
 locations = ['Anthil Foreest', 'Castle Walls', 'Residency Area', 'Academy', 'Royal Garden', 'Royal Palace', 'Cellars(ALCOHOL TIME)']
 name = 'A Room'
 def fulcrum():
@@ -15,12 +14,25 @@ def fulcrum():
             current_location_info = locatien[f'location_{var}'][0]
             return current_location_info
         else: var+=1
+def modify(change, var, mode):
+    with open('player.json', 'r+') as r:
+        unique_variable = json.load(r)
+    if mode == 'set':
+        unique_variable[0][f'{var}'] = change
+    elif mode == 'add':
+        unique_variable[0][f'{var}'] += change
+    elif mode == 'subtract':
+        unique_variable[0][f'{var}'] -= change
+    elif mode == 'append':
+        unique_variable[0][f'{var}'].append(change)
+    with open('player.json','w+') as i:
+        i.write(json.dumps(unique_variable, indent = 2))
+        i.seek(0)
 egg = fulcrum()
 minp = egg
 with open('mapinstance.json', 'w+') as fel:
     fel.write(json.dumps(minp, indent = 2))
     fel.seek(0)
-print('2')
 #just json file opening here
 with open('shop.json')  as fre:
     ihop = json.load(fre)
@@ -37,12 +49,10 @@ def update_location_instance(key, value):
     with open('mapinstance.json', 'w+') as fe:
         fe.write(json.dumps(mri, indent = 2 ))
         fe.seek(0)
-        print('3')
 #removing enemy_position once it's dead
 def remove_enemy_pos(item_removal):
     with open('mapinstance.json', 'r+') as frit:
         friot = json.load(frit)
-        print('4')
         try:
             friot['enemy_positions'].remove(item_removal)
         except ValueError:
@@ -145,26 +155,16 @@ class Maper():
                     Shop.create_items()
             for something in Map:
                 print("".join(something))
-class Shop():
-    def create_items():
-        var = 0
-        items_sold = []
-        print(len(ihop))
-        while len(items_sold) <= 3:
-            for i in range(len(ihop)):
-                shrimp = ihop[f'PLACEHOLDER{var}']
-                appearance_chance = int(100/(shrimp[0]['chance']))
-                if random.randint(1, appearance_chance) == random.randint(1, appearance_chance):
-                    items_sold.append(shrimp)
-                else: var += 1
-            if var >= len(ihop):
-                var = 0
-            print(len(items_sold))
-            if len(items_sold) >= 3:
-                break
-        return items_sold
-    def dict_to_list():
-        egg = Shop.create_items()
+class Shop:
+    def return_items():
+        items = []
+        shop_item_length = 3
+        for i in range(shop_item_length):
+            value_check = random.randint(0, int(len(ihop))-1)
+            items.append(ihop[f'PLACEHOLDER{value_check}'])
+        return items
+    def dict_to_list(): 
+        egg = Shop.return_items()
         dict_list = []
         virus = 0
         for i in range(len(egg)):
@@ -181,10 +181,35 @@ class Shop():
     ║         ║ ║         ║ ║         ║    
     ║{pi[0][0][1].center(9,' ')}║ ║{pi[1][0][1].center(9,' ')}║ ║{pi[2][0][1].center(9,' ')}║
     ║         ║ ║         ║ ║         ║
-    ╚═════════╝ ╚═════════╝ ╚═════════╝
-              
-              
-              
-              
+    ╚═════════╝ ╚═════════╝ ╚═════════╝         
               ''')
-Shop.display()
+    def purcahse():
+        egg =  Shop.dict_to_list()
+        choose = int(input(""))
+        possible_options = len(egg)
+        while choose > possible_options-1 or choose < 0:
+            choose = int(input("Enter a Valid Choice Please: "))
+        print(f'item name: {egg[choose][0][1]}')
+        print(f'price: {egg[choose][1][1]}')
+        puma  = input()
+        print("Exit = exit shop, Y ")
+        if puma == 'Y':
+            return  egg[choose][0][1],egg[choose][1][1]
+        elif puma == 'Exit':
+            print('exiting shop')
+        elif puma != 'Y': 
+            print('damn alright')
+    def player_update():
+        frag = Shop.purcahse()
+        with open('player.json') as asci:
+            pls = json.load(asci)
+        egg = pls[0]['coins'] - frag[1]
+        print(egg)
+        if int(egg) <= 0:
+            print('broke')
+        else:
+            modify(egg, 'coins', 'set')
+        
+Shop.player_update()
+
+#use a variable within a function to trigger another function 

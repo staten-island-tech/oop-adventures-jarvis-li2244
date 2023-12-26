@@ -1,38 +1,205 @@
 {
     "PLACEHOLDER0" :[{
-            "name" : "EGGS",
-            "price" : 100, 
-            "stock" : 100,
+            "name" : "Eggs",
+            "price" : 1, 
+            "stock" : 1000000000,
             "chance" : 50
     }],
     "PLACEHOLDER1" :[ 
         {
-            "name" : "snowballs",
-            "price" : 10, 
-            "stock" : 1000,
+            "name" : "Snowballs",
+            "price" : 1, 
+            "stock" : 1000000000,
             "chance" : 100
         }
-
-
-
     ],
     "PLACEHOLDER2" :[ 
         {
-            "name" : "trash",
+            "name" : "Trash",
             "price" : 10000, 
             "stock" : 3,
             "chance" : 5
-
-
-
         }
-
-
-
     ],
     "PLACEHOLDER3" :[ 
         {
-            "name" : "EGGGUN",
+            "name" : "EggGun",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER4" :[ 
+        {
+            "name" : "Parts of Guns",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER5" :[ 
+        {
+            "name" : "Bullets",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER6" :[ 
+        {
+            "name" : "Wood",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER7" :[ 
+        {
+            "name" : "Stone",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER8" :[ 
+        {
+            "name" : "Iron Ore",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER9" :[ 
+        {
+            "name" : "Gold Ore",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER10" :[ 
+        {
+            "name" : "Flower",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER11" :[ 
+        {
+            "name" : "Shop Sword",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER12" :[ 
+        {
+            "name" : "Big Stick",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER13" :[ 
+        {
+            "name" : "Figs",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER14" :[ 
+        {
+            "name" : "Gum",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER15" :[ 
+        {
+            "name" : "HealPot",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER16" :[ 
+        {
+            "name" : "MAGIC",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER17" :[ 
+        {
+            "name" : "Broke",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER18" :[ 
+        {
+            "name" : "Shield",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER19" :[ 
+        {
+            "name" : "Fruit",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER20" :[ 
+        {
+            "name" : "Arrows",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER21" :[ 
+        {
+            "name" : "Bows",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER22" :[ 
+        {
+            "name" : "Soup",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER23" :[ 
+        {
+            "name" : "Coal",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER24" :[ 
+        {
+            "name" : "Candy Cane",
+            "price" : 100000, 
+            "stock" : 1,
+            "chance" : 1
+        }
+    ],
+    "PLACEHOLDER25" :[ 
+        {
+            "name" : "Pill",
             "price" : 100000, 
             "stock" : 1,
             "chance" : 1
