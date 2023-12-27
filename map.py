@@ -1,11 +1,13 @@
 import random, json
 with open('locationenemy.json') as dropp:
     locatien = json.load(dropp)
+with open('shopinstance.json') as draf:
+    shop1 = json.load(draf)
 #initializing the mapinstance
 with open('mapinstance.json') as mapi:
     minp = json.load(mapi)
 locations = ['Anthil Foreest', 'Castle Walls', 'Residency Area', 'Academy', 'Royal Garden', 'Royal Palace', 'Cellars(ALCOHOL TIME)']
-name = 'A Room'
+name = 'Anthil Forest'
 def fulcrum():
     var = 1
     while var != len(locatien)+1:
@@ -98,6 +100,8 @@ class Maper():
         elif instance_map['type'] == 'Shop':
             coords = instance_map['shop_position']
             Map[coords[0]][coords[1]] = "[S]"
+        elif instance_map['type'] == 'Items':
+            print('i')
         x = instance_map['spawn_position'][1]
         y = instance_map['spawn_position'][0]
         item = " "
@@ -134,12 +138,15 @@ class Maper():
                 i = 0
                 if len(mapir['enemy_positions']) == 0:
                     print('You may proceed to the next location')
+                    Map[Maper.spawn_positions()[0]][Maper.spawn_positions()[1]] = 'D'
                 else:
                     while  i  != len(mapir['enemy_positions']):
+                        print(var)
                         if current_position == mapir['enemy_positions'][var]:
                             print("ITS AN ENEMY!!!")
                             Lakes.kill_enemy()
                             remove_enemy_pos(current_position)
+                            var = 0 
                             i = len(mapir['enemy_positions'])
                         else:
                             var += 1
@@ -147,18 +154,21 @@ class Maper():
                                 var = 0
                             i += 1
             elif instance_map['type'] == 'Shop':
-                if instance_map['type'] == 'Shop':
-                    coords = instance_map['shop_position']
-                    Map[coords[0]][coords[1]] = "[S]"
+                coords = instance_map['shop_position']
+                Map[coords[0]][coords[1]] = "[S]"
                 if current_position == mapir['shop_position']:
                     print("A SHOP!!!")
                     Shop.create_items()
+            elif instance_map['type'] == 'Resources':
+                pass
+                
+                
             for something in Map:
                 print("".join(something))
 class Shop:
     def return_items():
         items = []
-        shop_item_length = 3
+        shop_item_length = 9
         for i in range(shop_item_length):
             value_check = random.randint(0, int(len(ihop))-1)
             items.append(ihop[f'PLACEHOLDER{value_check}'])
@@ -173,31 +183,43 @@ class Shop:
             dict_list.append(new_list)
             virus += 1
         print(dict_list)     
-        return dict_list
+        with open('shopinstance.json', 'r+') as qws:
+            qws = json.load(qws)
+            qws = dict_list
+        with open('shopinstance.json', 'w+') as dropp:
+            dropp.write(json.dumps(qws, indent=2))
+            dropp.seek(0)
     def display():
-        pi = Shop.dict_to_list()
         print(f'''
-    ╔═════════╗ ╔═════════╗ ╔═════════╗
-    ║         ║ ║         ║ ║         ║    
-    ║{pi[0][0][1].center(9,' ')}║ ║{pi[1][0][1].center(9,' ')}║ ║{pi[2][0][1].center(9,' ')}║
-    ║         ║ ║         ║ ║         ║
-    ╚═════════╝ ╚═════════╝ ╚═════════╝         
+              SHOP 
+══════════════════════════════════
+1. {shop1[0][0][1].center(9,' ')}   
+══════════════════════════════════
+2. {shop1[1][0][1].center(9,' ')}             
+══════════════════════════════════
+3. {shop1[2][0][1].center(9,' ')}
+══════════════════════════════════
               ''')
     def purcahse():
-        egg =  Shop.dict_to_list()
+        Shop.display()
         choose = int(input(""))
         possible_options = len(egg)
         while choose > possible_options-1 or choose < 0:
             choose = int(input("Enter a Valid Choice Please: "))
-        print(f'item name: {egg[choose][0][1]}')
-        print(f'price: {egg[choose][1][1]}')
+        print(f'item name: {shop1[choose][0][1]}')
+        print(f'price: {shop1[choose][1][1]}')
+        print("Exit = exit shop, Y =  Yes, N = No")
         puma  = input()
-        print("Exit = exit shop, Y ")
         if puma == 'Y':
-            return  egg[choose][0][1],egg[choose][1][1]
+            return  shop1[choose][0][1],shop1[choose][1][1]
         elif puma == 'Exit':
-            print('exiting shop')
+            print(r""" 
+            ╔═════════════════════════╗
+            ║       EXITING SHOP      ║
+            ╚═════════════════════════╝
+                """)
         elif puma != 'Y': 
+            Shop.purchase()
             print('damn alright')
     def player_update():
         frag = Shop.purcahse()
@@ -206,10 +228,15 @@ class Shop:
         egg = pls[0]['coins'] - frag[1]
         print(egg)
         if int(egg) <= 0:
-            print('broke')
+            print(r""" 
+            ╔═════════════════════════╗
+            ║      GET OUT BROKE      ║
+            ╚═════════════════════════╝
+                """)
+            Shop.display()
         else:
             modify(egg, 'coins', 'set')
-        
-Shop.player_update()
+            #use the put_slotin_inventorymethod 
 
 #use a variable within a function to trigger another function 
+Maper.map()

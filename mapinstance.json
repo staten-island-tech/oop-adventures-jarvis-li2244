@@ -1,22 +1,38 @@
 {
-  "locationname": "A Room",
-  "type": "Shop",
+  "locationname": "Anthil Forest",
+  "type": "Enemy",
   "map_dimensions": [
-    3,
-    3
+    10,
+    10
   ],
   "spawn_position": [
-    1,
-    0
+    4,
+    4
   ],
   "current_position": [
-    0,
-    1
+    4,
+    4
   ],
   "enemy_positions": [],
-  "shop_position": [
-    1,
-    1
-  ],
-  "map_amount": 0
+  "map_amount": 5,
+  "enemies": [
+    {
+      "0": [
+        {
+          "name": "generic_enemy1",
+          "spawn_rate": 10,
+          "boost": 1
+        }
+      ]
+    },
+    {
+      "1": [
+        {
+          "name": "generic_enemy2",
+          "spawn_rate": 5,
+          "boost": 1
+        }
+      ]
+    }
+  ]
 }
