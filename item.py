@@ -54,6 +54,24 @@ class Inventory():
                 break
             elif v[0]['name'] == item_name:
                 Inventory.inventory_update(item_name, i+1, mode, quantity)
+    def check():
+        with open('inventoryi.json') as factorial:
+            invi = json.load(factorial)
+        for i1,(k1, v1) in enumerate(invi.items()):
+            print(k1, v1, 'enum1')
+            if v1[0]['name'] == null:
+                for i2, (k2, v2) in enumerate(invi.items()):
+                    print(k2, v2, 'enum2')
+                    if v2[0]['name'] != null:
+                        invi[f'{k1}'][0]['name'] = invi[f'{k2}'][0]['name']
+                        invi[f'{k1}'][0]['quantity'] = invi[f'{k2}'][0]['quantity']
+                        invi[f'{k2}'][0]['quantity'] = 0
+                        invi[f'{k2}'][0]['name'] = null
+                    if v2[0]['name'] != null:
+                        break
+        with open('inventoryi.json', 'w+')  as fascism:
+            fascism.write(json.dumps(invi, indent=2))
+            fascism.seek(0)
     def put_slotin_inventory(item_name, quantity):
         vary = 0
         while vary != len(inventir):
@@ -195,4 +213,4 @@ class Inventory():
             else:
                 vary += 1
         print("damn ur inventory is full, no equips for you")
-    
+Inventory.check()
