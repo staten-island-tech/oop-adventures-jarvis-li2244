@@ -19,14 +19,14 @@
   ],
   "slot4": [
     {
-      "quantity": 1,
+      "quantity": 6,
       "name": "A Cool Rock"
     }
   ],
   "slot5": [
     {
-      "quantity": 1,
-      "name": "A Cool Rock"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot6": [

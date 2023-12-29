@@ -91,6 +91,8 @@ def craft_item():
         if False in egg:
             print('''You don't have enough materials to craft this item''')
         else:
+            for i, (k, v) in enumerate(barf['items_needed'].items()):
+                pass
             print("Crafting Item...")
             egg = '○ '
             fri = 1
@@ -114,10 +116,10 @@ Crafting Progress:
  
 
 ''')
-                time.sleep(0.5)
+                time.sleep(0.1)
                 fri+=1
             print("ITEM CRAFTED!")
-            Inventory.put_slotin_inventory(barf['name'], 1)
+            Inventory.psi(barf['name'], 1, 'add')
     else:
         exit()
 def confirmation():

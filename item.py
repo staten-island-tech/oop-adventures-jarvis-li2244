@@ -23,38 +23,61 @@ class Inventory():
             egg += 1
             #this da format: item[0][f'{name}'][0]['stats'][0] for item stats
         #figure out how iterate through the list
-    def modify_inventoryi(item_name, quantity, mode):
-        with open('inventoryi.json') as iii:
-            inventii = json.load(iii)
-            if mode == 'additem':
-                inventii[f'slot{vary+1}'][0]['name'] = item_name
-                inventii[f'slot{vary+1}'][0]['quantity'] = quantity
-            if mode == ''
-        with open('inventoryi.json','w+') as i:
-            i.write(json.dumps(inventii, indent = 2))
-            i.seek(0)
+    def inventory_update(item_name, slot_num, mode, item_amount):
+        with open('inventoryi.json')  as finale:
+            inventi = json.load(finale)
+            if mode == 'add':
+                inventi[f'slot{slot_num}'][0]['quantity'] += item_amount
+                print(inventi[f'slot{slot_num}'][0]['quantity'])
+            elif mode == 'subtract':
+                inventi[f'slot{slot_num}'][0]['quantity'] -= item_amount
+                print(inventi[f'slot{slot_num}'][0]['quantity'])
+                if inventi[f'slot{slot_num}'][0]['quantity'] <= 0:
+                    inventi[f'slot{slot_num}'][0]['quantity'] = 0
+                    inventi[f'slot{slot_num}'][0]['name'] = None
+            else:
+                inventi[f'slot{slot_num}'][0]['name'] == 'item_name'
+                inventi[f'slot{slot_num}'][0]['quantity'] == item
+        with open('inventoryi.json', 'w+') as fermi:
+            fermi.write(json.dumps(inventi, indent=2)) 
+            fermi.seek(0)
+    def psi(item_name, quantity, mode):
+        with open('inventoryi.json') as finsi:
+            inventiro = json.load(finsi)
+        for i, (k, v) in enumerate(inventiro.items()):
+            if item_name in inventiro:
+                print("item found")
+            else:
+                print("nay")
+            if v[0]['name'] == null:
+                Inventory.inventory_update(item_name, i+1, 'placeholdernone', quantity )
+                break
+            elif v[0]['name'] == item_name:
+                Inventory.inventory_update(item_name, i+1, mode, quantity)
     def put_slotin_inventory(item_name, quantity):
         vary = 0
         while vary != len(inventir):
             with open('inventoryi.json') as finale:
                 inventi = json.load(finale)
             if inventi[f'slot{vary+1}'][0]['name'] == item_name:
-                Inventory.modify_inventoryi(item_name, quantity)
+                with open('inventoryi.json') as frag:
+                    invventii = json.load(frag)
+                    inventii[f'slot{vary+1}'][0]['quantity'] += 1
             elif inventi[f'slot{vary+1}'][0]['name'] == null:
                 print('woah u suck at writign code')
                 with open('inventoryi.json') as iii:
                     inventii = json.load(iii)
                     inventii[f'slot{vary+1}'][0]['name'] = item_name
                     inventii[f'slot{vary+1}'][0]['quantity'] = quantity
-                with open('inventoryi.json','w+') as i:
-                    i.write(json.dumps(inventii, indent = 2))
-                    i.seek(0)
-                print(vary)
-                pass
             else:
                 vary += 1
                 print('else')
-        print("damn ur inventory is full,too bad")
+            with open('inventoryi.json','w+') as i:
+                i.write(json.dumps(inventii, indent = 2))
+                i.seek(0)
+        
+        else:
+            print("damn ur inventory full bro")
     def modify(change, var, mode):
         with open('player.json', 'r+') as r:
             unique_variable = json.load(r)
