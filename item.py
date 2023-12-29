@@ -23,12 +23,24 @@ class Inventory():
             egg += 1
             #this da format: item[0][f'{name}'][0]['stats'][0] for item stats
         #figure out how iterate through the list
+    def modify_inventoryi(item_name, quantity, mode):
+        with open('inventoryi.json') as iii:
+            inventii = json.load(iii)
+            if mode == 'additem':
+                inventii[f'slot{vary+1}'][0]['name'] = item_name
+                inventii[f'slot{vary+1}'][0]['quantity'] = quantity
+            if mode == ''
+        with open('inventoryi.json','w+') as i:
+            i.write(json.dumps(inventii, indent = 2))
+            i.seek(0)
     def put_slotin_inventory(item_name, quantity):
         vary = 0
         while vary != len(inventir):
             with open('inventoryi.json') as finale:
                 inventi = json.load(finale)
-            if inventi[f'slot{vary+1}'][0]['name'] == null:
+            if inventi[f'slot{vary+1}'][0]['name'] == item_name:
+                Inventory.modify_inventoryi(item_name, quantity)
+            elif inventi[f'slot{vary+1}'][0]['name'] == null:
                 print('woah u suck at writign code')
                 with open('inventoryi.json') as iii:
                     inventii = json.load(iii)
