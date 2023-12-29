@@ -9,12 +9,54 @@
     4,
     4
   ],
-  "current_position": [
+  "exit_position": [
     4,
     4
   ],
-  "enemy_positions": [],
+  "enemy_positions": [
+    [
+      6,
+      8
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      8,
+      5
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      8,
+      1
+    ]
+  ],
   "map_amount": 5,
+  "dialogue": "HOHOHO?",
   "enemies": [
     {
       "0": [

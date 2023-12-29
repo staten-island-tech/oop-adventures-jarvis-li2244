@@ -1,4 +1,5 @@
 import random, json
+from item import inventory
 with open('locationenemy.json') as dropp:
     locatien = json.load(dropp)
 with open('shopinstance.json') as draf:
@@ -135,11 +136,12 @@ class Maper():
             Map[y][x] = '[X]'
             print(current_position)
             if instance_map['type'] == 'Enemy':
-                i = 0
                 if len(mapir['enemy_positions']) == 0:
-                    print('You may proceed to the next location')
-                    Map[Maper.spawn_positions()[0]][Maper.spawn_positions()[1]] = 'D'
+                    Map[mapir['exit_position'][0]][mapir['exit_position'][1]] = '[Q]'
+                    if current_position == mapir['exit_position']:
+                        print('yay')
                 else:
+                    i = 0
                     while  i  != len(mapir['enemy_positions']):
                         print(var)
                         if current_position == mapir['enemy_positions'][var]:
@@ -161,8 +163,10 @@ class Maper():
                     Shop.create_items()
             elif instance_map['type'] == 'Resources':
                 pass
-                
-                
+            elif len(mapir['enemy_positions']) == 0:
+                Map[mapir['exit_position'][0]][mapir['exit_position'][1]] = '[Q]'
+                if current_position == mapir['exit_position']:
+                    print('yay')
             for something in Map:
                 print("".join(something))
 class Shop:
@@ -237,6 +241,5 @@ class Shop:
         else:
             modify(egg, 'coins', 'set')
             #use the put_slotin_inventorymethod 
-
 #use a variable within a function to trigger another function 
 Maper.map()

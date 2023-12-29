@@ -1,0 +1,49 @@
+{
+    "chapter_1": [
+        {
+            "chaptername":"Anthil Forest",
+            "locations": ["Edge of The Foreset", "Deep in The Forest", "Anthil Entrance", "Main Nest", ""]
+        }
+    ],
+        "chapter_2":[
+        {
+            "chaptername":"Castle Walls",
+            "locations":[""]
+        }
+    ],
+        "chapter_3":[
+        {
+            "chaptername":"Haunted Hallways",
+            "locations":[""]
+        }
+    ],
+        "chapter_4":[
+        {
+            "chaptername":"Dusty Academia",
+            "locations":[""]
+        }
+    ],
+        "chapter_5":[
+        {
+            "chaptername":"Royal Garden",
+            "locations":[""]
+        }
+    ],
+        "chapter_6":[
+        {
+            "chaptername":"Royal Hallway",
+            "locations":[""]
+        }
+    ],
+        "chapter_7":[
+        {
+            "chaptername":"Dungeon",
+            "locations":[""]
+        }
+    ]
+
+
+
+
+
+}

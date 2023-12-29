@@ -5,9 +5,10 @@
             "type": "Enemy",
             "map_dimensions":[10,10],
             "spawn_position":[4,4],
-            "current_position":[4,4],
+            "exit_position":[4,4],
             "enemy_positions":[],
-            "map_amount" : 5, 
+            "map_amount" : 5,
+            "dialogue":"HOHOHO?", 
             "enemies":[
                 {
                     "0":[
@@ -40,6 +41,28 @@
             "enemy_positions":[],
             "shop_position":[1,1],
             "map_amount" : 0
+        }
+    ],
+    "location_3":[
+        {   
+            "locationname":"Castle Moat",
+            "type": "Enemy",
+            "map_dimensions":[3,7],
+            "spawn_position":[1,0],
+            "exit_postion":[1,6],
+            "dialogue":"JOLLY",
+            "enemy_positions":[],
+            "enemies":[
+                {
+                    "0":[
+                        {
+                            "name":"generic_enemy4",
+                            "spawn_rate":0,
+                            "boost":3
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

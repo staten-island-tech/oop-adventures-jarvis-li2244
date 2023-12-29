@@ -2,6 +2,7 @@
     "item_1":[
         {
         "name" : "A Cool Rock", 
+        "description":"A VERY AWESOMELY INSANELY COOL ROCK!!!",
         "level_req" : 0,
         "items_needed":{
             "big_rock" : 1, 
@@ -98,7 +99,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_10":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -109,7 +110,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_11":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -120,7 +121,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_12":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -131,7 +132,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_13":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -142,7 +143,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_14":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -153,7 +154,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_15":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -164,7 +165,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_16":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -175,7 +176,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_17":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -186,7 +187,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_18":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -197,7 +198,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_19":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -208,7 +209,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_20":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -219,7 +220,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_21":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -230,7 +231,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_22":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -241,7 +242,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_23":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -252,7 +253,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_24":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -263,7 +264,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_25":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -274,7 +275,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_26":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -285,7 +286,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_27":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -296,7 +297,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_28":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,
@@ -307,7 +308,7 @@
         }
         }
     ],
-    "item_9":[
+    "item_29":[
         {
         "name" : "A Cool Rock Man", 
         "level_req" : 0,

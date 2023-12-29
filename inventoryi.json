@@ -2,31 +2,31 @@
   "slot1": [
     {
       "quantity": 1,
-      "name": "en"
+      "name": "big_rock"
     }
   ],
   "slot2": [
     {
-      "quantity": 0,
-      "name": null
+      "quantity": 1,
+      "name": "small_rock"
     }
   ],
   "slot3": [
     {
-      "quantity": 0,
-      "name": null
+      "quantity": 1,
+      "name": "tiny_rock"
     }
   ],
   "slot4": [
     {
-      "quantity": 0,
-      "name": null
+      "quantity": 1,
+      "name": "A Cool Rock"
     }
   ],
   "slot5": [
     {
-      "quantity": 0,
-      "name": null
+      "quantity": 1,
+      "name": "A Cool Rock"
     }
   ],
   "slot6": [
