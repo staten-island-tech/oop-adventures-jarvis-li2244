@@ -76,6 +76,7 @@ def recipe_select():
 def craft_item():
     czech = 0
     barf = recipe_select()
+    face = input("Amount?: ")
     if confirmation() == True:
         egg = []
         print(len(barf['items_needed']))
@@ -88,7 +89,9 @@ def craft_item():
                         egg.append(False)
                     else:
                         egg.append(True)
+
         if False in egg:
+            print(egg)
             print('''You don't have enough materials to craft this item''')
         else:
             for i, (k, v) in enumerate(barf['items_needed'].items()):
@@ -119,7 +122,7 @@ Crafting Progress:
                 time.sleep(0.1)
                 fri+=1
             print("ITEM CRAFTED!")
-            Inventory.psi(barf['name'], 1, 'add')
+            Inventory.psi(barf['name'], 1)
     else:
         exit()
 def confirmation():

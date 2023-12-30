@@ -1,4 +1,4 @@
-import json, random
+import json, random, copy
 
 with open('inventoryi.json') as ii:
     inventir = json.load(ii)
@@ -41,61 +41,24 @@ class Inventory():
         with open('inventoryi.json', 'w+') as fermi:
             fermi.write(json.dumps(inventi, indent=2)) 
             fermi.seek(0)
-    def psi(item_name, quantity, mode):
+    def psi(item_name, quantity):
         with open('inventoryi.json') as finsi:
             inventiro = json.load(finsi)
         for i, (k, v) in enumerate(inventiro.items()):
-            if item_name in inventiro:
+            if item_name == v[0]['name']:
                 print("item found")
+                egg = True
+                break
             else:
-                print("nay")
-            if v[0]['name'] == null:
+                egg = False
+        for i2, (k2, v2) in enumerate(inventiro.items()):
+            if egg == False:
                 Inventory.inventory_update(item_name, i+1, 'placeholdernone', quantity )
                 break
-            elif v[0]['name'] == item_name:
-                Inventory.inventory_update(item_name, i+1, mode, quantity)
-    def check():
-        with open('inventoryi.json') as factorial:
-            invi = json.load(factorial)
-        for i1,(k1, v1) in enumerate(invi.items()):
-            print(k1, v1, 'enum1')
-            if v1[0]['name'] == null:
-                for i2, (k2, v2) in enumerate(invi.items()):
-                    print(k2, v2, 'enum2')
-                    if v2[0]['name'] != null:
-                        invi[f'{k1}'][0]['name'] = invi[f'{k2}'][0]['name']
-                        invi[f'{k1}'][0]['quantity'] = invi[f'{k2}'][0]['quantity']
-                        invi[f'{k2}'][0]['quantity'] = 0
-                        invi[f'{k2}'][0]['name'] = null
-                    if v2[0]['name'] != null:
-                        break
-        with open('inventoryi.json', 'w+')  as fascism:
-            fascism.write(json.dumps(invi, indent=2))
-            fascism.seek(0)
-    def put_slotin_inventory(item_name, quantity):
-        vary = 0
-        while vary != len(inventir):
-            with open('inventoryi.json') as finale:
-                inventi = json.load(finale)
-            if inventi[f'slot{vary+1}'][0]['name'] == item_name:
-                with open('inventoryi.json') as frag:
-                    invventii = json.load(frag)
-                    inventii[f'slot{vary+1}'][0]['quantity'] += 1
-            elif inventi[f'slot{vary+1}'][0]['name'] == null:
-                print('woah u suck at writign code')
-                with open('inventoryi.json') as iii:
-                    inventii = json.load(iii)
-                    inventii[f'slot{vary+1}'][0]['name'] = item_name
-                    inventii[f'slot{vary+1}'][0]['quantity'] = quantity
-            else:
-                vary += 1
-                print('else')
-            with open('inventoryi.json','w+') as i:
-                i.write(json.dumps(inventii, indent = 2))
-                i.seek(0)
-        
-        else:
-            print("damn ur inventory full bro")
+            elif egg == True:
+                Inventory.inventory_update(item_name, i+1, 'add', quantity)
+                break
+
     def modify(change, var, mode):
         with open('player.json', 'r+') as r:
             unique_variable = json.load(r)
@@ -213,4 +176,3 @@ class Inventory():
             else:
                 vary += 1
         print("damn ur inventory is full, no equips for you")
-Inventory.check()
