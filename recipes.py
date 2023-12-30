@@ -97,7 +97,6 @@ def craft_item():
             for i, (k, v) in enumerate(barf['items_needed'].items()):
                 pass
             print("Crafting Item...")
-            egg = '○ '
             fri = 1
             for i in range(10):
                 print(f'''
@@ -106,7 +105,7 @@ def craft_item():
 
 
 Crafting Progress:
-{egg*fri}
+{'○ '*fri}
 
 
 
@@ -123,6 +122,7 @@ Crafting Progress:
                 fri+=1
             print("ITEM CRAFTED!")
             Inventory.psi(barf['name'], 1)
+            print("ITEM ATTEMPTED CRAFT")
     else:
         exit()
 def confirmation():

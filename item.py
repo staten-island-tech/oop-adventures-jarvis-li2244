@@ -37,7 +37,7 @@ class Inventory():
                     inventi[f'slot{slot_num}'][0]['name'] = None
             else:
                 inventi[f'slot{slot_num}'][0]['name'] == 'item_name'
-                inventi[f'slot{slot_num}'][0]['quantity'] == item
+                inventi[f'slot{slot_num}'][0]['quantity'] == item_amount
         with open('inventoryi.json', 'w+') as fermi:
             fermi.write(json.dumps(inventi, indent=2)) 
             fermi.seek(0)
@@ -53,7 +53,8 @@ class Inventory():
                 egg = False
         for i2, (k2, v2) in enumerate(inventiro.items()):
             if egg == False:
-                Inventory.inventory_update(item_name, i+1, 'placeholdernone', quantity )
+                if v2[0]['name'] == null:
+                    Inventory.inventory_update(item_name, i+1, 'placeholdernone', quantity )
                 break
             elif egg == True:
                 Inventory.inventory_update(item_name, i+1, 'add', quantity)
