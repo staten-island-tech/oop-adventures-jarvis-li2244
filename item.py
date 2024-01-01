@@ -27,39 +27,48 @@ class Inventory():
         with open('inventoryi.json')  as finale:
             inventi = json.load(finale)
             if mode == 'add':
-                inventi[f'slot{slot_num}'][0]['quantity'] += item_amount
-                print(inventi[f'slot{slot_num}'][0]['quantity'])
+                print("checked3")
+                inventi[f'{slot_num}'][0]['quantity'] += item_amount
+                print(inventi[f'{slot_num}'][0]['quantity'])
             elif mode == 'subtract':
-                inventi[f'slot{slot_num}'][0]['quantity'] -= item_amount
-                print(inventi[f'slot{slot_num}'][0]['quantity'])
-                if inventi[f'slot{slot_num}'][0]['quantity'] <= 0:
-                    inventi[f'slot{slot_num}'][0]['quantity'] = 0
-                    inventi[f'slot{slot_num}'][0]['name'] = None
+                print("checked2")
+                inventi[f'{slot_num}'][0]['quantity'] -= item_amount
+                print(inventi[f'{slot_num}'][0]['quantity'])
+                if inventi[f'{slot_num}'][0]['quantity'] <= 0:
+                    inventi[f'{slot_num}'][0]['quantity'] = 0
+                    inventi[f'{slot_num}'][0]['name'] = None
             else:
-                inventi[f'slot{slot_num}'][0]['name'] == 'item_name'
-                inventi[f'slot{slot_num}'][0]['quantity'] == item_amount
+                print('else')
+                inventi[f'{slot_num}'][0]['name'] = item_name
+                inventi[f'{slot_num}'][0]['quantity'] = item_amount
         with open('inventoryi.json', 'w+') as fermi:
             fermi.write(json.dumps(inventi, indent=2)) 
             fermi.seek(0)
-    def psi(item_name, quantity):
+    def psi(item_name, quantity, mode):
+        print("craft attempted")
+        print(item_name)
         with open('inventoryi.json') as finsi:
             inventiro = json.load(finsi)
         for i, (k, v) in enumerate(inventiro.items()):
             if item_name == v[0]['name']:
-                print("item found")
                 egg = True
-                break
+                print("ITEM FOUND")
+                break 
             else:
+                print("ITEM NOT FOUND")
                 egg = False
         for i2, (k2, v2) in enumerate(inventiro.items()):
             if egg == False:
                 if v2[0]['name'] == null:
-                    Inventory.inventory_update(item_name, i+1, 'placeholdernone', quantity )
-                break
+                    Inventory.inventory_update(item_name, k2, 'placeholdernone', quantity)
+                    break
             elif egg == True:
-                Inventory.inventory_update(item_name, i+1, 'add', quantity)
+                print("TRUE")
+                if mode == 'subtract':
+                    Inventory.inventory_update(item_name, k, 'subtract' , quantity)
+                elif mode == 'add':
+                    Inventory.inventory_update(item_name, k, 'add', quantity)
                 break
-
     def modify(change, var, mode):
         with open('player.json', 'r+') as r:
             unique_variable = json.load(r)
@@ -88,7 +97,12 @@ class Inventory():
                 lowest_range += 1
         return loste
     def inventory():
-        page = Inventory.page_scroll()
+        page = ["","","","","",""]
+        with open('inventoryi.json') as jar:
+            qw = json.load(jar)
+        for i, (v, k) in enumerate(qw.items()):
+            if k[0]['name'] != null:
+                page.append(i+1)
         print(f'''
                 INVENTORY 
     ══════════════════════════════════
@@ -116,6 +130,13 @@ class Inventory():
     ''')
         potatojam = input()
         print(inventir[f'slot{potatojam}'][0]['name'])
+    def invetory():
+        egg = []
+        with open('inventoryi.json') as farts:
+            qwe = json.load(farts)
+        for i, (k,w) in enumerate(qwe.items()):
+            if w[0]['name'] !=  null:
+                append()
     def verify_usage():
         egg = input("")
         if egg == "Y":

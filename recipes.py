@@ -74,31 +74,30 @@ def recipe_select():
         print(position['items_needed'])
         return position
 def craft_item():
-    czech = 0
     barf = recipe_select()
     face = input("Amount?: ")
     if confirmation() == True:
         egg = []
-        print(len(barf['items_needed']))
         with open('inventoryi.json') as facter:
             inventoryi = json.load(facter)
         for i, (k, v) in enumerate(barf['items_needed'].items()):
             for i, (name, value) in enumerate(inventoryi.items()):
                 if value[0]['name'] == k:
-                    if value[0]['quantity'] < v:
-                        egg.append(False)
-                    else:
+                    print("here")
+                    if value[0]['quantity'] >= v:
                         egg.append(True)
-
-        if False in egg:
+                    else:
+                        egg.append(False)
+        if False in egg or len(egg) == 0:
             print(egg)
             print('''You don't have enough materials to craft this item''')
         else:
-            for i, (k, v) in enumerate(barf['items_needed'].items()):
-                pass
+            print(egg)
+            for i2, (k2, v2) in enumerate(barf['items_needed'].items()):
+                Inventory.psi(k2, v2, 'subtract')
             print("Crafting Item...")
             fri = 1
-            for i in range(10):
+            for ul in range(10):
                 print(f'''
 
 
@@ -121,7 +120,7 @@ Crafting Progress:
                 time.sleep(0.1)
                 fri+=1
             print("ITEM CRAFTED!")
-            Inventory.psi(barf['name'], 1)
+            Inventory.psi(barf['name'], 1, 'add')
             print("ITEM ATTEMPTED CRAFT")
     else:
         exit()
