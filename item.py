@@ -84,59 +84,41 @@ class Inventory():
             i.write(json.dumps(unique_variable, indent = 2))
             i.seek(0)
     def page_scroll():
-        numpad = input()
-        loste = []
-        fur = ['1', '2', '3']
-        if numpad not in fur:
-            Inventory.page_scroll()
+        asf = []
+        null = None
+        with open('inventoryi.json')  as test:
+            inventoryi = json.load(test)
+        for i, (k, v) in enumerate(inventoryi.items()):
+            if v[0]['name'] != null:
+                asf.append(v[0]['name'])
+        if len(asf) < 36:
+            for i in range(36-len(asf)):
+                asf.append("")
+        print(asf)
+        print(len(asf))
+        return asf
+    def inventory_display():
+        whilee = input("EXIT?: ")
+        if whilee != 'exit':
+            if input() == 'exit':
+                whilee == 'exit'
+            indel = Inventory.page_scroll()
+            pagenum = int(input()) * 9 - 9
+            print(r'''
+                    INVENTORY 
+        ''', end='')
+            for i in range(9):
+                print(f'''
+        ══════════════════════════════════
+        {pagenum+1}. {indel[pagenum]}''', end='')
+                pagenum += 1
+            print(f'''
+        ══════════════════════════════════
+                    <- - ->
+        ''')
         else:
-            max_range = int(numpad) * 10 + 1
-            lowest_range = max_range - 10
-            for i in range(10):
-                loste.append(lowest_range)
-                lowest_range += 1
-        return loste
-    def inventory():
-        page = ["","","","","",""]
-        with open('inventoryi.json') as jar:
-            qw = json.load(jar)
-        for i, (v, k) in enumerate(qw.items()):
-            if k[0]['name'] != null:
-                page.append(i+1)
-        print(f'''
-                INVENTORY 
-    ══════════════════════════════════
-    {page[0]}.  {inventir[f'slot{page[0]}'][0]['name']}                                
-    ══════════════════════════════════
-    {page[1]}.  {inventir[f'slot{page[1]}'][0]['name']}                         
-    ══════════════════════════════════
-    {page[2]}.  {inventir[f'slot{page[2]}'][0]['name']}  
-    ══════════════════════════════════
-    {page[3]}.  {inventir[f'slot{page[3]}'][0]['name']}    
-    ══════════════════════════════════
-    {page[4]}.  {inventir[f'slot{page[4]}'][0]['name']}                        
-    ══════════════════════════════════
-    {page[5]}.  {inventir[f'slot{page[5]}'][0]['name']}                            
-    ══════════════════════════════════
-    {page[6]}.  {inventir[f'slot{page[6]}'][0]['name']}   
-    ══════════════════════════════════
-    {page[7]}.  {inventir[f'slot{page[7]}'][0]['name']}   
-    ══════════════════════════════════
-    {page[8]}.  {inventir[f'slot{page[8]}'][0]['name']}   
-    ══════════════════════════════════
-    {page[9]}.  {inventir[f'slot{page[9]}'][0]['name']}    
-    ══════════════════════════════════
-                <- - ->
-    ''')
-        potatojam = input()
-        print(inventir[f'slot{potatojam}'][0]['name'])
-    def invetory():
-        egg = []
-        with open('inventoryi.json') as farts:
-            qwe = json.load(farts)
-        for i, (k,w) in enumerate(qwe.items()):
-            if w[0]['name'] !=  null:
-                append()
+            exit()
+
     def verify_usage():
         egg = input("")
         if egg == "Y":
@@ -198,3 +180,4 @@ class Inventory():
             else:
                 vary += 1
         print("damn ur inventory is full, no equips for you")
+Inventory.inventory_display()
