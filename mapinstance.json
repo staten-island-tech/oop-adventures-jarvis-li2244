@@ -1,5 +1,5 @@
 {
-  "locationname": "Anthil Forest",
+  "locationname": "The Myrminki Village",
   "type": "Enemy",
   "map_dimensions": [
     10,
@@ -13,48 +13,7 @@
     4,
     4
   ],
-  "enemy_positions": [
-    [
-      2,
-      8
-    ],
-    [
-      9,
-      9
-    ],
-    [
-      5,
-      0
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      2,
-      2
-    ],
-    [
-      3,
-      7
-    ],
-    [
-      7,
-      1
-    ],
-    [
-      8,
-      1
-    ],
-    [
-      4,
-      0
-    ],
-    [
-      8,
-      3
-    ]
-  ],
+  "enemy_positions": [],
   "map_amount": 5,
   "dialogue": "HOHOHO?",
   "enemies": [

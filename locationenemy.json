@@ -1,7 +1,7 @@
 {
     "location_1": [
         {
-            "locationname":"Anthil Forest",
+            "locationname":"The Myrminki Village",
             "type": "Enemy",
             "map_dimensions":[10,10],
             "spawn_position":[4,4],

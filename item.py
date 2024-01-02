@@ -10,7 +10,6 @@ with open('recipes.json') as f:
     recipes = json.load(f)
 null = None
 currentdict = recipes[0]['item_1'][0]['items_needed']
-null = None
 class Inventory():
     def update_json(item_name, item_stats, module, amount_used):
         new_value = list(item_stats.items())
@@ -162,8 +161,6 @@ class Inventory():
             if equp == "Y":
                 print("Unequiped")
                 Inventory.update_json("false", "stat_items ", 'subtract')
-    def fish():
-        pass
     def piie(item_name):
         vary = 0
         if inventir[f'slot{vary+1}'][0]['name'] in inverter:

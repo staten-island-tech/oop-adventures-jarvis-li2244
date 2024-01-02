@@ -9,17 +9,8 @@ with open('dontmesswiththis.json')  as inf:
     dmwt = json.load(inf)
 with open('character.json') as inf2:
     char = json.load(inf2)
-name = 'Anthil Forest'
+name = 'The Myrminki Village'
 def fulcrum():
-    char[0]['location']
-
-    for index, (key, value) in enumerate(dmwt.items()):
-        if value[0]['locationname'] == char[0]['location']:
-            print('location')
-            if value[0]['sublocations'] == char[0]['sub_location']:
-                print('sublocation')
-                break
-    print(key)
     for i, (k, v) in enumerate(locatien.items()):
         if name == v[0]['locationname']:
             print('yay')
@@ -44,7 +35,6 @@ def modify(change, var, mode):
     with open('player.json','w+') as i:
         i.write(json.dumps(unique_variable, indent = 2))
         i.seek(0)
-
 #just json file opening here
 with open('shop.json')  as fre:
     ihop = json.load(fre)
@@ -211,6 +201,18 @@ class Shop:
 2. {shop1[1][0][1].center(9,' ')}             
 ══════════════════════════════════
 3. {shop1[2][0][1].center(9,' ')}
+══════════════════════════════════
+4. {shop1[3][0][1].center(9,' ')}
+══════════════════════════════════
+5. {shop1[4][0][1].center(9,' ')}
+══════════════════════════════════
+6. {shop1[5][0][1].center(9,' ')}
+══════════════════════════════════
+7. {shop1[6][0][1].center(9,' ')}
+══════════════════════════════════
+8. {shop1[7][0][1].center(9,' ')}
+══════════════════════════════════
+9. {shop1[8][0][1].center(9,' ')}
 ══════════════════════════════════
               ''')
     def purcahse():
