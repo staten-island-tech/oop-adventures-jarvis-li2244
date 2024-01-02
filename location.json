@@ -1,19 +1,19 @@
 [
     {
         "location": "Anthill Forest",
-        "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
+        "story": "Tutorial: A Blank Slate and a Guide",
         "center sub_location": ["The Myrminki Village"],
-        "quest sub_location": ["The Myrminkian Assembly", "The Treehouse", "The Docks", "The Cuniculum Bunker"],
-        "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Healing Pond", "Big Bankers"],
+        "quest sub_location": ["The Myrminkian Assembly", "The Treehouse", "The Abandoned Bunker"],
+        "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Big Bankers"],
         "wild sub_location": ["Outskirsts of Anthill Forest"]
     },
     {
         "location": "Castle Walls",
-        "story": "Chapter 1: A Test of Strength of Wits",
-        "center sub_location": ["Castle Gates"],
-        "quest sub_location": ["The Thief's Hideout", "A Hole in the Wall", "Underwater", "The Spy's Campsite"],
-        "event sub_location": ["Rats' Stash", "Spy's Shop", "Comfy Fire", "The Scam"],
-        "wild sub_location": ["Castle Towers"]
+        "story": "Chapter 1: The First Light in a Thousand Years",
+        "center sub_location": ["Castle Bridge"],
+        "quest sub_location": ["The Thief's Hideout", "A Hole in the Wall", "Underwater"],
+        "event sub_location": ["Rats' Stash", "Comfy Fire", "The Scam"],
+        "wild sub_location": ["Guard Patrol Area"]
     },
     {
         "location": "Residency Area",
@@ -21,7 +21,7 @@
         "center sub_location": ["The Camp of Purication"],
         "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
         "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
-        "wild sub_location": ["Guard Patrol Area"]
+        "wild sub_location": ["Town's Edges"]
     },
     {
         "location": "Castle Quarters",
