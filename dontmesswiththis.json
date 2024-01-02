@@ -1,0 +1,30 @@
+{   
+    "location1": [{ 
+        "locationname":"Anthill Forest",
+        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        }],
+    "location2": [{ 
+        "locationname":"Castle Walls",
+        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        }],
+    "location3": [{ 
+        "locationname":"Residency Area",
+        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        }],
+    "location4": [{ 
+        "locationname":"Academy",
+        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        }],
+    "location5": [{ 
+        "locationname":"Royal Garden",
+        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        }],
+    "location6": [{ 
+        "locationname":"Royal Palace",
+        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        }],
+    "location7": [{ 
+        "locationname":"Cellars(ALCOHOL)",
+        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        }]        
+}

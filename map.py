@@ -1,22 +1,35 @@
 import random, json
-from item import inventory
 with open('locationenemy.json') as dropp:
     locatien = json.load(dropp)
 with open('shopinstance.json') as draf:
     shop1 = json.load(draf)
-#initializing the mapinstance
 with open('mapinstance.json') as mapi:
     minp = json.load(mapi)
-locations = ['Anthil Foreest', 'Castle Walls', 'Residency Area', 'Academy', 'Royal Garden', 'Royal Palace', 'Cellars(ALCOHOL TIME)']
+with open('dontmesswiththis.json')  as inf:
+    dmwt = json.load(inf)
+with open('character.json') as inf2:
+    char = json.load(inf2)
 name = 'Anthil Forest'
 def fulcrum():
-    var = 1
-    while var != len(locatien)+1:
-        if name == locatien[f'location_{var}'][0]['locationname']: 
+    char[0]['location']
+
+    for index, (key, value) in enumerate(dmwt.items()):
+        if value[0]['locationname'] == char[0]['location']:
+            print('location')
+            if value[0]['sublocations'] == char[0]['sub_location']:
+                print('sublocation')
+                break
+    print(key)
+    for i, (k, v) in enumerate(locatien.items()):
+        if name == v[0]['locationname']:
             print('yay')
-            current_location_info = locatien[f'location_{var}'][0]
-            return current_location_info
-        else: var+=1
+            return v[0]
+egg = fulcrum()
+print(egg)
+minp = egg
+with open('mapinstance.json', 'w+') as fel:
+    fel.write(json.dumps(minp, indent = 2))
+    fel.seek(0)
 def modify(change, var, mode):
     with open('player.json', 'r+') as r:
         unique_variable = json.load(r)
@@ -31,11 +44,7 @@ def modify(change, var, mode):
     with open('player.json','w+') as i:
         i.write(json.dumps(unique_variable, indent = 2))
         i.seek(0)
-egg = fulcrum()
-minp = egg
-with open('mapinstance.json', 'w+') as fel:
-    fel.write(json.dumps(minp, indent = 2))
-    fel.seek(0)
+
 #just json file opening here
 with open('shop.json')  as fre:
     ihop = json.load(fre)

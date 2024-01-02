@@ -671,8 +671,6 @@ class Mapmap():
         elif pick_up == 'N':
             print('Escape')
             return item_name
-class Liquify_Stats():
-    pass
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
 
