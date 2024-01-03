@@ -3,15 +3,15 @@
         "location": "Anthill Forest",
         "story": "Tutorial: A Blank Slate and a Guide",
         "center sub_location": ["The Myrminki Village"],
-        "quest sub_location": ["The Myrminkian Assembly", "The Treehouse", "The Abandoned Bunker"],
+        "quest sub_location": ["The Myrminkian Assembly", "Treehouse", "Abandoned Bunker"],
         "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Big Bankers"],
-        "wild sub_location": ["Outskirsts of Anthill Forest"]
+        "wild sub_location": ["Outskirts of Anthill Forest"]
     },
     {
         "location": "Castle Walls",
         "story": "Chapter 1: The First Light in a Thousand Years",
         "center sub_location": ["Castle Bridge"],
-        "quest sub_location": ["The Thief's Hideout", "A Hole in the Wall", "Underwater"],
+        "quest sub_location": ["Thief's Hideout", "A Hole in the Wall", "Underwater"],
         "event sub_location": ["Rats' Stash", "Comfy Fire", "The Scam"],
         "wild sub_location": ["Guard Patrol Area"]
     },
@@ -19,40 +19,40 @@
         "location": "Residency Area",
         "story": "Chapter 2: A Trust built upon Salvation",
         "center sub_location": ["The Camp of Purication"],
-        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
-        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "quest sub_location": ["Abandoned Facility", "Power Plant", "Town Hall"],
+        "event sub_location": ["Grant's Smithery", "Colisseum", "Fragrant Floras"],
         "wild sub_location": ["Town's Edges"]
     },
     {
         "location": "Castle Quarters",
         "story": "Chapter 3: A Sneaky Infiltration, gone wrong..?",
         "center sub_location": ["The Fountain of Life"],
-        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
-        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "quest sub_location": ["Science Lab", "Back Alleyway", "Roof"],
+        "event sub_location": ["Nurse's Office", "Gym", "Locker Room"],
         "wild sub_location": ["Castle Bases"]
     },
     {
         "location": "Royal Garden",
         "story": "Chapter 4: A Distracting Discovery",
         "center sub_location": ["The Statue of the King"],
-        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
-        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "quest sub_location": ["Westside", "Underground", "Eastside"],
+        "event sub_location": ["Fluorolescent Insects", "The Maze", "Strange Cave"],
         "wild sub_location": ["Deserted Plantation"]
     },
     {
         "location": "Royal Palace",
         "story": "Chapter 5: The Long-Awaited Showdown",
         "center sub_location": ["The Palace Entrance"],
-        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
-        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "quest sub_location": ["Grand Hall", "Advisory Cabinet", "Stable"],
+        "event sub_location": ["King's Curse", "Armory", "Chef's Kiss"],
         "wild sub_location": ["The Throne Room"]
     },
     {
         "location": "Cellars",
         "story": "Chapter 6: The End?",
         "center sub_location": ["Spiral Staircase"],
-        "quest sub_location": ["PH1", "PH2", "PH3", "PH4"],
-        "event sub_location": ["PH1", "PH2", "PH3", "PH4"],
+        "quest sub_location": ["Main Cell Unit", "Solitary Confinement", "The Gulags"],
+        "event sub_location": ["Wine Cellar", "Game of Traps", "Scrapper"],
         "wild sub_location": ["The Forbidden Area"]
     }
 ]
