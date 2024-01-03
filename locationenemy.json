@@ -33,8 +33,8 @@
     ],
     "location_2": [
         {
-            "locationname":"A Room",
-            "type": "Shop",
+            "locationname":"The Myrminki Assembly",
+            "type": "Enemy",
             "map_dimensions":[3,3],
             "spawn_position":[1, 0],
             "current_position":[0,1],
@@ -45,11 +45,11 @@
     ],
     "location_3":[
         {   
-            "locationname":"Castle Moat",
+            "locationname":"Treehouse",
             "type": "Enemy",
             "map_dimensions":[3,7],
             "spawn_position":[1,0],
-            "exit_postion":[1,6],
+            "exit_position":[1,6],
             "dialogue":"JOLLY",
             "enemy_positions":[],
             "enemies":[

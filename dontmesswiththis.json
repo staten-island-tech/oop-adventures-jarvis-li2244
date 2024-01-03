@@ -1,23 +1,23 @@
 {   
     "location1": [{ 
         "locationname":"Anthill Forest",
-        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        "sublocations":["The Myrminki Village", "The Myriminki Assembly","Treehouse","Abandoned Bunker","Blacksmith's Cabin","Chemist's Lab","Big Bankers", "Outskirts of Anthil Forest"]
         }],
     "location2": [{ 
         "locationname":"Castle Walls",
-        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        "sublocations":["Castle Bridge", "Theif's Hideout", "A Hole in the Wall", "Underwater", "Rats' Stash", "Comfy Fire", "The Scam", "Guard Patrol Area"]
         }],
     "location3": [{ 
         "locationname":"Residency Area",
-        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        "sublocations":["The Camp of Purification", "Abandoned Facility", "Power Plant", "Town_Hall","Grant's Smithery", "Colisseum", "Fragarant Floors"] 
         }],
     "location4": [{ 
         "locationname":"Academy",
-        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        "sublocations":["The Fountain of Life", "Science Lab", "Back Alleyway", "Roof", "Nurse's Office", "Gym", "Locker Room", "Castle Bases"]
         }],
     "location5": [{ 
         "locationname":"Royal Garden",
-        "sublocations":["placeholder1", "placeholder2","placeholer3","placeholder4","placeholder5","placeholder6","placeholder7"]
+        "sublocations":["The Statue of the King", "Westside", "Underground", "Eastside", "Flurolescent Insects", "The Maze", "Cave?", "Deserted Plantation"]
         }],
     "location6": [{ 
         "locationname":"Royal Palace",

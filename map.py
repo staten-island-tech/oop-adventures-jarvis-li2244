@@ -9,22 +9,39 @@ with open('dontmesswiththis.json')  as inf:
     dmwt = json.load(inf)
 with open('character.json') as inf2:
     char = json.load(inf2)
-name = 'The Myrminki Village'
 def fulcrum():
+    with open('character.json') as inf3:
+        chare = json.load(inf3)
+    name = chare[0]['sub_location']
     for i, (k, v) in enumerate(locatien.items()):
         if name == v[0]['locationname']:
             print('yay')
-            return v[0]
-def change_map(mode):
-    if mode == 'story':
-        for i,(v,k) in enumerate(dmwt.itms)
-            print(indenx(''))
-egg = fulcrum()
-print(egg)
-minp = egg
-with open('mapinstance.json', 'w+') as fel:
-    fel.write(json.dumps(minp, indent = 2))
-    fel.seek(0)
+    with open('mapinstance.json', 'w+') as fel:
+        fel.write(json.dumps(v[0], indent = 2))
+        fel.seek(0)
+fulcrum()
+def change(mode):
+    if mode  == 'story':
+        for i,(v,k) in enumerate(dmwt.items()):
+            if k[0]['locationname'] ==  char[0]['location']:
+                indexing = k[0]['sublocations'].index(char[0]['sub_location'])
+                if indexing == len(k[0]['sublocations']) -1:
+                    print('locationname changing')
+                    modifiant = 'location'
+                    algae = dmwt[f'location{i+2}'][0]['locationname']
+                else:
+                    modifiant = 'sub_location'
+                    algae = k[0]['sublocations'][indexing+1] 
+                with open('character.json')  as inf: 
+                    charac = json.load(inf)
+                    charac[0][modifiant] = algae
+                    if modifiant == 'location':
+                        charac[0]['sub_location'] = dmwt[f'location{i+2}'][0]['sublocations'][0]
+                with open('character.json', 'w+')  as false:
+                    false.write(json.dumps(charac,indent=2))
+                    false.seek(0)
+    elif mode == 'choose':
+        input('')
 def modify(change, var, mode):
     with open('player.json', 'r+') as r:
         unique_variable = json.load(r)
@@ -83,7 +100,9 @@ class Maper():
         randx = random.randint(0, length - 1)
         return randy, randx
     def boundaries():
-        map_dimensions = instance_map['map_dimensions']
+        with open('mapinstance.json') as mapird:
+            instance_maps =json.load(mapird)
+        map_dimensions = instance_maps['map_dimensions']
         height = map_dimensions[1]
         length = map_dimensions[0]
         return height, length
@@ -142,7 +161,7 @@ class Maper():
                 if len(mapir['enemy_positions']) == 0:
                     Map[mapir['exit_position'][0]][mapir['exit_position'][1]] = '[Q]'
                     if current_position == mapir['exit_position']:
-                        print('yay')
+                        pass
                 else:
                     i = 0
                     while  i  != len(mapir['enemy_positions']):
@@ -166,11 +185,13 @@ class Maper():
                     Shop.create_items()
             elif instance_map['type'] == 'Resources':
                 pass
-            elif len(mapir['enemy_positions']) == 0:
+            if len(mapir['enemy_positions']) == 0:
                 Map[mapir['exit_position'][0]][mapir['exit_position'][1]] = '[Q]'
                 if current_position == mapir['exit_position']:
-                    #change map here
-                    pass
+                    print('yay')
+                    change('story')
+                    fulcrum()
+                    Maper.map()
             for something in Map:
                 print("".join(something))
 class Shop:
@@ -223,6 +244,7 @@ class Shop:
     def purcahse():
         Shop.display()
         choose = int(input(""))
+        egg = 10
         possible_options = len(egg)
         while choose > possible_options-1 or choose < 0:
             choose = int(input("Enter a Valid Choice Please: "))

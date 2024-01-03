@@ -1,37 +1,64 @@
 {
-  "locationname": "The Myrminki Village",
+  "locationname": "Treehouse",
   "type": "Enemy",
   "map_dimensions": [
-    10,
-    10
+    3,
+    7
   ],
   "spawn_position": [
-    4,
-    4
+    1,
+    0
   ],
   "exit_position": [
-    4,
-    4
+    1,
+    6
   ],
-  "enemy_positions": [],
-  "map_amount": 5,
-  "dialogue": "HOHOHO?",
+  "dialogue": "JOLLY",
+  "enemy_positions": [
+    [
+      2,
+      2
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      0,
+      4
+    ]
+  ],
   "enemies": [
     {
       "0": [
         {
-          "name": "generic_enemy1",
-          "spawn_rate": 10,
-          "boost": 1
-        }
-      ]
-    },
-    {
-      "1": [
-        {
-          "name": "generic_enemy2",
-          "spawn_rate": 5,
-          "boost": 1
+          "name": "generic_enemy4",
+          "spawn_rate": 0,
+          "boost": 3
         }
       ]
     }

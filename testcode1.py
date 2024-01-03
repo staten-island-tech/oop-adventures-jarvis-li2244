@@ -3,7 +3,6 @@ with open('dontmesswiththis.json')  as dmwt:
     dwmt = json.load(dmwt)
 with open('character.json')  as infile:
     char = json.load(infile)
-name = 'placeholder1'
 def change(mode):
     if mode  == 'story':
         for i,(v,k) in enumerate(dwmt.items()):
@@ -24,4 +23,5 @@ def change(mode):
                 with open('character.json', 'w+')  as false:
                     false.write(json.dumps(charac,indent=2))
                     false.seek(0)
+                
 change('story')
