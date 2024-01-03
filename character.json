@@ -1,11 +1,11 @@
 [
-    {
-        "id": 1,
-        "name": "Jarvis",
-        "role": "Warrior",
-        "level": 1,
-        "story": "Chapter 6: The End?",
-        "location": "Anthill Forest",
-        "sub_location": "placeholder1"
-    }
+  {
+    "id": 1,
+    "name": "Jarvis",
+    "role": "Warrior",
+    "level": 1,
+    "story": "Chapter 6: The End?",
+    "location": "Royal Garden",
+    "sub_location": "placeholder1"
+  }
 ]

@@ -15,6 +15,10 @@ def fulcrum():
         if name == v[0]['locationname']:
             print('yay')
             return v[0]
+def change_map(mode):
+    if mode == 'story':
+        for i,(v,k) in enumerate(dmwt.itms)
+            print(indenx(''))
 egg = fulcrum()
 print(egg)
 minp = egg
@@ -165,7 +169,8 @@ class Maper():
             elif len(mapir['enemy_positions']) == 0:
                 Map[mapir['exit_position'][0]][mapir['exit_position'][1]] = '[Q]'
                 if current_position == mapir['exit_position']:
-                    print('yay')
+                    #change map here
+                    pass
             for something in Map:
                 print("".join(something))
 class Shop:
