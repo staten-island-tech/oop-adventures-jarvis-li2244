@@ -4,7 +4,7 @@
         "story": "Tutorial: A Blank Slate and a Guide",
         "center sub_location": ["The Myrminki Village"],
         "quest sub_location": ["The Myrminkian Assembly", "Treehouse", "Abandoned Bunker"],
-        "event sub_location": ["Blacksmith's Cabin", "Chemist's Lab", "Big Bankers"],
+        "event sub_location": ["Blacksmith's Cabin", "Anticore Lab", "Big Bankers"],
         "wild sub_location": ["Outskirts of Anthill Forest"]
     },
     {
