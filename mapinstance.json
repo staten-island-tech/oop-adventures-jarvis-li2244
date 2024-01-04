@@ -1,53 +1,61 @@
 {
   "locationname": "Treehouse",
+
   "type": "Enemy",
+
   "map_dimensions": [
     3,
     7
   ],
+
   "spawn_position": [
     1,
     0
   ],
+
   "exit_position": [
     1,
     6
   ],
+
   "dialogue": "JOLLY",
+
   "enemy_positions": [
     [
       1,
       5
     ]
   ],
+  
   "enemies": [
     {
       "0": [
         {
           "name": "generic_enemy4",
-          "spawn_rate": 0,
+          "spawn_rate": 50,
           "boost": 3
         }
       ]
     },
+
     {
       "1": [
         {
           "name": "generic_enemy4",
-          "spawn_rate": 0,
+          "spawn_rate": 35,
           "boost": 3
         }
       ]
     },
+
     {
       "2": [
         {
           "name": "generic_enemy4",
-          "spawn_rate": 0,
+          "spawn_rate": 15,
           "boost": 3
         }
       ]
     }
-  
   ]
 }
