@@ -37,7 +37,7 @@
             "type": "Enemy",
             "map_dimensions":[3,3],
             "spawn_position":[1, 0],
-            "current_position":[0,1],
+            "exit_position":[0,1],
             "enemy_positions":[],
             "shop_position":[1,1],
             "map_amount" : 0

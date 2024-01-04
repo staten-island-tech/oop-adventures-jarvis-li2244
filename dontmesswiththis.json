@@ -1,7 +1,7 @@
 {   
     "location1": [{ 
         "locationname":"Anthill Forest",
-        "sublocations":["The Myrminki Village", "The Myriminki Assembly","Treehouse","Abandoned Bunker","Blacksmith's Cabin","Chemist's Lab","Big Bankers", "Outskirts of Anthil Forest"]
+        "sublocations":["The Myrminki Village", "The Myrminki Assembly","Treehouse","Abandoned Bunker","Blacksmith's Cabin","Chemist's Lab","Big Bankers", "Outskirts of Anthil Forest"]
         }],
     "location2": [{ 
         "locationname":"Castle Walls",

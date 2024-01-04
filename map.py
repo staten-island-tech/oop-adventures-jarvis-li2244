@@ -16,9 +16,9 @@ def fulcrum():
     for i, (k, v) in enumerate(locatien.items()):
         if name == v[0]['locationname']:
             print('yay')
-    with open('mapinstance.json', 'w+') as fel:
-        fel.write(json.dumps(v[0], indent = 2))
-        fel.seek(0)
+            with open('mapinstance.json', 'w+') as fel:
+                fel.write(json.dumps(v[0], indent = 2))
+                fel.seek(0)
 fulcrum()
 def change(mode):
     if mode  == 'story':
@@ -189,8 +189,8 @@ class Maper():
                 Map[mapir['exit_position'][0]][mapir['exit_position'][1]] = '[Q]'
                 if current_position == mapir['exit_position']:
                     print('yay')
-                    change('story')
                     fulcrum()
+                    change('story')
                     Maper.map()
             for something in Map:
                 print("".join(something))
