@@ -123,7 +123,6 @@ def atte():
     speed = enemies[0]['speed']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
     return temp
-
 def enemy_trigger():
     pass
     #create an instance of the enemy using a loop. loop does not move on til enemy is dead or the player has moved into a certain location. 

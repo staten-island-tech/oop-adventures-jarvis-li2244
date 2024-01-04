@@ -8,7 +8,6 @@
             "exit_position":[4,4],
             "enemy_positions":[],
             "map_amount" : 5,
-            "dialogue":"HOHOHO?", 
             "enemies":[
                 {
                     "0":[
@@ -39,8 +38,7 @@
             "spawn_position":[1, 0],
             "exit_position":[0,1],
             "enemy_positions":[],
-            "shop_position":[1,1],
-            "map_amount" : 0
+            "shop_position":[1,1]
         }
     ],
     "location_3":[
@@ -50,7 +48,6 @@
             "map_dimensions":[3,7],
             "spawn_position":[1,0],
             "exit_position":[1,6],
-            "dialogue":"JOLLY",
             "enemy_positions":[],
             "enemies":[
                 {
