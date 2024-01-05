@@ -32,6 +32,10 @@ with open("location.json", "r") as f:
 with open("story.json", "r") as f:
     jstory = json.load(f)
 
+with open("quest.json", "r") as f:
+    jquest = json.load(f)
+
+
 class Info:
     def roleInfo():
         print(""), print("Role Info")
