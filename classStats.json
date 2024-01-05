@@ -1,0 +1,125 @@
+{
+    "class1":[
+        {
+            "class_name" : "Archer",
+            
+            "defaultskillset": [
+                {
+                    "skill1":"idk",
+                    "skill2":"idk2",
+                    "skill3":"ik3"
+                }
+            ],
+            "stats" :[
+                {
+                    "stat_points": 0,
+                    "exp": 0,
+                    "max_health": 50,
+                    "health": 50,
+                    "attack": 45,
+                    "dodge": 24,
+                    "defense": 10,
+                    "speed": 25,
+                    "luck": 1,
+                    "mana": 40,
+                    "critchance": 5,
+                    "critdmg": 25,
+                    "level": 0,
+                    "coins": 0
+                }
+            ]
+        }
+    ],
+    "class2":[
+        {
+            "class_name" : "Warrior",
+            
+            "defaultskillset": [
+                {
+                    "skill1":"idk",
+                    "skill2":"idk2",
+                    "skill3":"idk3"
+                }
+            ],
+            "stats" :[
+                {
+                    "stat_points": 0,
+                    "exp": 100,
+                    "max_health": 50,
+                    "health": 50,
+                    "attack": 45,
+                    "dodge": 24,
+                    "defense": 10,
+                    "speed": 25,
+                    "luck": 1,
+                    "mana": 40,
+                    "critchance": 5,
+                    "critdmg": 25,
+                    "level": 0,
+                    "coins": 0    
+                }
+            ]
+        }
+    ],
+    "class3":[
+        {
+            "class_name" : "Mage",
+            
+            "defaultskillset": [
+                {
+                    "skill1":"idk",
+                    "skill2":"idk2",
+                    "skill3":"idk3"
+                }
+            ],
+            "stats" :[
+                {
+                    "stat_points": 0,
+                    "exp": 0,
+                    "max_health": 100,
+                    "health": 100,
+                    "attack": 3,
+                    "dodge": 5,
+                    "defense": 3,
+                    "speed": 10,
+                    "luck": 1,
+                    "mana": 10,
+                    "critchance": 5,
+                    "critdmg": 2,
+                    "level": 0,
+                    "coins": 0
+                }
+            ]
+        }
+    ],
+    "class4":[        {
+        "class_name" : "Assassin",
+        
+        "defaultskillset": [
+            {
+                "skill1":"idk",
+                "skill2":"idk2",
+                "skill3":"idk3"
+            }
+        ],
+        "stats" :[
+            {
+                "stat_points": 0,
+                "exp": 100,
+                "max_health": 50,
+                "health": 50,
+                "attack": 45,
+                "dodge": 24,
+                "defense": 10,
+                "speed": 25,
+                "luck": 1,
+                "mana": 40,
+                "critchance": 5,
+                "critdmg": ,
+                "level": 0,
+                "coins": 0 
+            }
+        ]
+    }
+]  
+}

@@ -31,7 +31,7 @@
     {
       "0": [
         {
-          "name": "generic_enemy4",
+          "name": "generic_enemy1",
           "spawn_rate": 50,
           "boost": 3
         }
@@ -41,7 +41,7 @@
     {
       "1": [
         {
-          "name": "generic_enemy4",
+          "name": "generic_enemy2",
           "spawn_rate": 35,
           "boost": 3
         }

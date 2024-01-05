@@ -26,6 +26,10 @@ with open('inventorye.json') as el:
     inventorye = json.load(el)
 with open('character.json') as elf:
     character = json.load(elf)
+with open('enemies.json') as flafel:
+    ade = json.load(flafel)
+with open('mapinstance.json', mode='r') as infile:
+    mapperjapper = json.load(infile)
 class Levels():
     def calculate():
         level = player[0]['level']
@@ -52,39 +56,17 @@ class Levels():
         pass
 
 class Spawn():
-    def enemy_name():
-        enemy_list = []
-        test = len(location['location_1'][0]['enemies'])
-        numbers = 0
-        for i in range(test):
-            enemy_name = location['location_1'][0]['enemies'][numbers][f'{numbers}'][0]['name']
-            numbers += 1
-            enemy_list.append(enemy_name)
-        return enemy_list
-    def search():
-        indexcycle = 0
-        names = Spawn.enemy_name()
-        with open('enemies.json', 'r+') as fr:
-            ihavenoideawhattonamethis = json.load(fr)
-        while True:
-            for i in ihavenoideawhattonamethis:
-                if names[indexcycle] in i:
-                    return ihavenoideawhattonamethis[i]
-                else:
-                    indexcycle+=1
-                    if indexcycle > len(ihavenoideawhattonamethis):
-                        indexcycle-=1
-                        return False
-                    else:
-                        return True
-    def spawn():
-        enemy_blit = Spawn.search() 
-        with open('enemyinstance.json', 'r+') as eggs:
-            enemyinstance = json.load(eggs) 
-            enemyinstance = enemy_blit
-        with open('enemyinstance.json', 'w') as igloo:
-            igloo.write(json.dumps(enemyinstance))
-            igloo.seek(0) 
+    def blit_enemy():
+        for i, (k, v) in enumerate(ade.items()):
+            if v['names'] == Spawn.spawnenemy():
+                with open('maperjap.json')  as outfile:
+                    outfile.write(json.dumps(v, indent=2))
+                    outfile.seek(0)
+    def spawnenemy():
+        for index, stuff in enumerate(mapperjapper['enemies']):
+            spawn = stuff[f'{index}'][0]['spawn_rate']
+            if random.randint(1, int(spawn/10)) == random.randint(1, int(spawn/10)):
+                return stuff[f'{index}'][0]['name']
 # do exp display here
 #list of known bugs currently(repport bugs here) : health_bar display gets fucked over when the value gets rounded down weird(not resolved yet)
 #healing overflow(resolved) 
