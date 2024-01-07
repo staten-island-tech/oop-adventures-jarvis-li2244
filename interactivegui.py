@@ -1,6 +1,8 @@
 import json
 import time
 import random
+from item import *
+from recipes import *
 re = "\033[91m█"
 pu = "\33[95m█" 
 bl = "\33[34m█"
@@ -654,7 +656,3 @@ class Mapmap():
             return item_name
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
-
-
-egg = atte()
-egg.drops()

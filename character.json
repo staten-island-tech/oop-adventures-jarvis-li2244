@@ -1,12 +1,11 @@
 [
   {
     "id": 1,
-    "name": "Jarvis",
-    "role": "Warrior",
-    "level": 1,
-    "story": "Chapter 6: The End?",
+    "name": "jar man",
+    "role": "mage",
+    "level": 0,
+    "story": "Chapter 1",
     "location": "Anthill Forest",
-    "sub_location": "Treehouse",
-    "highest_completed_sublocat": "placeholder1"
+    "sub_location": "The Myrminki Village"
   }
 ]

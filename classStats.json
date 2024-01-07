@@ -1,7 +1,7 @@
 {
     "class1":[
         {
-            "class_name" : "Archer",
+            "class_name" : "archer",
             
             "defaultskillset": [
                 {
@@ -12,37 +12,8 @@
             ],
             "stats" :[
                 {
-                    "stat_points": 0,
-                    "exp": 0,
-                    "max_health": 50,
-                    "health": 50,
-                    "attack": 45,
-                    "dodge": 24,
-                    "defense": 10,
-                    "speed": 25,
-                    "luck": 1,
-                    "mana": 40,
-                    "critchance": 5,
-                    "critdmg": 25,
-                    "level": 0,
-                    "coins": 0
-                }
-            ]
-        }
-    ],
-    "class2":[
-        {
-            "class_name" : "Warrior",
-            
-            "defaultskillset": [
-                {
-                    "skill1":"idk",
-                    "skill2":"idk2",
-                    "skill3":"idk3"
-                }
-            ],
-            "stats" :[
-                {
+                    "id": 1,
+                    "name": null,
                     "stat_points": 0,
                     "exp": 100,
                     "max_health": 50,
@@ -56,14 +27,14 @@
                     "critchance": 5,
                     "critdmg": 25,
                     "level": 0,
-                    "coins": 0    
+                    "coins": 999600000
                 }
             ]
         }
     ],
-    "class3":[
+    "class2":[
         {
-            "class_name" : "Mage",
+            "class_name" : "warrior",
             
             "defaultskillset": [
                 {
@@ -74,26 +45,61 @@
             ],
             "stats" :[
                 {
+                    "id": 1,
+                    "name": null,
                     "stat_points": 0,
-                    "exp": 0,
-                    "max_health": 100,
-                    "health": 100,
-                    "attack": 3,
-                    "dodge": 5,
-                    "defense": 3,
-                    "speed": 10,
+                    "exp": 100,
+                    "max_health": 50,
+                    "health": 50,
+                    "attack": 45,
+                    "dodge": 24,
+                    "defense": 10,
+                    "speed": 25,
                     "luck": 1,
-                    "mana": 10,
+                    "mana": 40,
                     "critchance": 5,
-                    "critdmg": 2,
+                    "critdmg": 25,
                     "level": 0,
-                    "coins": 0
+                    "coins": 999600000  
+                }
+            ]
+        }
+    ],
+    "class3":[
+        {
+            "class_name" : "mage",
+            
+            "defaultskillset": [
+                {
+                    "skill1":"idk",
+                    "skill2":"idk2",
+                    "skill3":"idk3"
+                }
+            ],
+            "stats" :[
+                {
+                    "id": 1,
+                    "name": null,
+                    "stat_points": 0,
+                    "exp": 100,
+                    "max_health": 50,
+                    "health": 50,
+                    "attack": 45,
+                    "dodge": 24,
+                    "defense": 10,
+                    "speed": 25,
+                    "luck": 1,
+                    "mana": 40,
+                    "critchance": 5,
+                    "critdmg": 25,
+                    "level": 0,
+                    "coins": 999600000
                 }
             ]
         }
     ],
     "class4":[        {
-        "class_name" : "Assassin",
+        "class_name" : "assassin",
         
         "defaultskillset": [
             {
@@ -104,6 +110,8 @@
         ],
         "stats" :[
             {
+                "id": 1,
+                "name": null,
                 "stat_points": 0,
                 "exp": 100,
                 "max_health": 50,
@@ -115,9 +123,9 @@
                 "luck": 1,
                 "mana": 40,
                 "critchance": 5,
-                "critdmg": ,
+                "critdmg": 25,
                 "level": 0,
-                "coins": 0 
+                "coins": 999600000
             }
         ]
     }

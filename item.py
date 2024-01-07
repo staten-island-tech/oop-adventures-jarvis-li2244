@@ -300,6 +300,3 @@ class Crafting:
         else:
             return False
 
-
-
-Inventory.inventory_display()

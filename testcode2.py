@@ -37,19 +37,11 @@ def stat_usage():
         if ask in plop:
             print(ask)
 def enter_integer():
-
     askdd = input()
-
     try:
         askdd = int(askdd)
         return askdd
-
     except:
-
         print('try again')
         return enter_integer()
         
-print(enter_integer())
-    
-
-

@@ -1,4 +1,5 @@
 import random, json
+from interactivegui import *
 with open('locationenemy.json') as dropp:
     locatien = json.load(dropp)
 with open('shopinstance.json') as draf:
@@ -19,7 +20,22 @@ def fulcrum():
             with open('mapinstance.json', 'w+') as fel:
                 fel.write(json.dumps(v[0], indent = 2))
                 fel.seek(0)
-fulcrum()
+def options():
+    print(f'''          
+1. Inventory
+2. Equips
+3. Stats
+4. Exit
+''')
+    opt = input().lower
+    if opt == 'inventory' or 'inv':
+        print('opening inventory')
+    elif opt == 'equips' or 'e':
+        print('opening equips')
+    elif opt == 'stats' or 'stat':
+        print('checking stats')
+    elif opt == 'exit':
+        sys.exit()
 def change(mode):
     if mode  == 'story':
         for i,(v,k) in enumerate(dmwt.items()):
@@ -40,8 +56,6 @@ def change(mode):
                 with open('character.json', 'w+')  as false:
                     false.write(json.dumps(charac,indent=2))
                     false.seek(0)
-    elif mode == 'choose':
-        input('')
 def modify(change, var, mode):
     with open('player.json', 'r+') as r:
         unique_variable = json.load(r)
@@ -63,7 +77,6 @@ with open('mapinstance.json') as aei:
     instance_map = json.load(aei)
 with open('character.json') as efe:
     char = json.load(efe)
-print('3')
 #updating whatever key pair needed
 def update_location_instance(key, value):
     with open('mapinstance.json') as efl:
@@ -107,6 +120,7 @@ class Maper():
         length = map_dimensions[0]
         return height, length
     def map():
+        fulcrum()
         map_dimensions = Maper.boundaries()
         height, length= map_dimensions[1],  map_dimensions[0]
         spawn_amount  = 10
@@ -146,7 +160,10 @@ class Maper():
                 Map[y][x+1] = f'[{item}]'
             elif control == 'd':
                 x += 1
-                Map[y][x-1] = f'[{item}]'    
+                Map[y][x-1] = f'[{item}]'
+            elif control == 'menu':
+                print('options')
+                options()    
             if y == height:
                 y -=1
             elif x == length:
@@ -280,4 +297,3 @@ class Shop:
             modify(egg, 'coins', 'set')
             #use the put_slotin_inventorymethod 
 #use a variable within a function to trigger another function 
-Maper.map()
