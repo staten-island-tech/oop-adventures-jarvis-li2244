@@ -6,7 +6,7 @@ def delay_print(s):
     for c in s:
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(0.075)
+        time.sleep(0.05)
 
 def dialogue():
     with open('dialogue.json') as dialogu:
@@ -14,9 +14,6 @@ def dialogue():
     for i, (v, k) in enumerate(dialogue.items()):
         for i in range(len(k)):
             delay_print(k[i])
-            if input() != 121809901490199023904092490242904920429042904:
-                pass
-            print('''
-
-''')
+            input()
+            print(''' ''')
 dialogue()
