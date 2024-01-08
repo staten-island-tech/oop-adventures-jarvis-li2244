@@ -13,19 +13,19 @@
         "name": "Johnny",
         "role": "Mage",
         "level": 0,
-        "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
+        "story": "Tutorial: A Blank Slate Fills",
         "location": "Anthill Forest",
         "sub_location": "Dense Forest",
-        "active_quest": "Main Story: Tutorial"
+        "active_quest": "Tutorial: Act I"
     },
     {
         "id": 3,
         "name": "Test Subject #3",
         "role": "Archer",
         "level": 0,
-        "story": "Tutorial: A Hopeful Start to a Hazardous Journey",
+        "story": "Tutorial: A Blank Slate Fills",
         "location": "Anthill Forest",
         "sub_location": "Dense Forest",
-        "active_quest": "Main Story: Tutorial"
+        "active_quest": "Tutorial: Act I"
     }
 ]

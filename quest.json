@@ -1,9 +1,16 @@
 [
     {
-        "quest": "The Treehouse Treasure",
-        "category": "collect_quest",
-        "description": "Find the Holy Acorn.",
+        "quest": "Tutorial: Act I",
+        "category": "main_quest",
+        "description": "Wake Up.",
         "location": "Anthill Forest",
         "sub_location": "Outskirsts of Anthill Forest"
+    },
+    {
+        "quest": "Tutorial: Act II",
+        "category": "main_quest",
+        "description": "You stand before the Assembly. Your fate is in their hands or rather, their fates are in your hands.",
+        "location": "Anthill Forest",
+        "sub_location": "The Myrminki Village"
     }
 ]
