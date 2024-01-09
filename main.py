@@ -1,4 +1,5 @@
 from map import *
+from interactivegui import * 
 import sys, json, time
 with open('classStats.json') as cs1:
     cs = json.load(cs1)
@@ -24,7 +25,7 @@ def game_start():
 def class_select():
     if game_start() ==  True:
         print(r'''
-                CLASS SELECT 
+                    CLASS SELECT
             
     ╔═════════╗╔═════════╗╔═════════╗╔═════════╗
     ║     o   ║║   | \   ║║     /   ║║         ║
@@ -58,6 +59,41 @@ def start_game():
     print('starting game')
     #print some lore here/cutscene or smth and then start the game 
     Maper.map()
+def game_run():
+    while True:
+        pass
+def open_menu():
+    print(r'''
+       MENU 
+╔════════════════╗
+║    Inventory   ║
+╚════════════════╝
+╔════════════════╗
+║    Equipment   ║     
+╚════════════════╝
+╔════════════════╗
+║      Stat      ║
+╚════════════════╝
+╔════════════════╗
+║      EXIT      ║
+╚════════════════╝
+''')
+    idea = module.proper_input('str')
+    if idea == 'help':
+        print('inv to enter inventory, equip to enter equipment, stat to enter stat and exit to exit')
+        open_menu()
+    elif idea == 'stat':
+        print('Opening Stats')
+        
+    elif idea == 'equip':
+        print('Opening Equips')
+    elif idea == 'inv':
+        print('Opening Inventory')
+        
+    elif idea == 'exit':
+        sys.exit()
+
+    
 if len('file') == 0:
     print('starting new game')
     class_select()
@@ -70,4 +106,3 @@ else:
     else:
         print('continuing where you left off')
         Maper.map()
-    

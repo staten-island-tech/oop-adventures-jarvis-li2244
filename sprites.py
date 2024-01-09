@@ -31,6 +31,7 @@ def health_display(max, current):
         print(f'║\033[1;{x};40m{yes_health1}{no_health1}{color_default}║')
         print(f'{color_default}╚═════════════════════════╝' )
 class GUI():
+    pass
 def actions():
     ere =int(input(""))
     atk_gui() if ere == 1 else(run_gui() if ere == 2 else(equip_gui() if ere == 3 else(items_gui() if ere == 4 else actions())))
@@ -313,7 +314,7 @@ O|--|_________>
 Sprites.axe()
 Sprites.sprite4()
 health_display(100, 80)
-battle_gui()
+
 actions()
 Sprites.sprite5()
 health_display(100, 0)

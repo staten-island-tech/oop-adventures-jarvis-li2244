@@ -1,4 +1,4 @@
-import random, json
+import random, json, sys
 from interactivegui import *
 with open('locationenemy.json') as dropp:
     locatien = json.load(dropp)

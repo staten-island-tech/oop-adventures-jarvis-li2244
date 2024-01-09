@@ -3,6 +3,8 @@ import time
 import random
 from item import *
 from recipes import *
+from map import *
+from actualsprites import *
 re = "\033[91m█"
 pu = "\33[95m█" 
 bl = "\33[34m█"
@@ -30,8 +32,58 @@ with open('character.json') as elf:
     character = json.load(elf)
 with open('enemies.json') as flafel:
     ade = json.load(flafel)
+with open('classStats.json') as cs1:
+    cs = json.load(cs1)
 with open('mapinstance.json', mode='r') as infile:
     mapperjapper = json.load(infile)
+class Start():
+    def modify(file, content, mode):
+        with open(f'{file}.json')  as openfile:
+            filed = json.load(openfile)
+        if mode == '':
+            filed = content
+        elif mode != '':
+            filed[0][mode] = content
+        with open(f'{file}.json', 'w+')  as closedfile:
+            closedfile.write(json.dumps(filed, indent=2))
+    def game_start():
+        if input().upper() ==  'Y':
+            return True
+        else:
+            return False
+    def class_select():
+        if Start.game_start() ==  True:
+            print(r'''
+                    CLASS SELECT 
+                
+        ╔═════════╗╔═════════╗╔═════════╗╔═════════╗
+        ║     o   ║║   | \   ║║     /   ║║         ║
+        ║    /    ║║  >|-->  ║║   _/_   ║║  -]═──  ║ 
+        ║   /     ║║   | /   ║║   /     ║║         ║  
+        ╚═════════╝╚═════════╝╚═════════╝╚═════════╝
+            MAGE      ARCHER    WARRIOR    ASSASSIN
+        ''')
+        class_selected = input().lower() 
+        if class_selected == 'mage' or class_selected == 'archer' or class_selected == 'warrior' or class_selected == 'assassin':
+            print(f'{class_selected} Selected')
+            Start.blit_class_stats(class_selected)
+        else:
+            Start.class_select()
+    def blit_class_stats(class_name):
+        for i,(v,k) in enumerate(cs.items()):
+            if class_name == k[0]['class_name']:
+                modify('player', k[0]['stats'], '')
+                name = input("ENTER YOUR NAME : ")
+                modify('player', name, 'name' )
+                Start.location_set(class_name)
+    def location_set(name):
+        character[0]['role'] = name
+        character[0]['name'] = player[0]['name']
+        character[0]['location'] = 'Anthill Forest'
+        character[0]['sub_location'] = 'The Myrminki Village'
+        character[0]['level'] = 0 
+        with open('character.json', 'w+')  as infile:
+            infile.write(json.dumps(character, indent=2))
 class Levels():
     def calculate():
         level = player[0]['level']
@@ -475,6 +527,7 @@ class Turn():
 ╚═════════════════════════════════════╝
 ''')
                 Location.location()
+                Maper.display()
                 #add soemthing that loops the player back out to their last location, so 2 variables : 1 for current location and 1 for last saved location. no saves during battles or any interactions. 
         else:
                 print("PLAYER")
@@ -512,17 +565,6 @@ class Location():
 
 #take enemey and player, print heir stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
 #if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
-def fuckery():
-    var = 1
-    x = 0
-    elgelg = []
-    for i in range(6):
-        egg = inventorye[f'slot{var}'][0]['name']
-        var+=1
-        elgelg.append(egg)
-        if elgelg[x] == 0:
-            print("EMPTY")
-        x+=1
 def verify_usage():
     egg = input("")
     if egg == "Y":

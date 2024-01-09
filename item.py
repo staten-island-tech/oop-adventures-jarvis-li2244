@@ -1,5 +1,6 @@
 import json, random, copy, time, sys
-
+from methods import Modified_Functions
+module = Modified_Functions()
 with open('inventoryi.json') as ii:
     inventir = json.load(ii)
 with open('item.json') as falafel:
@@ -101,7 +102,8 @@ class Inventory():
         print(len(asf))
         return asf
     def inventory_display():
-        whilee = input("EXIT?: ")
+        print('exit')
+        whilee = module.proper_input('str')
         if whilee != 'exit':
             if input() == 'exit':
                 whilee == 'exit'
@@ -150,36 +152,40 @@ class Inventory():
                     Inventory.piie()
                     Inventory.update_json(name, item_stats, 'add', 1)
 
-    def item_unusage():
-        lemfa = input("")
-        if lemfa not in inventir: 
-            print("ni")
-        elif lemfa in inventir:
-            #put the check function here later, too lazy to write 
-            print("Unequip?")
-            equp = input("Y/N")
-            if equp == "Y":
-                print("Unequiped")
-                Inventory.update_json("false", "stat_items ", 'subtract')
-    def piie(item_name):
-        vary = 0
-        if inventir[f'slot{vary+1}'][0]['name'] in inverter:
-            print("already equipped")
-            print("scram")
-            #cause placeholder function back to menu or smth
-            pass
-        while vary != len(inverter):
-            if inventir[f'slot{vary+1}'][0]['name'] == null:
-                with open('inventorye.json') as i4:
-                    venti = json.load(i4)
-                    venti[f'slot{vary+1}'][0]['name'] = item_name
-                with open('inventorye.json','w+') as i2:
-                    i2.write(json.dumps(venti, indent = 2))
-                    i2.seek(0)
+    def un_piie():
+        item_name = module.proper_input('str')
+        for i,(k, v) in enumerate(inverter.items()):
+            if item_name != v[0]['name']:
+                continue
+            options = Modified_Functions.proper_input('str')
+            if options == 'unequip':
+                inverter[f'slot{i+1}'][0]['name'] = 0
+                inverter[f'slot{i+1}'][0]['quantity'] = None
+                Inventory.psi(item_name, 1 ,'')
+            elif options == 'destroy':
+                inverter[f'slot{i+1}'][0]['name'] = 0
+                inverter[f'slot{i+1}'][0]['quantity'] = None
+            with open('inventorye.json', 'w+') as nuance:
+                nuance.write(json.dumps(inverter, indent=2))
+    def piie():
+        item_name = module.proper_input('str')
+        for i,(k, v) in enumerate(inventir.items()):
+            if item_name != v[0]['name']:
+                continue
+            print('item found')
+            for i2,(k2,v2) in enumerate(item[0].items()):
+                if item_name != k2:
+                    continue
+                for i3, (v3,k3) in enumerate(inverter.items()):
+                    if k3[0]['type'] != v2[0]['type']:
+                        continue
+                    print('yay')
+                    inverter[f'slot{i3+1}'][0]['name'] = item_name
+                    inverter[f'slot{i3+1}'][0]['quantity'] = 1
+                    with open('inventorye.json', 'w+') as outl:
+                        outl.write(json.dumps(inverter, indent = 2))
+                    #parse stat modifier here or smth
                 break
-            else:
-                vary += 1
-        print("damn ur inventory is full, no equips for you")
 class Crafting:
     def names(self):
         cyclone = 1
@@ -280,9 +286,9 @@ class Crafting:
 
     
 
-    
-    
-    
+
+
+
     
 
     ''')

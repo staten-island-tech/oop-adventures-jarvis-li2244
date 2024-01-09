@@ -1,0 +1,7 @@
+def ghost():
+    print(r'''
+
+
+
+
+''')
