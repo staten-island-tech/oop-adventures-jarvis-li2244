@@ -5,6 +5,8 @@ from item import *
 from recipes import *
 from map import *
 from actualsprites import *
+from methods import Modified_Functions
+mod = Modified_Functions
 re = "\033[91m█"
 pu = "\33[95m█" 
 bl = "\33[34m█"

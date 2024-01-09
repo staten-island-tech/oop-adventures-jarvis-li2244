@@ -1,6 +1,6 @@
 import json, random, copy, time, sys
 from methods import Modified_Functions
-module = Modified_Functions()
+module = Modified_Functions
 with open('inventoryi.json') as ii:
     inventir = json.load(ii)
 with open('item.json') as falafel:
@@ -144,14 +144,13 @@ class Inventory():
                 print("Use item?")
                 if Inventory.verify_usage() == True:
                     print("How many?")
-                    egg = input("")
+                    egg = module.proper_input('int')
                     Inventory.update_json(name, item_stats, 'add', f'{egg}')
             elif item[0][f'{name}'][0]['type'] == "equippable":
                 print("Equip Item?")
                 if Inventory.verify_usage() == True:
                     Inventory.piie()
                     Inventory.update_json(name, item_stats, 'add', 1)
-
     def un_piie():
         item_name = module.proper_input('str')
         for i,(k, v) in enumerate(inverter.items()):

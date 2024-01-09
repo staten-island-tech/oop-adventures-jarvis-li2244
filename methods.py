@@ -28,31 +28,19 @@ class Modified_Functions():
                 return output
             except:
                 print("Enter a valid input please")
-    def file_modify(file, value_change, values, modified_content):
+    def file_modification(file, values, content_change):
         try:
-            with open(file) as filing_cabinet:
-                data = json.load(filing_cabinet)
-            new_data = value_change(data, values, modified_content)
+            with open(file, 'r+') as filecabinet:
+                filecab = json.load(filecabinet)
+            if len(values) == 1:
+                filecab[values[0]] = content_change
+            elif len(values) == 2:
+                filecab[values[0]][values[1]] = content_change
+            elif len(values) == 3:
+                filecab[values[0]][values[1]][values[2]] = content_change
             with open(file, 'w+') as outfile:
-                outfile.write(json.dump(new_data, indent=2))
+                outfile.write(json.dumps(filecab, indent=2))
         except:
-            print('Error')
-    def modifier(info, values, modified_data):
-        info[values[0]] = modified_data
-        temp_value = info[values[0]]
-        print(temp_value, values[0])
-Modified_Functions.file_modify('test.json', Modified_Functions.modifier, ['new_value'], 1)
-def file_modification(file, value_change, values, content_chance):
-    try:
-        with open(file, 'r+') as filecabinet:
-            filecab = json.load(filecabinet)
-        new_data = value_change()
-        with open(file, 'w+') as outfile:
-            outfile.write(json.dumpm(new_data, indent=2))
-    except:
-        print("error")
-def val_change(data, index):
-    new_value = data + index 
-    print(new_value)
-data = [10, 100]
-val_change(data, [0])
+            print("error")
+#mke sure to specify the erorr otherwise itll be hard debugging
+mod = Modified_Functions

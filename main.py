@@ -1,6 +1,8 @@
 from map import *
 from interactivegui import * 
 import sys, json, time
+from methods import Modified_Functions
+module = Modified_Functions
 with open('classStats.json') as cs1:
     cs = json.load(cs1)
 with open('character.json') as felix:
@@ -75,34 +77,37 @@ def open_menu():
 ║      Stat      ║
 ╚════════════════╝
 ╔════════════════╗
-║      EXIT      ║
+║    EXIT MENU   ║
 ╚════════════════╝
 ''')
     idea = module.proper_input('str')
     if idea == 'help':
-        print('inv to enter inventory, equip to enter equipment, stat to enter stat and exit to exit')
+        print('inv to enter inventory, equip to enter equipment, stat to enter stat, quit to quit and exit to exit')
         open_menu()
     elif idea == 'stat':
         print('Opening Stats')
-        
+        for i,(k,v) in enumerate(player[0].items()):
+            print(k,':',v)
     elif idea == 'equip':
         print('Opening Equips')
     elif idea == 'inv':
         print('Opening Inventory')
-        
+        Inventory.inventory_display()
     elif idea == 'exit':
+        print('Exiting menu')
+    elif idea == 'quit':
         sys.exit()
-
-    
-if len('file') == 0:
-    print('starting new game')
-    class_select()
-else:
-    print('start where you left off or reset?')
-    log = input()
-    if log == 'start over':
-        print('wiping slate')
+def game_menu():
+    if len('file') == 0:
+        print('starting new game')
         class_select()
     else:
-        print('continuing where you left off')
-        Maper.map()
+        print('start where you left off or reset?')
+        log = input()
+        if log == 'start over':
+            print('wiping slate')
+            class_select()
+        else:
+            print('continuing where you left off')
+            Maper.map()
+open_menu()
