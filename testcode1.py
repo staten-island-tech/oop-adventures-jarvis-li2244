@@ -44,11 +44,27 @@ def proper_input(type):
 def piie():
     item_name = proper_input('str')
     for i,(k, v) in enumerate(invent.items()):
-        if item_name == v[0]['name']:
+        if item_name != v[0]['name']:
+            continue
+        print('item found')
+        for i2,(k2,v2) in enumerate(item[0].items()):
+            if item_name != k2:
+                continue
+            type = v2[0]['type']
+            for i3, (v3,k3) in enumerate(equips.items()):
+                if k3[0]['type'] != v2[0]['type']:
+                    continue
+                print('yay')
+                equips[f'slot{i3+1}'][0]['name'] = item_name
+                with open('inventorye.json', 'w+') as outl:
+                    outl.write(json.dumps(equips, indent = 2))
+            break
+"""        if item_name == v[0]['name']:
             print('item found')
             for i2,(k2,v2) in enumerate(item[0].items()):
                 if item_name == k2:
                     type = v2[0]['type']
+
                     for i3, (v3,k3) in enumerate(equips.items()):
                         if k3[0]['type'] == v2[0]['type']:
                             print('yay')
@@ -56,6 +72,5 @@ def piie():
                             with open('inventorye.json', 'w+') as outl:
                                 outl.write(json.dumps(equips, indent = 2))
             break
-        else:
-            print('item not in inventory, please enter a valid item')
+    """
 piie()
