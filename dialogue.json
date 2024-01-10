@@ -42,5 +42,51 @@
 "MYRMINKIAN TRIUMVIRATE: Forgive us if we are too weary. Legend has told of a man setting flames to all which he walks. You may take your leave now.",
 "NARRATOR: You leave."
 ],
-    "Tutorial: Act III": []
+    "Tutorial: Act III": ["NARRATOR: You approach the place with caution. The wind gushes against you and the wooden planks tremble beneath you. You eventually make it to the door and knock. A small squirrel-like creature opens the door. ",
+"???: Hey. You wanted to check this place out?",
+"NARRATOR: You wave and give a slight nod.",
+"???: Alright, come in. I’m Ratashkin. Call me if you need anything.",
+"NARRATOR: You decide to look around the room for a while.",
+"TUTORIAL: When you receive an objective to look around and explore, the squares marked with an “X” on the map indicate objects or interactables. To interact with them, you just move to the square where they are located.",
+"TUTORIAL: Sometimes if there are multiple interactables at once, the ones you have already interacted with will be shown as an “O” instead of an “X”."
+],
+    "Act III Item 1": ["NARRATOR: You find an old telescope. You look through it, but only see an open plain."
+],
+    "Act III Item 2": ["NARRATOR: You pick up old newspaper clippings. You stare intently at their words. They seem to detail the history of this town. The founding of this village began when a group of these ant-like creatures combined forces. They built the place from the ground up. An outer wall was created to keep out enemies and protect those within. The next section describes the people of this town. It is speculated that the king from the castle nearby has been performing cruel experiments on human test subjects. His goal was to create a perfect being. He began to experiment with all kinds of species, mixing them with human intelligence. The people in this town and the enemies outside are all results of these experiments, later exiled when no longer needed. The text becomes too faded after that."
+],
+    "Tutorial: Act III 2": ["RATASHKIN: Hey, do you find those stories interesting?",
+"NARRATOR: You nod.",
+"RATASHKIN: Okay, then I have a proposal. Legend has it that there is a special experiment in an abandoned bunker not too far from here. I’ve always wanted to go, but it could be dangerous for one person alone. What do you say, there could be treasure?",
+"YOU: …",
+"NARRATOR: You look at him with suspicion.",
+"RATASHKIN: Listen, it’s totally legal and allowed. And if it goes well, I’ll definitely compensate you.",
+"NARRATOR: You let out a sigh and nod.",
+"RATASHKIN: Alright! I’ll meet you there. Let me get ready first."
+],
+    "Tutorial: Act IV": ["NARRATOR: You arrive at the place with no one in sight. The place is crowded and overgrown. The tiniest bit of sunlight peeks through the plants, just enough to reveal the entrance. After a while, Ratashkin arrives.",
+"NARRATOR: You look at him with an annoyed expression.",
+"RATASHKIN: Look, sorry that I took so long. It was hard getting over here.",
+"NARRATOR: Not wanting to deal with his nonsense, you decide to take the lead.",
+"NARRATOR: You encounter a room with four totems in each corner. A note on the floor reads...",
+"NARRATOR: God once said 'Let there be light.' and there was light. You must do the same, but an order must be fulfilled. Light by strokes of your hand, not by a childhood hymn."
+],
+    "Act IV Totem Bottom Left": ["NARRATOR: You find a totem with an “O” engraving. Light it?"
+],
+    "Act IV Totem Top Right": ["NARRATOR: You find a totem with a “N” engraving. Light it?"
+],
+    "Act IV Totem Top Left": ["NARRATOR: You find a totem with a “M” engraving. Light it?"
+],
+    "Act IV Totem Bottom Right": ["NARRATOR: You find a totem with a “L” engraving. Light it?"
+],
+    "Tutorial: Act IV 2": ["NARRATOR: A door opens as you light the final totem. It reveals a staircase leading down into darkness. A low growl can be heard.",
+"RATASHKIN: Treasure? Welp, thanks for the help, but I’ll be going!",
+"NARRATOR: You see Ratashkin dash into the shadows without you. As you approach the staircase entrance, he rushes past you in a blur, but you manage to catch his panicked expression. You see an abomination of insects charging up the stairs, squeezing through and cracking the walls. You turn around and make a run for it."
+],
+    "Tutorial: Act V": ["NARRATOR: As you charge into the center of the village, you see Ratashkin caught by the tail by an officer and explaining what happened. You see the Myrminkian Triumvirate in front of you with panicked and furious expressions.",
+"MYRMINKIAN TRIUMVIRATE: Guards! Soldiers! Squad B! Formation A! Fire the weapons!"
+],
+    "Tutorial: Act V 2": ["MYRMINKIAN TRIUMVIRATE: Thank you for the assistance. We could’ve never done it without you.",
+"MYRMINKIAN TRIUMVIRATE: However, you did break our agreement. You did cause quite the commotion. But, we recognize that you did aid in saving the town and fixing your mistakes. As a collective, we have decided that you may not stay here, but you can come in from time to time. You may not be a permanent resident, rather a visiting traveler. This is all we have to say. Let us think now in peace. That creature could not have hidden its existence for that long. And its origin..",
+"NARRATOR: You look back at the town and wonder what other secrets are hidden. You decide to head out onward towards the castle, hoping to find out the source of these experiments, your identity, and more. You have much to learn."
+]
 }
