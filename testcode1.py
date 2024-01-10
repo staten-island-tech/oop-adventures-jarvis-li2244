@@ -31,13 +31,27 @@ class Skills():
             print(v['description'])
             verify_skill = mod.proper_input('str')
             if verify_skill == 'y':
-                print(len(character[0]['skills']))
-                return
+                for i, k  in enumerate(character[0]['skills']):
+                    if k != None:
+                        continue
+                    mod.file_modification('character.json', [0,'skills', i], skill_choose )
+                    return
         print('skill not found') 
     def modify_skills():
+        skill_select = mod.proper_input('str')
+        option = mod.proper_input('str')
+        for i, k in enumerate(character[0]['skills']):
+            if skill_select != k:
+                continue
+            if option == 'unequip':
+                mod.file_modification('character.json',[0, 'skills', i], None)
+            elif option == 'exit':
+                pass
+                #put function that returns to menu here. 
         pass
     def skill_upgrade():
-        pass
+        skill_select = mod.proper_input('str')
+        fo
     def skill_info():
         pass
     def browse_skills():

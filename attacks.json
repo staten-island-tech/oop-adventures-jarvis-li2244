@@ -32,22 +32,6 @@
                 "cooldown" : 2.0,
                 "mana_cost" : 30
                 }
-            ],
-        "spell_5": [
-            {
-                "name" : "FIREBALL",
-                "damage_modifier" : 2,
-                "cooldown" : 2.0,
-                "mana_cost" : 30
-                }
-            ],
-        "spell_6": [
-            {
-                "name" : "FIREBALL",
-                "damage_modifier" : 2,
-                "cooldown" : 2.0,
-                "mana_cost" : 30
-                }
             ]
         }
     ]

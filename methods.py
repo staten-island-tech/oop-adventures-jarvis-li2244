@@ -40,5 +40,38 @@ class Modified_Functions():
                 outfile.write(json.dumps(filecab, indent=2))
         except ValueError:
             print("error")
+    def check_validity(item_search, file, values):
+        try:
+            with open(file, 'r+') as outfile:
+                tempfile = json.load(outfile)
+            current_level = tempfile
+            for i in range(len(values)-1):
+                current_level = current_level[values[i]]
+            current_level = current_level[values[-1]]
+            if type(current_level) == list:
+                for i, k in enumerate(current_level):
+                    if k == item_search:
+                        print('item found')
+                        return True
+                    else:
+                        pass
+                return False
+            elif type(current_level) != list:
+                print('not a list')
+                for i, (k, v) in enumerate(current_level.items()):
+                    print(i,k,v)
+                    if k == item_search or v == item_search:
+                        print(f'item_found in {i, k}')
+                        return True
+                    else:
+                        pass
+                        print('pass')
+                return False
+        except ValueError:
+            print('ERROR')
+        
+        
 #mke sure to specify the erorr otherwise itll be hard debugging
 mod = Modified_Functions
+test = mod.check_validity("Chapter 1", 'character.json',[0])
+print(test)

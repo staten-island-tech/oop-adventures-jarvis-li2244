@@ -102,12 +102,21 @@ class Inventory():
         print(len(asf))
         return asf
     def inventory_display():
-        print('exit')
-        whilee = module.proper_input('str')
-        if whilee != 'exit':
-            if input() == 'exit':
-                whilee == 'exit'
-            indel = Inventory.page_scroll()
+        indel = Inventory.page_scroll()
+        inventory_actions = module.proper_input('str')
+        if inventory_actions == 'scroll':
+            print('Input Page Numbe: ')
+            page = module.proper_input('int')
+            pagenum = page * 9 - 9
+        elif inventory_actions == 'exit':
+            pass
+            #put open_menu() here
+        elif inventory_actions == 'item_select':
+            item_select = module.proper_input('int')
+            print(indel['item_selected'])
+            if indel[item_select] == '':
+                print('Nothing Selected')
+            
             pagenum = int(input()) * 9 - 9
             print(r'''
                     INVENTORY 
@@ -130,7 +139,7 @@ class Inventory():
         else:
             return False
     def item_usage(): 
-        #idk
+        
         Inventory.inventory()
         eralt = module.proper_input('str')
         name = inventir[f'slot{eralt}'][0]['name']
