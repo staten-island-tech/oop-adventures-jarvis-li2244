@@ -1,9 +1,9 @@
 {
-    "story1": ["??? : Hey",
-    "??? : Hey you, on the ground", 
-    "YOU: Me? Who are you? Where are you?",
-    "OTHER YOU: Let's just say I'm the 'Other You'. I'm a part of you essentially, so no one else can hear me. I'll be acting like your guide throughout this adventure",
-    "OTHER YOU: Let’s just call you {player name} for now. Come on, get up. We have a journey to start on."],
-    "story2":["Tutorial "]
-
+    "Tutorial: Act I": ["NARRATOR: A man lies on the grassy floor of Anthill Forest. His eyes return a blank stare to the clear sky.",
+"???: Hey", 
+"???: Hey you, on the ground.", 
+"YOU: Me? Who are you? Where are you?",
+"OTHER YOU: Let’s jus movement, there are three types of movement. Map, sublocation, and location movement.",
+"TUTORIAL: This is the map. To move throughout the grid, use the WASD keys to input which direction you want to move. All youwould need to do is type the key.",
+"TUTORIAL: Now that t say I’m the 'Other You'. I’m a part of you essentially, so no one else can hear me. I’ll be acting like your guide throughout this adventure."]
 }

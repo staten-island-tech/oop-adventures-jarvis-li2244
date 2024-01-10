@@ -2,6 +2,7 @@ import json
 import sys
 import time
 from item import Inventory
+from methods import Modified_Functions as mod
 with open('inventoryi.json') as ii:
     inventir = json.load(ii)
 with open('item.json') as falafel:
@@ -76,7 +77,7 @@ class Crafting:
             return position
     def craft_item(self):
         barf = Crafting.recipe_select()
-        face = input("Amount?: ")
+        face = mod.proper_input('int')
         if Crafting.confirmation() == True:
             egg = []
             with open('inventoryi.json') as facter:
@@ -100,7 +101,6 @@ class Crafting:
                 fri = 1
                 for ul in range(10):
                     print(f'''
-
 
 
 

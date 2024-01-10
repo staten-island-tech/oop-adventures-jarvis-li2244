@@ -51,7 +51,7 @@ class Skills():
         pass
     def skill_upgrade():
         skill_select = mod.proper_input('str')
-        fo
+        i
     def skill_info():
         pass
     def browse_skills():
