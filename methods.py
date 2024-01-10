@@ -32,15 +32,13 @@ class Modified_Functions():
         try:
             with open(file, 'r+') as filecabinet:
                 filecab = json.load(filecabinet)
-            if len(values) == 1:
-                filecab[values[0]] = content_change
-            elif len(values) == 2:
-                filecab[values[0]][values[1]] = content_change
-            elif len(values) == 3:
-                filecab[values[0]][values[1]][values[2]] = content_change
+            current_level = filecab
+            for i in range(len(values)-1):
+                current_level = current_level[values[i]]
+            current_level[values[-1]] = content_change
             with open(file, 'w+') as outfile:
                 outfile.write(json.dumps(filecab, indent=2))
-        except:
+        except ValueError:
             print("error")
 #mke sure to specify the erorr otherwise itll be hard debugging
 mod = Modified_Functions

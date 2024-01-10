@@ -77,7 +77,13 @@ def open_menu():
 ║      Stat      ║
 ╚════════════════╝
 ╔════════════════╗
-║    EXIT MENU   ║
+║     Skills     ║
+╚════════════════╝
+╔════════════════╗
+║    Exit Menu   ║
+╚════════════════╝
+╔════════════════╗
+║      Quit      ║
 ╚════════════════╝
 ''')
     idea = module.proper_input('str')
@@ -97,6 +103,8 @@ def open_menu():
         print('Exiting menu')
     elif idea == 'quit':
         sys.exit()
+    elif idea == 'skill':
+        print('opening skills menu')
 def game_menu():
     if len('file') == 0:
         print('starting new game')

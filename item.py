@@ -132,8 +132,7 @@ class Inventory():
     def item_usage(): 
         #idk
         Inventory.inventory()
-        print("Scroll up and Down Using A or D")
-        eralt = input("")
+        eralt = module.proper_input('str')
         name = inventir[f'slot{eralt}'][0]['name']
         item_stats = item[0][f'{name}'][0]['stats'][0]
         if name == null:

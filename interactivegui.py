@@ -74,9 +74,9 @@ class Start():
     def blit_class_stats(class_name):
         for i,(v,k) in enumerate(cs.items()):
             if class_name == k[0]['class_name']:
-                modify('player', k[0]['stats'], '')
+                Start.modify('player', k[0]['stats'], '')
                 name = input("ENTER YOUR NAME : ")
-                modify('player', name, 'name' )
+                Start.modify('player', name, 'name' )
                 Start.location_set(class_name)
     def location_set(name):
         character[0]['role'] = name
@@ -300,14 +300,6 @@ class Player():
         else:
             return egg
         return egg
-    def spell_equip():
-        "ask player what spells/attacks they would like to equip, check json file if it exists, if not print spell does not exist or not unlocked yet, if it does exist we replace the current spell selection with the new spell"
-        "make sure to ask which slot to equip spell into, like slot 1, etc. if no slot is returned print was not able to add spell into category"
-    def weapon_equip():
-        "same system as above basically except it's limited to 1 slot"
-        "certain class weapons have certain spells ingrained/inscribed into them"
-    def armor_equip():
-        "IDK YET"
     def gui():
         egg = play()
         Player.new_screen()
