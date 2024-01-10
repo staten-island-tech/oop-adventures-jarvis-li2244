@@ -272,10 +272,10 @@ class CreationC:
             Name = name
             role = Creator.cRole()
             level = 0
-            story = "Tutorial: A Hopeful Start to a Hazardous Journey"
+            story = "Tutorial: A Blank Slate Fills"
             location = "Anthill Forest"
             sub_location = "Dense Forest"
-            active_quest = "Main Story: Tutorial"
+            active_quest = "Tutorial: A Blank Slate Fills"
             CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
             jcharacter.append(CreateC.__dict__)
             updateJSONC()
