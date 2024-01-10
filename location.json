@@ -27,7 +27,7 @@
         "location": "Castle Quarters",
         "story": "Chapter 3: A Sneaky Infiltration, gone wrong..?",
         "center sub_location": ["The Fountain of Life"],
-        "quest sub_location": ["Science Lab", "Back Alleyway", "Roof"],
+        "quest sub_location": ["Library", "Back Alleyway", "Roof"],
         "event sub_location": ["Nurse's Office", "Gym", "Locker Room"],
         "wild sub_location": ["Castle Bases"]
     },
@@ -36,7 +36,7 @@
         "story": "Chapter 4: A Distracting Discovery",
         "center sub_location": ["The Statue of the King"],
         "quest sub_location": ["Westside", "Underground", "Eastside"],
-        "event sub_location": ["Fluorolescent Insects", "The Maze", "Strange Cave"],
+        "event sub_location": ["Fluorescent Insects", "The Maze", "Strange Cave"],
         "wild sub_location": ["Deserted Plantation"]
     },
     {
