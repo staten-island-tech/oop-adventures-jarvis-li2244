@@ -67,7 +67,8 @@ def cmd():
         'switch sl.name':"Changes sublocation",
         'info_sl':"Displays info on the current sublocation",
         'placeholder1':"",
-        'help':"Displays all possible cmds"
+        'help':"Displays all possible cmds",
+        
     }
     cmdlist = list(cmdregistry.items())
     for i, (v, k) in enumerate(cmdlist):
@@ -76,5 +77,5 @@ def cmd():
     if cmdprt in cmdregistry:
         ae = list(cmdregistry.keys()).index(cmdprt)
         print(cmdlist[ae][1])
-
+    
 Skills.skill_upgrade()

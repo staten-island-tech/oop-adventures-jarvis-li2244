@@ -1,42 +1,42 @@
 {
   "slot1": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": "en",
       "type": "sword"
     }
   ],
   "slot2": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null,
       "type": "boots"
     }
   ],
   "slot3": [
     {
-      "quantity": 1,
-      "name": null,
+      "quantity": 0,
+      "name": "WHOS GONNA ROW THE BOATS",
       "type": "goggins"
     }
   ],
   "slot4": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null,
       "type": "helmet"
     }
   ],
   "slot5": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null,
       "type": "chestplate"
     }
   ],
   "slot6": [
     {
-      "quantity": 1,
+      "quantity": 0,
       "name": null,
       "type": "necklace"
     }

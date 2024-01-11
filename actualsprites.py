@@ -11,9 +11,10 @@ def delay_print(s):
 def dialogue():
     with open('dialogue.json') as dialogu:
         dialogue = json.load(dialogu)
-    for i, (v, k) in enumerate(dialogue.items()):
+    for i, k in enumerate(dialogue['Tutorial: Act I']):
+        print(i,k)
         for i in range(len(k)):
-            delay_print(k[i])
+            delay_print(k)
             input()
             print(''' ''')
 dialogue()
