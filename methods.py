@@ -72,6 +72,3 @@ class Modified_Functions():
         
         
 #mke sure to specify the erorr otherwise itll be hard debugging
-mod = Modified_Functions
-test = mod.check_validity("Chapter 1", 'character.json',[0])
-print(test)

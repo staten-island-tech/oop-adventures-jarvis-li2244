@@ -51,9 +51,24 @@ class Skills():
         pass
     def skill_upgrade():
         skill_select = mod.proper_input('str')
-        i
+        pass
     def skill_info():
         pass
     def browse_skills():
         pass
-Skills.choose_skills()
+
+def cmd():
+    cmdregistry = {
+        'switch sl.name':"Changes sublocation",
+        'info_sl':"Displays info on the current sublocation",
+        'placeholder1':"",
+        'help':"Displays all possible cmds"
+    }
+    cmdlist = list(cmdregistry.items())
+    for i, (v, k) in enumerate(cmdlist):
+        print(v,'-',k)
+    cmdprt = mod.proper_input('str')
+    if cmdprt in cmdregistry:
+        ae = list(cmdregistry.keys()).index(cmdprt)
+        print(cmdlist[ae][1])
+cmd()

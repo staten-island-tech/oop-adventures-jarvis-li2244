@@ -3,7 +3,90 @@
 "???: Hey", 
 "???: Hey you, on the ground.", 
 "YOU: Me? Who are you? Where are you?",
-"OTHER YOU: Let’s jus movement, there are three types of movement. Map, sublocation, and location movement.",
+"OTHER YOU: Let's just say I'm the 'Other You'. I'm a part of you essentially, so no one else can hear me. I'll be acting like your guide throughout this adventure.",
+"YOU: Okay.. wait. Who am I?",
+"OTHER YOU: Let's just call you {player name} for now. Come on, get up. We have a journey to start on.",
+"TUTORIAL: Within movement, there are three types of movement. Map, sublocation, and location movement.",
 "TUTORIAL: This is the map. To move throughout the grid, use the WASD keys to input which direction you want to move. All youwould need to do is type the key.",
-"TUTORIAL: Now that t say I’m the 'Other You'. I’m a part of you essentially, so no one else can hear me. I’ll be acting like your guide throughout this adventure."]
+"TUTORIAL: Now that you know how to move, it is important to know that this is the map of one sublocation. The size of the map of each sublocation may vary. Some may be 5x5 or 2x3. Either way, the WASD keys will allow you to move throughout these maps.",
+"TUTORIAL: To move to different sublocations, you’ll need to use the 'switch sl.name' command where you input the name of the sublocation as the 'name'. The 'sl' before the period stands for 'sublocation'.",
+"TUTORIAL: Before we do this, you’ll need to know the names of these sublocations. To find this, you can use the command 'info sl' and it will return the sublocations within your location.",
+"TUTORIAL: If we use it, we can see there are 8 types of different sublocations to choose one. Let’s go to the Myrminki Village for now.",
+"TUTORIAL: You are now at Myrminki Village. Any time you switch sublocations or locations, it will tell you where you are. Last thing to know, each location has 8 types of sublocations and each sublocation can be categorized. Each location has:",
+"1 Center SL: Starting Point, can be used in story or quests. ",
+"3 Quest SLs: NPCs will be here to give quests out. They will only give these quests after the story portion within the location is completed.",
+"3 Event SLs: These are places where you can interact with things. These include shops, healing areas, and another event like storage or puzzles.",
+"Wild SLs: This area fills in the rest of the map. This is where you find enemies or loot.",
+"TUTORIAL: To switch locations, you can use the 'switch l.name' command, but different locations require a certain progress in the story. At the moment, Anthill Forest is the only location available.", 
+"TUTORIAL: That’s it for now! If you need any of this information at any time, use the 'help' command and choose the movement category to revisit different commands.",
+"???: ...",
+"???: AHH!",
+"???: Please don’t hurt me! I’m just a humble scientist, the head of the science department to be exact, and having 43 metals.. and the owner of Anticore Lab.. an-",
+"OTHER YOU: Yeah, he’s humble, that’s for sure.",
+"NARRATOR: You sheath your sword and lower your guard. You raise your arms as a sign of peace.",
+"???: Oh, you're not here to kill me. Sorry, I thought you were one of these castle guards. I’m Antinine, nice to meet you..",
+"NARRATOR: You point to the nametag on your chest.",
+"ANTININE: ..{player name}. A silent one, eh? Well, according to law, I’m supposed to take you to the Myrminki Assembly, so… could you possibly.. like, come with me?",
+"NARRATOR: You nod.",
+"ANTININE: Oh. I didn’t think you would actually agree to that. Well, come with me then. I’ll try to give you my best assistance in this matter. It’s been a while since there has been an outsider.. and I’m running low on inspiration for my next experiments. Hmm.. maybe I could use your blood for something..",
+"NARRATOR: You give him an unamused look but follow him nonetheless."
+],
+    "Tutorial: Act II": ["MYRMINKIAN TRIUMVIRATE: Speak before your leaders. Who have you brought upon us?",
+"ANTININE: Your Graces, I have brought a traveler from afar, a wanderer lost both ways, an outsider to socie-",
+"MYRMINKIAN TRIUMVIRATE: That’s enough Antinine. We understand. You may take your leave now.",
+"NARRATOR: Antinine leaves.",
+"MYRMINKIAN TRIUMVIRATE: Doesn’t he just ramble on and on?",
+"NARRATOR: You shrug.",
+"MYRMINKIAN TRIUMVIRATE: Well, since he seems to trust you and you haven’t caused any trouble for us, we’ll allow you to roam around for now. But be warned, if you cause any sort of commotion, you will be punished accordingly. Do you understand?",
+"NARRATOR: You nod.",
+"MYRMINKIAN TRIUMVIRATE: Forgive us if we are too weary. Legend has told of a man setting flames to all which he walks. You may take your leave now.",
+"NARRATOR: You leave."
+],
+    "Tutorial: Act III": ["NARRATOR: You approach the place with caution. The wind gushes against you and the wooden planks tremble beneath you. You eventually make it to the door and knock. A small squirrel-like creature opens the door. ",
+"???: Hey. You wanted to check this place out?",
+"NARRATOR: You wave and give a slight nod.",
+"???: Alright, come in. I’m Ratashkin. Call me if you need anything.",
+"NARRATOR: You decide to look around the room for a while.",
+"TUTORIAL: When you receive an objective to look around and explore, the squares marked with an 'X' on the map indicate objects or interactables. To interact with them, you just move to the square where they are located.",
+"TUTORIAL: Sometimes if there are multiple interactables at once, the ones you have already interacted with will be shown as an 'O' instead of an 'X'."
+],
+    "Act III Item 1": ["NARRATOR: You find an old telescope. You look through it, but only see an open plain."
+],
+    "Act III Item 2": ["NARRATOR: You pick up old newspaper clippings. You stare intently at their words. They seem to detail the history of this town. The founding of this village began when a group of these ant-like creatures combined forces. They built the place from the ground up. An outer wall was created to keep out enemies and protect those within. The next section describes the people of this town. It is speculated that the king from the castle nearby has been performing cruel experiments on human test subjects. His goal was to create a perfect being. He began to experiment with all kinds of species, mixing them with human intelligence. The people in this town and the enemies outside are all results of these experiments, later exiled when no longer needed. The text becomes too faded after that."
+],
+    "Tutorial: Act III 2": ["RATASHKIN: Hey, do you find those stories interesting?",
+"NARRATOR: You nod.",
+"RATASHKIN: Okay, then I have a proposal. Legend has it that there is a special experiment in an abandoned bunker not too far from here. I’ve always wanted to go, but it could be dangerous for one person alone. What do you say, there could be treasure?",
+"YOU: …",
+"NARRATOR: You look at him with suspicion.",
+"RATASHKIN: Listen, it’s totally legal and allowed. And if it goes well, I’ll definitely compensate you.",
+"NARRATOR: You let out a sigh and nod.",
+"RATASHKIN: Alright! I’ll meet you there. Let me get ready first."
+],
+    "Tutorial: Act IV": ["NARRATOR: You arrive at the place with no one in sight. The place is crowded and overgrown. The tiniest bit of sunlight peeks through the plants, just enough to reveal the entrance. After a while, Ratashkin arrives.",
+"NARRATOR: You look at him with an annoyed expression.",
+"RATASHKIN: Look, sorry that I took so long. It was hard getting over here.",
+"NARRATOR: Not wanting to deal with his nonsense, you decide to take the lead.",
+"NARRATOR: You encounter a room with four totems in each corner. A note on the floor reads...",
+"NARRATOR: God once said 'Let there be light.' and there was light. You must do the same, but an order must be fulfilled. Light by strokes of your hand, not by a childhood hymn."
+],
+    "Act IV Totem Bottom Left": ["NARRATOR: You find a totem with an 'O' engraving. Light it?"
+],
+    "Act IV Totem Top Right": ["NARRATOR: You find a totem with a 'N' engraving. Light it?"
+],
+    "Act IV Totem Top Left": ["NARRATOR: You find a totem with a 'M' engraving. Light it?"
+],
+    "Act IV Totem Bottom Right": ["NARRATOR: You find a totem with a 'L' engraving. Light it?"
+],
+    "Tutorial: Act IV 2": ["NARRATOR: A door opens as you light the final totem. It reveals a staircase leading down into darkness. A low growl can be heard.",
+"RATASHKIN: Treasure? Welp, thanks for the help, but I’ll be going!",
+"NARRATOR: You see Ratashkin dash into the shadows without you. As you approach the staircase entrance, he rushes past you in a blur, but you manage to catch his panicked expression. You see an abomination of insects charging up the stairs, squeezing through and cracking the walls. You turn around and make a run for it."
+],
+    "Tutorial: Act V": ["NARRATOR: As you charge into the center of the village, you see Ratashkin caught by the tail by an officer and explaining what happened. You see the Myrminkian Triumvirate in front of you with panicked and furious expressions.",
+"MYRMINKIAN TRIUMVIRATE: Guards! Soldiers! Squad B! Formation A! Fire the weapons!"
+],
+    "Tutorial: Act V 2": ["MYRMINKIAN TRIUMVIRATE: Thank you for the assistance. We could’ve never done it without you.",
+"MYRMINKIAN TRIUMVIRATE: However, you did break our agreement. You did cause quite the commotion. But, we recognize that you did aid in saving the town and fixing your mistakes. As a collective, we have decided that you may not stay here, but you can come in from time to time. You may not be a permanent resident, rather a visiting traveler. This is all we have to say. Let us think now in peace. That creature could not have hidden its existence for that long. And its origin..",
+"NARRATOR: You look back at the town and wonder what other secrets are hidden. You decide to head out onward towards the castle, hoping to find out the source of these experiments, your identity, and more. You have much to learn."
+]
 }
