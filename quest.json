@@ -11,6 +11,34 @@
         "category": "main_quest",
         "description": "You stand before the Assembly. Your fate is in their hands or rather, their fates are in your hands.",
         "location": "Anthill Forest",
+        "sub_location": "The Myrminkian Assembly"
+    },
+    {   
+        "quest": "Tutorial: Act III",
+        "category": "main_quest",
+        "description": "While touring around the town, you arrive at a treehouse housing a little squirrel friend. Inside, you find something captivating.",
+        "location": "Anthill Forest",
+        "sub_location": "Treehouse"
+    },
+    {   
+        "quest": "Tutorial: Act IV",
+        "category": "main_quest",
+        "description": "Arriving at the designated location, something feels off, but you decide to venture in anyways.",
+        "location": "Anthill Forest",
+        "sub_location": "Abandoned Bunker"
+    },
+    {   
+        "quest": "Tutorial: Act V",
+        "category": "main_quest",
+        "description": "Running for your life, you notice Ratashkin in the hands of officers. Then, the army approaches and the Triumvirate stands in front, leading the pack.",
+        "location": "Anthill Forest",
+        "sub_location": "The Myrminki Village"
+    },
+    {
+        "quest": "The Hero Once Praised",
+        "category": "puzzle_quest",
+        "description": "The Assembly has decided to tell you a story, but only if you are worthy.",
+        "location": "Anthill Forest",
         "sub_location": "The Myrminki Village"
     }
 ]

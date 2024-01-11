@@ -5,8 +5,7 @@
         "main_quest": "Tutorial: Act I",
         "fight_quest": [],
         "collect_quest": [],
-        "puzzle_quest": [],
-        "lore_quest": []
+        "puzzle_quest": []
     },
     {
         "id": 3,
@@ -14,7 +13,6 @@
         "main_quest": "Tutorial: Act I",
         "fight_quest": [],
         "collect_quest": [],
-        "puzzle_quest": [],
-        "lore_quest": []
+        "puzzle_quest": []
     }
 ]

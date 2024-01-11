@@ -35,6 +35,8 @@ with open("story.json", "r") as f:
 with open("quest.json", "r") as f:
     jquest = json.load(f)
 
+with open('dialogue.json') as f:
+    jdialogue = json.load(f)
 
 class Info:
     def roleInfo():
@@ -275,7 +277,7 @@ class CreationC:
             story = "Tutorial: A Blank Slate Fills"
             location = "Anthill Forest"
             sub_location = "Dense Forest"
-            active_quest = "Tutorial: A Blank Slate Fills"
+            active_quest = "Tutorial: Act I"
             CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
             jcharacter.append(CreateC.__dict__)
             updateJSONC()
@@ -363,14 +365,13 @@ class CreationIS:
             updateJSONIS()
 
 class CreationIQ:
-    def __init__(self, id, name, main_quest, fight_quest, collect_quest, puzzle_quest, lore_quest):
+    def __init__(self, id, name, main_quest, fight_quest, collect_quest, puzzle_quest):
         self.id = id
         self.name = name
         self.main_quest = main_quest
         self.fight_quest = fight_quest
         self.collect_quest = collect_quest
         self.puzzle_quest = puzzle_quest
-        self.lore_quest = lore_quest
     def create():
         if Id != -1:
             id = Id
@@ -379,8 +380,7 @@ class CreationIQ:
             fight_quest = []
             collect_quest = []
             puzzle_quest = []
-            lore_quest = []
-            CreateIQ = CreationIQ(id, name, main_quest, fight_quest, collect_quest, puzzle_quest, lore_quest)
+            CreateIQ = CreationIQ(id, name, main_quest, fight_quest, collect_quest, puzzle_quest)
             jinventoryq.append(CreateIQ.__dict__)
             updateJSONIQ()
 
@@ -1387,6 +1387,58 @@ class ActionIS:
                     print("Unknown Error")
                 updateJSONIS()
                 Info.inventorysInfo()
+
+
+class Story:
+    def checkStory():
+        ChangeC.characterNum()
+        story = jcharacter[characterNum]["active_quest"]
+        if story == "Tutorial: Act I":
+            print("PLADSn")
+    def Act_I():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "Tutorial: Act I":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:
+            print("iajsdi")
+
+    def Act_II():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "Tutorial: Act II":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:    
+            print("SAHDas")      
+
+    def Act_III():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "Tutorial: Act III":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:    
+            print("SAHDas")        
+
+    def Act_IV():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "Tutorial: Act IV":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:    
+            print("SAHDas")        
+
+    def Act_V():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "Tutorial: Act V":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:    
+            print("SAHDas")        
 
 
 
