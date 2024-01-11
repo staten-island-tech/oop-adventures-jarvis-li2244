@@ -80,7 +80,9 @@
 ],
     "Tutorial: Act IV 2": ["NARRATOR: A door opens as you light the final totem. It reveals a staircase leading down into darkness. A low growl can be heard.",
 "RATASHKIN: Treasure? Welp, thanks for the help, but I’ll be going!",
-"NARRATOR: You see Ratashkin dash into the shadows without you. As you approach the staircase entrance, he rushes past you in a blur, but you manage to catch his panicked expression. You see an abomination of insects charging up the stairs, squeezing through and cracking the walls. You turn around and make a run for it."
+"NARRATOR: You see Ratashkin dash into the shadows without you. As you approach the staircase entrance, he rushes past you in a blur, but you manage to catch his panicked expression. You see an abomination of insects charging up the stairs, squeezing through and cracking the walls. You turn around and make a run for it, but the creature is faster."
+],
+    "Tutorial: Act IV 3": ["NARRATOR: You just manage to escape."
 ],
     "Tutorial: Act V": ["NARRATOR: As you charge into the center of the village, you see Ratashkin caught by the tail by an officer and explaining what happened. You see the Myrminkian Triumvirate in front of you with panicked and furious expressions.",
 "MYRMINKIAN TRIUMVIRATE: Guards! Soldiers! Squad B! Formation A! Fire the weapons!"
@@ -88,5 +90,19 @@
     "Tutorial: Act V 2": ["MYRMINKIAN TRIUMVIRATE: Thank you for the assistance. We could’ve never done it without you.",
 "MYRMINKIAN TRIUMVIRATE: However, you did break our agreement. You did cause quite the commotion. But, we recognize that you did aid in saving the town and fixing your mistakes. As a collective, we have decided that you may not stay here, but you can come in from time to time. You may not be a permanent resident, rather a visiting traveler. This is all we have to say. Let us think now in peace. That creature could not have hidden its existence for that long. And its origin..",
 "NARRATOR: You look back at the town and wonder what other secrets are hidden. You decide to head out onward towards the castle, hoping to find out the source of these experiments, your identity, and more. You have much to learn."
-]
+],
+
+    "Frank": ["FRANK: Welcome to the town's blacksmith, what can I do for you today?"],
+    "Frank 1": ["FRANK: Need a big ol' hammer to the head? Ha ha, just joking."],
+    "Frank 2": ["FRANK: Your blade looks dull, you could use a new one perhaps."],
+    "BlackFranksmith 3": ["FRANK: If you're interested, we're hiring. We also offer classes in this sort of field. Not interested? Okay, just tell me what you need."],
+
+    "Anticore": ["ANTICORE: Hey, welcome! I've got a whole selection just for you."],
+    "Anticore 1": ["ANTICORE: Here, try this one. I hear it speeds up every process in your body. No? Alright, it was worth a try."],
+    "Anticore 2": ["ANTICORE: Want the dark purple one? If I'm not mistaken, it's suppose to cause someone to sponatneously implode. Or it's the other one that just gives you a slight strength boost."],
+    "Anticore 3": ["ANTICORE: You should definitely visit more often. Maybe I'll be able to shoot you with my inverse gun and see what happens."],
+
+    "Banker": ["JERRY: Hey! Here at 'Big Bankers', there is a 1000% guarentee of the safety of your goods."],
+    "Banker 1": ["JERRY: Imagine if I just withdrew all your riches. That would be funny.. woah, woah! I won't actually do it!"]
+
 }
