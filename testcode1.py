@@ -51,7 +51,12 @@ class Skills():
         pass
     def skill_upgrade():
         skill_select = mod.proper_input('str')
-        pass
+        for i, v in enumerate(skills):
+            if mod.check_validity('skills.json', skill_select, [i, 'name']) == True:
+                break
+            else:
+                continue
+        
     def skill_info():
         pass
     def browse_skills():
@@ -71,4 +76,5 @@ def cmd():
     if cmdprt in cmdregistry:
         ae = list(cmdregistry.keys()).index(cmdprt)
         print(cmdlist[ae][1])
-cmd()
+
+Skills.skill_upgrade()

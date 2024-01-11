@@ -55,6 +55,7 @@ def location_set(name):
     charac[0]['location'] = 'Anthill Forest'
     charac[0]['sub_location'] = 'The Myrminki Village'
     charac[0]['level'] = 0 
+    charac[0]['skills'] = [null, null, null, null]
     with open('character.json', 'w+')  as infile:
         infile.write(json.dumps(charac, indent=2))
 def start_game():
@@ -64,6 +65,7 @@ def start_game():
 def game_run():
     while True:
         pass
+@mod.timing
 def open_menu():
     print(r'''
        MENU 

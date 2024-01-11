@@ -175,6 +175,8 @@ class Maper():
             elif y == -1:
                 y +=1
             Map[y][x] = '[X]'
+            for i, v in enumerate(mapir['enemy_positions']):
+                Map[v[0]][v[1]] = '[O]'
             print(current_position)
             if instance_map['type'] == 'Enemy':
                 if len(mapir['enemy_positions']) == 0:
@@ -299,3 +301,4 @@ class Shop:
             modify(egg, 'coins', 'set')
             #use the put_slotin_inventorymethod 
 #use a variable within a function to trigger another function 
+Maper.map()

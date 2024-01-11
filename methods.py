@@ -40,35 +40,19 @@ class Modified_Functions():
                 outfile.write(json.dumps(filecab, indent=2))
         except ValueError:
             print("error")
-    def check_validity(item_search, file, values):
+    def check_validity(file, value, keyindex):
         try:
-            with open(file, 'r+') as outfile:
-                tempfile = json.load(outfile)
-            current_level = tempfile
-            for i in range(len(values)-1):
-                current_level = current_level[values[i]]
-            current_level = current_level[values[-1]]
-            if type(current_level) == list:
-                for i, k in enumerate(current_level):
-                    if k == item_search:
-                        print('item found')
-                        return True
-                    else:
-                        pass
-                return False
-            elif type(current_level) != list:
-                print('not a list')
-                for i, (k, v) in enumerate(current_level.items()):
-                    print(i,k,v)
-                    if k == item_search or v == item_search:
-                        print(f'item_found in {i, k}')
-                        return True
-                    else:
-                        pass
-                        print('pass')
+            with open(file, 'r+') as infile:
+                new_file = json.load(infile)
+            file_instance = new_file
+            for i in range(len(keyindex)-1):
+                file_instance = file_instance[keyindex[i]]
+            file_instance = file_instance[keyindex[-1]]
+            if value in file_instance:
+                print('object found')
+                return True, file_instance.index(value)
+            else:
                 return False
         except ValueError:
-            print('ERROR')
+            print('error')
         
-        
-#mke sure to specify the erorr otherwise itll be hard debugging
