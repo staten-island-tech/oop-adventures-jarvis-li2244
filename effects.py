@@ -1,7 +1,7 @@
 import json
 from interactivegui import *
 from methods import Modified_Functions  as mod
-class Effect:
+class Effect():
     def knock_out():
         #prevent the enemy from using their turn
         pass
@@ -20,3 +20,4 @@ class Effect:
     def hysteria():
         pass
         #set health to 1, damage becomes insanely high
+    

@@ -12,9 +12,8 @@ def dialogue():
     with open('dialogue.json') as dialogu:
         dialogue = json.load(dialogu)
     for i, k in enumerate(dialogue['Tutorial: Act I']):
-        print(i,k)
-        for i in range(len(k)):
-            delay_print(k)
+        for ee in range(len(k)):
+            delay_print(k[i])
             input()
             print(''' ''')
 dialogue()

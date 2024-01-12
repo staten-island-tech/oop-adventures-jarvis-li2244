@@ -33,7 +33,7 @@ with open('inventorye.json') as el:
 with open('character.json') as elf:
     character = json.load(elf)
 with open('enemies.json') as flafel:
-    ade = json.load(flafel)
+    enemies = json.load(flafel)
 with open('classStats.json') as cs1:
     cs = json.load(cs1)
 with open('mapinstance.json', mode='r') as infile:
@@ -113,7 +113,7 @@ class Levels():
 
 class Spawn():
     def blit_enemy():
-        for i, (k, v) in enumerate(ade.items()):
+        for i, (k, v) in enumerate(enemies.items()):
             if v['names'] == Spawn.spawnenemy():
                 with open('maperjap.json')  as outfile:
                     outfile.write(json.dumps(v, indent=2))
@@ -161,9 +161,7 @@ def atte():
     speed = enemies[0]['speed']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
     return temp
-def enemy_trigger():
-    pass
-    #create an instance of the enemy using a loop. loop does not move on til enemy is dead or the player has moved into a certain location. 
+#create an instance of the enemy using a loop. loop does not move on til enemy is dead or the player has moved into a certain location. 
 class Player():
     def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed):
         self.id = id
@@ -276,7 +274,6 @@ class Player():
         print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
     def spell(self):
-        mana = self.mana
         egg = input("")
         first_spell() if egg == 1 else(second_spell() if egg == 2 else(third_spell() if egg == 3 else (fourth_spell() if egg == 4 else(print("no spell_cast")))))
         ela = player[0]['selected_spells']
@@ -478,9 +475,6 @@ class Enemy():
         player.take_damage(var)
         print(var)  
         return var
-    def display(): 
-        #gonna create a new index for sprites 
-        pass
     def drops(self):
         loot_table = enemies1[0]['loot_table'][0]
         listed_loot_table = list(loot_table.items())
@@ -542,7 +536,7 @@ class Turn():
             new_exp = player[0]['exp'] + exp_drop
             Player.modify(new_exp, 'exp', 'set')
             Levels.current_exp()
-            Mapmap.display()
+            Maper.map()
         else:
             print("ENEMY")
             lm.action()
@@ -555,140 +549,23 @@ class Location():
         current_player_sublocation = character[0]['sub_location']
         print(f'Location: {current_player_location}, {current_player_sublocation}')
 
-#once enemy is dead exi
-
-#take enemey and player, print heir stats and whtev, then for the enemey's name we gonna take their respective sprite and put it along with them aswell. we can check if enemy dead using >< and then we can print their dead sprite
-#if item drops check which slot is empty and if it is empty drop the item into there. currently only funcntions as a list/ 
+class Drops():
+    def enemy_verify():
+        enemies1[0]['name']
+        for i, (v, k) in enumerate(enemies.items()):
+            if k['name'] != enemies1[0]['name']:
+                continue
+            for index,(value,key) in enumerate(k['loot_table'][0].items()):
+                if random.randint(1,int(100/int(key))) ==  random.randint(1, int(100/int(key))):
+                    print(f'{value} dropped! {key}')
+                    Inventory.psi(value,1,'add')
 def verify_usage():
     egg = input("")
     if egg == "Y":
         return True
     else:
         return False
-class Main_menu():
-    print("")
-    def base():
-        egg = int(input(""))
-        Main_menu.Start_Game() if egg == "1" else Main_menu.Options() if egg == "2" else Main_menu.Exit() if egg == "3" else Main_menu.Stats() if egg == "4" else Main_menu.base()
-    def Start_Game():
-        #tutorial here
-        print("Skip Tutorial? Y/N")
-        if verify_usage() == True:
-            print("Skip")
-        else: 
-            pass
-    def Options():
-        pass
-    def Exit():
-        pass
-    def Stats():
-        pass
-    enemy_trigger()
-    #we assign differnt functions to each nmber so that if the player goes up 
-class Crafting():
-    def recipes():
-        pass
-    def craft():
-        pass
-class Area_Selection():
-    pass
-
 level = 0
 egg = '\t' * level
-class Items():
-    def map():
-        item_name = Mapmap.item_pickup()
-        with open('inventoryi.json') as egg:
-            actualinventory = json.load(egg)
-        if item_name in actualinventory:
-            print("Item +1")
-
-class Mapmap():
-    item =0
-    def controls():
-        dimensions = Mapmap.map_boundary()
-        height = dimensions[1]
-        length = dimensions[0]
-        Map = Mapmap.item_map()
-        while True:
-            print(r'''
-             ''')
-            print(f'x: {x}, y :{y}')
-            control = input("")
-            if control == 'w':
-                y -= 1
-                Map[y+1][x] = f'[ ]'
-            elif control == 's':
-                y += 1
-                Map[y-1][x] = f'[ ]'
-            elif control == 'a':
-                x -= 1
-                Map[y][x+1] = f'[ ]'
-            elif control == 'd':
-                x += 1
-                Map[y][x-1] = f'[ ]'    
-            if y == height:
-                y -=1
-            elif x == length:
-                x -=1
-            elif x == -1:
-                x +=1
-            elif y == -1:
-                y +=1
-            current_position = y, x 
-            return current_position
-    def map_boundary():
-        map_dimensions = location['location_1'][0]['map_dimensions']
-        height = map_dimensions[1]
-        length = map_dimensions[0]
-        if location['location_1'][0]['type'] == 'enemy':
-            Mapmap.enemy_map()
-        elif location['location_1'][0]['type'] == 'item':
-            Mapmap.item_map()
-        return length, height
-    def player_spawn():
-        pass
-    def item_map():
-        location = Location.location()
-        map_dimensions = Mapmap.map_boundary()
-        height = map_dimensions[1]
-        length = map_dimensions[0]
-        item_map = [['[ ]' for i in range(height)] for i in range(length)] 
-        itemspawnx = random.randint(0, length -1)
-        itemspawny = random.randint(0, height -1)
-        while True: 
-            item_position = item_map[itemspawny][itemspawnx]
-            item_position = "[I]"
-            return item_map
-    def enemy_map():
-        map_dimensions = Mapmap.map_boundary()  
-        height = map_dimensions[1] 
-        length = map_dimensions[0] 
-        enemy_spawnx = random.randint(0,length - 1)
-        enemy_spawny = random.randint(0,height - 1)
-        x = Mapmap.controls()[1]
-        y = Mapmap.controls()[0]
-        item = " "
-        Map = [['[ ]' for i in range(length)] for i in range(height)] 
-        player_spawn = Map[y][x]
-        while True:
-            Map[y][x] = "[X]"
-            Map[enemy_spawny][enemy_spawnx] = "[O]"
-            current_position = Map[y][x]
-            enemy_position = Map[enemy_spawny][enemy_spawnx]
-            if current_position == enemy_position:
-                Turn.determine()
-            for something in Map:
-                print("".join(something))  
-    def item_pickup():
-        item_name = 'APPLE'
-        print(f'Pickup Item: {item_name}')
-        print(item_name)
-        pick_up = input('Y/N')
-        if pick_up == 'Y':
-            print(f'{item_name} picked up')
-        elif pick_up == 'N':
-            print('Escape')
-            return item_name
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores

@@ -50,11 +50,14 @@
             "effects":["damage increase"]
         },
         {
-            "name":""
+            "name":"self sabotage"
         },
         {
             "name":"pull out a gun"
-        },{},{}
+        },
+        {
+            "name":""
+        }
     ],
     "assassasin":[
         {
@@ -76,17 +79,22 @@
     ],
     "any_class":[
         {
-            "name":"cocaine usage"
-        
+            "name":"cocaine usage",
+            "effects":["unpredictable"]
         },
         {
             "name":"iron deficency",
-            ""
+            "effects":["CRIPPLED"]
 
         },
         {
             "name":"Alzheimers",
             "effects":["turn revert"]
+        },
+        {
+            "name":"sef sabotage",
+            "effects":["lose turn", "CRIPPLED", "flame debuff", "unpredictable", "drunk", "toxic deubff", "fall on your sword", "Arthritis", "cold feet", "no armor",]
+
         }
     ]
 }
