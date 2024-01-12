@@ -1,38 +1,92 @@
 {
+    
     "mage":[
         {
-        "spell_1": [
-            {
-                "name" : "FIREBALL",
-                "damage_modifier" : 2,
-                "cooldown" : 2.0,
-                "mana_cost" : 30
-                }
-            ],
-        "spell_2": [
-            {
-                "name" : "FIREBALL",
-                "damage_modifier" : 2,
-                "cooldown" : 2.0,
-                "mana_cost" : 30
-                }
-            ],
-        "spell_3": [
-            {
-                "name" : "FIREBALL",
-                "damage_modifier" : 2,
-                "cooldown" : 2.0,
-                "mana_cost" : 30
-                }
-            ],
-        "spell_4": [
-            {
-                "name" : "FIREBALL",
-                "damage_modifier" : 2,
-                "cooldown" : 2.0,
-                "mana_cost" : 30
-                }
-            ]
+            "name":"fireball",
+            "effects":["high damage"],
+            "multiplier":10,
+            "cost":100
+        },
+        {
+            "name":"not a fireball",
+            "effects":["flame debuff"],
+            "multiplier":null,
+            "cost":10
+        },
+        {
+            "name":"big fireball",
+            "effects":["instant kill", "no rewards"],
+            "multiplier":null,
+            "cost":"all"
+        }
+    ],
+    "warrior":[
+        {
+            "name":"sword",
+            "effects":["multihit, always goes first"],
+            "multiplier":null,
+            "cost":10
+        },
+        {
+            "name":"blunt sword",
+            "effects":["knock out"]
+        },
+        {
+            "name":"ablaze",
+            "effects":["flame debuff"],
+            "multiplier":null,
+            "cost":10
+        }
+    ],
+    "archer":[
+        {
+            "name":"boom arrow",
+            "effects":["high damage"],
+            "multiplier":1,
+            "cost":10
+        },
+        {
+            "name":"raise",
+            "effects":["damage increase"]
+        },
+        {
+            "name":""
+        },
+        {
+            "name":"pull out a gun"
+        },{},{}
+    ],
+    "assassasin":[
+        {
+            "name":"backstab",
+            "effects":["backhitter"]
+        },
+        {
+            "name":"i used cocaine",
+            "effects":["unpredictable"]
+        },
+        {
+            "name":"steroid addict",
+            "effects":["counter strength"]
+        },
+        {
+            "name":"wear a hoodie",
+            "effects":["boost defense"]
+        }
+    ],
+    "any_class":[
+        {
+            "name":"cocaine usage"
+        
+        },
+        {
+            "name":"iron deficency",
+            ""
+
+        },
+        {
+            "name":"Alzheimers",
+            "effects":["turn revert"]
         }
     ]
 }
