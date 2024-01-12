@@ -5,7 +5,7 @@
 "YOU: Me? Who are you? Where are you?",
 "OTHER YOU: Let's just say I'm the 'Other You'. I'm a part of you essentially, so no one else can hear me. I'll be acting like your guide throughout this adventure.",
 "YOU: Okay.. wait. Who am I?",
-"OTHER YOU: Let's just call you {player name} for now. Come on, get up. We have a journey to start on.",
+"OTHER YOU: Let's just be a traveler for now. Come on, get up. We have a journey to start on.",
 "TUTORIAL: Within movement, there are three types of movement. Map, sublocation, and location movement.",
 "TUTORIAL: This is the map. To move throughout the grid, use the WASD keys to input which direction you want to move. All youwould need to do is type the key.",
 "TUTORIAL: Now that you know how to move, it is important to know that this is the map of one sublocation. The size of the map of each sublocation may vary. Some may be 5x5 or 2x3. Either way, the WASD keys will allow you to move throughout these maps.",
@@ -26,7 +26,7 @@
 "NARRATOR: You sheath your sword and lower your guard. You raise your arms as a sign of peace.",
 "???: Oh, you're not here to kill me. Sorry, I thought you were one of these castle guards. I'm Antinine, nice to meet you..",
 "NARRATOR: You point to the nametag on your chest.",
-"ANTININE: ..{player name}. A silent one, eh? Well, according to law, I'm supposed to take you to the Myrminki Assembly, so… could you possibly.. like, come with me?",
+"ANTININE: ..um.. that's illegible. Well, according to law, I'm supposed to take you to the Myrminki Assembly, so… could you possibly.. like, come with me?",
 "NARRATOR: You nod.",
 "ANTININE: Oh. I didn't think you would actually agree to that. Well, come with me then. I'll try to give you my best assistance in this matter. It's been a while since there has been an outsider.. and I'm running low on inspiration for my next experiments. Hmm.. maybe I could use your blood for something..",
 "NARRATOR: You give him an unamused look but follow him nonetheless.",
@@ -132,6 +132,20 @@
     "The Hero Once Praised 2": ["MYRMINKIAN TRIUMVIRATE: Very well. I shall tell you the story of a lost hero, once a savior, but fallen after that. He was a young boy named Adam living a normal life in a normal village. However, soon, invaders attacked and their village was placed under the rule of King Serpent, the very same one from today. As he watched the people get taken away to never return, his fury only grew stronger. He decided that he could no longer sit back and watch. He had to act.",
 "MYRMINKIAN TRIUMVIRATE: And so he did. He gathered an army of those who remained and distributed weapons he had been working on in secret. Then, in the cloak of midnight, they struck the castle hard. For seven days and seven nights they waged war, and the last day was the only time King Serpent ordered a retreat. He managed to escape, but all his men were killed. However, he smiled when he saw the hero and vanished soon after. ",
 "MYRMINKIAN TRIUMVIRATE: The next day, the hero was not the same. He was less concerned with the public or the village. He grew quiet, distant, and was never seen for long periods of time. When he was seen, he was never as warm or charming as he once was. He seemed to become more and more bitter and selfish until one day, he too vanished completely. They say that this 'Wandering Flames' is a creation of his. An experiment per se. An experiment no better than the King's. That is the story of the hero and the 'Flames'."
-]
+],
+    "Chiblee's Troubled Past": ["NARRATOR: As you enter the place, you notice an unfamiliar face shuffling through a stack of junk including bottles, random cans, and old papers. He doesn't even notice you walk in, so you slam the door. Startled, he snaps his neck towards your direction.",
+"???: Hey! Who are you? Wait, oh, you're the traveler Ratashkin told me about. I'm his roommate, Chiblee. Nice to meet you.",
+"NARRATOR: You return the kind gesture and  look inquisitively towards the pile of trash.",
+"CHIBLEE: Oh, I'm just looking for wipes and cleaners. I'm not really interested in all the conspiracies that Ratashkin looked into. But I have to give him credit, he was right about some things.",
+"NARRATOR: You nod and walk over to help him in his search.",
+"CHIBLEE: Wow, you didn't have to, but.. I can't just refuse help. Well, as compensation, I'll tell you a story once we get this telescope working. Again, thanks for the help."
+],
+    "CTP Item 1": ["NARRATOR: You find a clean and new lens to replace the cracked one"],
+    "CTP Item 2": ["NARRATOR: You find wipes and cleaners to polish the telescope."],
+    "CTP Item 3": ["NARRATOR: You find the stand for the telescope and begin to put it in place according to Chiblee's instructions."],
+
+    "Items Found": ["NARRATOR: The telescope has been fixed."],
+
+    "Chiblee's Troubled Past 2": [""]
 
 }
