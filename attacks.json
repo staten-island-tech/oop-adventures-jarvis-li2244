@@ -1,49 +1,112 @@
 {
-    
     "mage":[
         {
             "name":"fireball",
-            "effects":["high damage"],
-            "multiplier":10,
-            "cost":100
+            "effects":[null],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":10,
+            "cooldown":1
         },
         {
-            "name":"not a fireball",
-            "effects":["flame debuff"],
-            "multiplier":null,
-            "cost":10
+            "name":"flame",
+            "effects":["poison"],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":1,
+            "cooldown":1
         },
         {
-            "name":"big fireball",
-            "effects":["instant kill", "no rewards"],
-            "multiplier":null,
-            "cost":"all"
+            "name":"firestorm",
+            "effects":["insane damage", "no rewards", "recoil", "scales"],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":10,
+            "cooldown":null
+        },
+        {
+            "name":"soulburn",
+            "effects":[null],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":5,
+            "cooldown":10
+        },
+        {
+            "name":"spell cast",
+            "effects":[null],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":10,
+            "cooldown":5
+        },
+        {
+            "name":"spore",
+            "effects":["expo damage"],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":0.5,
+            "cooldown":20
+        },
+        {
+            "name":"spell binder",
+            "effects":[null],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":10,
+            "cooldown":5
+        },
+        {
+            "name":"OP SPELL!11!1!1!1!",
+            "effects":["nu uh too op"],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":"???",
+            "cooldown":"???"
         }
     ],
     "warrior":[
         {
-            "name":"sword",
+            "name":"Sword Strike",
             "effects":["multihit, always goes first"],
-            "multiplier":null,
-            "cost":10
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":null,
+            "cooldown":10
         },
         {
-            "name":"blunt sword",
-            "effects":["knock out"]
+            "name":"Blunt Hit",
+            "effects":["knock out"],
+            "description":"Massive flaming ball of destruction (High Damage)"
+            
         },
         {
-            "name":"ablaze",
-            "effects":["flame debuff"],
-            "multiplier":null,
-            "cost":10
+            "name":"Iron Impaler",
+            "effects":[""],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":1,
+            "cooldown":1
+        },
+        {
+            "name":"Berserk",
+            "effects":["temp damage increase"],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":null,
+            "cooldown":10
+        },
+        {
+            "name":""
+        },
+        {
+            "name":"weirdly giant sword",
+            "effects":["counter"],
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":10,
+            "cooldown":3
+        },
+        {
+            "name":"Tetanus",
+            "effects":["poison"]
         }
     ],
     "archer":[
         {
             "name":"boom arrow",
             "effects":["high damage"],
-            "multiplier":1,
-            "cost":10
+            "description":"Massive flaming ball of destruction (High Damage)",
+            "damage":1,
+            "cooldown":10
         },
         {
             "name":"raise",
@@ -73,28 +136,8 @@
             "effects":["counter strength"]
         },
         {
-            "name":"wear a hoodie",
-            "effects":["boost defense"]
-        }
-    ],
-    "any_class":[
-        {
-            "name":"cocaine usage",
-            "effects":["unpredictable"]
-        },
-        {
-            "name":"iron deficency",
-            "effects":["CRIPPLED"]
-
-        },
-        {
-            "name":"Alzheimers",
-            "effects":["turn revert"]
-        },
-        {
-            "name":"sef sabotage",
-            "effects":["lose turn", "CRIPPLED", "flame debuff", "unpredictable", "drunk", "toxic deubff", "fall on your sword", "Arthritis", "cold feet", "no armor",]
-
+            "name":"Stealth",
+            "effects":[""]
         }
     ]
 }

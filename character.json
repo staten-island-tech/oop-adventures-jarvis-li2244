@@ -1,18 +1,40 @@
 [
   {
     "id": 1,
-    "name": "jar man",
+    "name": "JARVIS",
     "role": "mage",
     "level": 0,
     "story": "Chapter 1",
     "location": "Anthill Forest",
-    "sub_location": "Treehouse",
-    "questname": "placeholder",
-    "skills": [
-      "tempvalue",
-      "Skill_1_Name",
-      "tempvalue3",
-      "tempvalue4"
+    "sub_location": "The Myrminki Village",
+    "questname": null,
+    "skill": {
+      "name":null,
+      "cooldown":null
+    },
+    "attacks": [
+      {
+        "skill_1":
+          { 
+            "name":null,
+            "cooldown":null
+          },
+        "skill_2":
+          {
+            "name":null,
+            "cooldown":null
+          },
+        "skill_3":
+          {
+            "name":null,
+            "cooldown":null
+          },
+        "skill_4":
+          {
+            "name":null,
+            "cooldown":null
+          }
+      }
     ]
   }
 ]

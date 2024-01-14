@@ -1,6 +1,9 @@
 import json
 import time
 import sys
+import os, shutil
+cmd = 'mode 90,20'
+os.system(cmd)
 class Modified_Functions():
     def timing(func):
         def tim():
@@ -55,4 +58,11 @@ class Modified_Functions():
                 return False
         except ValueError:
             print('error')
+    def line_split_print(string):
+        columns = shutil.get_terminal_size().columns
+        print("\n".join(line.center(columns)  for line in string.split("\n")))
+    def indent_cutscene():
+        print("""
+
         
+""")

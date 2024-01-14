@@ -16,6 +16,94 @@
         }
 
 
+    ],
+    "rock":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "wood":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "gem_crystal":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "green fiber":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "sinew":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "banana peels":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "shiny rock":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "plort":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "gel":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "hardened gel":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "iron":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "broadsword":[
+        {
+            "type":"sword",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":100
+                }
+            ]
+        }
     ]
 
 

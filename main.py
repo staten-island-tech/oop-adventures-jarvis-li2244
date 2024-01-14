@@ -1,5 +1,10 @@
 
-import sys, json, time
+import sys, json, time, shutil, os
+cmd = 'mode 90,30'
+os.system(cmd)
+columns = shutil.get_terminal_size().columns
+print(columns)
+lines = shutil.get_terminal_size().lines
 from methods import Modified_Functions
 module = Modified_Functions
 from item import Inventory
@@ -74,27 +79,28 @@ def game_menu():
             print('continuing where you left off')
 class Menu():
     def open_menu():
-        print(r'''
-        MENU 
-    ╔════════════════╗
-    ║    Inventory   ║
-    ╚════════════════╝
-    ╔════════════════╗
-    ║    Equipment   ║     
-    ╚════════════════╝
-    ╔════════════════╗
-    ║      Stat      ║
-    ╚════════════════╝
-    ╔════════════════╗
-    ║     Skills     ║
-    ╚════════════════╝
-    ╔════════════════╗
-    ║    Exit Menu   ║
-    ╚════════════════╝
-    ╔════════════════╗
-    ║      Quit      ║
-    ╚════════════════╝
+        os.system('cls')
+        module.line_split_print(r''' MENU 
+╔════════════════╗
+║    Inventory   ║
+╚════════════════╝
+╔════════════════╗
+║    Equipment   ║
+╚════════════════╝
+╔════════════════╗
+║      Stat      ║
+╚════════════════╝
+╔════════════════╗
+║     Skills     ║
+╚════════════════╝
+╔════════════════╗
+║    Exit Menu   ║
+╚════════════════╝
+╔════════════════╗
+║      Quit      ║
+╚════════════════╝
     ''')
+        module.indent_cutscene()
         idea = module.proper_input('str').lower()
         if idea == 'help':
             print('inv to enter inventory, equip to enter equipment, stat to enter stat, quit to quit and exit to exit')
@@ -115,7 +121,9 @@ class Menu():
         elif idea == 'quit':
             sys.exit()
         elif idea == 'skill':
-            print('opening skills menu')
+            os.system('cls')
+            module.indent_cutscene()
             for i, v in enumerate(charac[0]['skills']):
-                print(v)
+                module.line_split_print(v)
+            test = module.proper_input('str')
 Menu.open_menu()

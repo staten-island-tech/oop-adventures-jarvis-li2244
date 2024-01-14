@@ -175,8 +175,6 @@ class Maper():
             elif y == -1:
                 y +=1
             Map[y][x] = '[X]'
-            for i, v in enumerate(mapir['enemy_positions']):
-                Map[v[0]][v[1]] = '[O]'
             print(current_position)
             if instance_map['type'] == 'Enemy':
                 if len(mapir['enemy_positions']) == 0:
@@ -193,6 +191,8 @@ class Maper():
                             remove_enemy_pos(current_position)
                             var = 0 
                             i = len(mapir['enemy_positions'])
+                            for i, v in enumerate(mapir['enemy_positions']):
+                                Map[v[0]][v[1]] = '[O]'
                         else:
                             var += 1
                             if var >= len(mapir['enemy_positions']):

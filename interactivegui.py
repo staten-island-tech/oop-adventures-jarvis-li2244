@@ -4,7 +4,6 @@ import random
 from item import *
 from recipes import *
 from map import *
-from actualsprites import *
 from methods import Modified_Functions
 mod = Modified_Functions
 re = "\033[91m█"
@@ -32,6 +31,8 @@ with open('inventorye.json') as el:
     inventorye = json.load(el)
 with open('character.json') as elf:
     character = json.load(elf)
+with open('attacks.json') as infile:
+    attacks = json.load(infile)
 with open('enemies.json') as flafel:
     enemies = json.load(flafel)
 with open('classStats.json') as cs1:
@@ -39,6 +40,25 @@ with open('classStats.json') as cs1:
 with open('mapinstance.json', mode='r') as infile:
     mapperjapper = json.load(infile)
 class Start():
+    def intro_screen():
+        print(r"""
+    _    ____   ____ ___ ___    ____  ____   ____ 
+   / \  / ___| / ___|_ _|_ _|  |  _ \|  _ \ / ___|
+  / _ \ \___ \| |    | | | |   | |_) | |_) | |  _ 
+ / ___ \ ___) | |___ | | | |   |  _ <|  __/| |_| |
+/_/   \_\____/ \____|___|___|  |_| \_\_|    \____|
+                            
+                By: Jarvis and Johnny
+                         _
+                        ( )
+                        \|/
+                         |
+                        / \      
+                Press Enter to Begin
+""")
+        time.sleep(0.5)
+        input()
+        Start.class_select()
     def modify(file, content, mode):
         with open(f'{file}.json')  as openfile:
             filed = json.load(openfile)
@@ -48,16 +68,9 @@ class Start():
             filed[0][mode] = content
         with open(f'{file}.json', 'w+')  as closedfile:
             closedfile.write(json.dumps(filed, indent=2))
-    def game_start():
-        if input().upper() ==  'Y':
-            return True
-        else:
-            return False
     def class_select():
-        if Start.game_start() ==  True:
-            print(r'''
-                    CLASS SELECT 
-                
+        print(r'''
+                        CLASS SELECT 
         ╔═════════╗╔═════════╗╔═════════╗╔═════════╗
         ║     o   ║║   | \   ║║     /   ║║         ║
         ║    /    ║║  >|-->  ║║   _/_   ║║  -]═──  ║ 
@@ -65,11 +78,13 @@ class Start():
         ╚═════════╝╚═════════╝╚═════════╝╚═════════╝
             MAGE      ARCHER    WARRIOR    ASSASSIN
         ''')
-        class_selected = input().lower() 
+        class_selected = module.proper_input('str').lower() 
         if class_selected == 'mage' or class_selected == 'archer' or class_selected == 'warrior' or class_selected == 'assassin':
             print(f'{class_selected} Selected')
             Start.blit_class_stats(class_selected)
         else:
+            print('Class Entered Does Not Exist')
+            print('Try Again')
             Start.class_select()
     def blit_class_stats(class_name):
         for i,(v,k) in enumerate(cs.items()):
@@ -78,14 +93,28 @@ class Start():
                 name = input("ENTER YOUR NAME : ")
                 Start.modify('player', name, 'name' )
                 Start.location_set(class_name)
+                break
     def location_set(name):
         character[0]['role'] = name
         character[0]['name'] = player[0]['name']
         character[0]['location'] = 'Anthill Forest'
         character[0]['sub_location'] = 'The Myrminki Village'
         character[0]['level'] = 0 
+        character[0]['story'] = 'Chapter 1'
+        character[0]['questname'] = null
+        character[0]['skills'] = [null,null,null,null]
+        character[0]['attacks'] = [null,null,null,null]
         with open('character.json', 'w+')  as infile:
             infile.write(json.dumps(character, indent=2))
+    def intro():
+        if input() == 'skip':
+            print('skipping cutscne')
+            pass
+            Maper.map()
+        else:
+            #dialogue here
+            pass
+            Maper.map()
 class Levels():
     def calculate():
         level = player[0]['level']
@@ -200,14 +229,14 @@ class Player():
         if random.randint(1, roll) == random.randint(1, roll):
             crit = True
         return crit
-    def deal_damage(self):
+    def deal_damage(self,multiplier):
         pe = play()
         crit = pe.critical_hit()
         damage_dealt_player = self.attack
         if crit == True:
             critdmg = self.critdmg/100 + 1
             critical_hit = self.attack * critdmg
-            damage_dealt_player = critical_hit
+            damage_dealt_player = critical_hit * multiplier
             print(f'{color_red}critical hit!{color_default}')
         elif crit == False:
             damage_dealt_player = self.attack
@@ -273,20 +302,21 @@ class Player():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
-    def spell(self):
-        egg = input("")
-        first_spell() if egg == 1 else(second_spell() if egg == 2 else(third_spell() if egg == 3 else (fourth_spell() if egg == 4 else(print("no spell_cast")))))
-        ela = player[0]['selected_spells']
-        print(ela)
-        def first_spell():
-            first = ela[0]
-            attack =  1
-        def second_spell():
-            second = ela[1]
-        def third_spell():
-            third = ela[2]
-        def fourth_spell():
-            fourth = ela[3]
+    def attack(self):
+        atsk = module.proper_input('str')
+        if atsk == 'skill':
+            for i, v in enumerate(character[0]['attacks'][0][])
+            if character[0]['skill']['name'] == null:
+                pass
+            else:
+                character[0]['skill']['cooldown'] 
+        elif atsk == 'attack':
+            name = module.proper_input('str')
+            if name == '':
+                pass
+        else:
+            print('Please properly enter in either skill or attack')
+        
     def doge(self):
         dod = self.dodge
         egg = True
@@ -314,8 +344,9 @@ class Player():
         return True
     def atk(self):
         pe = play()
-        player_class = "Warrior"
-        pe.deal_damage() if player_class == "Warrior" else(pe.heal_damage() if player_class == "Archer" else pe.deal_damage if player_class == "Mage" else(pe.deal_damage if player_class == "Assassin" else(print("ERROR: PLEASE CONTACT A DEV "))))
+        player_class = character['class'].lower()
+        pe.deal_damage()
+        
     def run(self):
         em = play()
         egg = False
@@ -495,6 +526,25 @@ class Enemy():
                 #determine quantity dropped and if stackable or not
             else: 
                 print("haha no loot for u")
+class Effect():
+    def knock_out():
+        #prevent the enemy from using their turn
+        pass
+    def flame():
+        pass
+        #make the enemy take damage multiple times
+    def toxic():
+        pass
+        #make the enemy take damage multiple times
+    def equalize():
+        #make both classes take damage
+        pass
+    def blood_oath():
+        pass
+        #set health to 0, damage gets buffed insanely high, low damage
+    def hysteria():
+        pass
+        #set health to 1, damage becomes insanely high
 class Turn():
     def determine():
         psp = player[0]['speed']
@@ -514,8 +564,7 @@ class Turn():
 ║    RETURNING TO LAST CHECKPOINT     ║
 ╚═════════════════════════════════════╝
 ''')
-                Location.location()
-                Maper.display()
+                pass
                 #add soemthing that loops the player back out to their last location, so 2 variables : 1 for current location and 1 for last saved location. no saves during battles or any interactions. 
         else:
                 print("PLAYER")
@@ -543,14 +592,9 @@ class Turn():
             Turn.tempvar()
 with open('character.json', 'r+') as awesome:
     character = json.load(awesome)
-class Location():
-    def location():
-        current_player_location = character[0]['location']
-        current_player_sublocation = character[0]['sub_location']
-        print(f'Location: {current_player_location}, {current_player_sublocation}')
 
 class Drops():
-    def enemy_verify():
+    def drop_item():
         enemies1[0]['name']
         for i, (v, k) in enumerate(enemies.items()):
             if k['name'] != enemies1[0]['name']:
@@ -569,3 +613,4 @@ level = 0
 egg = '\t' * level
 #lenghth = [0], height = [1]
 #possible overlap where enemies can be on top of materials such as trees or ores
+Start.intro_screen()
