@@ -1,18 +1,18 @@
 [
-    {
-        "id": 2,
-        "name": "Johnny",
-        "main_quest": "Tutorial: Act I",
-        "fight_quest": [],
-        "collect_quest": [],
-        "puzzle_quest": []
-    },
-    {
-        "id": 3,
-        "name": "Test Subject #3",
-        "main_quest": "Tutorial: Act I",
-        "fight_quest": [],
-        "collect_quest": [],
-        "puzzle_quest": []
-    }
+  {
+    "id": 2,
+    "name": "Johnny",
+    "main_quest": "Tutorial: Act I",
+    "fight_quest": [],
+    "collect_quest": [],
+    "puzzle_quest": []
+  },
+  {
+    "id": 3,
+    "name": "Test Subject #3",
+    "main_quest": "Tutorial: Act II",
+    "fight_quest": [],
+    "collect_quest": [],
+    "puzzle_quest": []
+  }
 ]

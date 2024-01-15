@@ -556,7 +556,6 @@ class ChangeC:
         updateJSONC()
 
 
-
 class ChangeS:
     def statsNum():
         for i in range(len(jstats)):
@@ -1214,9 +1213,17 @@ class ChangeIS:
         print(f'You LEARNED "{skill}".')
         
 class ChangeIQ:
-    #insert and change the main quests and the other quests while categorizing them
-    #remove completed quest
-    print("PLACEHOLDER")
+    def inventoryqNum():
+        for i in range(len(jinventoryq)):
+            if jinventoryq[i]["id"] == Id:
+                global inventoryqNum
+                inventoryqNum = i  
+    def InsertQuest(quest):
+        for i in jquest:
+            if i["quest"] == quest:
+                category = i["category"]
+                break
+        
 
 
 class ActionC:
@@ -1400,6 +1407,27 @@ class ActionIS:
 
 
 class Story:
+    def getStory():
+        ChangeC.characterNum()
+        ChangeIQ.inventoryqNum()
+        story = jcharacter[characterNum]["story"]
+        if story == "Chapter 1: The First Light in a Thousand Years":
+            if jcharacter[characterNum]["sub_location"] == "Treehouse":
+                if len(jinventoryq[inventoryqNum]["collect_quest"]) == 0:
+                    content = jinventoryq[inventoryqNum]["collect_quest"].append("Chiblee's Troubled Past")
+                    modify("inventoryq", content, "collect_quest")
+                    print("New Quest Gained")
+            elif jcharacter[characterNum]["sub_location"] == "The Myrminkian Assembly":
+                if len(jinventoryq[inventoryqNum]["puzzle_quest"]) == 0:
+                    content = jinventoryq[inventoryqNum]["puzzle_quest"].append("The Hero Once Praised")
+                    modify("inventoryq", content, "puzzle_quest")
+                    print("New Quest Gained")
+            elif jcharacter[characterNum]["sub_location"] == "Abandoned Bunker":
+                if len(jinventoryq[inventoryqNum]["fight_quest"]) == 0:
+                    content = jinventoryq[inventoryqNum]["fight_quest"].append("The Family of the Creator")
+                    modify("inventoryq", content, "fight_quest")
+                    print("New Quest Gained")
+
     def checkStory():
         ChangeC.characterNum()
         story = jcharacter[characterNum]["active_quest"]
@@ -1430,6 +1458,11 @@ class Story:
             dialogue.dialogue("Tutorial: Act I")
             ChangeC.setSub_Location("The Myrminki Village")
             dialogue.dialogue("Tutorial: Act I 2")
+            modify("inventoryq", "Tutorial: Act II", "main_quest")
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            print("Act I Complete")
+            updateJSONIQ()
+            updateJSONC()
 
     def Act_II():
         ChangeC.characterNum()
@@ -1440,7 +1473,12 @@ class Story:
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
             dialogue.dialogue("Tutorial: Act II")
             #summon a monster
-            dialogue.dialogue("Tutorial: Act II 2")     
+            dialogue.dialogue("Tutorial: Act II 2")   
+            modify("inventoryq", "Tutorial: Act III", "main_quest")  
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            print("Act II Complete")
+            updateJSONIQ()
+            updateJSONC()
 
     def Act_III():
         ChangeC.characterNum()
@@ -1452,6 +1490,11 @@ class Story:
             dialogue.dialogue("Tutorial: Act III")
             #if player steps on an x, run either dialogue("Act III Item 1 or 2") 
             dialogue.dialogue("Tutorial: Act III 2")   
+            modify("inventoryq", "Tutorial: Act IV", "main_quest")  
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            print("Act III Complete")
+            updateJSONIQ()
+            updateJSONC()
 
     def Act_IV():
         ChangeC.characterNum()
@@ -1466,6 +1509,11 @@ class Story:
             dialogue.dialogue("Tutorial: Act IV 2")
             #summon miniboss
             dialogue.dialogue("Tutorial: Act IV 3")
+            modify("inventoryq", "Tutorial: Act V", "main_quest")  
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            print("Act IV Complete")
+            updateJSONIQ()
+            updateJSONC()
 
     def Act_V():
         ChangeC.characterNum()
@@ -1477,6 +1525,12 @@ class Story:
             dialogue.dialogue("Tutorial: Act V")     
             #summon boss
             dialogue.dialogue("Tutorial: Act V 2")
+            modify("inventoryq", "Chapter 1: Act I", "main_quest")
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            modify("character", "Chapter 1: The First Light in a Thousand Years", "story")
+            print("Act V Complete")
+            updateJSONIQ()
+            updateJSONC()
 
     def QuestTHOP():
         ChangeC.characterNum()
@@ -1498,7 +1552,14 @@ class Story:
                     print("Try Again.")
                     print("")
             dialogue.dialogue("The Hero Once Praised 2")
-        
+            content = jinventoryq[inventoryqNum]["puzzle_quest"].pop("The Hero Once Praised")
+            content = jinventoryq[inventoryqNum]["puzzle_quest"].append("Complete")
+            modify("inventoryq", content, "puzzle_quest")  
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            print("Quest Complete")
+            updateJSONIQ()
+            updateJSONC()
+                 
     def QuestCTP():
         ChangeC.characterNum()
         for i in jquest:
@@ -1510,6 +1571,13 @@ class Story:
             #when the player steps on a grid, play dialogue(Itme #)
             dialogue.dialogue("Items Found")
             dialogue.dialogue("Chiblee's Troubled Past 2")
+            content = jinventoryq[inventoryqNum]["collect_quest"].pop("Chiblee's Troubled Past")
+            content = jinventoryq[inventoryqNum]["collect_quest"].append("Complete")
+            modify("inventoryq", content, "collect_quest")  
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            print("Quest Complete")
+            updateJSONIQ()
+            updateJSONC()
 
     def QuestTFOTC():
         ChangeC.characterNum()
@@ -1528,6 +1596,25 @@ class Story:
             dialogue.dialogue("Battle 3")
             dialogue.dialogue("Battle End")
             dialogue.dialogue("The Family of the Creator 2")
+            content = jinventoryq[inventoryqNum]["fight_quest"].pop("The Family of the Creator")
+            content = jinventoryq[inventoryqNum]["fight_quest"].append("Complete")
+            modify("inventoryq", content, "fight_quest")  
+            modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
+            print("Quest Complete")
+            updateJSONIQ() 
+            updateJSONC()           
+
+
+
+def modify(file, content, mode):
+    with open(f'{file}.json')  as openfile:
+        filed = json.load(openfile)
+    if mode == '':
+        filed = content
+    elif mode != '':
+        filed[inventoryqNum][mode] = content
+    with open(f'{file}.json', 'w+')  as closedfile:
+        closedfile.write(json.dumps(filed, indent=2))
 
 
 def updateJSONC():
@@ -1575,6 +1662,7 @@ def updateJSONIQ():
     os.rename(new_file, "inventoryq.json")
 
 
+
 ChooseG.choose()
-ChangeC.setSub_Location("The Myrminkian Assembly")
-Story.QuestTHOP()
+ChangeIQ.inventoryqNum()
+modify("inventoryq", "Tutorial: Act II", "main_quest")
