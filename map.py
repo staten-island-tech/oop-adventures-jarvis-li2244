@@ -203,7 +203,8 @@ class Maper():
                 Map[coords[0]][coords[1]] = "[S]"
                 if current_position == mapir['shop_position']:
                     print("A SHOP!!!")
-                    Shop.create_items()
+                    Shop.dict_to_list()
+                    Shop.player_update()
             elif instance_map['type'] == 'Resources':
                 pass
             if len(mapir['enemy_positions']) == 0:
@@ -223,7 +224,7 @@ class Shop:
             value_check = random.randint(0, int(len(ihop))-1)
             items.append(ihop[f'PLACEHOLDER{value_check}'])
         return items
-    def dict_to_list(): 
+    def dict_to_list():
         egg = Shop.return_items()
         dict_list = []
         virus = 0
@@ -240,6 +241,8 @@ class Shop:
             dropp.write(json.dumps(qws, indent=2))
             dropp.seek(0)
     def display():
+        for i in range(len(shop1[0])):
+            print('')
         print(f'''
               SHOP 
 ══════════════════════════════════

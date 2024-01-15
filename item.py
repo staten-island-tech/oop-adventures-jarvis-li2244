@@ -124,8 +124,7 @@ class Inventory():
             for i in range(9):
                 print(f'''
         ══════════════════════════════════
-        {pagenum+1}. {indel[pagenum]}''', end='')
-                pagenum += 1
+        {i+1}. {indel[pagenum]}''', end='')
             print(f'''
         ══════════════════════════════════
                     <- - ->

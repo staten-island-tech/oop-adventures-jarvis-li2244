@@ -13,6 +13,7 @@
     "speed": 100,
     "exp": 100,
     "coins":1000,
+    "status_counter":1,
     "loot_table": [
       {
         "en": 100,

@@ -39,6 +39,8 @@ with open('classStats.json') as cs1:
     cs = json.load(cs1)
 with open('mapinstance.json', mode='r') as infile:
     mapperjapper = json.load(infile)
+with open('skills.json') as infile:
+    skills = json.load(infile)
 class Start():
     def intro_screen():
         print(r"""
@@ -144,7 +146,7 @@ class Spawn():
     def blit_enemy():
         for i, (k, v) in enumerate(enemies.items()):
             if v['names'] == Spawn.spawnenemy():
-                with open('maperjap.json')  as outfile:
+                with open('maperjap.json', 'w+')  as outfile:
                     outfile.write(json.dumps(v, indent=2))
                     outfile.seek(0)
     def spawnenemy():
@@ -302,21 +304,68 @@ class Player():
         print(f'{color_default}╔════════════════════╗' )
         print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
         print(f'{color_default}╚════════════════════╝' )
-    def attack(self):
+    def effects(self, effect_name, damage):
+        pe = play()
+        if effect_name == 'insane damage':
+            pe.deal_damage(10)
+        elif effect_name == 'poison':
+            module.file_modification()
+            for i in range(3):
+                pe.deal_damage(0.5)
+        elif effect_name == 'expo damage':
+            pass
+        elif effect_name == 'nu uh too op':
+            pass
+        elif effect_name == 'multihit':
+            hit_amount = random.randint(1, 5)
+            for i in range(hit_amount):
+                pe.deal_damage(1)
+        elif effect_name == 'knock out':
+            #modify enemy speed to 
+            #then set enemy_speed to 3 for a while
+            pass
+        elif effect_name == 'temp damage increase':
+            pe.deal_damage(damage)
+        elif effect_name == 'backhitter':
+            for i in range(self.speed):
+                if random.randint(1, 100) == random.randint(1, 100):
+                    pe.deal_damage(3)
+    def attack():
         atsk = module.proper_input('str')
+        pe = play()
         if atsk == 'skill':
-            for i, v in enumerate(character[0]['attacks'][0][])
-            if character[0]['skill']['name'] == null:
-                pass
-            else:
-                character[0]['skill']['cooldown'] 
+            for i, v in enumerate(character[0]['skill']):
+                if character[0]['skill']['name'] == null:
+                    print("No Active Skill Currently")
+                    break
+                else:
+                    if character[0]['skill']['cooldown'] != 0:
+                        print('Skill on cooldown')
+                        Player.attack()
+                        break
+                    if module.proper_input('str').lower == 'y':
+                        print("Using Skill")
+                        for i, k,v in enumerate():
+                            print(i,k,v)
         elif atsk == 'attack':
             name = module.proper_input('str')
-            if name == '':
-                pass
+            for i, (k, v) in enumerate(character[0]['attacks'][0].items()):
+                print(i,k,v)
+                if name != v['name']:
+                    continue
+                for index, value in enumerate(attacks[character[0]['role']]):
+                    print(index, value)
+                    if value['name'] == v['name']:
+                        print(value['effects'])
+                        if len(value['effects']) == 0:
+                            print("")
+                            pe.deal_damage(value['damage'])
+                            break
+                        for i in range(len(value['effects'])):
+                            Player.effects(value['effects'][i])
         else:
             print('Please properly enter in either skill or attack')
-        
+            Player.attack()
     def doge(self):
         dod = self.dodge
         egg = True
@@ -340,7 +389,7 @@ class Player():
         egg.health_display()
         egg = input("")
         pe = play()
-        pe.atk() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
+        Player.attack() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
         return True
     def atk(self):
         pe = play()
@@ -526,7 +575,8 @@ class Enemy():
                 #determine quantity dropped and if stackable or not
             else: 
                 print("haha no loot for u")
-class Effect():
+class Skills():
+    pe = play()
     def knock_out():
         #prevent the enemy from using their turn
         pass
@@ -543,12 +593,31 @@ class Effect():
         pass
         #set health to 0, damage gets buffed insanely high, low damage
     def hysteria():
-        pass
-        #set health to 1, damage becomes insanely high
+        pe = play()
+        pe.modify(1,'health','set')
+        pe.modify('hysteria','current_status_effect', 'append')
 class Turn():
+    def counter():
+        if enemies1[0]['status_counter'] != 0:
+            enemies1[0]['status_counrwe'] -+ 1
+            with open('enemies.json','w+') as infile:
+                infile.write(json.dumps(enemies, indent=2))
+        if enemies1[0]['status_counter'] == 0:
+            print("STATUS EFFECT HAS WORN OFF")
+            return False
     def determine():
         psp = player[0]['speed']
         esp = enemies1[0]['speed']
+        if esp == 0:
+            print('enemy is currently knocked out')
+            if Turn.counter() == False:
+                for i, (k, v) in enumerate(enemies.items()):
+                    if enemies[0]['name'] == v[0]['name']:
+                        enemies1[0]['speed'] == v[0]['speed']
+                        with open('enemies.json',"w+") as outfile:
+                            outfile.write(json.dumps(enemies1, indent=2))
+                        break
+            Turn.tempvar()
         if esp < psp:
             Turn.tempvar()
         elif esp > psp:
@@ -590,8 +659,6 @@ class Turn():
             print("ENEMY")
             lm.action()
             Turn.tempvar()
-with open('character.json', 'r+') as awesome:
-    character = json.load(awesome)
 
 class Drops():
     def drop_item():

@@ -2,7 +2,7 @@
     "mage":[
         {
             "name":"fireball",
-            "effects":[null],
+            "effects":[ ],
             "description":"Massive flaming ball of destruction (High Damage)",
             "damage":10,
             "cooldown":1
@@ -23,14 +23,14 @@
         },
         {
             "name":"soulburn",
-            "effects":[null],
+            "effects":[ ],
             "description":"Massive flaming ball of destruction (High Damage)",
             "damage":5,
             "cooldown":10
         },
         {
             "name":"spell cast",
-            "effects":[null],
+            "effects":[ ],
             "description":"Massive flaming ball of destruction (High Damage)",
             "damage":10,
             "cooldown":5
@@ -44,7 +44,7 @@
         },
         {
             "name":"spell binder",
-            "effects":[null],
+            "effects":[],
             "description":"Massive flaming ball of destruction (High Damage)",
             "damage":10,
             "cooldown":5
@@ -60,9 +60,9 @@
     "warrior":[
         {
             "name":"Sword Strike",
-            "effects":["multihit, always goes first"],
+            "effects":["multihit"],
             "description":"Massive flaming ball of destruction (High Damage)",
-            "damage":null,
+            "damage": null,
             "cooldown":10
         },
         {
@@ -82,7 +82,7 @@
             "name":"Berserk",
             "effects":["temp damage increase"],
             "description":"Massive flaming ball of destruction (High Damage)",
-            "damage":null,
+            "damage": null,
             "cooldown":10
         },
         {

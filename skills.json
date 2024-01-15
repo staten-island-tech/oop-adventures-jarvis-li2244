@@ -3,7 +3,8 @@
         "name": "Skill_1_Name",
         "level": "Level_1_Skills",
         "cost": 1,
-        "description": "A rain of fire that deals 50 damage(example)"
+        "description": "A rain of fire that deals 50 damage(example)",
+        "effects":["high damage", ""]
     },
     {
         "name": "Other Example",

@@ -1,56 +1,42 @@
 [
   [
-    [
-      "name",
-      "Broke"
-    ],
-    [
-      "price",
-      100000
-    ],
-    [
-      "stock",
-      1
-    ],
-    [
-      "chance",
-      1
-    ]
+    {
+      "name": "Trash",
+      "price": 10000,
+      "stock": 3,
+      "chance": 5
+    }
   ],
   [
-    [
-      "name",
-      "Bows"
-    ],
-    [
-      "price",
-      100000
-    ],
-    [
-      "stock",
-      1
-    ],
-    [
-      "chance",
-      1
-    ]
+    {
+      "name": "Eggs",
+      "price": 1,
+      "stock": 1000000000,
+      "chance": 50
+    }
   ],
   [
-    [
-      "name",
-      "Candy Cane"
-    ],
-    [
-      "price",
-      100000
-    ],
-    [
-      "stock",
-      1
-    ],
-    [
-      "chance",
-      1
-    ]
+    {
+      "name": "Parts of Guns",
+      "price": 100000,
+      "stock": 1,
+      "chance": 1
+    }
+  ],
+  [
+    {
+      "name": "EggGun",
+      "price": 100000,
+      "stock": 1,
+      "chance": 1
+    }
+  ],
+  [
+    {
+      "name": "Snowballs",
+      "price": 1,
+      "stock": 1000000000,
+      "chance": 100
+    }
   ]
 ]

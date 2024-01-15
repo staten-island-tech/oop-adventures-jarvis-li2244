@@ -2,8 +2,6 @@ import json
 import time
 import sys
 import os, shutil
-cmd = 'mode 90,20'
-os.system(cmd)
 class Modified_Functions():
     def timing(func):
         def tim():
