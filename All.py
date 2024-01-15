@@ -1,6 +1,7 @@
 import json
 import os
 import math
+import dialogue
 
 #json files being altered
 with open("character.json", "r") as f:
@@ -539,13 +540,22 @@ class ChangeC:
         print(""), print(nsub_location)
         updateJSONC()
 
-#condense top 3 functions
-#add change active quest
-#add json file of quest desriptions and the location needed for them
-#add custom dialogue and triggers for each quest, remove amount of locations and therefore quests
-#name the locations and sublocations
-#work on story
-#condese changing IS and C and S
+    def setActive_Quest(nactive_quest):
+        ChangeC.characterNum()
+        id = Id
+        name = Name
+        role = jcharacter[characterNum]["role"]
+        level = jcharacter[characterNum]["level"]
+        story = jcharacter[characterNum]["story"]
+        location = jcharacter[characterNum]["location"]
+        sub_location = jcharacter[characterNum]["sub_location"]
+        active_quest = nactive_quest
+        jcharacter.pop(characterNum)
+        CreateC = CreationC(id, name, role, level, story, location, sub_location, active_quest)
+        jcharacter.insert(characterNum, CreateC.__dict__)
+        updateJSONC()
+
+
 
 class ChangeS:
     def statsNum():
@@ -1394,7 +1404,22 @@ class Story:
         ChangeC.characterNum()
         story = jcharacter[characterNum]["active_quest"]
         if story == "Tutorial: Act I":
-            print("PLADSn")
+            Story.Act_I()
+        elif story == "Tutorial: Act II":
+            Story.Act_II()
+        elif story == "Tutorial: Act III":
+            Story.Act_III()
+        elif story == "Tutorial: Act IV":
+            Story.Act_IV()
+        elif story == "Tutorial: Act V":
+            Story.Act_V()
+        elif story == "The Hero Once Praised":
+            Story.QuestTHOP()
+        elif story == "Chiblee's Troubled Past":
+            Story.QuestCTP()
+        elif story == "The Family of the Creator":
+            Story.QuestTFOTC()
+            
     def Act_I():
         ChangeC.characterNum()
         for i in jquest:
@@ -1402,7 +1427,9 @@ class Story:
                 checkSLocation = i["sub_location"]
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:
-            print("iajsdi")
+            dialogue.dialogue("Tutorial: Act I")
+            ChangeC.setSub_Location("The Myrminki Village")
+            dialogue.dialogue("Tutorial: Act I 2")
 
     def Act_II():
         ChangeC.characterNum()
@@ -1411,7 +1438,9 @@ class Story:
                 checkSLocation = i["sub_location"]
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
-            print("SAHDas")      
+            dialogue.dialogue("Tutorial: Act II")
+            #summon a monster
+            dialogue.dialogue("Tutorial: Act II 2")     
 
     def Act_III():
         ChangeC.characterNum()
@@ -1420,7 +1449,9 @@ class Story:
                 checkSLocation = i["sub_location"]
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
-            print("SAHDas")        
+            dialogue.dialogue("Tutorial: Act III")
+            #if player steps on an x, run either dialogue("Act III Item 1 or 2") 
+            dialogue.dialogue("Tutorial: Act III 2")   
 
     def Act_IV():
         ChangeC.characterNum()
@@ -1429,7 +1460,12 @@ class Story:
                 checkSLocation = i["sub_location"]
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
-            print("SAHDas")        
+            dialogue.dialogue("Tutorial: Act IV")     
+            #when player steps on tile with the letter, use dialogue("totem with the matching letter")
+            #if totem was already stepped on, use the dialogue("Lit Totem")
+            dialogue.dialogue("Tutorial: Act IV 2")
+            #summon miniboss
+            dialogue.dialogue("Tutorial: Act IV 3")
 
     def Act_V():
         ChangeC.characterNum()
@@ -1438,8 +1474,60 @@ class Story:
                 checkSLocation = i["sub_location"]
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
-            print("SAHDas")        
+            dialogue.dialogue("Tutorial: Act V")     
+            #summon boss
+            dialogue.dialogue("Tutorial: Act V 2")
 
+    def QuestTHOP():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "The Hero Once Praised":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:    
+            dialogue.dialogue("The Hero Once Praised")
+            riddle = 0
+            while riddle == 0:
+                answer = input("What am I?: ").lower()
+                if answer == "hint":
+                    dialogue.dialogue("Hint")
+                elif answer == "flames" or answer == "fire" or answer == "flame" or answer == "fires":
+                    riddle = 1
+                    print("")
+                else:
+                    print("Try Again.")
+                    print("")
+            dialogue.dialogue("The Hero Once Praised 2")
+        
+    def QuestCTP():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "The Hero Once Praised":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:  
+            dialogue.dialogue("Chiblee's Troubled Past")
+            #when the player steps on a grid, play dialogue(Itme #)
+            dialogue.dialogue("Items Found")
+            dialogue.dialogue("Chiblee's Troubled Past 2")
+
+    def QuestTFOTC():
+        ChangeC.characterNum()
+        for i in jquest:
+            if i["quest"] == "The Hero Once Praised":
+                checkSLocation = i["sub_location"]
+                break
+        if checkSLocation == jcharacter[characterNum]["sub_location"]:  
+            dialogue.dialogue("The Family of the Creator")
+            #whne player steps on tile, ranodmize between one and three
+            dialogue.dialogue("Battle 1")
+            #commence battle
+            dialogue.dialogue("Battle End")
+            dialogue.dialogue("Battle 2")
+            dialogue.dialogue("Battle End")
+            dialogue.dialogue("Battle 3")
+            dialogue.dialogue("Battle End")
+            dialogue.dialogue("The Family of the Creator 2")
 
 
 def updateJSONC():
@@ -1487,3 +1575,6 @@ def updateJSONIQ():
     os.rename(new_file, "inventoryq.json")
 
 
+ChooseG.choose()
+ChangeC.setSub_Location("The Myrminkian Assembly")
+Story.QuestTHOP()

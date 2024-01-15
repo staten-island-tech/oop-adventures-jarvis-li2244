@@ -39,6 +39,20 @@
         "category": "puzzle_quest",
         "description": "The Assembly has decided to tell you a story, but only if you are worthy.",
         "location": "Anthill Forest",
-        "sub_location": "The Myrminki Village"
-    }
+        "sub_location": "The Myrminkian Assembly"
+    },
+    {
+        "quest": "Chiblee's Troubled Past",
+        "category": "collect_quest",
+        "description": "Chiblee needs help fixing his telescope. His offer, a story, has piqued your interest.",
+        "location": "Anthill Forest",
+        "sub_location": "Treehouse" 
+    },
+    {
+        "quest": "The Family of the Creator",
+        "category": "fight_quest",
+        "description": "There may be more secrets in the bunker you were so rudely pushed out of. You decide to go back.",
+        "location": "Anthill Forest",
+        "sub_location": "Abandoned Bunker" 
+    }   
 ]

@@ -18,8 +18,9 @@
 "3 Event SLs: These are places where you can interact with things. These include shops, healing areas, and another event like storage or puzzles.",
 "Wild SLs: This area fills in the rest of the map. This is where you find enemies or loot.",
 "TUTORIAL: To switch locations, you can use the 'switch l.name' command, but different locations require a certain progress in the story. At the moment, Anthill Forest is the only location available.", 
-"TUTORIAL: That's it for now! If you need any of this information at any time, use the 'help' command and choose the movement category to revisit different commands.",
-"???: ...",
+"TUTORIAL: That's it for now! If you need any of this information at any time, use the 'help' command and choose the movement category to revisit different commands."
+],
+    "Tutorial: Act I 2": ["???: ...",
 "???: AHH!",
 "???: Please don't hurt me! I'm just a humble scientist, the head of the science department to be exact, and having 43 metals.. and the owner of Anticore Lab.. an-",
 "OTHER YOU: Yeah, he's humble, that's for sure.",
@@ -56,9 +57,9 @@
 "TUTORIAL: When you receive an objective to look around and explore, the squares marked with an 'X' on the map indicate objects or interactables. To interact with them, you just move to the square where they are located.",
 "TUTORIAL: Sometimes if there are multiple interactables at once, the ones you have already interacted with will be shown as an 'O' instead of an 'X'."
 ],
-    "Act III Item 1": ["NARRATOR: You find an old telescope. You look through it, but only see an open plain."
+    "Act III Item 1": ["GAME: You find an old telescope. You look through it, but only see an open plain."
 ],
-    "Act III Item 2": ["NARRATOR: You pick up old newspaper clippings. You stare intently at their words. They seem to detail the history of this town. The founding of this village began when a group of these ant-like creatures combined forces. They built the place from the ground up. An outer wall was created to keep out enemies and protect those within. The next section describes the people of this town. It is speculated that the king from the castle nearby has been performing cruel experiments on human test subjects. His goal was to create a perfect being. He began to experiment with all kinds of species, mixing them with human intelligence. The people in this town and the enemies outside are all results of these experiments, later exiled when no longer needed. The text becomes too faded after that."
+    "Act III Item 2": ["GAME: You pick up old newspaper clippings. You stare intently at their words. They seem to detail the history of this town. The founding of this village began when a group of these ant-like creatures combined forces. They built the place from the ground up. An outer wall was created to keep out enemies and protect those within. The next section describes the people of this town. It is speculated that the king from the castle nearby has been performing cruel experiments on human test subjects. His goal was to create a perfect being. He began to experiment with all kinds of species, mixing them with human intelligence. The people in this town and the enemies outside are all results of these experiments, later exiled when no longer needed. The text becomes too faded after that."
 ],
     "Tutorial: Act III 2": ["RATASHKIN: Hey, do you find those stories interesting?",
 "NARRATOR: You nod.",
@@ -76,15 +77,15 @@
 "NARRATOR: You encounter a room with four totems in each corner. A note on the floor reads...",
 "NARRATOR: God once said 'Let there be light.' and there was light. You must do the same, but an order must be fulfilled. Light by strokes of your hand, not by a childhood hymn."
 ],
-    "Act IV Totem Bottom Left": ["NARRATOR: You find a totem with an 'O' engraving. You light it."
+    "Act IV Totem O": ["GAME: You find a totem with an 'O' engraving. You light it."
 ],
-    "Act IV Totem Top Right": ["NARRATOR: You find a totem with a 'N' engraving. You light it."
+    "Act IV Totem N": ["GAME: You find a totem with a 'N' engraving. You light it."
 ],
-    "Act IV Totem Top Left": ["NARRATOR: You find a totem with a 'M' engraving. You light it."
+    "Act IV Totem M": ["GAME: You find a totem with a 'M' engraving. You light it."
 ],
-    "Act IV Totem Bottom Right": ["NARRATOR: You find a totem with a 'L' engraving. You light it."
+    "Act IV Totem L": ["GAME: You find a totem with a 'L' engraving. You light it."
 ],
-    "Lit Totem": ["This pillar has already been lit."
+    "Lit Totem": ["GAME: This pillar has already been lit."
 ],
     "Tutorial: Act IV 2": ["NARRATOR: A door opens as you light the final totem. It reveals a staircase leading down into darkness. A low growl can be heard.",
 "RATASHKIN: Treasure? Welp, thanks for the help, but I'll be going!",
@@ -124,14 +125,13 @@
 "'The lantern's bright comes dashingly forth,",
 "behind the scenes remains unseen,",
 "the gift in the center, the beautiful source,",
-"a well created oil-powered machine.",
-"What am I?'",
+"a well created oil-powered machine.'",
 "If you need a hint, just ask for one by typing 'Hint'."
 ],
     "Hint": ["HINT: Hot and generally orange/red. We combat it with water."],
     "The Hero Once Praised 2": ["MYRMINKIAN TRIUMVIRATE: Very well. I shall tell you the story of a lost hero, once a savior, but fallen after that. He was a young boy named Adam living a normal life in a normal village. However, soon, invaders attacked and their village was placed under the rule of King Serpent, the very same one from today. As he watched the people get taken away to never return, his fury only grew stronger. He decided that he could no longer sit back and watch. He had to act.",
 "MYRMINKIAN TRIUMVIRATE: And so he did. He gathered an army of those who remained and distributed weapons he had been working on in secret. Then, in the cloak of midnight, they struck the castle hard. For seven days and seven nights they waged war, and the last day was the only time King Serpent ordered a retreat. He managed to escape, but all his men were killed. However, he smiled when he saw the hero and vanished soon after. ",
-"MYRMINKIAN TRIUMVIRATE: The next day, the hero was not the same. He was less concerned with the public or the village. He grew quiet, distant, and was never seen for long periods of time. When he was seen, he was never as warm or charming as he once was. He seemed to become more and more bitter and selfish until one day, he too vanished completely. They say that this 'Wandering Flames' is a creation of his. An experiment per se. An experiment no better than the King's. That is the story of the hero and the 'Flames'."
+"MYRMINKIAN TRIUMVIRATE: The next day, the hero was not the same. He was less concerned with the public or the village. He grew quiet, distant, and was never seen for long periods of time. When he was seen, he was never as warm or charming as he once was. He seemed to become more and more bitter and selfish until one day, he too vanished completely. They say that 'Flames' is a creation of his. An experiment per se. An experiment no better than the King's. That is the story of the hero and the 'Flames'."
 ],
     "Chiblee's Troubled Past": ["NARRATOR: As you enter the place, you notice an unfamiliar face shuffling through a stack of junk including bottles, random cans, and old papers. He doesn't even notice you walk in, so you slam the door. Startled, he snaps his neck towards your direction.",
 "???: Hey! Who are you? Wait, oh, you're the traveler Ratashkin told me about. I'm his roommate, Chiblee. Nice to meet you.",
@@ -140,12 +140,42 @@
 "NARRATOR: You nod and walk over to help him in his search.",
 "CHIBLEE: Wow, you didn't have to, but.. I can't just refuse help. Well, as compensation, I'll tell you a story once we get this telescope working. Again, thanks for the help."
 ],
-    "CTP Item 1": ["NARRATOR: You find a clean and new lens to replace the cracked one"],
-    "CTP Item 2": ["NARRATOR: You find wipes and cleaners to polish the telescope."],
-    "CTP Item 3": ["NARRATOR: You find the stand for the telescope and begin to put it in place according to Chiblee's instructions."],
+    "CTP Item 1": ["GAME: You find a clean and new lens to replace the cracked one"],
+    "CTP Item 2": ["GAME: You find wipes and cleaners to polish the telescope."],
+    "CTP Item 3": ["GAME: You find the stand for the telescope and begin to put it in place according to Chiblee's instructions."],
 
-    "Items Found": ["NARRATOR: The telescope has been fixed."],
+    "Items Found": ["GAME: The telescope has been fixed."],
 
-    "Chiblee's Troubled Past 2": [""]
+    "Chiblee's Troubled Past 2": ["CHIBLEE: Here, take a look.",
+"NARRATOR: You peer through the lens and see an open field teeming with life.",
+"CHIBLEE: Do you see an open field?",
+"NARRATOR: You nod.",
+"CHIBLEE: Good. As promised, I will now tell you the story.",
+"CHIBLEE: You see, this field once was a village, specifically, my village. We were happy, living our lives to the fullest. But one day, a mysterious traveler like you arrived. Except, he was less friendly and open. He kept to himself mostly and rented an underground place to stay. No one knows what he did down there, but some say they could hear bottles clinking even in the middle of the night.",
+"CHIBLEE: Everyone let him be, not knowing the danger that was quickly approaching. It was on that fateful day, like any other day, where the village would meet its end. There we were, playing and running around like always, until the man, now in robes and a mask, approached. With fire and steel, he burned the village to the ground. He slaughtered anyone who got in his way, and in the end, I was the sole survivor.",
+"CHIBLEE: I ran far, far away. Until I met the King, and this is the result. I became like this and settled down in this town. This treehouse was the perfect place for me. I can look over a place once mine, and Ratashkin has excellent newspapers. He really helps me learn more about what happened. Turns out, that was his second village, so news had not spread yet. The first could've been a mere accident, but the second signaled an intention. The man was none other than the legend of the 'Flames'."
+],
+    "The Family of the Creator": ["OTHER YOU: Why'd you come back?",
+"YOU: I.. I don't know. But maybe there is something else down here? Secrets it was guarding?",
+"OTHER YOU: Perhaps, and be careful.",
+"YOU: Of course."
+],
+    "Battle 1": ["GAME: A humanoid figure crouches underneath a desk. In the palm of its hand, it holds a stone catalyst. On the desk, you see a drawer with a lock once working. Now, it has rusted and decayed to a point of no function. Before you can reach it though, the humanoid attacks. You counter."],
+    "Battle 2": ["GAME: A mutation of a dolphin sits on a dusty, old box. It seems to be connected to a tank of water via pipes and tubes. Intuition leads you to believe that whatever is in the box, it must be important. You strike."],
+    "Battle 3": ["GAME: A crane the size of a two-story house towers over you. Behind it lies a closet, a closet full of secrets. Getting to the closet is a priority, even if the crane will die. Although, it won't be an easy battle as its winds send you flying backwards. You charge."],
 
+    "Battle End": ["You find a piece of a journal."],
+
+    "The Family of the Creator 2": ["NARRATOR: After gathering all three pieces of the journal, you head to a desk in the center of the room. Placing down the pieces, you begin to decipher its order. The meaning becomes clear as the pieces click in place.",
+"OTHER YOU: So.. What's it say?",
+"YOU: I- It's- It's terrible. So much pain, so much agony. From one man.",
+"OTHER YOU: Care to elaborate?",
+"YOU: W- What? FIne. It tells of a man traveling far and wide, collecting animals along the way. That included humans. He would create bunkers like this one occasionally and use the resources he gathered to experiment. He wanted to create something powerful, something to continue his legacy.",
+"YOU: Those things that protected these papers, they were one of his many experiments. They were the last of their kind of experiments. Each of them having to witness the deaths of so many like themselves. It would be unbearable. I couldn’t imagine. All that pain, just so they can continue his legacy.",
+"OTHER YOU: But you can. You can imagine it. You have, you just don't remember.",
+"YOU: …what?",
+"OTHER YOU: You're the fourth kind. Human on the outside, fire on the inside. That's all I'll say. Dwell on it.",
+"YOU: I'm.. an experiment? I'm not really human? No, I don't.. I can't.. I won't accept it. Fire? That's not me.",
+"OTHER YOU: Whatever you say. Believe what you want to believe. I guess it's not really for me to decide."
+]
 }
