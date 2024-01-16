@@ -262,6 +262,11 @@ def atte():
     speed = enemies[0]['speed']
     temp = Enemy(max_health, health, damage, dodge, defense, mana, critchance, critdmg, speed)
     return temp
+def story():
+    with open('character.json') as infile:
+        character =  json.load(infile) 
+    if character['sublocation']:
+        pass
 #create an instance of the enemy using a loop. loop does not move on til enemy is dead or the player has moved into a certain location. 
 class Player():
     def __init__(self, id, name, exp, stat_points, max_health, health, attack, dodge, defense, luck, mana, critchance, critdmg, speed):
@@ -625,7 +630,7 @@ class Drops():
             for index,(value,key) in enumerate(k[0]['loot_table'][0].items()):
                 if random.randint(1,int(100/key)) ==  random.randint(1, int(100/key)):
                     print(f'{value} dropped! {key}% drop rate')
-                    Inventory.psi(value,random.randint(1, 100),'add')
+                    Inventory.psi(value,random.randint(1, 100),'add', 'inventoryi.json')
 def verify_usage():
     egg = input("")
     if egg == "Y":

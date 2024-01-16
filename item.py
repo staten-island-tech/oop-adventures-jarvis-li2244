@@ -11,6 +11,8 @@ with open('recipes.json') as f:
     recipes = json.load(f)
 with open('character.json') as infile:
     character = json.load(infile)
+with open('item.json') as infile:
+    items = json.load(infile)
 null = None
 
 currentdict = recipes[0]['item_1'][0]['items_needed']
@@ -30,8 +32,8 @@ class Inventory():
             egg += 1
             #this da format: item[0][f'{name}'][0]['stats'][0] for item stats
         #figure out how iterate through the list
-    def inventory_update(item_name, slot_num, mode, item_amount):
-        with open('inventoryi.json')  as finale:
+    def inventory_update(item_name, slot_num, mode, item_amount, file_name):
+        with open(file_name)  as finale:
             inventi = json.load(finale)
             if mode == 'add':
                 inventi[f'{slot_num}'][0]['quantity'] += item_amount
@@ -49,8 +51,8 @@ class Inventory():
         with open('inventoryi.json', 'w+') as fermi:
             fermi.write(json.dumps(inventi, indent=2)) 
             fermi.seek(0)
-    def psi(item_name, quantity, mode):
-        with open('inventoryi.json') as finsi:
+    def psi(item_name, quantity, mode, file_name):
+        with open(file_name) as finsi:
             inventiro = json.load(finsi)
         for i, (k, v) in enumerate(inventiro.items()):
             if item_name == v[0]['name']:
@@ -61,13 +63,13 @@ class Inventory():
         for i2, (k2, v2) in enumerate(inventiro.items()):
             if egg == False:
                 if v2[0]['name'] == null:
-                    Inventory.inventory_update(item_name, k2, 'placeholdernone', quantity)
+                    Inventory.inventory_update(item_name, k2, 'placeholdernone', quantity, file_name)
                     break
             elif egg == True:
                 if mode == 'subtract':
-                    Inventory.inventory_update(item_name, k, 'subtract' , quantity)
+                    Inventory.inventory_update(item_name, k, 'subtract' , quantity, file_name)
                 elif mode == 'add':
-                    Inventory.inventory_update(item_name, k, 'add', quantity)
+                    Inventory.inventory_update(item_name, k, 'add', quantity, file_name)
                 break
     def modify(change, var, mode):
         with open('player.json', 'r+') as r:
@@ -96,6 +98,78 @@ class Inventory():
                 asf.append("")
         print(asf)
         return asf
+    def delete():
+        with open('inventorye.json') as outfile:
+            equips = json.load(outfile)
+        name = module.prpoper_input('str')
+        if Inventory.verify_instance('inventorye.json', name) == True:
+            for i,(k,v) in enumerate(equips.items()):
+                if v[0]['name'] == name:
+                    equips[k][0]['name'] = null
+                    equips[k][0]['quantity'] = 0
+                    with open('inventorye.json') as infile:
+                        infile.write(json.dumps(equips, indent=2))
+                    return
+                else:
+                    pass
+        else:
+            return
+    def equips():
+        with open('inventorye.json') as infile:
+            equips = json.load(infile)
+        with open('inventoryi.json') as infile:
+            inventory = json.load(infile)
+        name = module.proper_input('str')
+        if Inventory.verify_instance('inventoryi.json', name) == True:
+            Inventory.psi(name ,1, 'subtract', 'inventoryi.json')
+            pass
+        else:
+            print('item not found')
+            return
+        for i, (k,v ) in enumerate(items[0].items()):
+            if k == name:
+                for index, (key,value) in enumerate(equips.items()):
+                    if v[0]['type'] == value[0]['type']:
+                        equips[k][0]['name']  == name
+                        equips[k][0]['quantity'] == 1
+                        with open('inventorye.json') as infile:
+                            infile.write(json.dumps(equips, indent=2))
+                        return
+                    else:
+                        pass
+            else:
+                pass           
+                    
+
+    def verify_instance(file_name, name):
+        with open(file_name) as infile:
+            file = json.load(infile)
+        for i,(v,k) in enumerate(file.items()):
+            if k['name'] ==  name:
+                return True
+            else:
+                pass
+        return False
+        print('ITEM NOT FOUND TRY AGAIN')
+        return
+    def unequip():
+        with open('inventorye.json') as infile:
+            equips = json.load(infile)
+        with open('inventoryi.json') as infile:
+            inventory = json.load(infile)
+        name = module.proper_input()
+        for i, (k, v) in enumerate(equips.items()):
+            if v[0]['name'] == name:
+                equips[k][0]['name'] = null
+                equips[k][0]['quantity'] = 0
+                with open('inventorye.json') as infile:
+                    infile.write(json.dumps(equips, indent=2))
+                Inventory.psi(name, 1, 'add', 'inventoryi.json')
+                for index, (key,value) in enumerate(item[0][name][0]['stats'][0].items()):
+                    Inventory.modify(value, key, 'subtract')
+                return
+        else:
+            pass
     def inventory_display():
         indel = Inventory.page_scroll()
         print('ENTER PAGE TO SCROLL TO: ')
@@ -111,22 +185,15 @@ class Inventory():
         print(f'''
     ══════════════════════════════════
     ''')
-        inventory_actions = module.proper_input('str')
-        if inventory_actions == 'exit':
-            pass
-            #put open_menu() here
-        elif inventory_actions == 'item_select':
-            print('ENTER ITEM NAME')
-            item_name = module.proper_input('str')
-            if item_name in indel:
-                action = module.proper_input('str')
-                if action == 'equip':
-                    Inventory.equip(item_name)
-                elif action == 'use':
-                    Inventory.actual_item_usage(item_name)
-            else:
-                print('PLEASE ENTER AN ACTUAL ITEM')
-                Inventory.inventory_display()
+        action = module.proper_input('str')
+        if action == 'unequip':
+            Inventory.unequip()
+        elif action == 'equip':
+            Inventory.equips()
+        elif action == 'delete':
+            Inventory.delete()
+        elif action == 'exit':
+            return
     def verify_usage():
         egg = input("")
         if egg == "Y":
@@ -142,36 +209,8 @@ class Inventory():
             if module.proper_input('str') == 'open':
                 Inventory.inventory_display()
             else:
-                break 
-        item =  module.proper_input('str')
-        for i, (k,v) in enumerate(inventoryi.items()):
-            if v['name'] != item:
-                continue
-            else:
-                Inventory.actual_item_usage()
                 break
-        Inventory.item_usage()
-    def actual_item_usage(item_name):
-        for i,(k, v) in enumerate(item[0].item()):
-            if item_name == v['name']:
-                if v['type'] == 'consumable':
-                    Inventory.modify(v['stats'][0]['health'], 'health', 'add')
-                elif v['type'] == 'boots' or v['type'] == 'chestplate' or v['type'] ==  'leggings' or v['type'] == 'helmet' or v['type'] == 'weapon':
-                    Inventory.equip(item_name)
-        #menu here
-    def equip(item_name):
-        for i,(k, v) in enumerate(item[0].items()):
-            if item_name == k: 
-                if Inventory.check_slot(v[0]['type']) == False:
-                    print('Slot currently has item equipped')
-                    break
-                else:
-                    for index, (key,value) in enumerate(v[0]['stats'][0].items()):
-                        print(key, value)
-                        Inventory.modify(value, key, 'add')
-                        with open('inventoryi.json') as infile:
-                            inventoryi=  json.load(infile)
-                    break
+
     def check_slot(slot):
         with open('inventorye.json') as infile:
             inventorye  = json.load(infile)
@@ -181,17 +220,6 @@ class Inventory():
                     return True
                 else:
                     return False
-    def unequip():
-        item_name = module.proper_input('str')
-        mode = module.proper_input('str')
-        while mode != 'destroy' or mode != 'unequip':
-            mode = module.proper_input('str')
-        for i,(k, v) in enumerate(item[0].item()):
-            if item_name == v['name']: 
-                for index, (key,value) in enumerate(v[0]['stats'][0].items()):
-                    Inventory.modify[value, key, 'subtract']
-                Inventory.un_piie(item_name, mode)
-                break
     def un_piie(item_name, mode):
         for i,(k, v) in enumerate(inverter.items()):
             if item_name == v[0]['name']:
@@ -199,7 +227,7 @@ class Inventory():
             if mode == 'unequip':
                 inverter[f'slot{i+1}'][0]['name'] = 0
                 inverter[f'slot{i+1}'][0]['quantity'] = None
-                Inventory.psi(item_name, 1 ,'')
+                Inventory.psi(item_name, 1 ,'', 'inventorye.json')
             elif mode == 'destroy':
                 inverter[f'slot{i+1}'][0]['name'] = 0
                 inverter[f'slot{i+1}'][0]['quantity'] = None
@@ -320,7 +348,7 @@ Items Needed: {v[0]['items_needed']}''')
                 print('''You don't have enough materials to craft this item''')
             else:
                 for i2, (k2, v2) in enumerate(barf['items_needed'].items()):
-                    Inventory.psi(k2, v2 * face, 'subtract')
+                    Inventory.psi(k2, v2 * face, 'subtract', 'inventoryi.json')
                 print("Crafting Item...")
                 fri = 1
                 for ul in range(10):
@@ -354,4 +382,3 @@ Items Needed: {v[0]['items_needed']}''')
             return True
         else:
             return False
-Inventory.equip('crystal pants')
