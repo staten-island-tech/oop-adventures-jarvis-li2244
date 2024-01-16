@@ -102,6 +102,18 @@ class Start():
         character[0]['attacks'] = [null,null,null,null]
         with open('character.json', 'w+')  as infile:
             infile.write(json.dumps(character, indent=2))
+    def inventory_set():
+        for i, (k,v) in enumerate(inventorye.items()):
+            v[0]['quantity'] = 0
+            v[0]['name'] = null
+        with open('inventorye.json') as infile:
+            infile.write(json.dumps(v, indent=2))
+    def inventory_set():
+        for i, (k,v) in enumerate(inventorye.items()):
+            v[0]['quantity'] = 0
+            v[0]['name'] = null
+        with open('inventorye.json') as infile:
+            infile.write(json.dumps(v, indent=2))
     def intro():
         if input() == 'skip':
             print('skipping cutscne')
@@ -144,7 +156,7 @@ class Menu():
                 print(v[0]['type'],":",v[0]['name'])
         elif idea == 'inv':
             print('Opening Inventory')
-            print(Inventory.page_scroll())
+            Inventory.inventory_display()
         elif idea == 'exit':
             print('Exiting menu')
             print('going back to map')
@@ -152,6 +164,9 @@ class Menu():
         elif idea == 'quit':
             sys.exit()
             print("CLOSE")
+        elif idea == 'craft':
+            Crafting.create_list()
+            Crafting.recipe_select()
         Menu.open_menu()
 class Levels():
     def calculate():
@@ -318,10 +333,8 @@ class Player():
                             |____/|_____/_/   \_\____/
 ''')
                 Player.modify(0, 'health', 'set')
-                print("modified")
                 return False
             else:
-                print("modified")
                 Player.modify(self.health, 'health', 'set')
                 return True
     def heal_damage(self):
@@ -362,6 +375,11 @@ class Player():
         else:
             return egg
         return egg
+    def show_equips():
+        with open('inventorye.json') as infile:
+            envy = json.load(infile)
+        for i, (v,k) in enumerate(envy.items()):
+            print(f'{k[0]['type']}:{k[0]['name']}')
     def gui():
         egg = play()
         print(r"""
@@ -374,7 +392,7 @@ class Player():
         egg.health_display()
         egg = input("")
         pe = play()
-        pe.deal_damage() if egg == "1" else (pe.run()) if egg == "2" else (pe.equip()) if egg == "3" else ((pe.items)) if egg == "4" else (Player.gui())
+        pe.deal_damage() if egg == "1" else (pe.run()) if egg == "2" else (Player.show_equips()) if egg == "3" else ((Inventory.inventory_display())) if egg == "4" else (Player.gui())
         return True
     def run(self):
         em = play()
@@ -387,6 +405,7 @@ class Player():
             ║     ESCAPE SUCESSFUL    ║
             ╚═════════════════════════╝
                 """)
+            Enemy.health_modify(0)
         else:
             print(r""" 
         ╔═════════════════════════╗
@@ -408,11 +427,9 @@ class Enemy():
         with open('enemyinstance.json', 'r+') as rel:
             egg = json.load(rel)
             egg[0]['health'] = health_change
-            print("file read")
             rel.seek(0)
         with open('enemyinstance.json','w+') as icecubes:
             icecubes.write(json.dumps(egg, indent=2))
-            print("file changed")
     def doge(self):
         dod = self.dodge
         egg = True
@@ -422,7 +439,6 @@ class Enemy():
                 egg = False
         return egg
     def take_damage_enemy(self, damage):
-        print('enemy_took_damage')
         with open('enemyinstance.json', 'r') as id:
             eggd = json.load(id)
         healthjson = eggd[0]['health']
@@ -590,6 +606,7 @@ class Turn():
             
         else:
             print("ENEMY")
+            Enemy.enemy_show()
             lm.action()
             Turn.tempvar()
 class Drops():

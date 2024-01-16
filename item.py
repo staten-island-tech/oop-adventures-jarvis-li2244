@@ -98,8 +98,8 @@ class Inventory():
         return asf
     def inventory_display():
         indel = Inventory.page_scroll()
-        inventory_actions = module.proper_input('str')
-        pagenum = int(input()) * 9 - 9
+        print('ENTER PAGE TO SCROLL TO: ')
+        pagenum = module.proper_input('int') * 9 - 9
         print(r'''
                 INVENTORY 
     ''', end='')
@@ -107,18 +107,26 @@ class Inventory():
             print(f'''
     ══════════════════════════════════
     {i+1}. {indel[pagenum]}''', end='')
+            pagenum+=1
         print(f'''
     ══════════════════════════════════
-                <- - ->
     ''')
+        inventory_actions = module.proper_input('str')
         if inventory_actions == 'exit':
             pass
             #put open_menu() here
         elif inventory_actions == 'item_select':
-            pagenum = int(input()) * 9 - 9
-        
-        else:
-            exit()
+            print('ENTER ITEM NAME')
+            item_name = module.proper_input('str')
+            if item_name in indel:
+                action = module.proper_input('str')
+                if action == 'equip':
+                    Inventory.equip(item_name)
+                elif action == 'use':
+                    Inventory.actual_item_usage(item_name)
+            else:
+                print('PLEASE ENTER AN ACTUAL ITEM')
+                Inventory.inventory_display()
     def verify_usage():
         egg = input("")
         if egg == "Y":
@@ -151,21 +159,19 @@ class Inventory():
                 elif v['type'] == 'boots' or v['type'] == 'chestplate' or v['type'] ==  'leggings' or v['type'] == 'helmet' or v['type'] == 'weapon':
                     Inventory.equip(item_name)
         #menu here
-
     def equip(item_name):
-        for i,(k, v) in enumerate(item[0].item()):
-            if item_name == v['name']: 
-                if Inventory.check_slot(v['type']) == False:
+        for i,(k, v) in enumerate(item[0].items()):
+            if item_name == k: 
+                if Inventory.check_slot(v[0]['type']) == False:
                     print('Slot currently has item equipped')
                     break
                 else:
-                    for index, (key,value) in enumerate(v['stats'][0].items()):
-                        Inventory.modify[value, key, 'add']
+                    for index, (key,value) in enumerate(v[0]['stats'][0].items()):
+                        print(key, value)
+                        Inventory.modify(value, key, 'add')
                         with open('inventoryi.json') as infile:
                             inventoryi=  json.load(infile)
-
                     break
-                
     def check_slot(slot):
         with open('inventorye.json') as infile:
             inventorye  = json.load(infile)
@@ -182,7 +188,7 @@ class Inventory():
             mode = module.proper_input('str')
         for i,(k, v) in enumerate(item[0].item()):
             if item_name == v['name']: 
-                for index, (key,value) in enumerate(v['stats'][0].items()):
+                for index, (key,value) in enumerate(v[0]['stats'][0].items()):
                     Inventory.modify[value, key, 'subtract']
                 Inventory.un_piie(item_name, mode)
                 break
@@ -348,3 +354,4 @@ Items Needed: {v[0]['items_needed']}''')
             return True
         else:
             return False
+Inventory.equip('crystal pants')

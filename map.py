@@ -30,25 +30,15 @@ class Location_Creation():
                     fel.write(json.dumps(v[0], indent = 2))
                     fel.seek(0)
     def change(mode):
-        if mode  == 'story':
-            for i,(v,k) in enumerate(dmwt.items()):
-                if k[0]['locationname'] ==  char[0]['location']:
-                    indexing = k[0]['sublocations'].index(char[0]['sub_location'])
-                    if indexing == len(k[0]['sublocations']) -1:
-                        print('locationname changing')
-                        modifiant = 'location'
-                        algae = dmwt[f'location{i+2}'][0]['locationname']
-                    else:
-                        modifiant = 'sub_location'
-                        algae = k[0]['sublocations'][indexing+1] 
-                    with open('character.json')  as inf: 
-                        charac = json.load(inf)
-                        charac[0][modifiant] = algae
-                        if modifiant == 'location':
-                            charac[0]['sub_location'] = dmwt[f'location{i+2}'][0]['sublocations'][0]
-                    with open('character.json', 'w+')  as false:
-                        false.write(json.dumps(charac,indent=2))
-                        false.seek(0)
+        with open('character.json') as infile:
+            character = json.load(infile)
+        for i, v in enumerate(dmwt['location1'][0]['sublocations']):
+            if v[i] == character[0]['sub_location']:
+                next_locate = v[i+1]
+                character[0]['sub_location'] = next_locate
+                with open('character.json', 'w+') as infile:
+                    infile.write(json.dumps(character, indent=2))
+                break
     def update_location_instance(key, value):
         with open('mapinstance.json') as efl:
             mri = json.load(efl)
