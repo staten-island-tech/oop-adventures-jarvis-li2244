@@ -16,7 +16,7 @@
           4
         ],
         "enemy_positions": [],
-        "map_amount": 1,
+        "map_amount": 7,
         "items": [],
         "enemies": [
           {
@@ -36,8 +36,8 @@
         "locationname": "The Myrminki Assembly",
         "type": "Enemy",
         "map_dimensions": [
-          3,
-          3
+          5,
+          5
         ],
         "spawn_position": [
           1,
@@ -48,7 +48,7 @@
           1
         ],
         "enemy_positions": [],
-        "map_amount":1,
+        "map_amount":12,
         "enemies": [
             {
               "0": [
@@ -67,8 +67,8 @@
         "locationname": "Treehouse",
         "type": "Enemy",
         "map_dimensions": [
-          3,
-          7
+          9,
+          9
         ],
         "spawn_position": [
           1,
@@ -79,7 +79,7 @@
           6
         ],
         "enemy_positions": [],
-        "map_amount":1,
+        "map_amount":10,
         "enemies": [
           {
             "0": [
@@ -98,7 +98,7 @@
           "locationname": "Abandoned Bunker",
           "type": "Enemy",
           "map_dimensions": [
-            6,
+            7,
             7
           ],
           "spawn_position": [
@@ -129,7 +129,7 @@
           "locationname": "Frank's Furnace",
           "type": "Shop",
           "map_dimensions": [
-            3,
+            4,
             4
           ],
           "spawn_position": [
@@ -148,7 +148,7 @@
           "locationname": "Anticore Lab",
           "type": "Shop",
           "map_dimensions": [
-            4,
+            6,
             6
           ],
           "spawn_position": [

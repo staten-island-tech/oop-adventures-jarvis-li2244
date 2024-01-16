@@ -1,17 +1,17 @@
 {
-  "locationname": "The Myrminki Assembly",
+  "locationname": "Abandoned Bunker",
   "type": "Enemy",
   "map_dimensions": [
-    3,
-    3
+    7,
+    7
   ],
   "spawn_position": [
     1,
     0
   ],
   "exit_position": [
-    0,
-    1
+    1,
+    5
   ],
   "enemy_positions": [],
   "map_amount": 1,
@@ -19,7 +19,7 @@
     {
       "0": [
         {
-          "name": "generic_enemy3",
+          "name": "generic_enemy5",
           "spawn_rate": 1,
           "boost": 3
         }

@@ -113,8 +113,10 @@ class Maper():
             variablename = [[Maper.spawn_positions()[1], Maper.spawn_positions()[0]] for i in range(spawn_amount)]
             Location_Creation.update_location_instance('enemy_positions', variablename)
             for i in range(spawn_amount):
-                y_cords = variablename[i][0]
-                x_cords = variablename[i][1]
+                with open('mapinstance.json') as infile:
+                    mapinstance = json.load(infile)
+                y_cords = mapinstance['enemy_positions'][i][0]
+                x_cords = mapinstance['enemy_positions'][i][1]
                 print(x_cords, y_cords)
                 Map[y_cords][x_cords] = '[O]'
                 eg+=1

@@ -129,6 +129,15 @@ class Start():
             #dialogue here
             pass
             Maper.map()
+    def dialogue():
+        with open('dialogue.json') as dialogu:
+            dialogue = json.load(dialogu)
+        for i, k in enumerate(dialogue['Tutorial: Act I']):
+            for ee in range(len(k)):
+                module.delay_print(k[i])
+                input()
+                print(''' ''')
+
 class Menu():
     def open_menu():
         mod.line_split_print(r''' MENU 
@@ -166,7 +175,7 @@ class Menu():
         elif idea == 'exit':
             print('Exiting menu')
             print('going back to map')
-            Maper.map()
+            return
         elif idea == 'quit':
             sys.exit()
             print("CLOSE")
