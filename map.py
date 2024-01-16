@@ -33,8 +33,8 @@ class Location_Creation():
         with open('character.json') as infile:
             character = json.load(infile)
         for i, v in enumerate(dmwt['location1'][0]['sublocations']):
-            if v[i] == character[0]['sub_location']:
-                next_locate = v[i+1]
+            if v == character[0]['sub_location']:
+                next_locate = dmwt['location1'][0]['sublocations'][i+1]
                 character[0]['sub_location'] = next_locate
                 with open('character.json', 'w+') as infile:
                     infile.write(json.dumps(character, indent=2))
@@ -81,9 +81,6 @@ with open('character.json') as efe:
 #updating whatever key pair needed
 
 #placeholder for battle system, once finished with this file
-class Lakes():
-    def kill_enemy():
-        print("ENEMY KILLED")
 #map function 
 class Maper():
     def spawn_positions():

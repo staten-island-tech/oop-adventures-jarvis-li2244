@@ -1,28 +1,32 @@
 {
-  "locationname": "The Myrminki Village",
+  "locationname": "Abandoned Bunker",
   "type": "Enemy",
   "map_dimensions": [
-    10,
-    10
+    6,
+    7
   ],
   "spawn_position": [
-    4,
-    4
+    1,
+    0
   ],
   "exit_position": [
-    4,
-    4
+    1,
+    5
   ],
-  "enemy_positions": [],
+  "enemy_positions": [
+    [
+      2,
+      1
+    ]
+  ],
   "map_amount": 1,
-  "items": [],
   "enemies": [
     {
       "0": [
         {
-          "name": "generic_enemy1",
-          "spawn_rate": 10,
-          "boost": 1
+          "name": "generic_enemy5",
+          "spawn_rate": 1,
+          "boost": 3
         }
       ]
     }

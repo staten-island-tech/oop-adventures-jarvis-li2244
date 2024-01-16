@@ -1,44 +1,44 @@
 {
   "slot1": [
     {
-      "quantity": 840,
-      "name": "gem_crystal"
+      "quantity": 119,
+      "name": "wood"
     }
   ],
   "slot2": [
     {
-      "quantity": 9760,
-      "name": "hardened_gel"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot3": [
     {
-      "quantity": 99760,
-      "name": "shiny_rock"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot4": [
     {
-      "quantity": 6,
-      "name": "A Cool Rock"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot5": [
     {
-      "quantity": 5,
-      "name": "Not a Cool Rock"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot6": [
     {
-      "quantity": 1,
-      "name": "A Less Cool Rock"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot7": [
     {
-      "quantity": 15,
-      "name": "crystal pants"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot8": [

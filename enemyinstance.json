@@ -14,9 +14,9 @@
     "exp": 400,
     "loot_table": [
       {
-        "wood": 1,
-        "gel": 0.01,
-        "rock": 0.1
+        "wood": 100,
+        "gel": 1,
+        "rock": 10
       }
     ]
   }

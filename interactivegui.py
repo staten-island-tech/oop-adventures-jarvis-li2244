@@ -78,6 +78,8 @@ class Start():
         if class_selected == 'mage' or class_selected == 'archer' or class_selected == 'warrior' or class_selected == 'assassin':
             print(f'{class_selected} Selected')
             Start.blit_class_stats(class_selected)
+            Start.clear_equips()
+            Start.clear_inventory()
         else:
             print('Class Entered Does Not Exist')
             print('Try Again')
@@ -102,18 +104,22 @@ class Start():
         character[0]['attacks'] = [null,null,null,null]
         with open('character.json', 'w+')  as infile:
             infile.write(json.dumps(character, indent=2))
-    def inventory_set():
-        for i, (k,v) in enumerate(inventorye.items()):
-            v[0]['quantity'] = 0
-            v[0]['name'] = null
+    def clear_equips():
         with open('inventorye.json') as infile:
-            infile.write(json.dumps(v, indent=2))
-    def inventory_set():
-        for i, (k,v) in enumerate(inventorye.items()):
-            v[0]['quantity'] = 0
-            v[0]['name'] = null
-        with open('inventorye.json') as infile:
-            infile.write(json.dumps(v, indent=2))
+            equips = json.load(infile)
+        for i, (k,v) in enumerate(equips.items()):
+            equips[k][0]['name'] = None
+            equips[k][0]['quantity'] = 0
+            with open('inventorye.json', 'w+') as outfile:
+                outfile.write(json.dumps(equips, indent=2))
+    def clear_inventory():
+        with open('inventoryi.json') as infile:
+            inventory = json.load(infile)
+        for i,(k, v) in enumerate(inventory.items()):
+            inventory[k][0]['name'] = None
+            inventory[k][0]['quantity'] = 0
+            with open('inventoryi.json' ,'w+') as outfile:
+                outfile.write(json.dumps(inventory, indent=2))
     def intro():
         if input() == 'skip':
             print('skipping cutscne')
@@ -618,7 +624,7 @@ class Drops():
                 continue
             for index,(value,key) in enumerate(k[0]['loot_table'][0].items()):
                 if random.randint(1,int(100/key)) ==  random.randint(1, int(100/key)):
-                    print(f'{value} dropped! {key}')
+                    print(f'{value} dropped! {key}% drop rate')
                     Inventory.psi(value,random.randint(1, 100),'add')
 def verify_usage():
     egg = input("")
