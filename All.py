@@ -1448,6 +1448,7 @@ class Story:
         elif story == "The Family of the Creator":
             Story.QuestTFOTC()
             
+# run the top two functions when switch active quest or sublocation
     def Act_I():
         ChangeC.characterNum()
         for i in jquest:
@@ -1472,7 +1473,7 @@ class Story:
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
             dialogue.dialogue("Tutorial: Act II")
-            #summon a monster
+            #summon a monster, regukar enemy
             dialogue.dialogue("Tutorial: Act II 2")   
             modify("inventoryq", "Tutorial: Act III", "main_quest")  
             modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
@@ -1488,7 +1489,7 @@ class Story:
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
             dialogue.dialogue("Tutorial: Act III")
-            #if player steps on an x, run either dialogue("Act III Item 1 or 2") 
+            #if player steps on an x on the map, run either dialogue("Act III Item 1 or 2") 
             dialogue.dialogue("Tutorial: Act III 2")   
             modify("inventoryq", "Tutorial: Act IV", "main_quest")  
             modify("character", jinventoryq[inventoryqNum]["main_quest"], "active_quest")
@@ -1504,8 +1505,9 @@ class Story:
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:    
             dialogue.dialogue("Tutorial: Act IV")     
-            #when player steps on tile with the letter, use dialogue("totem with the matching letter")
+            #when player steps on tile with the letter, use dialogue(Totem with the matching letter)
             #if totem was already stepped on, use the dialogue("Lit Totem")
+            #idea is that the letters will be added to a list, if the order is wrong, list is emptied ad restart, same letter can't be added twice
             dialogue.dialogue("Tutorial: Act IV 2")
             #summon miniboss
             dialogue.dialogue("Tutorial: Act IV 3")
@@ -1568,7 +1570,7 @@ class Story:
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:  
             dialogue.dialogue("Chiblee's Troubled Past")
-            #when the player steps on a grid, play dialogue(Itme #)
+            #when the player steps on a grid, play dialogue(Itme #), 3 items/check dialogue: called CTP Item 1,2,3
             dialogue.dialogue("Items Found")
             dialogue.dialogue("Chiblee's Troubled Past 2")
             content = jinventoryq[inventoryqNum]["collect_quest"].pop("Chiblee's Troubled Past")
@@ -1587,13 +1589,15 @@ class Story:
                 break
         if checkSLocation == jcharacter[characterNum]["sub_location"]:  
             dialogue.dialogue("The Family of the Creator")
-            #whne player steps on tile, ranodmize between one and three
+            #whne player steps on tile, ranodmize between one and three which dtermines the battle, three diff enemies, check dialogue for more info
             dialogue.dialogue("Battle 1")
             #commence battle
             dialogue.dialogue("Battle End")
             dialogue.dialogue("Battle 2")
+            #commence battle
             dialogue.dialogue("Battle End")
             dialogue.dialogue("Battle 3")
+            #commence battle
             dialogue.dialogue("Battle End")
             dialogue.dialogue("The Family of the Creator 2")
             content = jinventoryq[inventoryqNum]["fight_quest"].pop("The Family of the Creator")

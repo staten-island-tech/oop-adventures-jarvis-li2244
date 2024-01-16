@@ -1,0 +1,157 @@
+{
+    "generic_enemy1": [
+        {
+            "name" : "Rogue Ant",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "banana_peels": 1,
+                    "sinew": 0.01,
+                    "plort": 0.1
+                } 
+            ]
+        }
+    ],"generic_enemy2": [
+        {
+            "name" : "Escaped Convict",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "sand": 1,
+                    "gel": 0.01,
+                    "green_fiber": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy3": [
+        {
+            "name" : "Warrior Ant",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "iron": 1,
+                    "steel": 0.01,
+                    "gunpowder": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy4": [
+        {
+            "name" : "Newspaper Clipping",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "sand": 1,
+                    "sinew": 0.01,
+                    "wood": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy5": [
+        {
+            "name" : "3xPEr1MeN7",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "iron": 1,
+                    "gem_crystal": 0.01,
+                    "steel": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy6": [
+        {
+            "name" : "Spider",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "rock": 1,
+                    "gel": 0.01,
+                    "shiny_rock": 0.1
+                } 
+            ]
+        }
+    ],    "generic_enemy7": [
+        {
+            "name" : "Treeater",
+            "max_health" : 800,
+            "health" : 200,
+            "damage" : 3,
+            "dodge" : 4,
+            "defense" : 5,
+            "atkspd" : 6,
+            "mana" : 7,
+            "critchance": 8, 
+            "critdmg": 9,
+            "speed":100,
+            "exp" : 100,
+            "loot_table":[
+                {
+                    "wood": 1,
+                    "gel": 0.01,
+                    "rock": 0.1
+                } 
+            ]
+        }
+    ]
+}
