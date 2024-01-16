@@ -1,57 +1,32 @@
 {
-  "locationname": "The Myrminki Village",
+  "locationname": "The Myrminki Assembly",
   "type": "Enemy",
   "map_dimensions": [
-    10,
-    10
+    3,
+    3
   ],
   "spawn_position": [
-    4,
-    4
+    1,
+    0
   ],
   "exit_position": [
-    4,
-    4
+    0,
+    1
   ],
   "enemy_positions": [
-    [
-      3,
-      0
-    ],
-    [
-      1,
-      0
-    ],
-    [
-      7,
-      6
-    ],
-    [
-      4,
-      2
-    ],
     [
       2,
       2
     ]
   ],
-  "map_amount": 10,
+  "map_amount": 1,
   "enemies": [
     {
       "0": [
         {
-          "name": "generic_enemy1",
-          "spawn_rate": 10,
-          "boost": 1
-        }
-      ]
-    },
-    {
-      "1": [
-        {
-          "name": "generic_enemy2",
-          "spawn_rate": 5,
-          "boost": 1
+          "name": "generic_enemy3",
+          "spawn_rate": 1,
+          "boost": 3
         }
       ]
     }

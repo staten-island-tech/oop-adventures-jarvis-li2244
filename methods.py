@@ -36,7 +36,12 @@ class Modified_Functions():
             current_level = filecab
             for i in range(len(values)-1):
                 current_level = current_level[values[i]]
-            current_level[values[-1]] = content_change
+                print(current_level)
+                print(values[i])
+            if len(values) == 1:
+                pass
+            else:
+                current_level[values[-1]] = content_change
             with open(file, 'w+') as outfile:
                 outfile.write(json.dumps(filecab, indent=2))
         except ValueError:

@@ -5,5 +5,255 @@
             "type": "weapon",
             "damage": 100
         }
+    ],
+    "generic_loot2" : [
+        { 
+            "name" : "rock",
+            "type": "material"
+        }
+    ],
+    "generic_loot3" : [
+        { 
+            "name" : "wood",
+            "type": "material"
+        }
+    ],
+    "generic_loot4" : [
+        { 
+            "name" : "gem_crystal",
+            "type": "material"
+        }
+    ],
+    "generic_loot5" : [
+        { 
+            "name" : "green fiber",
+            "type": "material"
+        }
+    ],
+    "generic_loot6" : [
+        { 
+            "name" : "sinew",
+            "type": "material"
+        }
+    ],
+    "generic_loot7" : [
+        { 
+            "name" : "banana peels",
+            "type": "material"
+        }
+    ],
+    "generic_loot8" : [
+        { 
+            "name" : "shiny rock",
+            "type": "material"
+        }
+    ],
+    "generic_loot9" : [
+        { 
+            "name" : "plort",
+            "type": "material"
+        }
+    ],
+    "generic_loot10" : [
+        { 
+            "name" : "gel",
+            "type": "material"
+        }
+    ],
+    "generic_loot11" : [
+        { 
+            "name" : "hardened gel",
+            "type": "material"
+        }
+    ],
+    "generic_loot12" : [
+        { 
+            "name" : "iron",
+            "type": "material"
+        }
+    ],
+    "generic_loot13" : [
+        { 
+            "name" : "sand",
+            "type": "material"
+        }
+    ],
+    "generic_loot14" : [
+        { 
+            "name" : "gunpowder",
+            "type": "material"
+        }
+    ],
+    "generic_loot15" : [
+        { 
+            "name" : "steel",
+            "type": "material"
+        }
+    ],
+    "generic_loot16" : [
+        { 
+            "name" : "rubber sword",
+            "type": "weapon",
+            "damage": 1
+        }
+    ],
+    "generic_loot17" : [
+        { 
+            "name" : "broadsword",
+            "type": "weapon",
+            "damage": 100
+        }
+    ],
+    "generic_loot18" : [
+        { 
+            "name" : "katana",
+            "type": "weapon",
+            "damage": 75,
+            "critdmg": 75
+        }
+    ],
+    "generic_loot19" : [
+        { 
+            "name" : "heavy battle axe",
+            "type": "weapon",
+            "damage": 30,
+            "critdmg": 200
+        }
+    ],
+    "generic_loot20" : [
+        { 
+            "name" : "gauntlets",
+            "type": "weapon",
+            "damage": 70,
+            "critdmg": 30
+        }
+    ],
+    "generic_loot21" : [
+        { 
+            "name" : "spear",
+            "type": "weapon",
+            "damage": 35,
+            "critdmg": 50
+        }
+    ],
+    "generic_loot22" : [
+        { 
+            "name" : "nuke",
+            "type": "weapon",
+            "damage": 0,
+            "critdmg": 500
+        }
+    ],
+    "generic_loot23" : [
+        { 
+            "name" : "leather pants",
+            "type": "leggings",
+            "damage": 10
+        }
+    ],
+    "generic_loot24" : [
+        { 
+            "name" : "leather helmet",
+            "type": "helmet",
+            "damage": 5
+        }
+    ],
+    "generic_loot25" : [
+        { 
+            "name" : "leather chestplate",
+            "type": "chestplate",
+            "damage": 20
+        }
+    ],
+    "generic_loot26" : [
+        { 
+            "name" : "leather boots",
+            "type": "boots",
+            "damage": 5
+        }
+    ],
+    "generic_loot27" : [
+        { 
+            "name" : "iron helmet",
+            "type": "helmet",
+            "damage": 15
+        }
+    ],
+    "generic_loot28" : [
+        { 
+            "name" : "iron chestplate",
+            "type": "chestplate",
+            "damage": 30
+        }
+    ],
+    "generic_loot29" : [
+        { 
+            "name" : "iron pants",
+            "type": "leggings",
+            "damage": 20
+        }
+    ],
+    "generic_loot30" : [
+        { 
+            "name" : "iron boots",
+            "type": "boots",
+            "damage": 15
+        }
+    ],
+    "generic_loot31" : [
+        { 
+            "name" : "crystal helmet",
+            "type": "helmet",
+            "critdmg": 35
+        }
+    ],
+    "generic_loot32" : [
+        { 
+            "name" : "crystal chestplate",
+            "type": "chestplate",
+            "critdmg": 50
+        }
+    ],
+    "generic_loot33" : [
+        { 
+            "name" : "crystal pants",
+            "type": "leggings",
+            "critdmg": 40
+        }
+    ],
+    "generic_loot34" : [
+        { 
+            "name" : "crystal boots",
+            "type": "weapon",
+            "critdmg": 35
+        }
+    ],
+    "generic_loot35" : [
+        { 
+            "name" : "plort helmet",
+            "type": "helmet",
+            "critdmg": 20
+        }
+    ],
+    "generic_loot36" : [
+        { 
+            "name" : "plort chestplate",
+            "type": "chestplate",
+            "critdmg": 30
+        }
+    ],
+    "generic_loot37" : [
+        { 
+            "name" : "plort pants",
+            "type": "leggings",
+            "damage": 20
+        }
+    ],
+    "generic_loot38" : [
+        { 
+            "name" : "plort boots",
+            "type": "boots",
+            "damage": 20
+        }
     ]
 }

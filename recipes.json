@@ -1,322 +1,371 @@
 [{
     "item_1":[
         {
-        "name" : "A Cool Rock", 
-        "description":"A VERY AWESOMELY INSANELY COOL ROCK!!!",
-        "level_req" : 0,
+        "name" : "iron helmet", 
+        "description":"You'll have a Hard Head",
+        "level_req" : 30,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "iron" : 10, 
+            "wood": 20, 
+            "sinew" : 5
         }
         }
     ],
     "item_2":[
         {
-        "name" : "Not a Cool Rock", 
-        "level_req" : 0,
+        "name" : "iron chestplate", 
+        "level_req" : 30,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "iron" : 20, 
+            "wood": 30, 
+            "sinew" : 5
         }
         }
     ],
     "item_3":[
         {
-        "name" : "A Less Cool Rock", 
-        "level_req" : 0,
+        "name" : "iron pants", 
+        "level_req" : 30,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "iron" : 15, 
+            "wood": 25, 
+            "sinew" : 5
         }
         }
     ],
     "item_4":[
         {
-        "name" : "A Very Cool Rock", 
-        "level_req" : 0,
+        "name" : "iron boots", 
+        "level_req" : 30,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "iron" : 10, 
+            "wood": 20, 
+            "sinew" : 5
         }
         }
     ],
     "item_5":[
         {
-        "name" : "A Big Cool Rock", 
-        "level_req" : 0,
+        "name" : "nuke", 
+        "level_req" : 80,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "sand" : 50, 
+            "gunpowder": 50, 
+            "steel" : 50
         }
         }
     ],
     "item_6":[
         {
-        "name" : "Just A Rock", 
-        "level_req" : 0,
+        "name" : "crystal helmet", 
+        "level_req" : 60,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "gem_crystal" : 5, 
+            "hardened_gel": 10, 
+            "shiny_rock" : 10
         }
         }
     ],
     "item_7":[
         {
-        "name" : "Woah, a Cool Rock", 
-        "level_req" : 0,
+        "name" : "crystal chestplate", 
+        "level_req" : 60,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "gem_crystal" : 15, 
+            "hardened_gel": 20, 
+            "shiny_rock" : 20
         }
         }
     ],
     "item_8":[
         {
-        "name" : "A Cool Rock Sword", 
-        "level_req" : 0,
+        "name" : "crystal pants", 
+        "level_req" : 60,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "gem_crystal" : 10, 
+            "hardened_gel": 15, 
+            "shiny_rock" : 15
         }
         }
     ],
     "item_9":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "crystal boots", 
+        "level_req" : 60,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "gem_crystal" : 5, 
+            "hardened_gel": 10, 
+            "shiny_rock" : 10
         }
         }
     ],
     "item_10":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "leather helmet", 
+        "level_req" : 10,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "green_fiber" : 5, 
+            "wood": 5, 
+            "plort" : 5
         }
         }
     ],
     "item_11":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "leather chestplate", 
+        "level_req" : 10,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "green_fiber" : 10, 
+            "wood": 10, 
+            "plort" : 10
         }
         }
     ],
     "item_12":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "leather pants", 
+        "level_req" : 10,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "green_fiber" : 10, 
+            "wood": 10, 
+            "plort" : 10
         }
         }
     ],
     "item_13":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "leather boots", 
+        "level_req" : 10,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "green_fiber" : 5, 
+            "wood": 5, 
+            "plort" : 5
         }
         }
     ],
     "item_14":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "rubber sword", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "rock" : 1, 
+            "banana_peels": 10, 
+            "gel" : 5
         }
         }
     ],
     "item_15":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "broadsword", 
+        "level_req" : 50,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "iron" : 20, 
+            "steel": 20, 
+            "wood" : 20
         }
         }
     ],
     "item_16":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "katana", 
+        "level_req" : 50,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "steel" : 20, 
+            "rock": 10, 
+            "gem_crystal" : 5
         }
         }
     ],
     "item_17":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "heavy battle axe", 
+        "level_req" : 70,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "steel" : 20, 
+            "wood": 10, 
+            "sinew" : 15
         }
         }
     ],
     "item_18":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "gauntlets", 
+        "level_req" : 30,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "rock" : 10, 
+            "steel": 15, 
+            "hardened_gel" : 10
         }
         }
     ],
     "item_19":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "gel-tipped dagger", 
+        "level_req" : 70,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "gel" : 30, 
+            "hardened_gel": 30, 
+            "gem_crystal" : 5
         }
         }
     ],
     "item_20":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "hardened gel", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "gel" : 1, 
+            "rock": 1, 
+            "shiny_rock" : 1
         }
         }
     ],
     "item_21":[
         {
-        "name" : "A Cool Rock Man", 
-        "level_req" : 0,
+        "name" : "spear", 
+        "level_req" : 20,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "wood" : 20, 
+            "iron": 10, 
+            "shiny_rock": 5
         }
         }
     ],
     "item_22":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "steel", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "iron" : 1, 
+            "rock": 1, 
+            "wood" : 5
         }
         }
     ],
     "item_23":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "shiny rock", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "rock" : 1, 
+            "wood": 1, 
+            "green_fiber" : 1
         }
         }
     ],
     "item_24":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "sinew", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "banana_peels" : 1, 
+            "green_fiber": 1, 
+            "plort" : 1
         }
         }
     ],
     "item_25":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "gunpowder", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "wood" : 1, 
+            "rock": 1, 
+            "sand" : 1
         }
         }
     ],
     "item_26":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "plort helmet", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "plort" : 10, 
+            "sand": 10, 
+            "banana_peels" : 10
         }
         }
     ],
     "item_27":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "plort chestplate", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "plort" : 20, 
+            "sand": 10, 
+            "banana_peels" : 10
         }
         }
     ],
     "item_28":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "plort pants", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "plort" : 20, 
+            "sand": 10, 
+            "banana_peels" : 10
         }
         }
     ],
     "item_29":[
         {
-        "name" : "A Cool Rock Man", 
+        "name" : "plort boots", 
         "level_req" : 0,
         "items_needed":{
-            "big_rock" : 1, 
-            "small_rock": 1, 
-            "tiny_rock" : 1
+            "plort" : 10, 
+            "sand": 10, 
+            "banana_peels" : 10
         }
+        }
+    ],
+    "item_30":[
+        {
+        "name" : null, 
+        "level_req" : 1000000000000000000000000000000,
+        "items_needed":null
+        }
+    ],
+    "item_31":[
+        {
+        "name" : null, 
+        "level_req" : 1000000000000000000000000000000,
+        "items_needed":null
+        }
+    ],
+    "item_32":[
+        {
+        "name" : null, 
+        "level_req" : 1000000000000000000000000000000,
+        "items_needed":null
+        }
+    ],
+    "item_33":[
+        {
+        "name" : null, 
+        "level_req" : 1000000000000000000000000000000,
+        "items_needed":null
+        }
+    ],
+    "item_34":[
+        {
+        "name" : null, 
+        "level_req" : 1000000000000000000000000000000,
+        "items_needed":null
+        }
+    ],
+    "item_35":[
+        {
+        "name" : null, 
+        "level_req" : 1000000000000000000000000000000,
+        "items_needed":null
+        }
+    ],
+    "item_36":[
+        {
+        "name" : null, 
+        "level_req" : 1000000000000000000000000000000,
+        "items_needed":null
         }
     ]
 }]

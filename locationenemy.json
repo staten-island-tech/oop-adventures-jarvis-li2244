@@ -1,65 +1,222 @@
 {
     "location_1": [
-        {
-            "locationname":"The Myrminki Village",
-            "type": "Enemy",
-            "map_dimensions":[10,10],
-            "spawn_position":[4,4],
-            "exit_position":[4,4],
-            "enemy_positions":[],
-            "map_amount" : 10,
-            "enemies":[
-                {
-                    "0":[
-                        {
-                            "name":"generic_enemy1",
-                            "spawn_rate":10,
-                            "boost":1
-                        }
-                    ]
-                },
-                {
-                    "1":[
-                        {
-                            "name": "generic_enemy2",
-                            "spawn_rate":5,
-                            "boost":1
-                        }
-                    ]
-                }
+      {
+        "locationname": "The Myrminki Village",
+        "type": "Enemy",
+        "map_dimensions": [
+          10,
+          10
+        ],
+        "spawn_position": [
+          4,
+          4
+        ],
+        "exit_position": [
+          4,
+          4
+        ],
+        "enemy_positions": [],
+        "map_amount": 1,
+        "items": [],
+        "enemies": [
+          {
+            "0": [
+              {
+                "name": "generic_enemy1",
+                "spawn_rate": 10,
+                "boost": 1
+              }
             ]
-        }
+          }
+        ]
+      }
     ],
     "location_2": [
-        {
-            "locationname":"The Myrminki Assembly",
-            "type": "Enemy",
-            "map_dimensions":[3,3],
-            "spawn_position":[1, 0],
-            "exit_position":[0,1],
-            "enemy_positions":[],
-            "shop_position":[1,1]
-        }
-    ],
-    "location_3":[
-        {   
-            "locationname":"Treehouse",
-            "type": "Enemy",
-            "map_dimensions":[3,7],
-            "spawn_position":[1,0],
-            "exit_position":[1,6],
-            "enemy_positions":[],
-            "enemies":[
+      {
+        "locationname": "The Myrminki Assembly",
+        "type": "Enemy",
+        "map_dimensions": [
+          3,
+          3
+        ],
+        "spawn_position": [
+          1,
+          0
+        ],
+        "exit_position": [
+          0,
+          1
+        ],
+        "enemy_positions": [],
+        "map_amount":1,
+        "enemies": [
+            {
+              "0": [
                 {
-                    "0":[
-                        {
-                            "name":"generic_enemy4",
-                            "spawn_rate":0,
-                            "boost":3
-                        }
-                    ]
+                  "name": "generic_enemy3",
+                  "spawn_rate": 1,
+                  "boost": 3
                 }
+              ]
+            }
+          ]
+      }
+    ],
+    "location_3": [
+      {
+        "locationname": "Treehouse",
+        "type": "Enemy",
+        "map_dimensions": [
+          3,
+          7
+        ],
+        "spawn_position": [
+          1,
+          4
+        ],
+        "exit_position": [
+          2,
+          6
+        ],
+        "enemy_positions": [],
+        "map_amount":1,
+        "enemies": [
+          {
+            "0": [
+              {
+                "name": "generic_enemy4",
+                "spawn_rate": 1,
+                "boost": 3
+              }
             ]
+          }
+        ]
+      }
+    ],
+    "location_4": [
+        {
+          "locationname": "Abandoned Bunker",
+          "type": "Enemy",
+          "map_dimensions": [
+            6,
+            7
+          ],
+          "spawn_position": [
+            1,
+            0
+          ],
+          "exit_position": [
+            1,
+            5
+          ],
+          "enemy_positions": [],
+          "map_amount":1,
+          "enemies": [
+            {
+              "0": [
+                {
+                  "name": "generic_enemy5",
+                  "spawn_rate": 1,
+                  "boost": 3
+                }
+              ]
+            }
+          ]
         }
-    ]
-}
+      ],
+      "location_5": [
+        {
+          "locationname": "Frank's Furnace",
+          "type": "Shop",
+          "map_dimensions": [
+            3,
+            4
+          ],
+          "spawn_position": [
+            1,
+            0
+          ],
+          "exit_position": [
+            1,
+            3
+          ]
+          
+        }
+      ],
+      "location_6": [
+        {
+          "locationname": "Anticore Lab",
+          "type": "Shop",
+          "map_dimensions": [
+            4,
+            6
+          ],
+          "spawn_position": [
+            1,
+            0
+          ],
+          "map_amount":1,
+          "exit_position": [
+            1,
+            5
+          ]
+          
+        }
+      ],
+      "location_7": [
+        {
+          "locationname": "Big Bankers",
+          "type": "Shop",
+          "map_dimensions": [
+            5,
+            5
+          ],
+          "spawn_position": [
+            1,
+            0
+          ],
+          "map_amount":1,
+          "exit_position": [
+            1,
+            4
+          ]
+        }
+      ],
+      "location_8": [
+        {
+          "locationname": "Outskirts of Anthill Forest",
+          "type": "Enemy",
+          "map_dimensions": [
+            7,
+            7
+          ],
+          "spawn_position": [
+            1,
+            1
+          ],
+          "exit_position": [
+            6,
+            6
+          ],
+          "enemy_positions": [],
+          "map_amount":1,
+          "enemies": [
+            {
+              "0": [
+                {
+                  "name": "generic_enemy6",
+                  "spawn_rate": 1,
+                  "boost": 3
+                }
+            ], 
+                
+              "1" :[
+                {
+                    "name": "generic_enemy7",
+                    "spawn_rate": 1,
+                    "boost": 3}]
+                }
+              ]
+        }
+      ]
+  }

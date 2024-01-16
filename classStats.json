@@ -1,3 +1,4 @@
+
 {
     "class1":[
         {
@@ -16,18 +17,18 @@
                     "name": null,
                     "stat_points": 0,
                     "exp": 100,
-                    "max_health": 50,
-                    "health": 50,
-                    "attack": 45,
-                    "dodge": 24,
-                    "defense": 10,
-                    "speed": 25,
+                    "max_health": 11175,
+                    "health": 11175,
+                    "attack": 1120,
+                    "dodge": 12,
+                    "defense": 15,
+                    "speed": 45,
                     "luck": 1,
                     "mana": 40,
                     "critchance": 5,
                     "critdmg": 25,
                     "level": 0,
-                    "coins": 999600000
+                    "coins": 0
                 }
             ]
         }
@@ -49,18 +50,18 @@
                     "name": null,
                     "stat_points": 0,
                     "exp": 100,
-                    "max_health": 50,
-                    "health": 50,
-                    "attack": 45,
-                    "dodge": 24,
-                    "defense": 10,
-                    "speed": 25,
+                    "max_health": 11150,
+                    "health": 11150,
+                    "attack": 11150,
+                    "dodge": 6,
+                    "defense": 40,
+                    "speed": 10,
                     "luck": 1,
-                    "mana": 40,
+                    "mana": 20,
                     "critchance": 5,
                     "critdmg": 25,
                     "level": 0,
-                    "coins": 999600000  
+                    "coins": 0  
                 }
             ]
         }
@@ -82,18 +83,18 @@
                     "name": null,
                     "stat_points": 0,
                     "exp": 100,
-                    "max_health": 50,
-                    "health": 50,
-                    "attack": 45,
-                    "dodge": 24,
-                    "defense": 10,
-                    "speed": 25,
+                    "max_health": 11150,
+                    "health": 11150,
+                    "attack": 11150,
+                    "dodge": 12,
+                    "defense": 20,
+                    "speed": 20,
                     "luck": 1,
-                    "mana": 40,
+                    "mana": 100,
                     "critchance": 5,
                     "critdmg": 25,
                     "level": 0,
-                    "coins": 999600000
+                    "coins": 0
                 }
             ]
         }
@@ -114,9 +115,9 @@
                 "name": null,
                 "stat_points": 0,
                 "exp": 100,
-                "max_health": 50,
-                "health": 50,
-                "attack": 45,
+                "max_health": 11150,
+                "health": 11150,
+                "attack": 11150,
                 "dodge": 24,
                 "defense": 10,
                 "speed": 25,
@@ -125,7 +126,7 @@
                 "critchance": 5,
                 "critdmg": 25,
                 "level": 0,
-                "coins": 999600000
+                "coins": 0
             }
         ]
     }

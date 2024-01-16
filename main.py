@@ -8,6 +8,7 @@ lines = shutil.get_terminal_size().lines
 from methods import Modified_Functions
 module = Modified_Functions
 from item import Inventory
+from map import Maper
 with open('classStats.json') as cs1:
     cs = json.load(cs1)
 with open('character.json') as felix:
@@ -65,21 +66,9 @@ def location_set(name):
     charac[0]['skills'] = [null, null, null, null]
     with open('character.json', 'w+')  as infile:
         infile.write(json.dumps(charac, indent=2))
-def game_menu():
-    if len('file') == 0:
-        print('starting new game')
-        class_select()
-    else:
-        print('start where you left off or reset?')
-        log = input()
-        if log == 'start over':
-            print('wiping slate')
-            class_select()
-        else:
-            print('continuing where you left off')
+
 class Menu():
     def open_menu():
-        os.system('cls')
         module.line_split_print(r''' MENU 
 ╔════════════════╗
 ║    Inventory   ║
@@ -89,9 +78,6 @@ class Menu():
 ╚════════════════╝
 ╔════════════════╗
 ║      Stat      ║
-╚════════════════╝
-╔════════════════╗
-║     Skills     ║
 ╚════════════════╝
 ╔════════════════╗
 ║    Exit Menu   ║
@@ -118,12 +104,8 @@ class Menu():
         elif idea == 'exit':
             print('Exiting menu')
             print('going back to map')
+            Maper.map()
         elif idea == 'quit':
             sys.exit()
-        elif idea == 'skill':
-            os.system('cls')
-            module.indent_cutscene()
-            for i, v in enumerate(charac[0]['skills']):
-                module.line_split_print(v)
-            test = module.proper_input('str')
+            print("CLOSE")
 Menu.open_menu()

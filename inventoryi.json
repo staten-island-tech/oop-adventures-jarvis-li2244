@@ -1,20 +1,20 @@
 {
   "slot1": [
     {
-      "quantity": 0,
-      "name": "en"
+      "quantity": 840,
+      "name": "gem_crystal"
     }
   ],
   "slot2": [
     {
-      "quantity": 0,
-      "name": null
+      "quantity": 9760,
+      "name": "hardened_gel"
     }
   ],
   "slot3": [
     {
-      "quantity": 0,
-      "name": null
+      "quantity": 99760,
+      "name": "shiny_rock"
     }
   ],
   "slot4": [
@@ -37,8 +37,8 @@
   ],
   "slot7": [
     {
-      "quantity": 0,
-      "name": null
+      "quantity": 15,
+      "name": "crystal pants"
     }
   ],
   "slot8": [

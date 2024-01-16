@@ -3,7 +3,7 @@
     {
       "quantity": 0,
       "name": "en",
-      "type": "sword"
+      "type": "weapons"
     }
   ],
   "slot2": [
@@ -16,8 +16,8 @@
   "slot3": [
     {
       "quantity": 0,
-      "name": "WHOS GONNA ROW THE BOATS",
-      "type": "goggins"
+      "name": null,
+      "type": "leggings"
     }
   ],
   "slot4": [

@@ -1,155 +1,155 @@
 {
     "generic_enemy1": [
         {
-            "names" : "EGG",
-            "max_health" : 800,
-            "health" : 200,
-            "damage" : 3,
-            "dodge" : 4,
-            "defense" : 5,
-            "atkspd" : 6,
-            "mana" : 7,
-            "critchance": 8, 
-            "critdmg": 9,
-            "speed":100,
+            "name" : "Rogue Ant",
+            "max_health" : 100,
+            "health" : 10,
+            "damage" : 15,
+            "dodge" : 10,
+            "defense" : 20,
+            "atkspd" : 10,
+            "mana" : 10,
+            "critchance": 10, 
+            "critdmg": 30,
+            "speed": 50,
             "exp" : 100,
             "loot_table":[
                 {
-                    "generic_loot1": 1,
-                    "generic_loot2": 0.01,
-                    "generic_loot3": 0.1
+                    "banana_peels": 1,
+                    "sinew": 0.01,
+                    "plort": 0.1
                 } 
             ]
         }
     ],"generic_enemy2": [
         {
-            "names" : "EGG",
-            "max_health" : 800,
-            "health" : 200,
-            "damage" : 3,
-            "dodge" : 4,
-            "defense" : 5,
-            "atkspd" : 6,
-            "mana" : 7,
-            "critchance": 8, 
-            "critdmg": 9,
-            "speed":100,
-            "exp" : 100,
+            "name" : "Escaped Convict",
+            "max_health" : 1000,
+            "health" : 250,
+            "damage" : 25,
+            "dodge" : 10,
+            "defense" : 15,
+            "atkspd" : 20,
+            "mana" : 20,
+            "critchance": 15, 
+            "critdmg": 40,
+            "speed": 70,
+            "exp" : 200,
             "loot_table":[
                 {
-                    "generic_loot1": 1,
-                    "generic_loot2": 0.01,
-                    "generic_loot3": 0.1
+                    "sand": 1,
+                    "gel": 0.01,
+                    "green_fiber": 0.1
                 } 
             ]
         }
     ],    "generic_enemy3": [
         {
-            "names" : "EGG",
-            "max_health" : 800,
-            "health" : 200,
-            "damage" : 3,
-            "dodge" : 4,
-            "defense" : 5,
-            "atkspd" : 6,
-            "mana" : 7,
-            "critchance": 8, 
-            "critdmg": 9,
-            "speed":100,
-            "exp" : 100,
+            "name" : "Warrior Ant",
+            "max_health" : 1500,
+            "health" : 500,
+            "damage" : 35,
+            "dodge" : 5,
+            "defense" : 35,
+            "atkspd" : 5,
+            "mana" : 20,
+            "critchance": 15, 
+            "critdmg": 70,
+            "speed": 50,
+            "exp" : 300,
             "loot_table":[
                 {
-                    "generic_loot1": 1,
-                    "generic_loot2": 0.01,
-                    "generic_loot3": 0.1
+                    "iron": 1,
+                    "steel": 0.01,
+                    "gunpowder": 0.1
                 } 
             ]
         }
     ],    "generic_enemy4": [
         {
-            "names" : "EGG",
-            "max_health" : 800,
+            "name" : "Newspaper Clipping",
+            "max_health" : 600,
             "health" : 200,
-            "damage" : 3,
-            "dodge" : 4,
+            "damage" : 20,
+            "dodge" : 20,
             "defense" : 5,
-            "atkspd" : 6,
-            "mana" : 7,
-            "critchance": 8, 
-            "critdmg": 9,
+            "atkspd" : 30,
+            "mana" : 30,
+            "critchance": 20, 
+            "critdmg": 20,
             "speed":100,
-            "exp" : 100,
+            "exp" : 300,
             "loot_table":[
                 {
-                    "generic_loot1": 1,
-                    "generic_loot2": 0.01,
-                    "generic_loot3": 0.1
+                    "sand": 1,
+                    "sinew": 0.01,
+                    "wood": 0.1
                 } 
             ]
         }
     ],    "generic_enemy5": [
         {
-            "names" : "EGG",
-            "max_health" : 800,
-            "health" : 200,
-            "damage" : 3,
-            "dodge" : 4,
-            "defense" : 5,
-            "atkspd" : 6,
-            "mana" : 7,
-            "critchance": 8, 
-            "critdmg": 9,
-            "speed":100,
-            "exp" : 100,
+            "name" : "3xPEr1MeN7",
+            "max_health" : 2000,
+            "health" : 1000,
+            "damage" : 50,
+            "dodge" : 5,
+            "defense" : 20,
+            "atkspd" : 5,
+            "mana" : 50,
+            "critchance": 10, 
+            "critdmg": 80,
+            "speed": 40,
+            "exp" : 700,
             "loot_table":[
                 {
-                    "generic_loot1": 1,
-                    "generic_loot2": 0.01,
-                    "generic_loot3": 0.1
+                    "iron": 1,
+                    "gem_crystal": 0.01,
+                    "steel": 0.1
                 } 
             ]
         }
     ],    "generic_enemy6": [
         {
-            "names" : "EGG",
-            "max_health" : 800,
-            "health" : 200,
-            "damage" : 3,
-            "dodge" : 4,
-            "defense" : 5,
-            "atkspd" : 6,
-            "mana" : 7,
-            "critchance": 8, 
-            "critdmg": 9,
-            "speed":100,
-            "exp" : 100,
+            "name" : "Spider",
+            "max_health" : 1200,
+            "health" : 600,
+            "damage" : 25,
+            "dodge" : 15,
+            "defense" : 25,
+            "atkspd" : 15,
+            "mana" : 50,
+            "critchance": 20, 
+            "critdmg": 50,
+            "speed": 90,
+            "exp" : 500,
             "loot_table":[
                 {
-                    "generic_loot1": 1,
-                    "generic_loot2": 0.01,
-                    "generic_loot3": 0.1
+                    "rock": 1,
+                    "gel": 0.01,
+                    "shiny_rock": 0.1
                 } 
             ]
         }
     ],    "generic_enemy7": [
         {
-            "names" : "EGG",
-            "max_health" : 800,
-            "health" : 200,
-            "damage" : 3,
-            "dodge" : 4,
-            "defense" : 5,
-            "atkspd" : 6,
-            "mana" : 7,
-            "critchance": 8, 
-            "critdmg": 9,
-            "speed":100,
-            "exp" : 100,
+            "name" : "Treeater",
+            "max_health" : 1700,
+            "health" : 900,
+            "damage" : 45,
+            "dodge" : 5,
+            "defense" : 15,
+            "atkspd" : 10,
+            "mana" : 70,
+            "critchance": 15, 
+            "critdmg": 40,
+            "speed": 40,
+            "exp" : 400,
             "loot_table":[
                 {
-                    "generic_loot1": 1,
-                    "generic_loot2": 0.01,
-                    "generic_loot3": 0.1
+                    "wood": 1,
+                    "gel": 0.01,
+                    "rock": 0.1
                 } 
             ]
         }

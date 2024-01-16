@@ -1,21 +1,15 @@
 [{
     "en":[
         {
-            "type" : "sword",
+            "type" : "weapon",
             "stackable": false,
             "stats":[
                 {
                     "attack": 10, 
                     "critdmg": 20
-
                 }
-
-
             ]
-
         }
-
-
     ],
     "rock":[
         {
@@ -94,9 +88,41 @@
             "stats":null
         }
     ],
+    "sand":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "gunpowder":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "steel":[
+        {
+            "type":"material",
+            "stackable":true,
+            "stats":null
+        }
+    ],
+    "rubber weapon":[
+        {
+            "type":"weapon",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":1
+                }
+            ]
+        }
+    ],
     "broadsword":[
         {
-            "type":"sword",
+            "type":"weapon",
             "stackable":false,
             "stats":[
                 {
@@ -104,10 +130,286 @@
                 }
             ]
         }
+    ],
+    "katana":[
+        {
+            "type":"weapon",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":75,
+                    "critdmg": 75
+                }
+            ]
+        }
+    ],
+    "heavy battle axe":[
+        {
+            "type":"weapon",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":30,
+                    "critdmg": 200
+                }
+            ]
+        }        
+    ],
+    "gauntlets":[
+        {
+            "type":"weapon",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":70,
+                    "critdmg": 30
+                }
+            ]
+        }        
+    ],
+    "gel-tipped dagger":[
+        {
+            "type":"weapon",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":100,
+                    "critdmg": 100
+                }
+            ]
+        }        
+    ],
+    "spear":[
+        {
+            "type":"weapon",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":35,
+                    "critdmg": 50
+                }
+            ]
+        }        
+    ],
+    "nuke":[
+        {
+            "type":"weapon",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":0,
+                    "critdmg": 500
+                }
+            ]
+        }        
+    ],
+    "leather pants":[
+        {
+            "type":"leggings",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":10
+                }
+            ]
+        }
+    ],
+    "leather helmet":[
+        {
+            "type":"helmet",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":5
+                }
+            ]
+        }        
+    ],
+    "leather chestplate":[
+        {
+            "type":"chestplate",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":20
+                }
+            ]
+        }        
+    ],
+    "leather boots":[
+        {
+            "type":"boots",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":5
+                }
+            ]
+        }        
+    ],
+    "iron pants":[
+        {
+            "type":"leggings",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":20
+                }
+            ]
+        }
+    ],
+    "iron helmet":[
+        {
+            "type":"helmet",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":15
+                }
+            ]
+        }        
+    ],
+    "iron chestplate":[
+        {
+            "type":"chestplate",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":30
+                }
+            ]
+        }        
+    ],
+    "iron boots":[
+        {
+            "type":"boots",
+            "stackable":false,
+            "stats":[
+                {
+                    "attack":15
+                }
+            ]
+        }        
+    ],
+    "crystal pants":[
+        {
+            "type":"leggings",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":40
+                }
+            ]
+        }
+    ],
+    "crystal helmet":[
+        {
+            "type":"helmet",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":35
+                }
+            ]
+        }        
+    ],
+    "crystal chestplate":[
+        {
+            "type":"chestplate",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":50
+                }
+            ]
+        }        
+    ],
+    "crystal boots":[
+        {
+            "type":"boots",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":35
+                }
+            ]
+        }        
+    ],
+    "plort pants":[
+        {
+            "type":"leggings",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":20
+                }
+            ]
+        }
+    ],
+    "plort helmet":[
+        {
+            "type":"helmet",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":20
+                }
+            ]
+        }        
+    ],
+    "plort chestplate":[
+        {
+            "type":"chestplate",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":30
+                }
+            ]
+        }        
+    ],
+    "plort boots":[
+        {
+            "type":"boots",
+            "stackable":false,
+            "stats":[
+                {
+                    "critdmg":20
+                }
+            ]
+        }        
+    ],
+    "potion":[
+        {
+            "type":"consumable",
+            "stackable":false,
+            "stats":[
+                {
+                    "health":30
+                }
+            ]
+        }        
+    ],
+    "pear":[
+        {
+            "type":"consumable",
+            "stackable":false,
+            "stats":[
+                {
+                    "health":100
+                }
+            ]
+        }        
+    ],
+    "banana":[
+        {
+            "type":"consumable",
+            "stackable":false,
+            "stats":[
+                {
+                    "health":11110
+                }
+            ]
+        }        
     ]
-
-
-
-
-
 }]

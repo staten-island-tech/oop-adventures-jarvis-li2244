@@ -9,7 +9,10 @@ with open('inventorye.json') as illager:
     inverter = json.load(illager)
 with open('recipes.json') as f:
     recipes = json.load(f)
+with open('character.json') as infile:
+    character = json.load(infile)
 null = None
+
 currentdict = recipes[0]['item_1'][0]['items_needed']
 class Inventory():
     def update_json(item_name, item_stats, module, amount_used):
@@ -31,11 +34,9 @@ class Inventory():
         with open('inventoryi.json')  as finale:
             inventi = json.load(finale)
             if mode == 'add':
-                print("checked3")
                 inventi[f'{slot_num}'][0]['quantity'] += item_amount
                 print(inventi[f'{slot_num}'][0]['quantity'])
             elif mode == 'subtract':
-                print("checked2")
                 inventi[f'{slot_num}'][0]['quantity'] -= item_amount
                 print(inventi[f'{slot_num}'][0]['quantity'])
                 if inventi[f'{slot_num}'][0]['quantity'] <= 0:
@@ -49,17 +50,13 @@ class Inventory():
             fermi.write(json.dumps(inventi, indent=2)) 
             fermi.seek(0)
     def psi(item_name, quantity, mode):
-        print("craft attempted")
-        print(item_name)
         with open('inventoryi.json') as finsi:
             inventiro = json.load(finsi)
         for i, (k, v) in enumerate(inventiro.items()):
             if item_name == v[0]['name']:
                 egg = True
-                print("ITEM FOUND")
                 break 
             else:
-                print("ITEM NOT FOUND")
                 egg = False
         for i2, (k2, v2) in enumerate(inventiro.items()):
             if egg == False:
@@ -67,7 +64,6 @@ class Inventory():
                     Inventory.inventory_update(item_name, k2, 'placeholdernone', quantity)
                     break
             elif egg == True:
-                print("TRUE")
                 if mode == 'subtract':
                     Inventory.inventory_update(item_name, k, 'subtract' , quantity)
                 elif mode == 'add':
@@ -99,36 +95,28 @@ class Inventory():
             for i in range(36-len(asf)):
                 asf.append("")
         print(asf)
-        print(len(asf))
         return asf
     def inventory_display():
         indel = Inventory.page_scroll()
         inventory_actions = module.proper_input('str')
-        if inventory_actions == 'scroll':
-            print('Input Page Numbe: ')
-            page = module.proper_input('int')
-            pagenum = page * 9 - 9
-        elif inventory_actions == 'exit':
+        pagenum = int(input()) * 9 - 9
+        print(r'''
+                INVENTORY 
+    ''', end='')
+        for i in range(9):
+            print(f'''
+    ══════════════════════════════════
+    {i+1}. {indel[pagenum]}''', end='')
+        print(f'''
+    ══════════════════════════════════
+                <- - ->
+    ''')
+        if inventory_actions == 'exit':
             pass
             #put open_menu() here
         elif inventory_actions == 'item_select':
-            item_select = module.proper_input('int')
-            print(indel['item_selected'])
-            if indel[item_select] == '':
-                print('Nothing Selected')
-            
             pagenum = int(input()) * 9 - 9
-            print(r'''
-                    INVENTORY 
-        ''', end='')
-            for i in range(9):
-                print(f'''
-        ══════════════════════════════════
-        {i+1}. {indel[pagenum]}''', end='')
-            print(f'''
-        ══════════════════════════════════
-                    <- - ->
-        ''')
+        
         else:
             exit()
     def verify_usage():
@@ -137,38 +125,76 @@ class Inventory():
             return True
         else:
             return False
-    def item_usage(): 
-        
-        Inventory.inventory()
-        eralt = module.proper_input('str')
-        name = inventir[f'slot{eralt}'][0]['name']
-        item_stats = item[0][f'{name}'][0]['stats'][0]
-        if name == null:
-            print("Nothing to see here")
-        elif name != null:
-            print(item_stats)
-            if item[0][f'{name}'][0]['type'] == "consumable":
-                print("Use item?")
-                if Inventory.verify_usage() == True:
-                    print("How many?")
-                    egg = module.proper_input('int')
-                    Inventory.update_json(name, item_stats, 'add', f'{egg}')
-            elif item[0][f'{name}'][0]['type'] == "equippable":
-                print("Equip Item?")
-                if Inventory.verify_usage() == True:
-                    Inventory.piie()
-                    Inventory.update_json(name, item_stats, 'add', 1)
-    def un_piie():
-        item_name = module.proper_input('str')
-        for i,(k, v) in enumerate(inverter.items()):
-            if item_name != v[0]['name']:
+    def item_usage():
+        with open('inventoryi.json')  as test:
+            inventoryi = json.load(test)
+        Inventory.inventory_display()
+        print('To open inventory again enter open')
+        while True:
+            if module.proper_input('str') == 'open':
+                Inventory.inventory_display()
+            else:
+                break 
+        item =  module.proper_input('str')
+        for i, (k,v) in enumerate(inventoryi.items()):
+            if v['name'] != item:
                 continue
-            options = Modified_Functions.proper_input('str')
-            if options == 'unequip':
+            else:
+                Inventory.actual_item_usage()
+                break
+        Inventory.item_usage()
+    def actual_item_usage(item_name):
+        for i,(k, v) in enumerate(item[0].item()):
+            if item_name == v['name']:
+                if v['type'] == 'consumable':
+                    Inventory.modify(v['stats'][0]['health'], 'health', 'add')
+                elif v['type'] == 'boots' or v['type'] == 'chestplate' or v['type'] ==  'leggings' or v['type'] == 'helmet' or v['type'] == 'weapon':
+                    Inventory.equip(item_name)
+        #menu here
+
+    def equip(item_name):
+        for i,(k, v) in enumerate(item[0].item()):
+            if item_name == v['name']: 
+                if Inventory.check_slot(v['type']) == False:
+                    print('Slot currently has item equipped')
+                    break
+                else:
+                    for index, (key,value) in enumerate(v['stats'][0].items()):
+                        Inventory.modify[value, key, 'add']
+                        with open('inventoryi.json') as infile:
+                            inventoryi=  json.load(infile)
+
+                    break
+                
+    def check_slot(slot):
+        with open('inventorye.json') as infile:
+            inventorye  = json.load(infile)
+        for i,(k, v) in enumerate(inventorye.items()):
+            if v[0]['type'] == slot:
+                if v[0]['name'] == null:
+                    return True
+                else:
+                    return False
+    def unequip():
+        item_name = module.proper_input('str')
+        mode = module.proper_input('str')
+        while mode != 'destroy' or mode != 'unequip':
+            mode = module.proper_input('str')
+        for i,(k, v) in enumerate(item[0].item()):
+            if item_name == v['name']: 
+                for index, (key,value) in enumerate(v['stats'][0].items()):
+                    Inventory.modify[value, key, 'subtract']
+                Inventory.un_piie(item_name, mode)
+                break
+    def un_piie(item_name, mode):
+        for i,(k, v) in enumerate(inverter.items()):
+            if item_name == v[0]['name']:
+                continue
+            if mode == 'unequip':
                 inverter[f'slot{i+1}'][0]['name'] = 0
                 inverter[f'slot{i+1}'][0]['quantity'] = None
                 Inventory.psi(item_name, 1 ,'')
-            elif options == 'destroy':
+            elif mode == 'destroy':
                 inverter[f'slot{i+1}'][0]['name'] = 0
                 inverter[f'slot{i+1}'][0]['quantity'] = None
             with open('inventorye.json', 'w+') as nuance:
@@ -193,7 +219,7 @@ class Inventory():
                     #parse stat modifier here or smth
                 break
 class Crafting:
-    def names(self):
+    def names():
         cyclone = 1
         item_name = []
         for i in range(len(recipes[0])):
@@ -201,10 +227,11 @@ class Crafting:
             item_name.append(name)
             cyclone += 1
         return item_name
-    def page_scroll(self):
-        numpad = input()
+    def page_scroll():
+        print('ENTER PAGE NUMBER')
+        numpad = module.proper_input('int')
         loste = []
-        fur = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+        fur = [1,2,3,4]
         if numpad not in fur:
             Crafting.page_scroll()
         else:
@@ -215,7 +242,7 @@ class Crafting:
                 lowest_range += 1
         print(loste)
         return loste
-    def create_list(self):
+    def create_list( ):
         recipe_page = Crafting.page_scroll()
         item_name = Crafting.names()
         print(f'''
@@ -240,47 +267,58 @@ class Crafting:
         ══════════════════════════════════
                 1 2 3 4 5 6 7 8...
         ''')
-        egg = input("")
-        if egg == 'page_scroll':
-            Crafting.page_scroll()
+        print('type continue to continue browsing and select to select a recipe')
+        egg = module.proper_input('str')
+        if egg == 'continue':
+            Crafting.create_list()
+        elif egg == 'select':
+            pass
         elif egg == 'exit':
-            sys.exit()
-    def recipe_select(self):
-        selection = input()
-        if selection == "Exit":
-            print("EXIT")
-        else:
-            print("woah you're actually competent??!?!?!")
-            position = recipes[0][f'item_{int(selection)}'][0]
-            print(position['items_needed'])
-            return position
-    def craft_item(self):
+            pass
+    def recipe_select( ):
+        print('ENTER ITEM YOU WOULD LIKE TO CRAFT')
+        selection = module.proper_input('str').lower()
+        if selection == "exit":
+            print("EXITING")
+            #PUT THIS INTO THE MAP
+        for i, (k,v) in enumerate(recipes[0].items()):
+            if v[0]['name'] == selection:
+                print(f'''
+Item: {v[0]['name']} 
+Level Requirement: {v[0]['level_req']}
+Items Needed: {v[0]['items_needed']}''')
+                if v[0]['level_req'] > character[0]['level']:
+                    print('Not High Enough Level')
+                    Crafting.create_list()
+                else:
+                    return v[0]
+    def craft_item( ):
         barf = Crafting.recipe_select()
-        face = input("Amount?: ")
+        print('ENTER AMOUNT YOU WOPULD LIKE TO CRAFT')
+        face = module.proper_input('int')
+        print('VERIFY YOU WOULD LIKE TO CRAFT THIS: ')
         if Crafting.confirmation() == True:
             egg = []
             with open('inventoryi.json') as facter:
                 inventoryi = json.load(facter)
+            print('ITEM AMOUNT:')
             for i, (k, v) in enumerate(barf['items_needed'].items()):
+                print(f'{k}:{v*face}')
                 for i, (name, value) in enumerate(inventoryi.items()):
                     if value[0]['name'] == k:
-                        print("here")
-                        if value[0]['quantity'] >= v:
+                        if value[0]['quantity'] * face >= v:
                             egg.append(True)
                         else:
                             egg.append(False)
             if False in egg or len(egg) == 0:
-                print(egg)
                 print('''You don't have enough materials to craft this item''')
             else:
-                print(egg)
                 for i2, (k2, v2) in enumerate(barf['items_needed'].items()):
-                    Inventory.psi(k2, v2, 'subtract')
+                    Inventory.psi(k2, v2 * face, 'subtract')
                 print("Crafting Item...")
                 fri = 1
                 for ul in range(10):
                     print(f'''
-
 
 
 
@@ -292,17 +330,16 @@ class Crafting:
 
     
 
-
-
-
+    
+    
+    
     
 
     ''')
                     time.sleep(0.1)
                     fri+=1
-                print("ITEM CRAFTED!")
-                Inventory.psi(barf['name'], 1, 'add')
-                print("ITEM ATTEMPTED CRAFT")
+                Inventory.psi(barf['name'], face, 'add')
+
         else:
             exit()
     def confirmation():
@@ -311,4 +348,3 @@ class Crafting:
             return True
         else:
             return False
-
