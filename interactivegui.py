@@ -390,7 +390,7 @@ class Player():
         with open('inventorye.json') as infile:
             envy = json.load(infile)
         for i, (v,k) in enumerate(envy.items()):
-            print(f'{k[0]['type']}:{k[0]['name']}')
+            pass
     def gui():
         egg = play()
         print(r"""
