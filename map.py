@@ -1,7 +1,6 @@
 import random, json, sys
 from interactivegui import Menu, Turn, Start
-from methods import Modified_Functions
-module = Modified_Functions
+from methods import Modified_Functions as module
 with open('locationenemy.json') as dropp:
     locationenemy= json.load(dropp)
 with open('shopinstance.json') as draf:

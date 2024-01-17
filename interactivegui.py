@@ -145,7 +145,7 @@ class Start():
     def actual_dialogue(scene_name):
         for i, k in enumerate(dialogue[scene_name]):
             for ee in range(len(k)):
-                module.delay_print(k[i])
+                mod.delay_print(k[i])
                 if input() == 'skip':
                     return
                 print(''' ''')
@@ -211,12 +211,28 @@ class Levels():
             new_level = level + 1
             print('LEVEL UP!')
             Player.modify(egg, 'exp', 'set')
-            Player.modify(new_level, 'level', 'set')
+            Player.modify(new_level, 'level', 'add')
             Levels.exp_display()
         else:
             Levels.exp_display()
     def exp_display():
-        pass
+        with open('player.json', 'r+') as i:
+            plays = json.load(i)
+        regular_health = plays[0]['exp']
+        #we can prob check if the amount of characters in the healthbar is equal to 20 or whtev and if not we just add another value to the end of it
+        teegreg = Levels.calculate()/100
+        max1 = (int(Levels.calculate()/teegreg)/5)
+        current1 = int((regular_health/teegreg)/5)
+        print(f'{color_default}PLAYER HEALTH: {regular_health}/{Levels.calculate()}')
+        yes_health = current1 * "█"
+        no_health = (max1 - current1)
+        egg = current1 + no_health
+        if egg != 20:
+            no_health += 1
+        no_health1 =int(no_health)* "▒"
+        print(f'{color_default}╔════════════════════╗' )
+        print(f'║\033[1;91;40m{yes_health}{no_health1}{color_default}║')
+        print(f'{color_default}╚════════════════════╝' )
     def stats_boost():
         pass
 class Spawn():
@@ -369,9 +385,9 @@ class Player():
             else:
                 Player.modify(self.health, 'health', 'set')
                 return True
-    def heal_damage(self):
+    def heal_damage(self, amount):
         pe = play()
-        heal = 100
+        heal = amount
         self.health = self.health + heal
         if self.health > self.max_health:
             egg = self.health - self.health

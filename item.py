@@ -308,7 +308,7 @@ class Crafting:
         elif egg == 'select':
             pass
         elif egg == 'exit':
-            pass
+            return
     def recipe_select( ):
         print('ENTER ITEM YOU WOULD LIKE TO CRAFT')
         selection = module.proper_input('str').lower()

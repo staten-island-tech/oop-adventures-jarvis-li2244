@@ -5,16 +5,16 @@
     "stat_points": 0,
     "exp": 600.0,
     "max_health": 11150,
-    "health": 10866.5,
+    "health": 11078.0,
     "attack": 10,
-    "dodge": 24,
-    "defense": 10,
-    "speed": 25,
+    "dodge": 12,
+    "defense": 20,
+    "speed": 20,
     "luck": 1,
-    "mana": 40,
+    "mana": 100,
     "critchance": 5,
     "critdmg": 25,
-    "level": 1,
+    "level": 2,
     "coins": 0
   }
 ]

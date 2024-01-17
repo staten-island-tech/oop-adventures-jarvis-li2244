@@ -1,14 +1,14 @@
 {
   "slot1": [
     {
-      "quantity": 367,
+      "quantity": 121,
       "name": "wood"
     }
   ],
   "slot2": [
     {
-      "quantity": 129,
-      "name": "rock"
+      "quantity": 0,
+      "name": null
     }
   ],
   "slot3": [
