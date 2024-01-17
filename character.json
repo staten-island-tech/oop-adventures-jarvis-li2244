@@ -2,11 +2,11 @@
   {
     "id": 1,
     "name": "jarvis",
-    "role": "mage",
+    "role": "assassin",
     "level": 0,
     "story": "Chapter 1",
     "location": "Anthill Forest",
-    "sub_location": "Chemist's Lab",
+    "sub_location": "The Myrminki Assembly",
     "questname": null,
     "current_status_effect": [],
     "skill": {

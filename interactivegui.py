@@ -21,6 +21,8 @@ color_default = "\033[0m"
 color_red = "\033[91m"
 with open('locationenemy.json') as fifa:
     location = json.load(fifa)
+with open('dialogue.json') as dialogu:
+    dialogue = json.load(dialogu)
 with open('enemyinstance.json')as f:
     enemies1 = json.load(f)
 with open('player.json') as w:
@@ -130,12 +132,22 @@ class Start():
             pass
             Maper.map()
     def dialogue():
-        with open('dialogue.json') as dialogu:
-            dialogue = json.load(dialogu)
-        for i, k in enumerate(dialogue['Tutorial: Act I']):
+        if character[0]['sub_location'] == 'The Myrminki Village':
+            Start.actual_dialogue('Tutorial: Act I')
+        elif character[0]['sub_location'] == 'The Myrminki Assembly':
+            Start.actual_dialogue('Tutorial: Act II')
+        elif character[0]['sub_location'] == 'Treehouse':
+            Start.acutal_dialogue('Tutorial: Act III')
+        elif character[0]['sublocaiton'] == '''Blacksmith's Cabin''':
+            opt = 'Act III Item 1'
+        elif character[0]['sublocation'] == '''Chemist's Lab''':
+            Start.actual_dialogue()
+    def actual_dialogue(scene_name):
+        for i, k in enumerate(dialogue[scene_name]):
             for ee in range(len(k)):
                 module.delay_print(k[i])
-                input()
+                if input() == 'skip':
+                    return
                 print(''' ''')
 
 class Menu():
@@ -560,28 +572,6 @@ class Enemy():
         player.take_damage(var)
         print(var)  
         return var
-    def drops(self):
-        with open('enemyinstance.json') as infile:
-            denim = json.load(infile)
-        loot_table = denim[0]['loot_table'][0]
-        listed_loot_table = list(loot_table.items())
-        bigjar = 0
-        for i in range(len(loot_table)):
-            drop_rate = listed_loot_table[bigjar][1]
-            drop_name = listed_loot_table[bigjar][0]
-            bigjar+=1
-            prob = 100/drop_rate
-            type_drop = ""
-            if prob <= 100:
-                type_drop = "Super Rare Drop"
-            elif prob <= 1000:
-                type_drop = "Crazy Rare Drop"
-            if random.randint(1, int(prob)) == random.randint(1, int(prob)):
-                print(f'{type_drop}! {drop_name} dropped!({drop_rate}%)')
-                #trigger the put into inventory function
-                #determine quantity dropped and if stackable or not
-            else: 
-                pass
 class Turn():
     def determine():
         psp = player[0]['speed']

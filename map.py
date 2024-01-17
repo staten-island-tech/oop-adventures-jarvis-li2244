@@ -1,5 +1,5 @@
 import random, json, sys
-from interactivegui import Menu, Turn
+from interactivegui import Menu, Turn, Start
 from methods import Modified_Functions
 module = Modified_Functions
 with open('locationenemy.json') as dropp:
@@ -169,6 +169,7 @@ class Maper():
                     if current_position == mapin['exit_position']:
                         Location_Creation.change('story')
                         Location_Creation.fulcrum()
+                        Start.dialogue()
                         Maper.map()
                         break
                 else:
