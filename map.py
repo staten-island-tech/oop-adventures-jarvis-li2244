@@ -168,7 +168,6 @@ class Maper():
                     if current_position == mapin['exit_position']:
                         Location_Creation.change('story')
                         Location_Creation.fulcrum()
-                        Start.dialogue()
                         Maper.map()
                         break
                 else:

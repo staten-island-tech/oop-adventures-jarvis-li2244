@@ -199,7 +199,7 @@ class Levels():
     def calculate():
         level = player[0]['level']
         next_level = level + 1
-        exp_req = (next_level/0.1)**2
+        exp_req = (next_level/1)**2
         print(exp_req)
         return exp_req
     def current_exp():
@@ -223,7 +223,7 @@ class Levels():
         teegreg = Levels.calculate()/100
         max1 = (int(Levels.calculate()/teegreg)/5)
         current1 = int((regular_health/teegreg)/5)
-        print(f'{color_default}PLAYER HEALTH: {regular_health}/{Levels.calculate()}')
+        print(f'{color_default}CURRENT EXP: {regular_health}/{Levels.calculate()}')
         yes_health = current1 * "█"
         no_health = (max1 - current1)
         egg = current1 + no_health
